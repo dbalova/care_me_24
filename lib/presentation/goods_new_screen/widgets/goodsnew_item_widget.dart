@@ -1,0 +1,129 @@
+import 'package:careme24/core/app_export.dart';
+import 'package:careme24/widgets/custom_button.dart';
+import 'package:flutter/material.dart';
+
+// ignore: must_be_immutable
+class GoodsnewItemWidget extends StatelessWidget {
+  GoodsnewItemWidget();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: AppDecoration.outlineBlack9003f3.copyWith(
+        borderRadius: BorderRadiusStyle.roundedBorder10,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          CustomImageView(
+            imagePath: ImageConstant.imgFrame7212,
+            height: getVerticalSize(
+              144,
+            ),
+            width: getHorizontalSize(
+              148,
+            ),
+          ),
+          Padding(
+            padding: getPadding(
+              top: 12,
+              right: 12,
+              bottom: 9,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  width: getHorizontalSize(
+                    144,
+                  ),
+                  child: Text(
+                    "",
+                    maxLines: null,
+                    textAlign: TextAlign.left,
+                    style: AppStyle.txtMontserratRegular12,
+                  ),
+                ),
+                Padding(
+                  padding: getPadding(
+                    top: 6,
+                  ),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: getPadding(
+                          bottom: 1,
+                        ),
+                        child: Text(
+                          "4.7",
+                          overflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.left,
+                          style: AppStyle.txtMontserratRegular12,
+                        ),
+                      ),
+                      CustomImageView(
+                        imagePath: ImageConstant.imgVector12x12,
+                        height: getSize(
+                          12,
+                        ),
+                        width: getSize(
+                          12,
+                        ),
+                        margin: getMargin(
+                          left: 3,
+                          top: 1,
+                          bottom: 2,
+                        ),
+                      ),
+                      Padding(
+                        padding: getPadding(
+                          left: 8,
+                          top: 1,
+                        ),
+                        child: Text(
+                          "",
+                          overflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.left,
+                          style: AppStyle.txtMontserratRegular12Gray50001,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: getPadding(
+                    top: 8,
+                  ),
+                  child: Text(
+                    "",
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.left,
+                    style: AppStyle.txtMontserratSemiBold14,
+                  ),
+                ),
+                CustomButton(
+                  height: getVerticalSize(
+                    33,
+                  ),
+                  width: getHorizontalSize(
+                    100,
+                  ),
+                  text: "В корзину",
+                  margin: getMargin(
+                    top: 6,
+                  ),
+                  variant: ButtonVariant.FillGray50001,
+                  shape: ButtonShape.RoundedBorder7,
+                  padding: ButtonPadding.PaddingAll9,
+                  fontStyle: ButtonFontStyle.MontserratSemiBold12,
+                  alignment: Alignment.centerRight,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
