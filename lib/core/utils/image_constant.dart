@@ -454,6 +454,8 @@ class ImageConstant {
   static String imgImage14 = 'assets/images/img_image14.png';
 
   static String imgFrame = 'assets/images/img_frame.svg';
+  static String imgFrameHalf = 'assets/images/1frame_half.svg';
+  static String imgFireHalf = 'assets/images/fire_half.svg';
 
   static String imgUser = 'assets/images/img_user.svg';
 
@@ -957,7 +959,8 @@ class ImageConstant {
   static String imgFrame7978 = 'assets/images/img_frame7978.svg';
 
   static String imgSubtract = 'assets/images/img_subtract.png';
-
+  static String imgShop = 'assets/images/Group7509shop.svg';
+  static String imgNews = 'assets/images/news.png';
   static String imgCheckmarkBlue300 =
       'assets/images/img_checkmark_blue_300.svg';
 
