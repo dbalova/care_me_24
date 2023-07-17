@@ -274,6 +274,15 @@ class ImageConstant {
       'assets/images/img_settings_light_blue_900.svg';
 
   static String img = 'assets/images/img_.png';
+  static String imgAirPollution = 'assets/images/airPollution.svg';
+  static String imgCritical = 'assets/images/critical.svg';
+  static String imgForestFire = 'assets/images/forestFire.svg';
+  static String imgGood = 'assets/images/good.svg';
+  static String imgHarmfully = 'assets/images/harmfully.png';
+  static String imgMedium = 'assets/images/medium.svg';
+  static String imgPressure = 'assets/images/pressure.svg';
+  static String imgUnActive = 'assets/images/unactive.svg';
+  static String imgWind = 'assets/images/wind.svg';
 
   static String imgClock = 'assets/images/img_clock.svg';
 

@@ -21,299 +21,251 @@ class HomeScreen extends StatelessWidget {
                       Container(
                           width: double.maxFinite,
                           child: Container(
-                              padding: getPadding(top: 19, bottom: 19),
+                              padding: getPadding(top: 20, bottom: 20),
                               decoration: AppDecoration.outlineBlack90026,
                               child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.end,
+
+
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     SingleChildScrollView(
                                         scrollDirection: Axis.horizontal,
-                                        padding:
-                                            getPadding(left: 25, ),
+
                                         child: IntrinsicWidth(
                                             child: Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.center,
+
                                                 children: [
-                                              Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  children: [
-                                                    Container(
-                                                        width:
-                                                            getHorizontalSize(
-                                                                78),
-                                                        child: Text(
-                                                            "Загрязнение воздуха",
-                                                            maxLines: null,
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                            style: AppStyle
-                                                                .txtMontserratMedium12)),
-                                                    CustomImageView(
-                                                        imagePath:
-                                                            ImageConstant.img,
-                                                        height: getSize(79),
-                                                        width: getSize(79),
-                                                        radius: BorderRadius
-                                                            .circular(
-                                                                getHorizontalSize(
-                                                                    39)),
-                                                        margin:
-                                                            getMargin(top: 4)),
-                                                    Padding(
-                                                        padding:
-                                                            getPadding(top: 7),
-                                                        child: Text("AQR 78",
-                                                            overflow:
-                                                                TextOverflow
-                                                                    .ellipsis,
-                                                            textAlign:
-                                                                TextAlign.left,
-                                                            style: AppStyle
-                                                                .txtMontserratSemiBold12))
-                                                  ]),
-                                              Padding(
-                                                  padding: getPadding(left: 28),
-                                                  child: Column(
+
+                                                  Column(
+
                                                       mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
+                                                      MainAxisAlignment.start,
                                                       children: [
                                                         Container(
+
                                                             width:
-                                                                getHorizontalSize(
-                                                                    75),
+                                                            getHorizontalSize(
+                                                                80),
+                                                            child: Text(
+                                                                "Загрязнение воздуха",
+                                                                maxLines: null,
+                                                                textAlign: TextAlign
+                                                                    .center,
+                                                                style: AppStyle
+                                                                    .txtMontserratMedium12)),
+                                                        Stack(
+                                                            alignment: Alignment.center,
+                                                            children: [
+                                                              CustomImageView(
+                                                                  svgPath: 'assets/images/critical.svg',
+                                                                  height: getSize(79),
+                                                                  width: getSize(79),
+
+                                                                  margin:
+                                                                  getMargin(top: 5, left: 10, right: 10)),
+                                                              CustomImageView(
+                                                                svgPath: 'assets/images/airPollution.svg',
+
+                                                              ),
+                                                            ]),
+                                                        //Image.asset("assets/images/harmfully.png"),
+                                                        Padding(
+                                                            padding:
+                                                            getPadding(top: 7),
+                                                            child: Text("AQR 78",
+                                                                overflow:
+                                                                TextOverflow
+                                                                    .ellipsis,
+                                                                textAlign:
+                                                                TextAlign.left,
+                                                                style: AppStyle
+                                                                    .txtMontserratSemiBold12))
+                                                      ]),
+                                                  Column(
+
+                                                      mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                      children: [
+                                                        Container(
+
+                                                            width:
+                                                            getHorizontalSize(
+                                                                80),
                                                             child: Text(
                                                                 "Аномальная жара",
                                                                 maxLines: null,
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .center,
+                                                                textAlign: TextAlign
+                                                                    .center,
                                                                 style: AppStyle
                                                                     .txtMontserratMedium12)),
-                                                        Align(
-                                                            alignment: Alignment
-                                                                .centerRight,
-                                                            child: Padding(
-                                                                padding:
-                                                                    getPadding(
-                                                                        top: 4),
-                                                                child: Row(
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .end,
-                                                                    children: [
-                                                                      Card(
-                                                                          clipBehavior: Clip
-                                                                              .antiAlias,
-                                                                          elevation:
-                                                                              0,
-                                                                          margin: EdgeInsets.all(
-                                                                              0),
-                                                                          shape:
-                                                                              RoundedRectangleBorder(borderRadius: BorderRadiusStyle.roundedBorder39),
-                                                                          child: Container(
-                                                                              height: getSize(79),
-                                                                              width: getSize(79),
-                                                                              padding: getPadding(left: 21, top: 17, right: 21, bottom: 17),
-                                                                              decoration: AppDecoration.gradientPink500Deeporange400.copyWith(borderRadius: BorderRadiusStyle.roundedBorder39),
-                                                                              child: Stack(children: [
-                                                                                CustomImageView(svgPath: ImageConstant.imgSettings, height: getVerticalSize(44), width: getHorizontalSize(31), alignment: Alignment.centerRight)
-                                                                              ]))),
-                                                                      Card(
-                                                                          clipBehavior: Clip
-                                                                              .antiAlias,
-                                                                          elevation:
-                                                                              0,
-                                                                          margin: getMargin(
-                                                                              left:
-                                                                                  119),
-                                                                          shape: RoundedRectangleBorder(
-                                                                              side: BorderSide(color: ColorConstant.gray500, width: getHorizontalSize(1)),
-                                                                              borderRadius: BorderRadiusStyle.roundedBorder39),
-                                                                          child: Container(
-                                                                              height: getSize(79),
-                                                                              width: getSize(79),
-                                                                              padding: getPadding(all: 18),
-                                                                              decoration: AppDecoration.outlineGray500.copyWith(borderRadius: BorderRadiusStyle.roundedBorder39),
-                                                                              child: Stack(children: [
-                                                                                CustomImageView(svgPath: ImageConstant.imgHome, height: getVerticalSize(40), width: getHorizontalSize(41), alignment: Alignment.center)
-                                                                              ])))
-                                                                    ]))),
+                                                        Stack(
+                                                            alignment: Alignment.center,
+                                                            children: [
+                                                          CustomImageView(
+                                                              svgPath: 'assets/images/harmfully.svg',
+                                                              height: getSize(79),
+                                                              width: getSize(79),
+
+                                                              margin:
+                                                              getMargin(top: 5, left: 10, right: 10)),
+                                                          CustomImageView(
+                                                              svgPath: 'assets/images/img_settings.svg',
+
+                                                          ),
+                                                          ]),
+                                                        //Image.asset("assets/images/harmfully.png"),
                                                         Padding(
-                                                            padding: getPadding(
-                                                                top: 6),
-                                                            child: Text("+29°",
+                                                            padding:
+                                                            getPadding(top: 7),
+                                                            child: Text("AQR 78",
                                                                 overflow:
-                                                                    TextOverflow
-                                                                        .ellipsis,
+                                                                TextOverflow
+                                                                    .ellipsis,
                                                                 textAlign:
-                                                                    TextAlign
-                                                                        .left,
+                                                                TextAlign.left,
                                                                 style: AppStyle
                                                                     .txtMontserratSemiBold12))
-                                                      ])),
-                                              Padding(
-                                                  padding: getPadding(
-                                                      left: 18, top: 7),
-                                                  child: Column(
+                                                      ]),
+                                                  Column(
+
                                                       mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
+                                                      MainAxisAlignment.spaceBetween,
+                                                      crossAxisAlignment: CrossAxisAlignment.center,
                                                       children: [
-                                                        Align(
-                                                            alignment: Alignment
-                                                                .centerRight,
-                                                            child: Row(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .end,
-                                                                children: [
-                                                                  Text("Ветер",
-                                                                      overflow:
-                                                                          TextOverflow
-                                                                              .ellipsis,
-                                                                      textAlign:
-                                                                          TextAlign
-                                                                              .left,
-                                                                      style: AppStyle
-                                                                          .txtMontserratMedium12),
-                                                                  Padding(
-                                                                      padding: getPadding(
-                                                                          left:
-                                                                              58),
-                                                                      child: Text(
-                                                                          "Пожар",
-                                                                          overflow: TextOverflow
-                                                                              .ellipsis,
-                                                                          textAlign: TextAlign
-                                                                              .center,
-                                                                          style:
-                                                                              AppStyle.txtMontserratMedium12))
-                                                                ])),
                                                         Container(
-                                                            height: getSize(82),
-                                                            width: getSize(82),
-                                                            margin: getMargin(
-                                                                top: 10),
-                                                            child: Stack(
-                                                                alignment:
-                                                                    Alignment
-                                                                        .topCenter,
-                                                                children: [
-                                                                  Align(
-                                                                      alignment:
-                                                                          Alignment
-                                                                              .center,
-                                                                      child: Card(
-                                                                          clipBehavior: Clip.antiAlias,
-                                                                          elevation: 0,
-                                                                          margin: EdgeInsets.all(0),
-                                                                          shape: RoundedRectangleBorder(borderRadius: BorderRadiusStyle.roundedBorder39),
-                                                                          child: Container(
-                                                                              height: getSize(79),
-                                                                              width: getSize(79),
-                                                                              padding: getPadding(left: 3, top: 6, right: 3, bottom: 6),
-                                                                              decoration: AppDecoration.gradientYellow500YellowA400.copyWith(borderRadius: BorderRadiusStyle.roundedBorder39),
-                                                                              child: Stack(alignment: Alignment.topLeft, children: [
-                                                                                CustomImageView(svgPath: ImageConstant.imgSettingsLime900, height: getVerticalSize(47), width: getHorizontalSize(37), alignment: Alignment.center),
-                                                                                CustomImageView(svgPath: ImageConstant.imgPolygon6, height: getSize(20), width: getSize(20), alignment: Alignment.topLeft, margin: getMargin(top: 1)),
-                                                                                CustomImageView(svgPath: ImageConstant.imgPolygon9, height: getSize(20), width: getSize(20), alignment: Alignment.topRight, margin: getMargin(top: 1)),
-                                                                                CustomImageView(svgPath: ImageConstant.imgPolygon7, height: getSize(20), width: getSize(20), alignment: Alignment.bottomLeft),
-                                                                                CustomImageView(svgPath: ImageConstant.imgPolygon9, height: getSize(20), width: getSize(20), alignment: Alignment.bottomRight)
-                                                                              ])))),
-                                                                  CustomImageView(
-                                                                      svgPath:
-                                                                          ImageConstant
-                                                                              .imgPolygon1,
-                                                                      height:
-                                                                          getSize(
-                                                                              14),
-                                                                      width:
-                                                                          getSize(
-                                                                              14),
-                                                                      alignment:
-                                                                          Alignment
-                                                                              .topCenter),
-                                                                  CustomImageView(
-                                                                      svgPath:
-                                                                          ImageConstant
-                                                                              .imgPolygon4,
-                                                                      height:
-                                                                          getSize(
-                                                                              14),
-                                                                      width:
-                                                                          getSize(
-                                                                              14),
-                                                                      alignment:
-                                                                          Alignment
-                                                                              .bottomCenter),
-                                                                  Align(
-                                                                      alignment:
-                                                                          Alignment
-                                                                              .center,
-                                                                      child: Container(
-                                                                          width: getHorizontalSize(82),
-                                                                          margin: getMargin(top: 35, bottom: 33),
-                                                                          child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                                                                            CustomImageView(
-                                                                                svgPath: ImageConstant.imgPolygon3,
-                                                                                height: getSize(14),
-                                                                                width: getSize(14)),
-                                                                            CustomImageView(
-                                                                                svgPath: ImageConstant.imgPolygon2,
-                                                                                height: getSize(14),
-                                                                                width: getSize(14))
-                                                                          ])))
-                                                                ])),
+                                                          alignment: Alignment.center,
+
+
+                                                            width:
+                                                            getHorizontalSize(
+                                                                80),
+                                                            child: Text(
+                                                                "Ветер cbkmysq cbkmysq",
+                                                                maxLines: null,
+                                                                textAlign: TextAlign
+                                                                    .center,
+                                                                style: AppStyle
+                                                                    .txtMontserratMedium12)),
+                                                        Stack(
+                                                            alignment: Alignment.center,
+                                                            children: [
+                                                              CustomImageView(
+                                                                  svgPath: 'assets/images/medium.svg',
+                                                                  height: getSize(80),
+                                                                  width: getSize(80),
+
+                                                                  margin:
+                                                                  getMargin(top: 5, left: 10, right: 10)),
+                                                              CustomImageView(
+                                                                svgPath: 'assets/images/wind.svg',
+
+                                                              ),
+                                                            ]),
+                                                        //Image.asset("assets/images/harmfully.png"),
                                                         Padding(
-                                                            padding: getPadding(
-                                                                top: 4),
-                                                            child: Row(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .center,
-                                                                children: [
-                                                                  Text("10 м/c",
-                                                                      overflow:
-                                                                          TextOverflow
-                                                                              .ellipsis,
-                                                                      textAlign:
-                                                                          TextAlign
-                                                                              .left,
-                                                                      style: AppStyle
-                                                                          .txtMontserratSemiBold12),
-                                                                  Padding(
-                                                                      padding: getPadding(
-                                                                          left:
-                                                                              7,
-                                                                          top:
-                                                                              1),
-                                                                      child: Text(
-                                                                          "ю-в",
-                                                                          overflow: TextOverflow
-                                                                              .ellipsis,
-                                                                          textAlign: TextAlign
-                                                                              .left,
-                                                                          style:
-                                                                              AppStyle.txtMontserratSemiBold12Gray50001)),
-                                                                  Padding(
-                                                                      padding: getPadding(
-                                                                          left:
-                                                                              60),
-                                                                      child: Text(
-                                                                          "10",
-                                                                          overflow: TextOverflow
-                                                                              .ellipsis,
-                                                                          textAlign: TextAlign
-                                                                              .center,
-                                                                          style:
-                                                                              AppStyle.txtMontserratSemiBold12Gray50001))
-                                                                ]))
-                                                      ])),
+                                                            padding:
+                                                            getPadding(top: 7),
+                                                            child: Text("10 м/с",
+                                                                overflow:
+                                                                TextOverflow
+                                                                    .ellipsis,
+                                                                textAlign:
+                                                                TextAlign.left,
+                                                                style: AppStyle
+                                                                    .txtMontserratSemiBold12))
+                                                      ]),
+                                                  Column(
+
+                                                      mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                      children: [
+                                                        Container(
+
+                                                            width:
+                                                            getHorizontalSize(
+                                                                80),
+                                                            child: Text(
+                                                                "Давление",
+                                                                maxLines: null,
+                                                                textAlign: TextAlign
+                                                                    .center,
+                                                                style: AppStyle
+                                                                    .txtMontserratMedium12)),
+                                                        Stack(
+                                                            alignment: Alignment.center,
+                                                            children: [
+                                                              CustomImageView(
+                                                                  svgPath: 'assets/images/good.svg',
+                                                                  height: getSize(79),
+                                                                  width: getSize(79),
+
+                                                                  margin:
+                                                                  getMargin(top: 5, left: 10, right: 10)),
+                                                              CustomImageView(
+                                                                svgPath: 'assets/images/pressure.svg',
+
+                                                              ),
+                                                            ]),
+                                                        //Image.asset("assets/images/harmfully.png"),
+                                                        Padding(
+                                                            padding:
+                                                            getPadding(top: 7),
+                                                            child: Text("720 мм.р.с",
+                                                                overflow:
+                                                                TextOverflow
+                                                                    .ellipsis,
+                                                                textAlign:
+                                                                TextAlign.left,
+                                                                style: AppStyle
+                                                                    .txtMontserratSemiBold12))
+                                                      ]),
+                                                  Column(
+
+                                                      mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                      children: [
+                                                        Container(
+
+                                                            width:
+                                                            getHorizontalSize(
+                                                                80),
+                                                            child: Text(
+                                                                "Пожар",
+                                                                maxLines: null,
+                                                                textAlign: TextAlign
+                                                                    .center,
+                                                                style: AppStyle
+                                                                    .txtMontserratMedium12)),
+                                                        Stack(
+                                                            alignment: Alignment.center,
+                                                            children: [
+                                                              CustomImageView(
+                                                                  svgPath: 'assets/images/unactive.svg',
+                                                                  height: getSize(79),
+                                                                  width: getSize(79),
+
+                                                                  margin:
+                                                                  getMargin(top: 5, left: 10, right: 10)),
+                                                              CustomImageView(
+                                                                svgPath: 'assets/images/forestFire.svg',
+
+                                                              ),
+                                                            ]),
+                                                        //Image.asset("assets/images/harmfully.png"),
+                                                        Padding(
+                                                            padding:
+                                                            getPadding(top: 7),
+                                                            child: Text("10",
+                                                                overflow:
+                                                                TextOverflow
+                                                                    .ellipsis,
+                                                                textAlign:
+                                                                TextAlign.left,
+                                                                style: AppStyle
+                                                                    .txtMontserratSemiBold12))
+                                                      ]),
 
                                             ])))
                                   ]))),

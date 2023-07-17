@@ -7,9 +7,9 @@ dependencies:
   flutter: 
     sdk: flutter
   cached_network_image: ^3.2.1
-  flutter_svg: ^1.1.6
+  flutter_svg:
   flutter_switch: ^0.3.2
-  flutter_svg_provider: ^1.0.3
+  flutter_svg_provider:
   carousel_slider: ^4.0.0
   smooth_page_indicator: ^1.0.0+2
   outline_gradient_button: ^2.0.0+1
