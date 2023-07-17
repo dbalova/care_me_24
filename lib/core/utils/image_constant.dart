@@ -1134,6 +1134,8 @@ class ImageConstant {
 
   static String imgHome = 'assets/images/img_home.svg';
 
+  static String imMedCar = 'assets/images/med_car.svg';
+
   static String imgMicrophone = 'assets/images/img_microphone.svg';
 
   static String imgTicket6x10 = 'assets/images/img_ticket_6x10.svg';
