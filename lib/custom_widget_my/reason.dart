@@ -28,7 +28,10 @@ class _ReasonState extends State<Reason> {
       onTap: (){
         setState(() {
           widget.backgroundColor = Color.fromRGBO(254, 246, 225, 100);
+          Future.delayed(Duration(seconds: 1), () {
             Navigator.pushNamed(context, AppRoutes.buttonHoneyCallScreen);
+          });
+
         });
       },
       child: Container(
