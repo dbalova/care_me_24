@@ -349,7 +349,7 @@ class HomeScreen extends StatelessWidget {
                                           flex:2,
                                           child: GestureDetector(
                                               onTap: () {
-                                                onTapRowtwelve(context);
+                                                onPolicePage(context);
                                               },
                                               child: Container(clipBehavior: Clip.antiAlias,
 
@@ -420,11 +420,9 @@ class HomeScreen extends StatelessWidget {
                                          flex:2,
                                          child: GestureDetector(
                                           onTap: () {
-                                            onTapRowtwelve(context);
+                                            onMESPage(context);
                                           },
                                           child: Container(
-
-
                                               decoration: AppDecoration
                                                   .fillYellow700
                                                   .copyWith(
@@ -441,8 +439,6 @@ class HomeScreen extends StatelessWidget {
                                                     Padding(
                                                         padding: getPadding(
                                                             left: 15,
-
-
                                                             ),
                                                         child: Column(
                                                             crossAxisAlignment:
@@ -654,8 +650,12 @@ width: MediaQuery.of(context).size.width/2,
     Navigator.pushNamed(context, AppRoutes.homeTwoScreen);
   }
 
-  onTapRowtwelve(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.homeOneScreen);
+  onPolicePage(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.buttonCallPoliceScreen);
+  }
+
+  onMESPage(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.buttonHoneyCallActivItemScreen);
   }
 
   onTapStackfourteen(BuildContext context) {

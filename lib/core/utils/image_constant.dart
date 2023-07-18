@@ -129,6 +129,10 @@ class ImageConstant {
 
   static String imgArrowleft = 'assets/images/img_arrowleft.svg';
 
+  static String mesCar = 'assets/images/mes_car.svg';
+
+  static String mesActiveCar = 'assets/images/mes_active_car.svg';
+
   static String imgFrame11 = 'assets/images/img_frame_11.svg';
 
   static String imgVector169 = 'assets/images/img_vector169.svg';
@@ -147,6 +151,10 @@ class ImageConstant {
   static String imgFrame8067 = 'assets/images/img_frame8067.svg';
 
   static String imgMask = 'assets/images/frame_mask.svg';
+
+  static String policehat = 'assets/images/police_hat.svg';
+
+  static String fireSmallIcon = 'assets/images/fire_small_icon.svg';
 
   static String imgFrame29 = 'assets/images/img_frame_29.svg';
 

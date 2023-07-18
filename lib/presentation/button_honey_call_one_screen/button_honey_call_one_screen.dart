@@ -3,21 +3,15 @@ import 'package:careme24/widgets/app_bar/appbar_image.dart';
 import 'package:careme24/widgets/app_bar/appbar_title.dart';
 import 'package:careme24/widgets/app_bar/custom_app_bar.dart';
 import 'package:careme24/widgets/custom_button.dart';
-import 'package:careme24/widgets/custom_switch.dart';
-import 'package:careme24/widgets/custom_text_form_field.dart';
+
 import 'package:flutter/material.dart';
-import 'package:getwidget/getwidget.dart';
 
 import 'package:flutter/animation.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 import '../../custom_widget_my/reason.dart';
-// ignore_for_file: must_be_immutable
 
-// ignore_for_file: must_be_immutable
-
-// ignore_for_file: must_be_immutable
 final _controller = ValueNotifier<bool>(false);
 bool _checked = false;
 bool select_reason = false;

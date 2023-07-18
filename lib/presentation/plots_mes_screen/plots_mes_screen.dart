@@ -1,15 +1,618 @@
-import 'package:careme24/core/app_export.dart';import 'package:careme24/widgets/app_bar/appbar_image.dart';import 'package:careme24/widgets/app_bar/appbar_title.dart';import 'package:careme24/widgets/app_bar/custom_app_bar.dart';import 'package:careme24/widgets/custom_button.dart';import 'package:careme24/widgets/custom_drop_down.dart';import 'package:careme24/widgets/custom_radio_button.dart';import 'package:careme24/widgets/custom_switch.dart';import 'package:flutter/material.dart';
-// ignore_for_file: must_be_immutable
+import 'package:careme24/core/app_export.dart';
+import 'package:careme24/widgets/app_bar/appbar_image.dart';
+import 'package:careme24/widgets/app_bar/appbar_title.dart';
+import 'package:careme24/widgets/app_bar/custom_app_bar.dart';
+import 'package:careme24/widgets/custom_button.dart';
+import 'package:flutter/material.dart';
 
-// ignore_for_file: must_be_immutable
+final _controller = ValueNotifier<bool>(false);
 
-// ignore_for_file: must_be_immutable
-class PlotsMesScreen extends StatelessWidget {bool isSelectedSwitch = false;
+class PlotsMesScreen extends StatefulWidget {
+  @override
+  State<PlotsMesScreen> createState() => _PlotsMesScreenState();
+}
 
-List<String> dropdownItemList = ["Item One", "Item Two", "Item Three"];
+class _PlotsMesScreenState extends State<PlotsMesScreen> {
+  bool isSelectedSwitch = false;
 
-String radioGroup = "";
+  String descriptionOfTheReason = "";
 
-@override Widget build(BuildContext context) { return SafeArea(child: Scaffold(backgroundColor: ColorConstant.whiteA700, appBar: CustomAppBar(height: getVerticalSize(48), leadingWidth: 43, leading: AppbarImage(height: getVerticalSize(16), width: getHorizontalSize(11), svgPath: ImageConstant.imgArrowleft, margin: getMargin(left: 32, top: 12, bottom: 20), onTap: () {onTapArrowleft12(context);}), centerTitle: true, title: AppbarTitle(text: "Вызов МЧС"), styleType: Style.bgFillBlue60001), body: Container(width: double.maxFinite, padding: getPadding(left: 22, top: 17, right: 22, bottom: 17), child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [Padding(padding: getPadding(left: 1), child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [CustomButton(width: getHorizontalSize(200), text: "Мне", margin: getMargin(top: 1), variant: ButtonVariant.GradientGreenA700GreenA70001, fontStyle: ButtonFontStyle.MontserratSemiBold18), Padding(padding: getPadding(bottom: 1), child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [Text("Платная услуга", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtMontserratSemiBold12Gray50001), CustomSwitch(margin: getMargin(top: 5), value: isSelectedSwitch, onChanged: (value) {isSelectedSwitch = value;})]))])), CustomDropDown(focusNode: FocusNode(), icon: Container(margin: getMargin(left: 30, right: 20), child: CustomImageView(svgPath: ImageConstant.imgArrowdownLightBlue900)), hintText: "Домашнее насил...", margin: getMargin(top: 16), items: dropdownItemList, onChanged: (value) {}), Container(margin: getMargin(left: 11, top: 20, right: 11), padding: getPadding(left: 73, top: 32, right: 73, bottom: 32), decoration: AppDecoration.outlineBlack90033.copyWith(borderRadius: BorderRadiusStyle.roundedBorder10), child: Column(mainAxisSize: MainAxisSize.min, mainAxisAlignment: MainAxisAlignment.center, children: [CustomImageView(svgPath: ImageConstant.imgGroup7506WhiteA700, height: getSize(162), width: getSize(162)), Padding(padding: getPadding(top: 10, bottom: 1), child: Text("Вызвать МЧС", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtMontserratRomanSemiBold18))])), Container(width: double.maxFinite, child: Container(margin: getMargin(left: 1, top: 20, right: 1, bottom: 5), decoration: AppDecoration.outlineBlack9003d.copyWith(borderRadius: BorderRadiusStyle.roundedBorder10), child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.start, children: [Padding(padding: getPadding(right: 30), child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [Card(clipBehavior: Clip.antiAlias, elevation: 0, margin: EdgeInsets.all(0), color: ColorConstant.yellow700, shape: RoundedRectangleBorder(borderRadius: BorderRadiusStyle.customBorderBR30), child: Container(height: getVerticalSize(81), width: getHorizontalSize(64), padding: getPadding(left: 16, top: 22, right: 16, bottom: 22), decoration: AppDecoration.fillYellow700.copyWith(borderRadius: BorderRadiusStyle.customBorderBR30), child: Stack(children: [CustomImageView(svgPath: ImageConstant.imgFire, height: getVerticalSize(37), width: getHorizontalSize(29), alignment: Alignment.centerLeft)]))), Expanded(child: Padding(padding: getPadding(left: 11, top: 11, bottom: 31), child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.start, children: [Text("МЧС", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtMontserratSemiBold15Blue600), Padding(padding: getPadding(top: 4), child: Text("ул. Пречистенка, 22, Москва, 119034", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtMontserratMedium12Gray50001))])))])), Divider(height: getVerticalSize(1), thickness: getVerticalSize(1), color: ColorConstant.gray300), Padding(padding: getPadding(left: 14, top: 14), child: Row(children: [Text("1200м", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtMontserratMedium16), Padding(padding: getPadding(left: 17), child: Text("30 мин", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtMontserratMedium16)), Padding(padding: getPadding(left: 16), child: Text("4.7", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtMontserratMedium16)), CustomImageView(imagePath: ImageConstant.imgVector12x12, height: getSize(14), width: getSize(14), margin: getMargin(left: 3, top: 2, bottom: 3))])), Align(alignment: Alignment.center, child: Padding(padding: getPadding(left: 14, top: 15, right: 12, bottom: 11), child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [CustomRadioButton(text: "Оставить по умолчанию", iconSize: getHorizontalSize(10), value: "Оставить по умолчанию", groupValue: radioGroup, fontStyle: RadioFontStyle.MontserratMedium10, onChange: (value) {radioGroup = value;}), CustomImageView(svgPath: ImageConstant.imgVector87, height: getVerticalSize(9), width: getHorizontalSize(5), margin: getMargin(top: 1, bottom: 2))])))])))])))); } 
-onTapArrowleft12(BuildContext context) { Navigator.pop(context); } 
- }
+  String radioGroup = "";
+
+  String picturePath = ImageConstant.mesCar;
+
+  void change_picture(){
+    if (picturePath == ImageConstant.mesCar){
+      picturePath = ImageConstant.mesActiveCar;
+    } else {
+      picturePath = ImageConstant.mesCar;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+        child: Scaffold(
+            backgroundColor: ColorConstant.gray100,
+            appBar: CustomAppBar(
+                height: getVerticalSize(48),
+                leadingWidth: 43,
+                leading: AppbarImage(
+                    height: getVerticalSize(16),
+                    width: getHorizontalSize(11),
+                    svgPath: ImageConstant.imgArrowleft,
+                    margin: getMargin(left: 32, top: 12, bottom: 20),
+                    onTap: () {
+                      onTapArrowleft17(context);
+                    }),
+                centerTitle: true,
+                title: AppbarTitle(text: "Вызов МЧС"),
+                styleType: Style.bgFillBlue60001),
+            body: Container(
+                width: double.maxFinite,
+                padding: getPadding(left: 22, top: 17, right: 22, bottom: 17),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                          padding: getPadding(left: 1),
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                CustomButton(
+                                    width: getHorizontalSize(200),
+                                    text: "Мне",
+                                    margin: getMargin(top: 1),
+                                    variant: ButtonVariant
+                                        .GradientGreenA700GreenA70001,
+                                    fontStyle:
+                                    ButtonFontStyle.MontserratSemiBold18),
+                                Padding(
+                                    padding: getPadding(bottom: 1),
+                                    child: Column(
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.start,
+                                        children: [
+                                          Text("Платная услуга",
+                                              overflow: TextOverflow.ellipsis,
+                                              textAlign: TextAlign.left,
+                                              style: AppStyle
+                                                  .txtMontserratSemiBold12Gray50001),
+                                          Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                              BorderRadius.circular(10),
+                                              border: Border.all(
+                                                color: ColorConstant.gray50001,
+                                                width: 1,
+                                              ),
+                                            ),
+                                            child: AdvancedSwitch(
+                                              controller: _controller,
+                                              activeColor:
+                                              ColorConstant.greenA70002,
+                                              inactiveColor:
+                                              ColorConstant.gray100,
+                                              borderRadius: BorderRadius.all(
+                                                  const Radius.circular(8)),
+                                              width: 80.0,
+                                              height: 36.0,
+                                              enabled: true,
+                                              disabledOpacity: 0.5,
+                                            ),
+                                          ),
+                                        ]))
+                              ])),
+                      Padding(
+                        padding: getPadding(top: 14),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Color.fromRGBO(178, 218, 255, 100),
+                          ),
+                          width: MediaQuery.of(context).size.width - 40,
+                          height: 80,
+                          child: Padding(
+                            padding: getPadding(left: 20, right: 20),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Причина вызова",
+                                  style: AppStyle.txtMontserratSemiBold19,
+                                ),
+                                CustomImageView(
+                                  svgPath:
+                                  ImageConstant.imgArrowdownLightBlue900,
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: getPadding(top: 18),
+                        child: GestureDetector(
+                          onDoubleTap: (){
+                            setState(() {
+                              change_picture();
+                            });
+                          },
+                          child: Card(
+                            elevation: 8,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Color.fromRGBO(253, 253, 253, 100),
+                              ),
+                              width: 308,
+                              height: 260,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  CustomImageView(
+                                    svgPath: picturePath,
+                                    height: getSize(144),
+                                    width: getSize(144),
+                                  ),
+                                  Padding(
+                                    padding: getPadding(top: 11),
+                                    child: Text(
+                                      "Вызвать МЧС",
+                                      style:
+                                      AppStyle.txtMontserratRomanSemiBold18,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: getPadding(top: 20),
+                        child: Card(
+                          elevation: 10,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Container(
+                            clipBehavior: Clip.hardEdge,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Color.fromRGBO(253, 253, 253, 100),
+                            ),
+                            width: MediaQuery.of(context).size.width - 46,
+                            height: 156,
+                            child: Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Container(
+                                        width: 67,
+                                        height: 81,
+                                        decoration: BoxDecoration(
+                                          color: ColorConstant.yellow700,
+                                          borderRadius: BorderRadius.only(
+                                              bottomRight: Radius.circular(30)),
+                                        ),
+                                        child: Stack(
+                                            alignment: Alignment.center,
+                                            children: [
+                                              CustomImageView(
+                                                svgPath: ImageConstant.fireSmallIcon,
+                                              ),
+                                            ])),
+                                    Padding(
+                                      padding: getPadding(left: 12),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.center,
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Container(
+                                            width: MediaQuery.of(context)
+                                                .size
+                                                .width /
+                                                1.5,
+                                            child: Text(
+                                                "МЧС",
+                                                textAlign: TextAlign.left,
+                                                overflow: TextOverflow.clip,
+                                                style: AppStyle
+                                                    .txtMontserratSemiBold15Blue600),
+                                          ),
+                                          Padding(
+                                            padding: getPadding(top: 3),
+                                            child: Container(
+                                              width: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                                  1.5,
+                                              child: Text(
+                                                  "ул. Пречистенка, 22, Москва, 119034",
+                                                  textAlign: TextAlign.left,
+                                                  overflow:
+                                                  TextOverflow.ellipsis,
+                                                  style: AppStyle
+                                                      .txtMontserratMedium12Gray50001),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Divider(
+                                  indent: 0,
+                                  height: 1,
+                                  thickness: 1,
+                                  color: ColorConstant.gray50002,
+                                ),
+                                Padding(
+                                    padding: getPadding(left: 14, top: 12),
+                                    child: Row(children: [
+                                      Text("1200м",
+                                          overflow: TextOverflow.ellipsis,
+                                          textAlign: TextAlign.left,
+                                          style:
+                                          AppStyle.txtMontserratMedium16),
+                                      Padding(
+                                          padding: getPadding(left: 17),
+                                          child: Text("30 мин",
+                                              overflow: TextOverflow.ellipsis,
+                                              textAlign: TextAlign.left,
+                                              style: AppStyle
+                                                  .txtMontserratMedium16)),
+                                      Padding(
+                                          padding: getPadding(left: 16),
+                                          child: Text("4.7",
+                                              overflow: TextOverflow.ellipsis,
+                                              textAlign: TextAlign.left,
+                                              style: AppStyle
+                                                  .txtMontserratMedium16)),
+                                      CustomImageView(
+                                          imagePath:
+                                          ImageConstant.imgVector12x12,
+                                          height: getSize(14),
+                                          width: getSize(14),
+                                          margin: getMargin(
+                                              left: 3, top: 2, bottom: 3))
+                                    ])),
+                                Padding(
+                                  padding: getPadding(left: 14, top: 10),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        width: 12,
+                                        height: 12,
+                                        decoration: BoxDecoration(
+                                          color: ColorConstant.blue30001,
+                                          // border color
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(2),
+                                          // border width
+                                          child: Container(
+                                            // or ClipRRect if you need to clip the content
+                                            decoration: BoxDecoration(
+                                                shape: BoxShape.circle,
+                                                color: Colors
+                                                    .white // inner circle color
+                                            ),
+                                            child: Container(), // inner content
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: getPadding(left: 4),
+                                        child: Text(
+                                          "Оставить по умолчанию",
+                                          style: AppStyle
+                                              .txtMontserratMedium10Blue,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: getPadding(left: 144),
+                                        child: CustomImageView(
+                                            svgPath: ImageConstant.imgVector87,
+                                            height: getVerticalSize(9),
+                                            width: getHorizontalSize(5),
+                                            margin:
+                                            getMargin(top: 1, bottom: 2)),
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ]))));
+  }
+
+  onTapHospitalcard(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.hospitalsScreen);
+  }
+
+  onTapArrowleft17(BuildContext context) {
+    Navigator.pop(context);
+  }
+}
+
+class AdvancedSwitch extends StatefulWidget {
+  const AdvancedSwitch({
+    Key? key,
+    this.controller,
+    this.activeColor = const Color(0xFF4CAF50),
+    this.inactiveColor = const Color(0xFF9E9E9E),
+    this.activeChild,
+    this.inactiveChild,
+    this.activeImage,
+    this.inactiveImage,
+    this.borderRadius = const BorderRadius.all(const Radius.circular(15)),
+    this.width = 50.0,
+    this.height = 30.0,
+    this.enabled = true,
+    this.disabledOpacity = 0.5,
+    this.thumb,
+  }) : super(key: key);
+
+  /// Determines if widget is enabled
+  final bool enabled;
+
+  /// Determines current state.
+  final ValueNotifier<bool>? controller;
+
+  /// Determines background color for the active state.
+  final Color activeColor;
+
+  /// Determines background color for the inactive state.
+  final Color inactiveColor;
+
+  /// Determines label for the active state.
+  final Widget? activeChild;
+
+  /// Determines label for the inactive state.
+  final Widget? inactiveChild;
+
+  /// Determines background image for the active state.
+  final ImageProvider? activeImage;
+
+  /// Determines background image for the inactive state.
+  final ImageProvider? inactiveImage;
+
+  /// Determines border radius.
+  final BorderRadius borderRadius;
+
+  /// Determines width.
+  final double width;
+
+  /// Determines height.
+  final double height;
+
+  /// Determines opacity of disabled control.
+  final double disabledOpacity;
+
+  /// Thumb widget.
+  final Widget? thumb;
+
+  @override
+  _AdvancedSwitchState createState() => _AdvancedSwitchState();
+}
+
+class _AdvancedSwitchState extends State<AdvancedSwitch>
+    with SingleTickerProviderStateMixin {
+  static const _duration = Duration(milliseconds: 250);
+  late ValueNotifier<bool> _controller;
+  late AnimationController _animationController;
+  late Animation<Offset> _slideAnimation;
+  late Animation<Color?> _colorAnimation;
+  late double _thumbSize;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = widget.controller ?? ValueNotifier<bool>(false);
+    _controller.addListener(_handleControllerValueChanged);
+
+    _animationController = AnimationController(
+      vsync: this,
+      duration: _duration,
+      value: _controller.value ? 1.0 : 0.0,
+    );
+
+    _initAnimation();
+  }
+
+  @override
+  void didUpdateWidget(covariant AdvancedSwitch oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    _initAnimation();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final labelSize = widget.width - _thumbSize;
+    final containerSize = labelSize * 2 + _thumbSize;
+
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: _handlePressed,
+        child: Opacity(
+          opacity: widget.enabled ? 1 : widget.disabledOpacity,
+          child: AnimatedBuilder(
+            animation: _animationController,
+            builder: (_, child) {
+              return ClipRRect(
+                borderRadius: widget.borderRadius,
+                clipBehavior: Clip.antiAlias,
+                child: Container(
+                  width: widget.width,
+                  height: widget.height,
+                  color: _colorAnimation.value,
+                  child: child,
+                ),
+              );
+            },
+            child: Stack(
+              children: [
+                if (widget.activeImage != null || widget.inactiveImage != null)
+                  ValueListenableBuilder<bool>(
+                    valueListenable: _controller,
+                    builder: (_, __, ___) {
+                      return AnimatedCrossFade(
+                        crossFadeState: _controller.value
+                            ? CrossFadeState.showSecond
+                            : CrossFadeState.showFirst,
+                        duration: _duration,
+                        firstChild: Image(
+                          width: widget.width,
+                          height: widget.height,
+                          image: widget.inactiveImage ?? widget.activeImage!,
+                          fit: BoxFit.cover,
+                        ),
+                        secondChild: Image(
+                          width: widget.width,
+                          height: widget.height,
+                          image: widget.activeImage ?? widget.inactiveImage!,
+                          fit: BoxFit.cover,
+                        ),
+                      );
+                    },
+                  ),
+                AnimatedBuilder(
+                  animation: _animationController,
+                  builder: (context, child) {
+                    return Transform.translate(
+                      offset: _slideAnimation.value,
+                      child: child,
+                    );
+                  },
+                  child: OverflowBox(
+                    minWidth: containerSize,
+                    maxWidth: containerSize,
+                    minHeight: widget.height,
+                    maxHeight: widget.height,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconTheme(
+                          data: const IconThemeData(
+                            color: Color(0xFFFFFFFF),
+                            size: 20,
+                          ),
+                          child: DefaultTextStyle(
+                            style: const TextStyle(
+                              color: Color(0xFFFFFFFF),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12,
+                            ),
+                            child: Container(
+                              width: labelSize,
+                              height: widget.height,
+                              alignment: Alignment.center,
+                              child: widget.activeChild,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.all(2),
+                          width: _thumbSize - 4,
+                          height: _thumbSize - 4,
+                          child: widget.thumb ??
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: ColorConstant.gray50001,
+                                  borderRadius: widget.borderRadius
+                                      .subtract(BorderRadius.circular(1)),
+                                ),
+                              ),
+                        ),
+                        IconTheme(
+                          data: const IconThemeData(
+                            color: Color(0xFFFFFFFF),
+                            size: 20,
+                          ),
+                          child: DefaultTextStyle(
+                            style: const TextStyle(
+                              color: Color(0xFFFFFFFF),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12,
+                            ),
+                            child: Container(
+                              width: labelSize,
+                              height: widget.height,
+                              alignment: Alignment.center,
+                              child: widget.inactiveChild,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _initAnimation() {
+    _thumbSize = widget.height;
+    final offset = widget.width / 2 - _thumbSize / 2;
+
+    final animation = CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.easeInOut,
+    );
+
+    _slideAnimation = Tween<Offset>(
+      begin: Offset(-offset, 0),
+      end: Offset(offset, 0),
+    ).animate(animation);
+
+    _colorAnimation = ColorTween(
+      begin: widget.inactiveColor,
+      end: widget.activeColor,
+    ).animate(animation);
+  }
+
+  void _handleControllerValueChanged() {
+    if (_controller.value) {
+      _animationController.forward();
+    } else {
+      _animationController.reverse();
+    }
+  }
+
+  void _handlePressed() {
+    if (widget.controller != null && widget.enabled) {
+      _controller.value = !_controller.value;
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.removeListener(_handleControllerValueChanged);
+
+    if (widget.controller == null) {
+      _controller.dispose();
+    }
+
+    _animationController.dispose();
+
+    super.dispose();
+  }
+}
