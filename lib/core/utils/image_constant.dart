@@ -615,6 +615,8 @@ class ImageConstant {
 
   static String imgMaskgroup49x53 = 'assets/images/img_maskgroup_49x53.png';
 
+  static String hospitalactivecar = 'assets/images/hospital_active_car.svg';
+
   static String imgFolder = 'assets/images/img_folder.svg';
 
   static String imgFrame8040 = 'assets/images/img_frame8040.svg';

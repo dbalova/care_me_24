@@ -7,10 +7,27 @@ import 'package:flutter/material.dart';
 
 final _controller = ValueNotifier<bool>(false);
 
-class ButtonHoneyCallScreen extends StatelessWidget {
+class ButtonHoneyCallScreen extends StatefulWidget {
+  @override
+  State<ButtonHoneyCallScreen> createState() => _ButtonHoneyCallScreenState();
+}
+
+class _ButtonHoneyCallScreenState extends State<ButtonHoneyCallScreen> {
   bool isSelectedSwitch = false;
+
   String descriptionOfTheReason = "";
+
   String radioGroup = "";
+
+  String picturePath = ImageConstant.imgGroup7507;
+
+  void change_picture(){
+    if (picturePath == ImageConstant.imgGroup7507){
+    picturePath = ImageConstant.hospitalactivecar;
+    } else {
+      picturePath = ImageConstant.imgGroup7507;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -115,35 +132,42 @@ class ButtonHoneyCallScreen extends StatelessWidget {
                       ),
                       Padding(
                         padding: getPadding(top: 18),
-                        child: Card(
-                          elevation: 8,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Color.fromRGBO(253, 253, 253, 100),
-                            ),
-                            width: 308,
-                            height: 260,
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                CustomImageView(
-                                  svgPath: ImageConstant.imgGroup7507,
-                                  height: getSize(144),
-                                  width: getSize(144),
-                                ),
-                                Padding(
-                                  padding: getPadding(top: 11),
-                                  child: Text(
-                                    "Вызвать скорую",
-                                    style:
-                                        AppStyle.txtMontserratRomanSemiBold18,
+                        child: GestureDetector(
+                          onDoubleTap: (){
+                            setState(() {
+                              change_picture();
+                            });
+                          },
+                          child: Card(
+                            elevation: 8,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Color.fromRGBO(253, 253, 253, 100),
+                              ),
+                              width: 308,
+                              height: 260,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  CustomImageView(
+                                    svgPath: picturePath,
+                                    height: getSize(144),
+                                    width: getSize(144),
                                   ),
-                                )
-                              ],
+                                  Padding(
+                                    padding: getPadding(top: 11),
+                                    child: Text(
+                                      "Вызвать скорую",
+                                      style:
+                                          AppStyle.txtMontserratRomanSemiBold18,
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ),
