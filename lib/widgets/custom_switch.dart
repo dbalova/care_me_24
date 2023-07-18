@@ -36,12 +36,10 @@ class CustomSwitch extends StatelessWidget {
         ),
         switchBorder: Border.all(
           color: ColorConstant.gray50001,
-          width: getHorizontalSize(
-            1.00,
-          ),
         ),
         activeToggleColor: ColorConstant.gray50001,
         inactiveToggleColor: ColorConstant.gray50001,
+        inactiveColor: ColorConstant.gray100,
         onToggle: (value) {
           onChanged!(value);
         },

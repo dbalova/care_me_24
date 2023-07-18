@@ -4,6 +4,10 @@ class ImageConstant {
 
   static String imgRectangle2626 = 'assets/images/img_rectangle2626.png';
 
+  static String imgHospital = 'assets/images/image_hospital.png';
+
+  static String imgHospitalSvg = 'assets/images/hospital_svg.svg';
+
   static String imgVector5x9 = 'assets/images/img_vector_5x9.svg';
 
   static String imgTelevision = 'assets/images/img_television.svg';
@@ -141,6 +145,8 @@ class ImageConstant {
       'assets/images/img_vector_indigo_300_5x8.svg';
 
   static String imgFrame8067 = 'assets/images/img_frame8067.svg';
+
+  static String imgMask = 'assets/images/frame_mask.svg';
 
   static String imgFrame29 = 'assets/images/img_frame_29.svg';
 
@@ -619,6 +625,8 @@ class ImageConstant {
       'assets/images/img_vector_blue_200_1x1.svg';
 
   static String imgMaskgroup49x53 = 'assets/images/img_maskgroup_49x53.png';
+
+  static String hospitalactivecar = 'assets/images/hospital_active_car.svg';
 
   static String imgFolder = 'assets/images/img_folder.svg';
 
@@ -1145,6 +1153,8 @@ class ImageConstant {
   static String imgFrame721212 = 'assets/images/img_frame7212_12.png';
 
   static String imgHome = 'assets/images/img_home.svg';
+
+  static String imMedCar = 'assets/images/med_car.svg';
 
   static String imgMicrophone = 'assets/images/img_microphone.svg';
 
