@@ -3,15 +3,8 @@ import 'package:careme24/widgets/app_bar/appbar_image.dart';
 import 'package:careme24/widgets/app_bar/appbar_title.dart';
 import 'package:careme24/widgets/app_bar/custom_app_bar.dart';
 import 'package:careme24/widgets/custom_button.dart';
-import 'package:careme24/widgets/custom_drop_down.dart';
-import 'package:careme24/widgets/custom_radio_button.dart';
-import 'package:careme24/widgets/custom_switch.dart';
 import 'package:flutter/material.dart';
-// ignore_for_file: must_be_immutable
 
-// ignore_for_file: must_be_immutable
-
-// ignore_for_file: must_be_immutable
 final _controller = ValueNotifier<bool>(false);
 
 class ButtonHoneyCallScreen extends StatelessWidget {
@@ -174,35 +167,36 @@ class ButtonHoneyCallScreen extends StatelessWidget {
                                 Row(
                                   children: [
                                     Container(
-                                      width: 67,
-                                      height: 81,
-                                      decoration: BoxDecoration(
-                                        border: Border(
-                                            bottom: BorderSide(
-                                                color: ColorConstant.gray50002,
-                                                width: 1),
-                                            right: BorderSide(
-                                                color: ColorConstant.gray50002,
-                                                width: 1),
-                                            left: BorderSide(
-                                                color: ColorConstant.gray50002,
-                                                width: 0),
-                                            top: BorderSide(
-                                                color: ColorConstant.gray50002,
-                                                width: 0)),
-                                        borderRadius: BorderRadius.only(
-                                            bottomRight: Radius.circular(30)),
-                                      ),
+                                        width: 67,
+                                        height: 81,
+                                        decoration: BoxDecoration(
+                                          border: Border(
+                                              bottom: BorderSide(
+                                                  color:
+                                                      ColorConstant.gray50002,
+                                                  width: 1),
+                                              right: BorderSide(
+                                                  color:
+                                                      ColorConstant.gray50002,
+                                                  width: 1),
+                                              left: BorderSide(
+                                                  color:
+                                                      ColorConstant.gray50002,
+                                                  width: 0),
+                                              top: BorderSide(
+                                                  color:
+                                                      ColorConstant.gray50002,
+                                                  width: 0)),
+                                          borderRadius: BorderRadius.only(
+                                              bottomRight: Radius.circular(30)),
+                                        ),
                                         child: Stack(
-                                            alignment:
-                                            Alignment.center,
+                                            alignment: Alignment.center,
                                             children: [
                                               CustomImageView(
-                                                svgPath: ImageConstant
-                                                    .imgMask,
+                                                svgPath: ImageConstant.imgMask,
                                               ),
-                                            ])
-                                    ),
+                                            ])),
                                     Padding(
                                       padding: getPadding(left: 12),
                                       child: Column(
@@ -253,8 +247,7 @@ class ButtonHoneyCallScreen extends StatelessWidget {
                                 ),
                                 Padding(
                                     padding: getPadding(left: 14, top: 12),
-                                    child: Row(
-                                        children: [
+                                    child: Row(children: [
                                       Text("1200м",
                                           overflow: TextOverflow.ellipsis,
                                           textAlign: TextAlign.left,
@@ -290,38 +283,40 @@ class ButtonHoneyCallScreen extends StatelessWidget {
                                         width: 12,
                                         height: 12,
                                         decoration: BoxDecoration(
-                                          color: ColorConstant.blue30001, // border color
+                                          color: ColorConstant.blue30001,
+                                          // border color
                                           shape: BoxShape.circle,
                                         ),
                                         child: Padding(
-                                          padding: EdgeInsets.all(2), // border width
-                                          child: Container( // or ClipRRect if you need to clip the content
+                                          padding: EdgeInsets.all(2),
+                                          // border width
+                                          child: Container(
+                                            // or ClipRRect if you need to clip the content
                                             decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Colors.white// inner circle color
-                                            ),
+                                                shape: BoxShape.circle,
+                                                color: Colors
+                                                    .white // inner circle color
+                                                ),
                                             child: Container(), // inner content
                                           ),
                                         ),
                                       ),
                                       Padding(
                                         padding: getPadding(left: 4),
-                                        child: Text("Оставить по умолчанию", style: AppStyle.txtMontserratMedium10Blue,),
+                                        child: Text(
+                                          "Оставить по умолчанию",
+                                          style: AppStyle
+                                              .txtMontserratMedium10Blue,
+                                        ),
                                       ),
                                       Padding(
                                         padding: getPadding(left: 144),
                                         child: CustomImageView(
-                                            svgPath: ImageConstant
-                                                .imgVector87,
-                                            height:
-                                            getVerticalSize(
-                                                9),
-                                            width:
-                                            getHorizontalSize(
-                                                5),
-                                            margin: getMargin(
-                                                top: 1,
-                                                bottom: 2)),
+                                            svgPath: ImageConstant.imgVector87,
+                                            height: getVerticalSize(9),
+                                            width: getHorizontalSize(5),
+                                            margin:
+                                                getMargin(top: 1, bottom: 2)),
                                       )
                                     ],
                                   ),
@@ -331,171 +326,6 @@ class ButtonHoneyCallScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-
-                      /*Container(
-                          width: double.maxFinite,
-                          child: GestureDetector(
-                              onTap: () {
-                                onTapHospitalcard(context);
-                              },
-                              child: Container(
-                                  margin: getMargin(
-                                      left: 1, top: 20, right: 1, bottom: 5),
-                                  decoration: AppDecoration.outlineBlack9003d1
-                                      .copyWith(
-                                          borderRadius: BorderRadiusStyle
-                                              .roundedBorder10),
-                                  child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Padding(
-                                            padding: getPadding(right: 51),
-                                            child: Row(children: [
-                                              Container(
-                                                  height: 81,
-                                                  width: getHorizontalSize(67),
-                                                  decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.only(bottomRight: Radius.circular(30)),
-                                                      color: Colors.deepOrange),
-                                                  child: Stack(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      children: [
-                                                        CustomImageView(
-                                                          svgPath: ImageConstant
-                                                              .imgMask,
-                                                        ),
-                                                      ])),
-                                              Expanded(
-                                                  child: Padding(
-                                                      padding: getPadding(
-                                                          left: 11,
-                                                          top: 11,
-                                                          bottom: 11),
-                                                      child: Column(
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            Container(
-                                                                width:
-                                                                    getHorizontalSize(
-                                                                        201),
-                                                                child: Text(
-                                                                    "Городская больница № 6 \nим.Семашко",
-                                                                    maxLines:
-                                                                        null,
-                                                                    textAlign:
-                                                                        TextAlign
-                                                                            .left,
-                                                                    style: AppStyle
-                                                                        .txtMontserratSemiBold15Blue600)),
-                                                            Padding(
-                                                                padding:
-                                                                    getPadding(
-                                                                        top: 4),
-                                                                child: Text(
-                                                                    "ул. Семашко, 6, Симферополь",
-                                                                    overflow:
-                                                                        TextOverflow
-                                                                            .ellipsis,
-                                                                    textAlign:
-                                                                        TextAlign
-                                                                            .left,
-                                                                    style: AppStyle
-                                                                        .txtMontserratMedium12Gray50001))
-                                                          ])))
-                                            ])),
-                                        Divider(
-                                            height: getVerticalSize(1),
-                                            thickness: getVerticalSize(1),
-                                            color: ColorConstant.gray300),
-                                        Padding(
-                                            padding:
-                                                getPadding(left: 14, top: 14),
-                                            child: Row(children: [
-                                              Text("1200м",
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                  textAlign: TextAlign.left,
-                                                  style: AppStyle
-                                                      .txtMontserratMedium16),
-                                              Padding(
-                                                  padding: getPadding(left: 17),
-                                                  child: Text("30 мин",
-                                                      overflow:
-                                                          TextOverflow.ellipsis,
-                                                      textAlign: TextAlign.left,
-                                                      style: AppStyle
-                                                          .txtMontserratMedium16)),
-                                              Padding(
-                                                  padding: getPadding(left: 16),
-                                                  child: Text("4.7",
-                                                      overflow:
-                                                          TextOverflow.ellipsis,
-                                                      textAlign: TextAlign.left,
-                                                      style: AppStyle
-                                                          .txtMontserratMedium16)),
-                                              CustomImageView(
-                                                  imagePath: ImageConstant
-                                                      .imgVector12x12,
-                                                  height: getSize(14),
-                                                  width: getSize(14),
-                                                  margin: getMargin(
-                                                      left: 3,
-                                                      top: 2,
-                                                      bottom: 3))
-                                            ])),
-                                        Align(
-                                            alignment: Alignment.center,
-                                            child: Padding(
-                                                padding: getPadding(
-                                                    left: 14,
-                                                    top: 15,
-                                                    right: 12,
-                                                    bottom: 11),
-                                                child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      CustomRadioButton(
-                                                          text:
-                                                              "Оставить по умолчанию",
-                                                          iconSize:
-                                                              getHorizontalSize(
-                                                                  10),
-                                                          value:
-                                                              "Оставить по умолчанию",
-                                                          groupValue:
-                                                              radioGroup,
-                                                          fontStyle: RadioFontStyle
-                                                              .MontserratMedium10,
-                                                          onChange: (value) {
-                                                            radioGroup = value;
-                                                          }),
-                                                      CustomImageView(
-                                                          svgPath: ImageConstant
-                                                              .imgVector87,
-                                                          height:
-                                                              getVerticalSize(
-                                                                  9),
-                                                          width:
-                                                              getHorizontalSize(
-                                                                  5),
-                                                          margin: getMargin(
-                                                              top: 1,
-                                                              bottom: 2))
-                                                    ])))
-                                      ]))))*/
                     ]))));
   }
 
