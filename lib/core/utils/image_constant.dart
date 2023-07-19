@@ -183,6 +183,11 @@ class ImageConstant {
   static String imgFrame7367Gray50001 =
       'assets/images/img_frame7367_gray_500_01.svg';
 
+  static String imgStarGold =
+      'assets/images/starGold.svg';
+  static String imgStarGrey =
+      'assets/images/starGrey.svg';
+
   static String imgVector14 = 'assets/images/img_vector_14.svg';
 
   static String imgVectorCyan900 = 'assets/images/img_vector_cyan_900.svg';

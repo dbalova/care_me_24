@@ -17,6 +17,7 @@ dependencies:
   getwidget: ^ 2.0.4
   flutter_advanced_switch:
   flutter_osm_plugin: ^0.51.0
+  image_picker:
 dev_dependencies: 
   flutter_test: 
     sdk: flutter

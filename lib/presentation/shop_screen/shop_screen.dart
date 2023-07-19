@@ -78,16 +78,10 @@ class ShopScreen extends StatelessWidget {
                                                         //maxLines: null,
                                                         //expands: true,
                                                         style: TextStyle(fontSize: 14.0, height: 1.0, color: Colors.black),
-
-
                                                         controller: _serchController,
-
-
                                                         textAlign: TextAlign.center,decoration: InputDecoration(
-
                                                       focusedBorder: InputBorder.none,
                                                       hintText: "Что вы ищите?",
-
                                                       enabledBorder: InputBorder.none,
 
                                                     )))

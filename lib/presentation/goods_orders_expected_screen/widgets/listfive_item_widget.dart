@@ -7,7 +7,9 @@ class ListfiveItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Card(
+    return  GestureDetector(
+        onTap: (){Navigator.pushNamed(context, AppRoutes.aboutOrderScreen);},
+        child:Card(
         /*
         decoration: AppDecoration.outlineBlack9003f.copyWith(
           borderRadius: BorderRadiusStyle.roundedBorder10,
@@ -166,7 +168,7 @@ class ListfiveItemWidget extends StatelessWidget {
             ),
           ],
         )),
-      )
+      ))
     ;
   }
 }

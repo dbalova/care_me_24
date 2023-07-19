@@ -7,7 +7,9 @@ class ShopItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return GestureDetector(
+        onTap: (){Navigator.pushNamed(context, AppRoutes.goodsMoreOneScreen);},
+        child:Card(
       clipBehavior: Clip.antiAlias,
       shape: RoundedRectangleBorder(
           //side:  BorderSide(color: Colors.green,width: 3),
@@ -100,6 +102,6 @@ class ShopItemWidget extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ));
   }
 }
