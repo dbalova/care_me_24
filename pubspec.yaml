@@ -16,6 +16,7 @@ dependencies:
   intl: ^0.17.0
   getwidget: ^ 2.0.4
   flutter_advanced_switch:
+  flutter_osm_plugin: ^0.51.0
 dev_dependencies: 
   flutter_test: 
     sdk: flutter
@@ -49,3 +50,7 @@ flutter:
       fonts: 
         - asset: assets/fonts/InterExtraBold.ttf
           weight: 800
+
+    - family: CustomIcons
+      fonts:
+        - asset: assets/fonts/CustomIcons.ttf

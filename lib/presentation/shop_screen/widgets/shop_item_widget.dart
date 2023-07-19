@@ -7,10 +7,16 @@ class ShopItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: AppDecoration.outlineBlack9003f3.copyWith(
-        borderRadius: BorderRadiusStyle.roundedBorder10,
+    return Card(
+      clipBehavior: Clip.antiAlias,
+      shape: RoundedRectangleBorder(
+          //side:  BorderSide(color: Colors.green,width: 3),
+          borderRadius: BorderRadius.all(Radius.circular(15))
       ),
+
+      /*decoration: AppDecoration.outlineBlack9003f3.copyWith(
+        borderRadius: BorderRadiusStyle.roundedBorder10,
+      ),*/
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -18,12 +24,7 @@ class ShopItemWidget extends StatelessWidget {
         children: [
           CustomImageView(
             imagePath: ImageConstant.imgFrame7212127x159,
-            height: getVerticalSize(
-              127,
-            ),
-            width: getHorizontalSize(
-              159,
-            ),
+
           ),
           Padding(
             padding: getPadding(
@@ -31,7 +32,7 @@ class ShopItemWidget extends StatelessWidget {
               top: 6,
             ),
             child: Text(
-              "",
+              "чехлы чехлычехлы чехлы  ",
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.left,
               style: AppStyle.txtMontserratRegular12,
@@ -49,7 +50,7 @@ class ShopItemWidget extends StatelessWidget {
                     bottom: 1,
                   ),
                   child: Text(
-                    "",
+                    "33",
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.left,
                     style: AppStyle.txtMontserratRegular12,
@@ -75,7 +76,7 @@ class ShopItemWidget extends StatelessWidget {
                     top: 1,
                   ),
                   child: Text(
-                    "",
+                    "123 купили",
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.left,
                     style: AppStyle.txtMontserratRegular12Gray50001,
@@ -87,11 +88,11 @@ class ShopItemWidget extends StatelessWidget {
           Padding(
             padding: getPadding(
               left: 8,
-              top: 11,
+              top: 5,
               bottom: 3,
             ),
             child: Text(
-              "",
+              "222"+" P",
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.left,
               style: AppStyle.txtMontserratSemiBold14,

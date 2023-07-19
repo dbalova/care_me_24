@@ -7,17 +7,22 @@ class ListfiveItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.maxFinite,
-      child: Container(
-        padding: getPadding(
-          top: 11,
-          bottom: 11,
-        ),
+    return  Card(
+        /*
         decoration: AppDecoration.outlineBlack9003f.copyWith(
           borderRadius: BorderRadiusStyle.roundedBorder10,
-        ),
-        child: Column(
+        ),*/
+      shape: RoundedRectangleBorder(
+        //side:  BorderSide(color: Colors.green,width: 3),
+          borderRadius: BorderRadius.all(Radius.circular(15))
+      ),
+      clipBehavior: Clip.antiAlias,
+        child: Container (
+            padding: getPadding(
+              top: 12,
+              bottom: 12,
+
+            ),child:Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -47,7 +52,7 @@ class ListfiveItemWidget extends StatelessWidget {
                             top: 1,
                           ),
                           child: Text(
-                            "",
+                            "Актикул 203402349023",
                             overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.left,
                             style: AppStyle.txtMontserratMedium13Blue600,
@@ -125,7 +130,7 @@ class ListfiveItemWidget extends StatelessWidget {
                             194,
                           ),
                           child: Text(
-                            "",
+                            "Название товара",
                             maxLines: null,
                             textAlign: TextAlign.left,
                             style: AppStyle.txtMontserratRegular14,
@@ -136,7 +141,7 @@ class ListfiveItemWidget extends StatelessWidget {
                             top: 4,
                           ),
                           child: Text(
-                            "",
+                            "Адрес",
                             overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.left,
                             style: AppStyle.txtMontserratMedium13Gray50001,
@@ -147,7 +152,7 @@ class ListfiveItemWidget extends StatelessWidget {
                             top: 14,
                           ),
                           child: Text(
-                            "",
+                            "Доставка к 20 июля",
                             overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.left,
                             style: AppStyle.txtMontserratBold14,
@@ -160,8 +165,8 @@ class ListfiveItemWidget extends StatelessWidget {
               ),
             ),
           ],
-        ),
-      ),
-    );
+        )),
+      )
+    ;
   }
 }

@@ -4,8 +4,32 @@ import 'package:careme24/widgets/app_bar/appbar_title.dart';
 import 'package:careme24/widgets/app_bar/custom_app_bar.dart';
 import 'package:careme24/widgets/custom_icon_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
+import 'package:careme24/custom_icons_icons.dart';
 
-class TrackingScreen extends StatelessWidget {
+MapController controller = MapController(
+  initMapWithUserPosition: false,
+  initPosition: GeoPoint(latitude: 59.939099, longitude: 30.315877),
+);
+
+class TrackingScreen extends StatefulWidget {
+  @override
+  State<TrackingScreen> createState() => _TrackingScreenState();
+}
+
+class _TrackingScreenState extends State<TrackingScreen> {
+  @override
+  void initState(){
+    MapController controller = MapController(
+      initMapWithUserPosition: false,
+      initPosition: GeoPoint(latitude: 59.939099, longitude: 30.315877),
+    );
+
+    super.initState();
+
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -40,11 +64,7 @@ class TrackingScreen extends StatelessWidget {
                                       decoration: AppDecoration
                                           .outlineBlack90011
                                           .copyWith(
-                                              image: DecorationImage(
-                                                  image: AssetImage(
-                                                      ImageConstant
-                                                          .imgFrame7194524x375),
-                                                  fit: BoxFit.cover)),
+                                              ),
                                       child: Column(
                                           mainAxisSize: MainAxisSize.min,
                                           crossAxisAlignment:
@@ -183,47 +203,39 @@ class TrackingScreen extends StatelessWidget {
                                                                             style: AppStyle.txtH1))
                                                                   ]))
                                                         ]))),
-                                            Container(
-                                                height: getVerticalSize(249),
-                                                width: getHorizontalSize(62),
-                                                margin: getMargin(
-                                                    top: 161, right: 120),
-                                                child: Stack(
-                                                    alignment:
-                                                        Alignment.bottomLeft,
-                                                    children: [
-                                                      CustomImageView(
-                                                          svgPath: ImageConstant
-                                                              .imgVector169,
-                                                          height:
-                                                              getVerticalSize(
-                                                                  167),
-                                                          width:
-                                                              getHorizontalSize(
-                                                                  35),
-                                                          alignment: Alignment
-                                                              .bottomCenter,
-                                                          margin: getMargin(
-                                                              bottom: 14)),
-                                                      CustomImageView(
-                                                          svgPath: ImageConstant
-                                                              .imgLightbulb,
-                                                          height: getSize(28),
-                                                          width: getSize(28),
-                                                          alignment: Alignment
-                                                              .bottomLeft),
-                                                      CustomImageView(
-                                                          svgPath: ImageConstant
-                                                              .imgFrameRed700,
-                                                          height:
-                                                              getVerticalSize(
-                                                                  81),
-                                                          width:
-                                                              getHorizontalSize(
-                                                                  26),
-                                                          alignment: Alignment
-                                                              .topRight)
-                                                    ]))
+                                         Expanded( child: Container(
+
+                                            child:  OSMFlutter(
+                                              controller: controller,
+                                              //markerOption: MarkerOption(defaultMarker: MarkerIcon(icon: ,)),
+
+                                              initZoom: 12,
+                                              onMapIsReady: (_ready) async{
+                                                controller.addMarker(
+                                                  GeoPoint(
+                                                      latitude: 59.853845,  longitude: 30.179760),
+                                                  markerIcon: MarkerIcon(
+                                                      icon: Icon(
+                                                        CustomIcons.img_2,
+
+                                                        size: 150,
+                                                      )),
+                                                );
+                                                //_route();
+                                                RoadInfo roadInfo = await controller.drawRoad(
+                                                    GeoPoint(latitude: 59.853845,  longitude: 30.179760),
+                                                    GeoPoint(latitude: 59.949474, longitude:  30.264044),
+                                                    roadType: RoadType.car,
+                                                    //intersectPoint : [ GeoPoint(latitude: 47.4361, longitude: 8.6156), GeoPoint(latitude: 47.4481, longitude: 8.6266)],
+                                                    roadOption: RoadOption(
+                                                    roadWidth: 10,
+                                                    roadColor: Colors.red,
+
+                                                ),
+                                                );
+                                              },
+
+                                            ),))
                                           ]))),
                               Align(
                                   alignment: Alignment.bottomCenter,

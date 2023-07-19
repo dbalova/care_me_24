@@ -335,6 +335,7 @@ class ImageConstant {
       'assets/images/img_vector_indigo_200_3x6.svg';
 
   static String imgFrame7212127x159 = 'assets/images/img_frame7212_127x159.png';
+  static String imgShopp = 'assets/images/shopCr.svg';
 
   static String imgVectorIndigo30014x3 =
       'assets/images/img_vector_indigo_300_14x3.svg';

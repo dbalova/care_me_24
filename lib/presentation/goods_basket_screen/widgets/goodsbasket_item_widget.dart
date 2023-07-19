@@ -3,19 +3,25 @@ import 'package:careme24/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class GoodsbasketItemWidget extends StatelessWidget {
+class GoodsbasketItemWidget extends StatefulWidget {
   GoodsbasketItemWidget();
 
+  @override
+  State<GoodsbasketItemWidget> createState() => _GoodsbasketItemWidgetState();
+}
+
+class _GoodsbasketItemWidgetState extends State<GoodsbasketItemWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.topCenter,
-      child: Container(
-        width: double.maxFinite,
-        child: Container(
-          decoration: AppDecoration.outlineBlack9003f.copyWith(
-            borderRadius: BorderRadiusStyle.roundedBorder10,
+
+        child: Card(
+          shape: RoundedRectangleBorder(
+            //side:  BorderSide(color: Colors.green,width: 3),
+              borderRadius: BorderRadius.all(Radius.circular(15))
           ),
+          clipBehavior: Clip.antiAlias,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.end,
@@ -57,7 +63,7 @@ class GoodsbasketItemWidget extends StatelessWidget {
                               179,
                             ),
                             child: Text(
-                              "",
+                              "Название товара",
                               maxLines: null,
                               textAlign: TextAlign.left,
                               style: AppStyle.txtMontserratRegular13Bluegray800,
@@ -68,7 +74,7 @@ class GoodsbasketItemWidget extends StatelessWidget {
                               top: 6,
                             ),
                             child: Text(
-                              "",
+                              "Адрес",
                               overflow: TextOverflow.ellipsis,
                               textAlign: TextAlign.left,
                               style: AppStyle.txtMontserratMedium12Blue600,
@@ -81,7 +87,7 @@ class GoodsbasketItemWidget extends StatelessWidget {
                             child: Row(
                               children: [
                                 Text(
-                                  "",
+                                  "13124",
                                   overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.left,
                                   style: AppStyle.txtMontserratMedium12Gray50001
@@ -110,7 +116,7 @@ class GoodsbasketItemWidget extends StatelessWidget {
                                     left: 2,
                                   ),
                                   child: Text(
-                                    "",
+                                    "1212",
                                     overflow: TextOverflow.ellipsis,
                                     textAlign: TextAlign.left,
                                     style:
@@ -121,7 +127,7 @@ class GoodsbasketItemWidget extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "",
+                            "143124"+'₽',
                             overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.left,
                             style: AppStyle.txtMontserratSemiBold20,
@@ -138,14 +144,14 @@ class GoodsbasketItemWidget extends StatelessWidget {
                 ),
                 padding: getPadding(
                   left: 12,
-                  top: 8,
+                  top: 2,
                   right: 12,
-                  bottom: 8,
+                  bottom: 2,
                 ),
                 decoration: AppDecoration.dividers,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     CustomButton(
                       width: getHorizontalSize(
@@ -187,7 +193,7 @@ class GoodsbasketItemWidget extends StatelessWidget {
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           CustomImageView(
                             svgPath: ImageConstant.imgTrashGray50001,
@@ -217,10 +223,10 @@ class GoodsbasketItemWidget extends StatelessWidget {
                           CustomImageView(
                             svgPath: ImageConstant.imgPlus,
                             height: getSize(
-                              12,
+                              10,
                             ),
                             width: getSize(
-                              12,
+                              10,
                             ),
                             margin: getMargin(
                               left: 15,
@@ -273,7 +279,7 @@ class GoodsbasketItemWidget extends StatelessWidget {
             ],
           ),
         ),
-      ),
+
     );
   }
 }

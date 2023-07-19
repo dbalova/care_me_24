@@ -7,21 +7,24 @@ class GoodsfavoritesItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.maxFinite,
+    return Card(
+      shape: RoundedRectangleBorder(
+        //side:  BorderSide(color: Colors.green,width: 3),
+          borderRadius: BorderRadius.all(Radius.circular(15))
+      ),
+      clipBehavior: Clip.antiAlias,
+      //width: double.maxFinite,
       child: Container(
-        decoration: AppDecoration.outlineBlack9003f.copyWith(
-          borderRadius: BorderRadiusStyle.roundedBorder10,
-        ),
+
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Padding(
               padding: getPadding(
-                left: 11,
-                top: 14,
-                right: 8,
+                left: 4,
+                top: 12,
+                right: 4,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -56,7 +59,7 @@ class GoodsfavoritesItemWidget extends StatelessWidget {
                             179,
                           ),
                           child: Text(
-                            "",
+                            "Название товара",
                             maxLines: null,
                             textAlign: TextAlign.left,
                             style: AppStyle.txtMontserratRegular13Bluegray800,
@@ -69,7 +72,7 @@ class GoodsfavoritesItemWidget extends StatelessWidget {
                           child: Row(
                             children: [
                               Text(
-                                "",
+                                "4.7",
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.left,
                                 style: AppStyle.txtMontserratRegular14,
@@ -93,7 +96,7 @@ class GoodsfavoritesItemWidget extends StatelessWidget {
                                   left: 12,
                                 ),
                                 child: Text(
-                                  "",
+                                  "2020 купили",
                                   overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.left,
                                   style:
@@ -121,7 +124,7 @@ class GoodsfavoritesItemWidget extends StatelessWidget {
                                     Row(
                                       children: [
                                         Text(
-                                          "",
+                                          "123123",
                                           overflow: TextOverflow.ellipsis,
                                           textAlign: TextAlign.left,
                                           style: AppStyle
@@ -152,7 +155,7 @@ class GoodsfavoritesItemWidget extends StatelessWidget {
                                             left: 2,
                                           ),
                                           child: Text(
-                                            "",
+                                            "123",
                                             overflow: TextOverflow.ellipsis,
                                             textAlign: TextAlign.left,
                                             style: AppStyle
@@ -162,7 +165,7 @@ class GoodsfavoritesItemWidget extends StatelessWidget {
                                       ],
                                     ),
                                     Text(
-                                      "",
+                                      "234234"+ "P",
                                       overflow: TextOverflow.ellipsis,
                                       textAlign: TextAlign.left,
                                       style: AppStyle.txtMontserratSemiBold20,
@@ -257,8 +260,7 @@ class GoodsfavoritesItemWidget extends StatelessWidget {
                           width: getHorizontalSize(
                             66,
                           ),
-                          decoration:
-                              AppDecoration.txtGradientBlue60001IndigoA400,
+
                           child: Text(
                             "В корзину",
                             overflow: TextOverflow.ellipsis,
