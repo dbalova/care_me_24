@@ -1,9 +1,12 @@
 import 'package:careme24/core/app_export.dart';
+import 'package:careme24/custom_widget_my/police_mes_info_card.dart';
 import 'package:careme24/widgets/app_bar/appbar_image.dart';
 import 'package:careme24/widgets/app_bar/appbar_title.dart';
 import 'package:careme24/widgets/app_bar/custom_app_bar.dart';
 import 'package:careme24/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+
+import '../waiting_window_screen/waiting_window_screen.dart';
 
 final _controller = ValueNotifier<bool>(false);
 
@@ -21,8 +24,8 @@ class _PlotsMesScreenState extends State<PlotsMesScreen> {
 
   String picturePath = ImageConstant.mesCar;
 
-  void change_picture(){
-    if (picturePath == ImageConstant.mesCar){
+  void change_picture() {
+    if (picturePath == ImageConstant.mesCar) {
       picturePath = ImageConstant.mesActiveCar;
     } else {
       picturePath = ImageConstant.mesCar;
@@ -66,12 +69,12 @@ class _PlotsMesScreenState extends State<PlotsMesScreen> {
                                     variant: ButtonVariant
                                         .GradientGreenA700GreenA70001,
                                     fontStyle:
-                                    ButtonFontStyle.MontserratSemiBold18),
+                                        ButtonFontStyle.MontserratSemiBold18),
                                 Padding(
                                     padding: getPadding(bottom: 1),
                                     child: Column(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.start,
+                                            MainAxisAlignment.start,
                                         children: [
                                           Text("Платная услуга",
                                               overflow: TextOverflow.ellipsis,
@@ -81,7 +84,7 @@ class _PlotsMesScreenState extends State<PlotsMesScreen> {
                                           Container(
                                             decoration: BoxDecoration(
                                               borderRadius:
-                                              BorderRadius.circular(10),
+                                                  BorderRadius.circular(10),
                                               border: Border.all(
                                                 color: ColorConstant.gray50001,
                                                 width: 1,
@@ -90,9 +93,9 @@ class _PlotsMesScreenState extends State<PlotsMesScreen> {
                                             child: AdvancedSwitch(
                                               controller: _controller,
                                               activeColor:
-                                              ColorConstant.greenA70002,
+                                                  ColorConstant.greenA70002,
                                               inactiveColor:
-                                              ColorConstant.gray100,
+                                                  ColorConstant.gray100,
                                               borderRadius: BorderRadius.all(
                                                   const Radius.circular(8)),
                                               width: 80.0,
@@ -123,7 +126,7 @@ class _PlotsMesScreenState extends State<PlotsMesScreen> {
                                 ),
                                 CustomImageView(
                                   svgPath:
-                                  ImageConstant.imgArrowdownLightBlue900,
+                                      ImageConstant.imgArrowdownLightBlue900,
                                 )
                               ],
                             ),
@@ -133,10 +136,13 @@ class _PlotsMesScreenState extends State<PlotsMesScreen> {
                       Padding(
                         padding: getPadding(top: 18),
                         child: GestureDetector(
-                          onDoubleTap: (){
+                          onDoubleTap: () {
                             setState(() {
                               change_picture();
                             });
+                          },
+                          onLongPress: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => WaitingWindowScreen()));
                           },
                           child: Card(
                             elevation: 8,
@@ -163,7 +169,7 @@ class _PlotsMesScreenState extends State<PlotsMesScreen> {
                                     child: Text(
                                       "Вызвать МЧС",
                                       style:
-                                      AppStyle.txtMontserratRomanSemiBold18,
+                                          AppStyle.txtMontserratRomanSemiBold18,
                                     ),
                                   )
                                 ],
@@ -173,167 +179,19 @@ class _PlotsMesScreenState extends State<PlotsMesScreen> {
                         ),
                       ),
                       Padding(
-                        padding: getPadding(top: 20),
-                        child: Card(
-                          elevation: 10,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Container(
-                            clipBehavior: Clip.hardEdge,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Color.fromRGBO(253, 253, 253, 100),
-                            ),
-                            width: MediaQuery.of(context).size.width - 46,
-                            height: 156,
-                            child: Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    Container(
-                                        width: 67,
-                                        height: 81,
-                                        decoration: BoxDecoration(
-                                          color: ColorConstant.yellow700,
-                                          borderRadius: BorderRadius.only(
-                                              bottomRight: Radius.circular(30)),
-                                        ),
-                                        child: Stack(
-                                            alignment: Alignment.center,
-                                            children: [
-                                              CustomImageView(
-                                                svgPath: ImageConstant.fireSmallIcon,
-                                              ),
-                                            ])),
-                                    Padding(
-                                      padding: getPadding(left: 12),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.center,
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Container(
-                                            width: MediaQuery.of(context)
-                                                .size
-                                                .width /
-                                                1.5,
-                                            child: Text(
-                                                "МЧС",
-                                                textAlign: TextAlign.left,
-                                                overflow: TextOverflow.clip,
-                                                style: AppStyle
-                                                    .txtMontserratSemiBold15Blue600),
-                                          ),
-                                          Padding(
-                                            padding: getPadding(top: 3),
-                                            child: Container(
-                                              width: MediaQuery.of(context)
-                                                  .size
-                                                  .width /
-                                                  1.5,
-                                              child: Text(
-                                                  "ул. Пречистенка, 22, Москва, 119034",
-                                                  textAlign: TextAlign.left,
-                                                  overflow:
-                                                  TextOverflow.ellipsis,
-                                                  style: AppStyle
-                                                      .txtMontserratMedium12Gray50001),
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                Divider(
-                                  indent: 0,
-                                  height: 1,
-                                  thickness: 1,
-                                  color: ColorConstant.gray50002,
-                                ),
-                                Padding(
-                                    padding: getPadding(left: 14, top: 12),
-                                    child: Row(children: [
-                                      Text("1200м",
-                                          overflow: TextOverflow.ellipsis,
-                                          textAlign: TextAlign.left,
-                                          style:
-                                          AppStyle.txtMontserratMedium16),
-                                      Padding(
-                                          padding: getPadding(left: 17),
-                                          child: Text("30 мин",
-                                              overflow: TextOverflow.ellipsis,
-                                              textAlign: TextAlign.left,
-                                              style: AppStyle
-                                                  .txtMontserratMedium16)),
-                                      Padding(
-                                          padding: getPadding(left: 16),
-                                          child: Text("4.7",
-                                              overflow: TextOverflow.ellipsis,
-                                              textAlign: TextAlign.left,
-                                              style: AppStyle
-                                                  .txtMontserratMedium16)),
-                                      CustomImageView(
-                                          imagePath:
-                                          ImageConstant.imgVector12x12,
-                                          height: getSize(14),
-                                          width: getSize(14),
-                                          margin: getMargin(
-                                              left: 3, top: 2, bottom: 3))
-                                    ])),
-                                Padding(
-                                  padding: getPadding(left: 14, top: 10),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        width: 12,
-                                        height: 12,
-                                        decoration: BoxDecoration(
-                                          color: ColorConstant.blue30001,
-                                          // border color
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Padding(
-                                          padding: EdgeInsets.all(2),
-                                          // border width
-                                          child: Container(
-                                            // or ClipRRect if you need to clip the content
-                                            decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                                color: Colors
-                                                    .white // inner circle color
-                                            ),
-                                            child: Container(), // inner content
-                                          ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: getPadding(left: 4),
-                                        child: Text(
-                                          "Оставить по умолчанию",
-                                          style: AppStyle
-                                              .txtMontserratMedium10Blue,
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: getPadding(left: 144),
-                                        child: CustomImageView(
-                                            svgPath: ImageConstant.imgVector87,
-                                            height: getVerticalSize(9),
-                                            width: getHorizontalSize(5),
-                                            margin:
-                                            getMargin(top: 1, bottom: 2)),
-                                      )
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
+                          padding: getPadding(top: 20),
+                          child: PoliceMESInfoCard(
+                              policeMESName: "МЧС",
+                              addres: "ул. Пречистенка, 22, Москва, 119034",
+                              meters: "1200м",
+                              minutes: "30 мин",
+                              estimation: "4.7",
+                              imagePath: ImageConstant.fireSmallIcon,
+                              cardColor: ColorConstant.yellow700,
+                              whereCall: ModalRoute.of(context)!
+                                  .settings
+                                  .name
+                                  .toString())),
                     ]))));
   }
 

@@ -656,6 +656,7 @@ class AppRoutes {
         PrehistoricPhenomenonTsunamiOneScreen(),
     prehistoricPhenomenonTsunamiScreen: (context) =>
         PrehistoricPhenomenonTsunamiScreen(),
-    appNavigationScreen: (context) => AppNavigationScreen()
+    appNavigationScreen: (context) => AppNavigationScreen(),
+
   };
 }

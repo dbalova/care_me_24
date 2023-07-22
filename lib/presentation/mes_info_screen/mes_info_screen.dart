@@ -1,4 +1,4 @@
-import 'package:careme24/custom_widget_my/hospital_info_card.dart';
+
 import 'package:careme24/core/app_export.dart';
 import 'package:careme24/custom_widget_my/police_mes_info_card.dart';
 import 'package:careme24/widgets/app_bar/appbar_image.dart';
@@ -8,21 +8,21 @@ import 'package:careme24/widgets/custom_button.dart';
 import 'package:careme24/widgets/custom_drop_down.dart';
 import 'package:flutter/material.dart';
 
-class PlotsPoliceScreen extends StatefulWidget {
+class MESInfiScreen extends StatefulWidget {
   @override
-  State<PlotsPoliceScreen> createState() => _PlotsPoliceScreenState();
+  State<MESInfiScreen> createState() => _MESInfiScreenState();
 }
 
-class _PlotsPoliceScreenState extends State<PlotsPoliceScreen> {
+class _MESInfiScreenState extends State<MESInfiScreen> {
   final _controller = ValueNotifier<bool>(false);
   bool _checked = false;
 
   bool isSelectedSwitch = false;
 
   final List<String> hospitalName = <String>[
-    "Участковый пункт полиции № 1 по району Арбат",
-    "Участковый пункт полиции № 5 по району Басманный",
-    "Участковый пункт полиции № 7 по району Басманный",
+    "МЧС",
+    "МЧС",
+    "МЧС",
     "C5",
     "C6",
     "C7",
@@ -30,9 +30,9 @@ class _PlotsPoliceScreenState extends State<PlotsPoliceScreen> {
   ];
 
   final List<String> hospitaladdres = <String>[
-    "ул. Ильинка, 3/8, стр. 5, Москва, 109012",
-    "ул. Ильинка, 3/8, стр. 5, Москва, 109012",
-    "ул. Ильинка, 3/8, стр. 5, Москва, 109012",
+    "ул. Пречистенка, 22, Москва, 119034",
+    "ул. Пречистенка, 22, Москва, 119034",
+    "Немировича-Данченко, 130",
     "C5",
     "C6",
     "C7",
@@ -81,7 +81,7 @@ class _PlotsPoliceScreenState extends State<PlotsPoliceScreen> {
                       width: getSize(22),
                       svgPath: ImageConstant.imgFilter,
                       margin:
-                          getMargin(left: 26, top: 9, right: 26, bottom: 17))
+                      getMargin(left: 26, top: 9, right: 26, bottom: 17))
                 ],
                 styleType: Style.bgFillBlue60001),
             body: Container(
@@ -102,12 +102,12 @@ class _PlotsPoliceScreenState extends State<PlotsPoliceScreen> {
                                     variant: ButtonVariant
                                         .GradientBlue500LightblueA200,
                                     fontStyle:
-                                        ButtonFontStyle.MontserratSemiBold18),
+                                    ButtonFontStyle.MontserratSemiBold18),
                                 Padding(
                                     padding: getPadding(bottom: 1),
                                     child: Column(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.start,
+                                        MainAxisAlignment.start,
                                         children: [
                                           Text("Платная услуга",
                                               overflow: TextOverflow.ellipsis,
@@ -117,7 +117,7 @@ class _PlotsPoliceScreenState extends State<PlotsPoliceScreen> {
                                           Container(
                                             decoration: BoxDecoration(
                                               borderRadius:
-                                                  BorderRadius.circular(10),
+                                              BorderRadius.circular(10),
                                               border: Border.all(
                                                 color: ColorConstant.gray50001,
                                                 width: 1,
@@ -126,9 +126,9 @@ class _PlotsPoliceScreenState extends State<PlotsPoliceScreen> {
                                             child: AdvancedSwitch(
                                               controller: _controller,
                                               activeColor:
-                                                  ColorConstant.greenA70002,
+                                              ColorConstant.greenA70002,
                                               inactiveColor:
-                                                  ColorConstant.gray100,
+                                              ColorConstant.gray100,
                                               borderRadius: BorderRadius.all(
                                                   const Radius.circular(8)),
                                               width: 80.0,
@@ -147,7 +147,7 @@ class _PlotsPoliceScreenState extends State<PlotsPoliceScreen> {
                                   left: 20, top: 13, right: 20, bottom: 13),
                               decoration: AppDecoration.fillBlue100.copyWith(
                                   borderRadius:
-                                      BorderRadiusStyle.roundedBorder10),
+                                  BorderRadiusStyle.roundedBorder10),
                               child: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -159,7 +159,8 @@ class _PlotsPoliceScreenState extends State<PlotsPoliceScreen> {
                                             child: CustomImageView(
                                                 svgPath: ImageConstant
                                                     .imgArrowdownLightBlue900)),
-                                        hintText: "Проведение дем...",
+                                        hintText:
+                                        "Проведение дем...",
                                         margin: getMargin(top: 2),
                                         variant: DropDownVariant.None,
                                         onChanged: (value) {})
@@ -191,13 +192,13 @@ class _PlotsPoliceScreenState extends State<PlotsPoliceScreen> {
                                         bottom: 10),
                                     decoration: AppDecoration.txtFillBlue30001
                                         .copyWith(
-                                            borderRadius: BorderRadiusStyle
-                                                .txtCustomBorderTL10),
+                                        borderRadius: BorderRadiusStyle
+                                            .txtCustomBorderTL10),
                                     child: Text("Оценка",
                                         overflow: TextOverflow.ellipsis,
                                         textAlign: TextAlign.left,
                                         style:
-                                            AppStyle.txtMontserratSemiBold15)),
+                                        AppStyle.txtMontserratSemiBold15)),
                                 Container(
                                     width: getHorizontalSize(109),
                                     padding: getPadding(
@@ -224,17 +225,10 @@ class _PlotsPoliceScreenState extends State<PlotsPoliceScreen> {
                                     meters: metersForHospital,
                                     minutes: minutesForHospital,
                                     estimation: estimationHospital,
-                                    imagePath: ImageConstant.policehat,
-                                    cardColor: ColorConstant.indigoA100,
-                                    whereCall: ModalRoute.of(context)!
-                                        .settings
-                                        .name
-                                        .toString(),
-                                  );
+                                    imagePath: ImageConstant.fireSmallIcon,
+                                    cardColor: ColorConstant.yellow700, whereCall: ModalRoute.of(context)!.settings.name.toString(),);
                                 },
-                                separatorBuilder: (BuildContext context,
-                                        int index) =>
-                                    Padding(padding: getPadding(bottom: 12)),
+                                separatorBuilder: (BuildContext context, int index) => Padding(padding: getPadding(bottom: 12)),
                               )))
                     ]))));
   }

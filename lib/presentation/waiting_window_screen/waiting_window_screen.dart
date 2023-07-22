@@ -1,7 +1,354 @@
-import 'package:careme24/core/app_export.dart';import 'package:careme24/widgets/app_bar/appbar_image.dart';import 'package:careme24/widgets/app_bar/appbar_title.dart';import 'package:careme24/widgets/app_bar/custom_app_bar.dart';import 'package:careme24/widgets/custom_button.dart';import 'package:careme24/widgets/custom_floating_button.dart';import 'package:careme24/widgets/custom_icon_button.dart';import 'package:careme24/widgets/custom_text_form_field.dart';import 'package:flutter/material.dart';
-// ignore_for_file: must_be_immutable
-class WaitingWindowScreen extends StatelessWidget {TextEditingController relativesnotifiController = TextEditingController();
+import 'package:careme24/core/app_export.dart';
+import 'package:careme24/widgets/app_bar/appbar_image.dart';
+import 'package:careme24/widgets/app_bar/appbar_title.dart';
+import 'package:careme24/widgets/app_bar/custom_app_bar.dart';
+import 'package:careme24/widgets/custom_button.dart';
+import 'package:careme24/widgets/custom_floating_button.dart';
+import 'package:careme24/widgets/custom_icon_button.dart';
+import 'package:careme24/widgets/custom_text_form_field.dart';
+import 'package:flutter/material.dart';
 
-@override Widget build(BuildContext context) { return SafeArea(child: Scaffold(backgroundColor: ColorConstant.whiteA700, resizeToAvoidBottomInset: false, appBar: CustomAppBar(height: getVerticalSize(48), leadingWidth: 43, leading: AppbarImage(height: getVerticalSize(16), width: getHorizontalSize(11), svgPath: ImageConstant.imgArrowleft, margin: getMargin(left: 32, top: 12, bottom: 20), onTap: () {onTapArrowleft14(context);}), centerTitle: true, title: AppbarTitle(text: "Вызов МЧС"), styleType: Style.bgFillBlue60001), body: Container(width: double.maxFinite, margin: getMargin(top: 10), padding: getPadding(left: 22, right: 22), child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [CustomTextFormField(focusNode: FocusNode(), controller: relativesnotifiController, hintText: "Родственники оповещены", variant: TextFormFieldVariant.OutlineBluegray90047, padding: TextFormFieldPadding.PaddingT26, fontStyle: TextFormFieldFontStyle.MontserratMedium15, textInputAction: TextInputAction.done, prefix: Container(margin: getMargin(left: 16, top: 24, right: 12, bottom: 24), child: CustomImageView(imagePath: ImageConstant.imgInfoCircle, height: getSize(24), width: getSize(24))), prefixConstraints: BoxConstraints(maxHeight: getVerticalSize(72)), suffix: Container(margin: getMargin(left: 30, top: 27, right: 16, bottom: 27), child: CustomImageView(svgPath: ImageConstant.imgCloseGray50002)), suffixConstraints: BoxConstraints(maxHeight: getVerticalSize(72))), Container(width: double.maxFinite, child: Container(margin: getMargin(top: 11), padding: getPadding(left: 1, right: 1), decoration: AppDecoration.outlineGray6003a, child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [Container(width: double.maxFinite, child: Container(decoration: AppDecoration.fillWhiteA700.copyWith(borderRadius: BorderRadiusStyle.roundedBorder10), child: Column(mainAxisSize: MainAxisSize.min, mainAxisAlignment: MainAxisAlignment.start, children: [Container(width: double.maxFinite, child: Container(decoration: BoxDecoration(borderRadius: BorderRadiusStyle.roundedBorder10), child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [CustomButton(height: getVerticalSize(64), text: "МЧС вызвана".toUpperCase(), variant: ButtonVariant.Dividers, shape: ButtonShape.Square, fontStyle: ButtonFontStyle.MontserratSemiBold20), Padding(padding: getPadding(top: 25), child: Text("Время ожидания 10 минут", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtMontserratMedium17)), Container(margin: getMargin(left: 111, top: 34, right: 111), padding: getPadding(left: 28, top: 38, right: 28, bottom: 38), decoration: AppDecoration.outlineRed90066.copyWith(borderRadius: BorderRadiusStyle.circleBorder53), child: Column(mainAxisSize: MainAxisSize.min, mainAxisAlignment: MainAxisAlignment.center, children: [Padding(padding: getPadding(top: 1), child: Text("SOS", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtMontserratRomanBold22))])), Container(width: getHorizontalSize(249), margin: getMargin(left: 39, top: 14, right: 39), child: Text("Нажмите для срочной помощи подготовленных людей", maxLines: null, textAlign: TextAlign.center, style: AppStyle.txtMontserratSemiBold15Pink60001)), Container(width: double.maxFinite, child: Container(margin: getMargin(top: 30), padding: getPadding(left: 105, top: 19, right: 105, bottom: 19), decoration: AppDecoration.dividers, child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [Text("Отмена вызова", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtMontserratSemiBold15Gray50001)])))])))])))]))), Padding(padding: getPadding(left: 29, top: 24, right: 33), child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, crossAxisAlignment: CrossAxisAlignment.end, children: [Padding(padding: getPadding(top: 20), child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [CustomIconButton(height: 58, width: 58, child: CustomImageView(svgPath: ImageConstant.imgFile)), Padding(padding: getPadding(top: 4), child: Text("Такси", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtUbuntuMedium12))])), Column(mainAxisAlignment: MainAxisAlignment.start, children: [Card(clipBehavior: Clip.antiAlias, elevation: 0, margin: EdgeInsets.all(0), shape: RoundedRectangleBorder(borderRadius: BorderRadiusStyle.roundedBorder39), child: Container(height: getSize(78), width: getSize(78), padding: getPadding(left: 21, top: 27, right: 21, bottom: 27), decoration: AppDecoration.outlineLightgreen90066.copyWith(borderRadius: BorderRadiusStyle.roundedBorder39), child: Stack(children: [CustomImageView(svgPath: ImageConstant.imgVideocameraWhiteA700, height: getVerticalSize(19), width: getHorizontalSize(31), alignment: Alignment.bottomRight)]))), Padding(padding: getPadding(top: 5), child: Text("Видео", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtUbuntuMedium12))]), Padding(padding: getPadding(top: 83), child: Text("Отследить", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtUbuntuMedium12))]))])), bottomNavigationBar: CustomButton(text: "Что делать", margin: getMargin(left: 23, right: 23, bottom: 37), variant: ButtonVariant.OutlineIndigo20049, fontStyle: ButtonFontStyle.MontserratRomanSemiBold18), floatingActionButton: CustomFloatingButton(height: 58, width: 58, variant: FloatingButtonVariant.GradientBlue500LightblueA200, child: CustomImageView(svgPath: ImageConstant.imgLocationWhiteA700, height: getVerticalSize(29.0), width: getHorizontalSize(29.0))))); } 
-onTapArrowleft14(BuildContext context) { Navigator.pop(context); } 
- }
+// ignore_for_file: must_be_immutable
+class WaitingWindowScreen extends StatelessWidget {
+  TextEditingController relativesnotifiController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+        child: Scaffold(
+      backgroundColor: ColorConstant.whiteA700,
+      resizeToAvoidBottomInset: false,
+      appBar: CustomAppBar(
+          height: getVerticalSize(48),
+          leadingWidth: 43,
+          leading: AppbarImage(
+              height: getVerticalSize(16),
+              width: getHorizontalSize(11),
+              svgPath: ImageConstant.imgArrowleft,
+              margin: getMargin(left: 32, top: 12, bottom: 20),
+              onTap: () {
+                onTapArrowleft14(context);
+              }),
+          centerTitle: true,
+          title: AppbarTitle(text: "Вызов МЧС"),
+          styleType: Style.bgFillBlue60001),
+      body: Align(
+        alignment: Alignment.center,
+        child: Column(
+          children: [
+            Padding(
+              padding: getPadding(top: 10),
+              child: Card(
+                elevation: 8,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8)),
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                    Radius.circular(8),
+                  )),
+                  height: 72,
+                  width: MediaQuery.of(context).size.width - 40,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: getPadding(left: 16),
+                        child: Container(
+                            width: 24,
+                            height: 24,
+                            child: CustomImageView(
+                              imagePath: ImageConstant.imgInfoCircle,
+                            )),
+                      ),
+                      Padding(
+                        padding: getPadding(left: 12, right: 24),
+                        child: Text(
+                          "Родственники оповещены",
+                          style: AppStyle.txtMontserratMedium15Black900,
+                        ),
+                      ),
+                      Container(
+                          width: 24,
+                          height: 24,
+                          child: CustomImageView(
+                            svgPath: ImageConstant.imgCloseGray50001,
+                          ))
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: getPadding(top: 12),
+              child: Card(
+                elevation: 12,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8)),
+                child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                      Radius.circular(8),
+                    )),
+                    height: MediaQuery.of(context).size.height / 2,
+                    width: MediaQuery.of(context).size.width - 40,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: getPadding(top: 24, bottom: 24),
+                            child: Text(
+                              "МЧС ВЫЗВАНА",
+                              style: AppStyle.txtMontserratSemiBold20,
+                            ),
+                          ),
+                          Divider(
+                            indent: 0,
+                            height: 1,
+                            thickness: 2,
+                          ),
+                          Padding(
+                            padding: getPadding(top: 24),
+                            child: Text(
+                              "Время ожидания 10 мин",
+                              style: AppStyle.txtMontserratMedium17,
+                            ),
+                          ),
+                          Container(
+                              margin: getMargin(left: 111, top: 34, right: 111),
+                              padding: getPadding(
+                                  left: 28, top: 38, right: 28, bottom: 38),
+                              decoration: AppDecoration.outlineRed90066
+                                  .copyWith(
+                                      borderRadius:
+                                          BorderRadiusStyle.circleBorder53),
+                              child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                        padding: getPadding(top: 1),
+                                        child: Text("SOS",
+                                            overflow: TextOverflow.ellipsis,
+                                            textAlign: TextAlign.left,
+                                            style: AppStyle
+                                                .txtMontserratRomanBold22))
+                                  ])),
+                          Padding(
+                            padding: getPadding(top: 12, bottom: 32),
+                            child: Text("Нажмите для срочной помощи подготовленных людей",
+                            style: AppStyle.txtMontserratSemiBold15redtext,
+                            textAlign: TextAlign.center,),
+                          ),
+                          Divider(
+                            indent: 0,
+                            height: 1,
+                            thickness: 2,
+                          ),
+                          Padding(
+                            padding: getPadding(top: 18),
+                            child: Text("Отмена вызова",
+                            style: AppStyle.txtMontserratSemiBold15Gray50001,),
+                          )
+                        ],
+                      ),
+                    )),
+              ),
+            ),
+            Padding(
+              padding: getPadding(top: 20 ),
+              child: Container(
+                width: MediaQuery.of(context).size.width-80,
+                child: Row(
+                  mainAxisAlignment:
+                  MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      children: [
+                        Padding(
+                            padding: getPadding(top: 20),
+                            child: Column(
+                                mainAxisAlignment:
+                                MainAxisAlignment.start,
+                                children: [
+                                  CustomIconButton(
+                                      height: 58,
+                                      width: 58,
+                                      child: CustomImageView(
+                                          svgPath:
+                                          ImageConstant.imgFile)),
+                                  Padding(
+                                      padding: getPadding(top: 4),
+                                      child: Text("Такси",
+                                          overflow:
+                                          TextOverflow.ellipsis,
+                                          textAlign: TextAlign.left,
+                                          style: AppStyle
+                                              .txtUbuntuMedium12))
+                                ])),
+                      ],
+                    ),
+                    Column(children: [
+                      Card(
+                          clipBehavior: Clip.antiAlias,
+                          elevation: 0,
+                          margin: EdgeInsets.all(0),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadiusStyle
+                                  .roundedBorder39),
+                          child: Container(
+                              height: getSize(78),
+                              width: getSize(78),
+                              padding: getPadding(
+                                  left: 21,
+                                  top: 27,
+                                  right: 21,
+                                  bottom: 27),
+                              decoration: AppDecoration
+                                  .outlineLightgreen90066
+                                  .copyWith(
+                                  borderRadius:
+                                  BorderRadiusStyle
+                                      .roundedBorder39),
+                              child: Stack(children: [
+                                CustomImageView(
+                                    svgPath: ImageConstant
+                                        .imgVideocameraWhiteA700,
+                                    height: getVerticalSize(19),
+                                    width:
+                                    getHorizontalSize(31),
+                                    alignment:
+                                    Alignment.bottomRight)
+                              ]))),
+                      Padding(
+                          padding: getPadding(top: 4),
+                          child: Text("Видео",
+                              overflow:
+                              TextOverflow.ellipsis,
+                              textAlign: TextAlign.left,
+                              style: AppStyle
+                                  .txtUbuntuMedium12))
+                    ],),
+                    Column(children: [
+                      Padding(
+                          padding: getPadding(top: 20),
+                          child: Column(
+                              mainAxisAlignment:
+                              MainAxisAlignment.start,
+                              children: [
+                                CustomIconButton(
+                                    height: 58,
+                                    width: 58,
+                                    child: CustomImageView(
+                                        svgPath:
+                                        ImageConstant.imgLocationWhiteA700)),
+                                Padding(
+                                    padding: getPadding(top: 4),
+                                    child: Text("Отследить",
+                                        overflow:
+                                        TextOverflow.ellipsis,
+                                        textAlign: TextAlign.left,
+                                        style: AppStyle
+                                            .txtUbuntuMedium12))
+                              ])),
+                    ],),
+                  ],
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: getPadding(top: 16),
+              child: CustomButton(
+                  text: "Что делать",
+                  margin: getMargin(left: 23, right: 23),
+                  variant: ButtonVariant.OutlineIndigo20049,
+                  fontStyle: ButtonFontStyle.MontserratRomanSemiBold18),
+            ),
+          ],
+        ),
+      ),
+
+
+
+      //КНОПКА ТАКСИ  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      /*Padding(
+                                padding: getPadding(top: 20),
+                                child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.start,
+                                    children: [
+                                      CustomIconButton(
+                                          height: 58,
+                                          width: 58,
+                                          child: CustomImageView(
+                                              svgPath:
+                                                  ImageConstant.imgFile)),
+                                      Padding(
+                                          padding: getPadding(top: 4),
+                                          child: Text("Такси",
+                                              overflow:
+                                                  TextOverflow.ellipsis,
+                                              textAlign: TextAlign.left,
+                                              style: AppStyle
+                                                  .txtUbuntuMedium12))
+                                    ])),*/
+
+      // КНОПКА ВИДЕО !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      /*Card(
+                                      clipBehavior: Clip.antiAlias,
+                                      elevation: 0,
+                                      margin: EdgeInsets.all(0),
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadiusStyle
+                                              .roundedBorder39),
+                                      child: Container(
+                                          height: getSize(78),
+                                          width: getSize(78),
+                                          padding: getPadding(
+                                              left: 21,
+                                              top: 27,
+                                              right: 21,
+                                              bottom: 27),
+                                          decoration: AppDecoration
+                                              .outlineLightgreen90066
+                                              .copyWith(
+                                                  borderRadius:
+                                                      BorderRadiusStyle
+                                                          .roundedBorder39),
+                                          child: Stack(children: [
+                                            CustomImageView(
+                                                svgPath: ImageConstant
+                                                    .imgVideocameraWhiteA700,
+                                                height: getVerticalSize(19),
+                                                width:
+                                                    getHorizontalSize(31),
+                                                alignment:
+                                                    Alignment.bottomRight)
+                                          ]))),*/
+
+      // СТИЛЬ ТЕКСТА ВНИЗУ           txtUbuntuMedium12 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+      // КНОПКА ЧТО ДЕЛАТЬ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      /*bottomNavigationBar: CustomButton(
+                text: "Что делать",
+                margin: getMargin(left: 23, right: 23, bottom: 37),
+                variant: ButtonVariant.OutlineIndigo20049,
+                fontStyle: ButtonFontStyle.MontserratRomanSemiBold18),*/
+
+      // КОНоПКА ОТСЛЕДИТЬ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      /*floatingActionButton: CustomFloatingButton(
+                height: 58,
+                width: 58,
+                variant: FloatingButtonVariant.GradientBlue500LightblueA200,
+                child: CustomImageView(
+                    svgPath: ImageConstant.imgLocationWhiteA700,
+                    height: getVerticalSize(29.0),
+                    width: getHorizontalSize(29.0)))*/
+    ));
+  }
+
+  onTapArrowleft14(BuildContext context) {
+    Navigator.pop(context);
+  }
+}
