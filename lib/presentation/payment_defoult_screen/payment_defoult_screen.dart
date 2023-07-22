@@ -5,11 +5,20 @@ import 'package:careme24/widgets/app_bar/custom_app_bar.dart';
 import 'package:careme24/widgets/custom_button.dart';
 import 'package:careme24/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 
 // ignore_for_file: must_be_immutable
-class PaymentDefoultScreen extends StatelessWidget {
- TextEditingController cardnumbervalueController = TextEditingController();
- TextEditingController dateValueController = TextEditingController();
+class PaymentDefoultScreen extends StatefulWidget {
+  @override
+  State<PaymentDefoultScreen> createState() => _PaymentDefoultScreenState();
+}
+
+class _PaymentDefoultScreenState extends State<PaymentDefoultScreen> {
+ TextEditingController cardnumbervalueController =  MaskedTextController(mask: '0000 0000 0000 0000');
+
+ TextEditingController dateValueController =  MaskedTextController(mask: '00/00');
+ bool selectedOption=false;
+ TextEditingController cvcValueController =  MaskedTextController(mask: '000');
 
   @override
   Widget build(BuildContext context) {
@@ -104,7 +113,7 @@ class PaymentDefoultScreen extends StatelessWidget {
                                             style: AppStyle
                                                 .txtMontserratMedium12Gray50001)),
                                     CustomTextFormField(
-                                        focusNode: FocusNode(),
+
                                         controller: cardnumbervalueController,
                                         hintText: "4321 1234 3445 8000 ",
                                         margin: getMargin(top: 3),
@@ -132,7 +141,7 @@ class PaymentDefoultScreen extends StatelessWidget {
                                                Container(
                                                 width: MediaQuery.of(context).size.width/4,
                                                  child: CustomTextFormField(
-                                                     focusNode: FocusNode(),
+
                                                      controller: dateValueController,
                                                      hintText: "MM/ГГ ",
                                                      margin: getMargin(top: 3),
@@ -167,8 +176,8 @@ class PaymentDefoultScreen extends StatelessWidget {
                                                    Container(
                                                     width: MediaQuery.of(context).size.width/4,
                                                     child: CustomTextFormField(
-                                                        focusNode: FocusNode(),
-                                                        controller: dateValueController,
+
+                                                        controller: cvcValueController,
                                                         hintText: "• • • ",
                                                         margin: getMargin(top: 3),
                                                         padding:
@@ -183,7 +192,7 @@ class PaymentDefoultScreen extends StatelessWidget {
                                               margin: getMargin(
                                                   left: 9, top: 22, bottom: 1),
                                               child: Text(
-                                                  "Три цифры \nс обратной стороны карты",
+                                                  "Три цифры с обратной стороны карты",
                                                   maxLines: null,
                                                   textAlign: TextAlign.left,
                                                   style: AppStyle
@@ -193,43 +202,61 @@ class PaymentDefoultScreen extends StatelessWidget {
                       Padding(
                           padding: getPadding(top: 18, right: 55),
                           child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Container(
-                                    height: getSize(18),
-                                    width: getSize(18),
-                                    margin: getMargin(top: 1, bottom: 11),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                            getHorizontalSize(9)),
-                                        border: Border.all(
-                                            color: ColorConstant.blueGray100,
-                                            width: getHorizontalSize(1)))),
+                                Radio(
+                                  value: 1,
+                                  groupValue: selectedOption,
+                                  onChanged: (value) {
+                                    value = value;
+                                    setState(() {
+
+                                      print("Button value: $value");
+                                    });
+                                  },
+                                ),
                                 Container(
                                     height: getVerticalSize(30),
                                     width: getHorizontalSize(248),
                                     margin: getMargin(left: 7),
-                                    child: Stack(
-                                        alignment: Alignment.bottomRight,
-                                        children: [
-                                          Align(
-                                              alignment: Alignment.center,
-                                              child: Container(
-                                                  width: getHorizontalSize(248),
-                                                  child: Text(
-                                                      "Сохранить данные карты для следующих плтежей. Это безопасно",
-                                                      maxLines: null,
-                                                      textAlign: TextAlign.left,
-                                                      style: AppStyle
-                                                          .txtMontserratMedium12))),
-                                          CustomImageView(
-                                              svgPath: ImageConstant.imgWarning,
-                                              height: getSize(13),
-                                              width: getSize(13),
-                                              alignment: Alignment.bottomRight,
-                                              margin: getMargin(
-                                                  right: 86, bottom: 1))
-                                        ]))
+                                    child: Container(
+                                        width: MediaQuery.of(context).size.width-50,
+                                        child:
+
+                                       /* Text(
+                                            "Сохранить данные карты для следующих плтежей. Это безопасно",
+                                            maxLines: null,
+                                            textAlign: TextAlign.left,
+                                            style: AppStyle
+                                                .txtMontserratMedium12)*/
+
+                                        RichText(
+                                          text: TextSpan(
+                                            style: AppStyle
+                                                .txtMontserratMedium12,
+                                            children: [
+                                              TextSpan(text: 'Сохранить данные карты для следующих плтежей. Это безопасно'),
+                                              WidgetSpan(
+                                                child: Padding(
+                                                  padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                                                  child:
+                                                  Icon(Icons.info, color: Colors.grey, size: 14,)
+
+                                                  /* CustomImageView(
+                                                      svgPath: ImageConstant.imgWarning,
+                                                      height: getSize(13),
+                                                      width: getSize(13),
+
+                                                      margin: getMargin(
+                                                          right: 86, bottom: 1)),*/
+                                                ),
+                                              ),
+
+                                            ],
+                                          ),
+                                        )
+
+                                    ))
                               ])),
                       CustomButton(
                           height: getVerticalSize(56),
