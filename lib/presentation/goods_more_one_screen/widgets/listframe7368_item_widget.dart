@@ -28,7 +28,7 @@ class Listframe7368ItemWidget extends StatelessWidget {
             left: 5,
           ),
           child: Text(
-            "",
+            "Варкару уеруп",
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.left,
             style: AppStyle.txtMontserratRegular12,
@@ -68,7 +68,7 @@ class Listframe7368ItemWidget extends StatelessWidget {
             top: 1,
           ),
           child: Text(
-            "",
+            " уеруеруеруреуеу",
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.left,
             style: AppStyle.txtMontserratMedium10,

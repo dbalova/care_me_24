@@ -1,3 +1,123 @@
-import '../news_button_page/widgets/newsbutton_item_widget.dart';import 'package:careme24/core/app_export.dart';import 'package:careme24/widgets/custom_button.dart';import 'package:flutter/material.dart';class NewsButtonPage extends StatelessWidget {@override Widget build(BuildContext context) { return SafeArea(child: Scaffold(backgroundColor: ColorConstant.whiteA700, body: Container(width: double.maxFinite, decoration: AppDecoration.background, child: Column(mainAxisSize: MainAxisSize.min, mainAxisAlignment: MainAxisAlignment.start, children: [Column(mainAxisAlignment: MainAxisAlignment.start, children: [CustomButton(height: getVerticalSize(48), text: "Новости", variant: ButtonVariant.FillBlue60001, shape: ButtonShape.Square, padding: ButtonPadding.PaddingT11, fontStyle: ButtonFontStyle.MontserratBold20, prefixWidget: Container(margin: getMargin(right: 30), child: CustomImageView(svgPath: ImageConstant.imgArrowleft)), onTap: () {onTaptf(context);}), Container(width: double.maxFinite, child: Container(margin: getMargin(top: 3), padding: getPadding(top: 12, bottom: 12), decoration: AppDecoration.fillWhiteA700, child: Column(crossAxisAlignment: CrossAxisAlignment.end, mainAxisAlignment: MainAxisAlignment.start, children: [SingleChildScrollView(scrollDirection: Axis.horizontal, padding: getPadding(left: 23), child: IntrinsicWidth(child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [Padding(padding: getPadding(bottom: 1), child: Text("Все", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtMontserratMedium15Blue600)), Padding(padding: getPadding(left: 21, bottom: 1), child: Text("Безопасность", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtMontserratMedium15Bluegray800)), Padding(padding: getPadding(left: 20, bottom: 1), child: Text("Экология", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtMontserratMedium15Bluegray800)), Padding(padding: getPadding(left: 20, top: 1), child: Text("Происшествия", overflow: TextOverflow.ellipsis, textAlign: TextAlign.right, style: AppStyle.txtMontserratMedium15Bluegray800)), Spacer(flex: 69), Padding(padding: getPadding(bottom: 1), child: Text("Политика", overflow: TextOverflow.ellipsis, textAlign: TextAlign.right, style: AppStyle.txtMontserratMedium15Bluegray800)), Spacer(flex: 30), Padding(padding: getPadding(bottom: 1), child: Text("События", overflow: TextOverflow.ellipsis, textAlign: TextAlign.right, style: AppStyle.txtMontserratMedium15Bluegray800))])))]))), Container(height: getVerticalSize(670), width: double.maxFinite, margin: getMargin(top: 18), child: Stack(alignment: Alignment.bottomCenter, children: [Align(alignment: Alignment.center, child: Padding(padding: getPadding(left: 25, right: 21), child: ListView.separated(physics: BouncingScrollPhysics(), shrinkWrap: true, separatorBuilder: (context, index) {return SizedBox(height: getVerticalSize(10));}, itemCount: 5, itemBuilder: (context, index) {return NewsbuttonItemWidget();}))), Align(alignment: Alignment.bottomCenter, child: Container(width: double.maxFinite, margin: getMargin(top: 563, bottom: 14), padding: getPadding(left: 60, top: 14, right: 60, bottom: 14), decoration: AppDecoration.outlineBlack9003f2, child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, crossAxisAlignment: CrossAxisAlignment.start, children: [Padding(padding: getPadding(bottom: 26), child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [CustomImageView(svgPath: ImageConstant.imgFrameBlue600, height: getSize(23), width: getSize(23)), Padding(padding: getPadding(top: 4), child: Text("Главная", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtMontserratSemiBold9))])), Padding(padding: getPadding(bottom: 26), child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [CustomImageView(svgPath: ImageConstant.imgLocationGray400, height: getVerticalSize(21), width: getHorizontalSize(24)), Padding(padding: getPadding(top: 4), child: Text("Мед", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtMontserratSemiBold9Gray400))])), Padding(padding: getPadding(bottom: 26), child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [CustomImageView(svgPath: ImageConstant.imgFrameGray40001, height: getVerticalSize(21), width: getHorizontalSize(28)), Padding(padding: getPadding(top: 4), child: Text("Полиция", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtMontserratSemiBold9Gray400))])), Padding(padding: getPadding(bottom: 26), child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [CustomImageView(svgPath: ImageConstant.imgFireGray40001, height: getVerticalSize(23), width: getHorizontalSize(17)), Padding(padding: getPadding(top: 4), child: Text("МЧС", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtMontserratSemiBold9Gray400))]))])))]))])])))); } 
-onTaptf(BuildContext context) { Navigator.pushNamed(context, AppRoutes.homeScreen); } 
- }
+import '../../widgets/custom_bottom_bar.dart';
+import '../news_button_page/widgets/newsbutton_item_widget.dart';
+import 'package:careme24/core/app_export.dart';
+import 'package:careme24/widgets/custom_button.dart';
+import 'package:flutter/material.dart';
+
+int valueMenu=1;
+
+class NewsButtonPage extends StatefulWidget {
+
+  @override
+  State<NewsButtonPage> createState() => _NewsButtonPageState();
+}
+
+class _NewsButtonPageState extends State<NewsButtonPage> {
+  Widget TopMenu(int index, String text){
+    return GestureDetector(
+        onTap: (){
+          valueMenu=index;
+          setState(() {
+
+          });
+
+        },
+        child: Padding(
+        padding: getPadding(
+            left: 21,bottom: 1),
+        child: Text("$text",
+            overflow:
+            TextOverflow
+                .ellipsis,
+            textAlign:
+            TextAlign.left,
+            style: valueMenu == index ? AppStyle
+                .txtMontserratMedium15Blue600 : AppStyle
+                .txtMontserratMedium15Bluegray800)));
+
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+        child: Scaffold(
+        bottomNavigationBar:
+        CustomBottomBar(onChanged: (BottomBarEnum type) {
+
+    }),
+            backgroundColor: ColorConstant.whiteA700,
+            body: Container(
+                width: double.maxFinite,
+                decoration: AppDecoration.background,
+                child:
+                      Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            CustomButton(
+                                height: getVerticalSize(48),
+                                text: "Новости",
+                                variant: ButtonVariant.FillBlue60001,
+                                shape: ButtonShape.Square,
+                                padding: ButtonPadding.PaddingT11,
+                                fontStyle: ButtonFontStyle.MontserratBold20,
+                                prefixWidget: Container(
+                                    margin: getMargin(right: 30),
+                                    child: CustomImageView(
+                                        svgPath: ImageConstant.imgArrowleft)),
+                                onTap: () {
+                                  onTaptf(context);
+                                }),
+                            Container(
+                                width: double.maxFinite,
+                                child: Container(
+                                    margin: getMargin(top: 3),
+                                    padding: getPadding(top: 12, bottom: 12),
+                                    decoration: AppDecoration.fillWhiteA700,
+                                    child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          SingleChildScrollView(
+                                              scrollDirection: Axis.horizontal,
+
+                                              child: IntrinsicWidth(
+                                                  child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        TopMenu(1, 'Все'),
+                                                        TopMenu(2, 'Безопасность'),
+                                                        TopMenu(3, 'Экология'),
+                                                        TopMenu(4, 'Происшествия'),
+
+
+                                                  ])))
+                                        ]))),
+                         Expanded(child:   Padding(
+                                padding: getPadding(
+                                    left: 21, right: 21),
+                                child: ListView.separated(
+
+                                    shrinkWrap: true,
+                                    separatorBuilder:
+                                        (context, index) {
+                                      return SizedBox(
+                                          height: getVerticalSize(
+                                              10));
+                                    },
+                                    itemCount: 5,
+                                    itemBuilder:
+                                        (context, index) {
+                                      return NewsbuttonItemWidget();
+                                    })))
+                          ])
+                    )));
+  }
+
+  onTaptf(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.homeScreen);
+  }
+}

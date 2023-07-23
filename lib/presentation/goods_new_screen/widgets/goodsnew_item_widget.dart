@@ -8,9 +8,11 @@ class GoodsnewItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: AppDecoration.outlineBlack9003f3.copyWith(
-        borderRadius: BorderRadiusStyle.roundedBorder10,
+    return Card(
+      clipBehavior: Clip.antiAlias,
+      shape: RoundedRectangleBorder(
+        //side:  BorderSide(color: Colors.green,width: 3),
+          borderRadius: BorderRadius.all(Radius.circular(15))
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -39,7 +41,7 @@ class GoodsnewItemWidget extends StatelessWidget {
                     144,
                   ),
                   child: Text(
-                    "",
+                    "Название товара",
                     maxLines: null,
                     textAlign: TextAlign.left,
                     style: AppStyle.txtMontserratRegular12,
@@ -82,7 +84,8 @@ class GoodsnewItemWidget extends StatelessWidget {
                           top: 1,
                         ),
                         child: Text(
-                          "",
+                          "23 купили",
+
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.left,
                           style: AppStyle.txtMontserratRegular12Gray50001,
@@ -96,7 +99,7 @@ class GoodsnewItemWidget extends StatelessWidget {
                     top: 8,
                   ),
                   child: Text(
-                    "",
+                    "143124"+' ₽',
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.left,
                     style: AppStyle.txtMontserratSemiBold14,

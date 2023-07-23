@@ -415,6 +415,15 @@ class ImageConstant {
   static String imgSettingsBlueGray800 =
       'assets/images/img_settings_blue_gray_800.svg';
 
+  static String img1s =
+      'assets/images/1s.svg';
+  static String img2s =
+      'assets/images/2s.svg';
+  static String img3s =
+      'assets/images/3s.svg';
+  static String img4s =
+      'assets/images/4s.svg';
+
   static String imgImage261 = 'assets/images/img_image26_1.png';
 
   static String img1WhiteA70054x54 = 'assets/images/img_1_white_a700_54x54.svg';
@@ -595,6 +604,8 @@ class ImageConstant {
       'assets/images/img_checkmark_indigo_300_7x10.svg';
 
   static String imgGroup228 = 'assets/images/img_group228.png';
+  static String imgGreenFon = 'assets/images/greenFon.png';
+  static String imgPinkFon = 'assets/images/pinkFon.png';
 
   static String imgVector35 = 'assets/images/img_vector_35.svg';
 

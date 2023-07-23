@@ -570,7 +570,7 @@ class HomeScreen extends StatelessWidget {
                      Expanded( child:GestureDetector(
                           onTap: () {
                             //onTapRowsixteen(context);
-                            Navigator.pushNamed(context, AppRoutes.trackingScreen);
+                            Navigator.pushNamed(context, AppRoutes.newsButtonPage);
                           },
                           child: Container(
                               clipBehavior: Clip.antiAlias,

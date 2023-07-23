@@ -7,9 +7,11 @@ class GoodspromotionItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: AppDecoration.outlineBlack9003f3.copyWith(
-        borderRadius: BorderRadiusStyle.roundedBorder10,
+    return Card(
+      clipBehavior: Clip.antiAlias,
+      shape: RoundedRectangleBorder(
+        //side:  BorderSide(color: Colors.green,width: 3),
+          borderRadius: BorderRadius.all(Radius.circular(15))
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -35,7 +37,7 @@ class GoodspromotionItemWidget extends StatelessWidget {
                 top: 9,
               ),
               child: Text(
-                "",
+                "Название товара",
                 maxLines: null,
                 textAlign: TextAlign.left,
                 style: AppStyle.txtMontserratRegular12,
@@ -54,7 +56,7 @@ class GoodspromotionItemWidget extends StatelessWidget {
                     bottom: 1,
                   ),
                   child: Text(
-                    "",
+                    "23",
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.left,
                     style: AppStyle.txtMontserratRegular12,
@@ -80,7 +82,7 @@ class GoodspromotionItemWidget extends StatelessWidget {
                     top: 1,
                   ),
                   child: Text(
-                    "",
+                    "12 купили",
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.left,
                     style: AppStyle.txtMontserratRegular12Gray50001,
@@ -103,7 +105,7 @@ class GoodspromotionItemWidget extends StatelessWidget {
                     bottom: 1,
                   ),
                   child: Text(
-                    "345 ₽",
+                    "345"+" ₽",
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.left,
                     style: AppStyle.txtMontserratSemiBold14Blue600,

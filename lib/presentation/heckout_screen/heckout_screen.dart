@@ -74,6 +74,7 @@ class HeckoutScreen extends StatelessWidget {
                                                 style: AppStyle
                                                     .txtMontserratMedium12))),
                                     CustomButton(
+                                      onTap:(){Navigator.pushNamed(context, AppRoutes.twoScreen);},
                                         height: getVerticalSize(35),
                                         text: "Изменить адрес",
                                         margin: getMargin(top: 10),

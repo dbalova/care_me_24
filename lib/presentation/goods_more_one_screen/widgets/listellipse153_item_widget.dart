@@ -7,20 +7,24 @@ class Listellipse153ItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.center,
-      child: Container(
+    return
+      Container(
         width: double.maxFinite,
-        child: Container(
+        child:Card(
+
+            clipBehavior: Clip.antiAlias,
+            shape: RoundedRectangleBorder(
+              //side:  BorderSide(color: Colors.green,width: 3),
+                borderRadius: BorderRadius.all(Radius.circular(15))
+            ),
+            child: Container(
           padding: getPadding(
             left: 13,
             top: 7,
             right: 13,
             bottom: 7,
           ),
-          decoration: AppDecoration.outlineBlack90054.copyWith(
-            borderRadius: BorderRadiusStyle.roundedBorder10,
-          ),
+
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.end,
@@ -34,71 +38,64 @@ class Listellipse153ItemWidget extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    CustomImageView(
-                      imagePath: ImageConstant.imgEllipse152,
-                      height: getSize(
-                        37,
-                      ),
-                      width: getSize(
-                        37,
-                      ),
-                      radius: BorderRadius.circular(
-                        getHorizontalSize(
-                          18,
+
+                     Row(children:[   CustomImageView(
+                          imagePath: ImageConstant.imgEllipse152,
+                          height: getSize(
+                            37,
+                          ),
+                          width: getSize(
+                            37,
+                          ),
+                          radius: BorderRadius.circular(
+                            getHorizontalSize(
+                              18,
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    Padding(
-                      padding: getPadding(
-                        top: 2,
-                      ),
-                      child: Column(
+                    SizedBox(width: 10,),
+                    Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Row(
-                            children: [
-                              Text(
-                                "",
-                                overflow: TextOverflow.ellipsis,
-                                textAlign: TextAlign.left,
-                                style: AppStyle.txtMontserratMedium14,
-                              ),
-                              Padding(
-                                padding: getPadding(
-                                  left: 124,
-                                ),
-                                child: Text(
-                                  "",
-                                  overflow: TextOverflow.ellipsis,
-                                  textAlign: TextAlign.left,
-                                  style: AppStyle.txtMontserratRegular15,
-                                ),
-                              ),
-                              CustomImageView(
-                                imagePath: ImageConstant.imgVector12x12,
-                                height: getSize(
-                                  11,
-                                ),
-                                width: getSize(
-                                  11,
-                                ),
-                                margin: getMargin(
-                                  left: 1,
-                                  top: 4,
-                                  bottom: 3,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Text(
-                            "",
-                            overflow: TextOverflow.ellipsis,
-                            textAlign: TextAlign.left,
-                            style: AppStyle.txtMontserratMedium12Gray50001,
-                          ),
+                                  Text(
+                                    "Имя пользователя",
+                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.left,
+                                    style: AppStyle.txtMontserratMedium14,
+                                  ),
+                                  Text(
+                                    "Наименование товара",
+                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.left,
+                                    style: AppStyle.txtMontserratMedium12Gray50001,
+                                  ),
                         ],
-                      ),
+                      )]),
+                    Row(
+                      children: [
+                        Text(
+                          "5",
+                          overflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.right,
+                          style: AppStyle.txtMontserratRegular15,
+                        ),
+                        CustomImageView(
+                          alignment: Alignment.centerRight,
+                          imagePath: ImageConstant.imgVector12x12,
+                          height: getSize(
+                            11,
+                          ),
+                          width: getSize(
+                            11,
+                          ),
+                          margin: getMargin(
+                            left: 1,
+                            top: 4,
+                            bottom: 3,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -107,89 +104,32 @@ class Listellipse153ItemWidget extends StatelessWidget {
                 padding: getPadding(
                   top: 12,
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: CustomImageView(
-                        imagePath: ImageConstant.imgFrame7621,
-                        height: getSize(
-                          70,
-                        ),
-                        width: getSize(
-                          70,
-                        ),
-                        radius: BorderRadius.circular(
-                          getHorizontalSize(
-                            10,
-                          ),
-                        ),
-                        margin: getMargin(
-                          right: 4,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: CustomImageView(
-                        imagePath: ImageConstant.imgFrame7622,
-                        height: getSize(
-                          70,
-                        ),
-                        width: getSize(
-                          70,
-                        ),
-                        radius: BorderRadius.circular(
-                          getHorizontalSize(
-                            10,
-                          ),
-                        ),
-                        margin: getMargin(
-                          left: 4,
-                          right: 4,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: CustomImageView(
-                        imagePath: ImageConstant.imgFrame7623,
-                        height: getSize(
-                          70,
-                        ),
-                        width: getSize(
-                          70,
-                        ),
-                        radius: BorderRadius.circular(
-                          getHorizontalSize(
-                            10,
-                          ),
-                        ),
-                        margin: getMargin(
-                          left: 4,
-                          right: 4,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: CustomImageView(
-                        imagePath: ImageConstant.imgFrame7624,
-                        height: getSize(
-                          70,
-                        ),
-                        width: getSize(
-                          70,
-                        ),
-                        radius: BorderRadius.circular(
-                          getHorizontalSize(
-                            10,
-                          ),
-                        ),
-                        margin: getMargin(
-                          left: 4,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 70,
+
+
+                  child:ListView.separated(
+                      scrollDirection: Axis.horizontal,
+
+                      shrinkWrap: true,
+                      separatorBuilder:
+                          (context, index) {
+                        return SizedBox(
+                            width:
+                            getVerticalSize(9));
+                      },
+                      itemCount: 6,
+                      itemBuilder: (context, index) {
+                        return CustomImageView(
+                            imagePath: ImageConstant
+                                .imgFrame7621,
+
+                            radius:
+                            BorderRadius.circular(
+                                getHorizontalSize(
+                                    10)));
+                      }),),
               ),
               Container(
                 width: getHorizontalSize(
@@ -200,7 +140,7 @@ class Listellipse153ItemWidget extends StatelessWidget {
                   right: 3,
                 ),
                 child: Text(
-                  "",
+                  "Большой текст с отзывом. Большой текст с отзывом. Большой текст с отзывом. Большой текст с отзывом. Большой текст с отзывом. ",
                   maxLines: null,
                   textAlign: TextAlign.left,
                   style: AppStyle.txtMontserratRegular10Bluegray800,
@@ -220,8 +160,8 @@ class Listellipse153ItemWidget extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      ),
-    );
+        )),
+      )
+    ;
   }
 }

@@ -7,53 +7,41 @@ class Listfourhundred2ItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: getPadding(
-            top: 1,
-          ),
-          child: Text(
-            "",
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.left,
-            style: AppStyle.txtMontserratMedium12Gray50001,
-          ),
-        ),
-        Padding(
-          padding: getPadding(
-            top: 7,
-            bottom: 7,
-          ),
-          child: SizedBox(
-            width: getHorizontalSize(
-              121,
-            ),
-            child: Divider(
-              height: getVerticalSize(
-                1,
-              ),
-              thickness: getVerticalSize(
-                1,
-              ),
-              color: ColorConstant.gray20003,
-            ),
-          ),
-        ),
-        Padding(
-          padding: getPadding(
-            bottom: 1,
-          ),
-          child: Text(
-            "",
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.left,
-            style: AppStyle.txtMontserratMedium12,
-          ),
-        ),
-      ],
-    );
+    return Padding(
+        padding: getPadding(left: 23, top: 12, right: 23,),
+        child: Row(
+            crossAxisAlignment:
+            CrossAxisAlignment.center,
+            children: [
+              Text(
+                  "Страна-изготовитель",
+                  overflow:
+                  TextOverflow.ellipsis,
+                  textAlign: TextAlign.left,
+                  style: AppStyle
+                      .txtMontserratMedium12Gray50001),
+              Expanded( child:Divider(
+                  height:
+                  getVerticalSize(
+                      1),
+                  thickness:
+                  getVerticalSize(
+                      1),
+                  color: ColorConstant
+                      .gray20003,
+                  indent:
+                  getHorizontalSize(
+                      6))),
+              Container(
+                  width: MediaQuery.of(context).size. width/3,
+                  padding: getPadding(
+                      left: 6, bottom: 1),
+                  child: Text("характеристика",
+                      overflow:
+                      TextOverflow.clip,
+                      textAlign: TextAlign.left,
+                      style: AppStyle
+                          .txtMontserratMedium12Blue600))
+            ]));
   }
 }

@@ -130,6 +130,8 @@ import 'package:careme24/presentation/prehistoric_phenomenon_tsunami_one_screen/
 import 'package:careme24/presentation/prehistoric_phenomenon_tsunami_screen/prehistoric_phenomenon_tsunami_screen.dart';
 import 'package:careme24/presentation/app_navigation_screen/app_navigation_screen.dart';
 
+import '../presentation/news_button_page/news_button_page.dart';
+
 class AppRoutes {
   static const String homeScreen = '/home_screen';
 
@@ -505,6 +507,7 @@ class AppRoutes {
         ButtonHoneyCallActivItemScreen(),
     buttonCallPoliceScreen: (context) => ButtonCallPoliceScreen(),
     newsButtonContainerScreen: (context) => NewsButtonContainerScreen(),
+    newsButtonPage:(context) => NewsButtonPage(),
     newsReadScreen: (context) => NewsReadScreen(),
     goodsNewScreen: (context) => GoodsNewScreen(),
     goodsPromotionScreen: (context) => GoodsPromotionScreen(),

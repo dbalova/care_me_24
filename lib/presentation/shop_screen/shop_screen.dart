@@ -217,7 +217,10 @@ class ShopScreen extends StatelessWidget {
                                                               borderRadius:
                                                                   BorderRadiusStyle
                                                                       .roundedBorder10),
-                                                      child: Stack(children: [
+                                                      child: GestureDetector(
+                                                          onTap:()
+                                                          { Navigator.pushNamed(context, AppRoutes.goodsNewScreen);},
+                                                          child:Stack(children: [
                                                         CustomImageView(
                                                             svgPath: ImageConstant
                                                                 .imgFrameWhiteA70034x35,
@@ -229,7 +232,7 @@ class ShopScreen extends StatelessWidget {
                                                                     35),
                                                             alignment: Alignment
                                                                 .center)
-                                                      ]))),
+                                                      ])))),
                                               Padding(
                                                   padding: getPadding(top: 5),
                                                   child: Text("Новинки",
@@ -246,7 +249,10 @@ class ShopScreen extends StatelessWidget {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.start,
                                             children: [
-                                              Card(
+                                            GestureDetector (
+                                                onTap:(){ Navigator.pushNamed(context, AppRoutes.goodsPromotionScreen);},
+
+                                                child: Card(
                                                   clipBehavior: Clip.antiAlias,
                                                   elevation: 0,
                                                   margin: EdgeInsets.all(0),
@@ -279,7 +285,7 @@ class ShopScreen extends StatelessWidget {
                                                             width: getSize(32),
                                                             alignment: Alignment
                                                                 .center)
-                                                      ]))),
+                                                      ])))),
                                               Padding(
                                                   padding: getPadding(top: 5),
                                                   child: Text("Акции",

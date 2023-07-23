@@ -200,20 +200,20 @@ class _PaymentDefoultScreenState extends State<PaymentDefoultScreen> {
                                         ]))
                                   ]))),
                       Padding(
-                          padding: getPadding(top: 18, right: 55),
+                          padding: getPadding(top: 18, right: 5),
                           child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Radio(
-                                  value: 1,
-                                  groupValue: selectedOption,
-                                  onChanged: (value) {
-                                    value = value;
-                                    setState(() {
 
-                                      print("Button value: $value");
-                                    });
-                                  },
+                                Radio(
+                                    value: "radio value",
+                                    groupValue: "group value",
+                                    onChanged: (value){
+                                      print(value);
+                                      setState(() {
+
+                                      });//selected value
+                                    }
                                 ),
                                 Container(
                                     height: getVerticalSize(30),
@@ -259,10 +259,26 @@ class _PaymentDefoultScreenState extends State<PaymentDefoultScreen> {
                                     ))
                               ])),
                       CustomButton(
+                        onTap: (){
+
+                          print(cardnumbervalueController.toString().length);
+                          print(dateValueController.toString().length);
+                          print(cvcValueController.toString().length);
+
+
+                          if((cardnumbervalueController.toString().length==220)
+                          &(dateValueController.toString().length==205)
+                          &(cvcValueController.toString().length==203))
+                            Navigator.pushNamed(context, AppRoutes.paymentFailedScreen);
+
+                        },
                           height: getVerticalSize(56),
                           text: "Оплатить ",
                           margin: getMargin(top: 18, bottom: 5),
-                          variant: ButtonVariant.FillGray50001,
+                          variant: ((cardnumbervalueController.toString().length==220)
+                          &(dateValueController.toString().length==205)
+                          &(cvcValueController.toString().length==203))?  ButtonVariant.OutlineBlue70049:
+                          ButtonVariant.FillGray50001,
                           fontStyle:
                               ButtonFontStyle.MontserratRomanSemiBold18Gray300)
                     ]))));

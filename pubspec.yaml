@@ -19,6 +19,7 @@ dependencies:
   flutter_osm_plugin: ^0.51.0
   image_picker:
   flutter_masked_text2:
+  card_swiper:
 dev_dependencies: 
   flutter_test: 
     sdk: flutter
