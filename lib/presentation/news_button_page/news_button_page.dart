@@ -1,3 +1,6 @@
+import '../../widgets/app_bar/appbar_image.dart';
+import '../../widgets/app_bar/appbar_title.dart';
+import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_bottom_bar.dart';
 import '../news_button_page/widgets/newsbutton_item_widget.dart';
 import 'package:careme24/core/app_export.dart';
@@ -41,6 +44,21 @@ class _NewsButtonPageState extends State<NewsButtonPage> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+
+          appBar: CustomAppBar(
+              height: getVerticalSize(48),
+              leadingWidth: 43,
+              leading: AppbarImage(
+                  height: getVerticalSize(16),
+                  width: getHorizontalSize(11),
+                  svgPath: ImageConstant.imgArrowleft,
+                  margin: getMargin(left: 32, top: 12, bottom: 10),
+                  onTap: () {
+
+                  }),
+              centerTitle: true,
+              title: AppbarTitle(text: "Новости"),
+              styleType: Style.bgFillBlue60001),
         bottomNavigationBar:
         CustomBottomBar(onChanged: (BottomBarEnum type) {
 
@@ -53,20 +71,7 @@ class _NewsButtonPageState extends State<NewsButtonPage> {
                       Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            CustomButton(
-                                height: getVerticalSize(48),
-                                text: "Новости",
-                                variant: ButtonVariant.FillBlue60001,
-                                shape: ButtonShape.Square,
-                                padding: ButtonPadding.PaddingT11,
-                                fontStyle: ButtonFontStyle.MontserratBold20,
-                                prefixWidget: Container(
-                                    margin: getMargin(right: 30),
-                                    child: CustomImageView(
-                                        svgPath: ImageConstant.imgArrowleft)),
-                                onTap: () {
-                                  onTaptf(context);
-                                }),
+
                             Container(
                                 width: double.maxFinite,
                                 child: Container(
