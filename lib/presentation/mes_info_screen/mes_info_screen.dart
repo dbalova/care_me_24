@@ -86,7 +86,7 @@ class _MESInfiScreenState extends State<MESInfiScreen> {
                 styleType: Style.bgFillBlue60001),
             body: Container(
                 width: double.maxFinite,
-                padding: getPadding(left: 22, right: 22),
+                padding: getPadding(left: 20, right: 20),
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
