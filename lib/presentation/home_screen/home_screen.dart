@@ -4,6 +4,10 @@ import 'package:careme24/widgets/custom_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart' as fs;
 
+import '../../custom_page_my/warning_list_page.dart';
+import '../prehistoric_phenomenon_heat_one_screen/prehistoric_phenomenon_heat_one_screen.dart';
+import '../prehistoric_phenomenon_heat_screen/prehistoric_phenomenon_heat_screen.dart';
+
 // ignore_for_file: must_be_immutable
 class HomeScreen extends StatelessWidget {
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
@@ -83,51 +87,56 @@ class HomeScreen extends StatelessWidget {
                                                                 style: AppStyle
                                                                     .txtMontserratSemiBold12))
                                                       ]),
-                                                  Column(
+                                                  GestureDetector(
+                                                    onTap: (){
+                                                      Navigator.push(context, MaterialPageRoute(builder: (context) => WarningListPage()));
+                                                    },
+                                                    child: Column(
 
-                                                      mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                      children: [
-                                                        Container(
+                                                        mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                        children: [
+                                                          Container(
 
-                                                            width:
-                                                            getHorizontalSize(
-                                                                80),
-                                                            child: Text(
-                                                                "Аномальная жара",
-                                                                maxLines: null,
-                                                                textAlign: TextAlign
-                                                                    .center,
-                                                                style: AppStyle
-                                                                    .txtMontserratMedium12)),
-                                                        Stack(
-                                                            alignment: Alignment.center,
-                                                            children: [
-                                                          CustomImageView(
-                                                              svgPath: 'assets/images/harmfully.svg',
-                                                              height: getSize(79),
-                                                              width: getSize(79),
+                                                              width:
+                                                              getHorizontalSize(
+                                                                  80),
+                                                              child: Text(
+                                                                  "Аномальная жара",
+                                                                  maxLines: null,
+                                                                  textAlign: TextAlign
+                                                                      .center,
+                                                                  style: AppStyle
+                                                                      .txtMontserratMedium12)),
+                                                          Stack(
+                                                              alignment: Alignment.center,
+                                                              children: [
+                                                            CustomImageView(
+                                                                svgPath: 'assets/images/harmfully.svg',
+                                                                height: getSize(79),
+                                                                width: getSize(79),
 
-                                                              margin:
-                                                              getMargin(top: 5, left: 10, right: 10)),
-                                                          CustomImageView(
-                                                              svgPath: 'assets/images/img_settings.svg',
+                                                                margin:
+                                                                getMargin(top: 5, left: 10, right: 10)),
+                                                            CustomImageView(
+                                                                svgPath: 'assets/images/img_settings.svg',
 
-                                                          ),
-                                                          ]),
-                                                        //Image.asset("assets/images/harmfully.png"),
-                                                        Padding(
-                                                            padding:
-                                                            getPadding(top: 7),
-                                                            child: Text("AQR 78",
-                                                                overflow:
-                                                                TextOverflow
-                                                                    .ellipsis,
-                                                                textAlign:
-                                                                TextAlign.left,
-                                                                style: AppStyle
-                                                                    .txtMontserratSemiBold12))
-                                                      ]),
+                                                            ),
+                                                            ]),
+                                                          //Image.asset("assets/images/harmfully.png"),
+                                                          Padding(
+                                                              padding:
+                                                              getPadding(top: 7),
+                                                              child: Text("AQR 78",
+                                                                  overflow:
+                                                                  TextOverflow
+                                                                      .ellipsis,
+                                                                  textAlign:
+                                                                  TextAlign.left,
+                                                                  style: AppStyle
+                                                                      .txtMontserratSemiBold12))
+                                                        ]),
+                                                  ),
                                                   Column(
 
                                                       mainAxisAlignment:
@@ -349,7 +358,7 @@ class HomeScreen extends StatelessWidget {
                                           flex:2,
                                           child: GestureDetector(
                                               onTap: () {
-                                                onTapRowtwelve(context);
+                                                onPolicePage(context);
                                               },
                                               child: Container(clipBehavior: Clip.antiAlias,
 
@@ -420,11 +429,9 @@ class HomeScreen extends StatelessWidget {
                                          flex:2,
                                          child: GestureDetector(
                                           onTap: () {
-                                            onTapRowtwelve(context);
+                                            onMESPage(context);
                                           },
                                           child: Container(
-
-
                                               decoration: AppDecoration
                                                   .fillYellow700
                                                   .copyWith(
@@ -441,8 +448,6 @@ class HomeScreen extends StatelessWidget {
                                                     Padding(
                                                         padding: getPadding(
                                                             left: 15,
-
-
                                                             ),
                                                         child: Column(
                                                             crossAxisAlignment:
@@ -654,8 +659,12 @@ width: MediaQuery.of(context).size.width/2,
     Navigator.pushNamed(context, AppRoutes.homeTwoScreen);
   }
 
-  onTapRowtwelve(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.homeOneScreen);
+  onPolicePage(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.buttonCallPoliceScreen);
+  }
+
+  onMESPage(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.buttonHoneyCallActivItemScreen);
   }
 
   onTapStackfourteen(BuildContext context) {

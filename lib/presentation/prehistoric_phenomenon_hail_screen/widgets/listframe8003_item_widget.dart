@@ -7,8 +7,7 @@ class Listframe8003ItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IntrinsicWidth(
-      child: Container(
+    return Container(
         margin: getMargin(
           right: 26,
         ),
@@ -58,7 +57,6 @@ class Listframe8003ItemWidget extends StatelessWidget {
             ),
           ],
         ),
-      ),
     );
   }
 }
