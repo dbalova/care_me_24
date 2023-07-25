@@ -6,6 +6,8 @@ class ImageConstant {
 
   static String imgHospital = 'assets/images/image_hospital.png';
 
+  static String atmosphericPressureIcon = 'assets/images/atmospheric_pressure_icon.svg';
+
   static String imgHospitalSvg = 'assets/images/hospital_svg.svg';
 
   static String imgVector5x9 = 'assets/images/img_vector_5x9.svg';

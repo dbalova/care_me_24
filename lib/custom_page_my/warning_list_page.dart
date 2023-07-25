@@ -8,11 +8,10 @@ import '../presentation/prehistoric_phenomenon_pressure_screen/prehistoric_pheno
 import 'information_at_day_page.dart';
 
 class WarningListPage extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold(
+    return SafeArea(
+        child: Scaffold(
       backgroundColor: ColorConstant.whiteA700,
       body: Align(
         alignment: Alignment.center,
@@ -21,30 +20,53 @@ class WarningListPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => PrehistoricPhenomenonHeatOneScreen()));
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              PrehistoricPhenomenonHeatOneScreen()));
                 },
                 child: Container(
                   decoration: BoxDecoration(color: Colors.deepOrange),
                   width: 120,
                   height: 40,
-                  child: Text("Температура",
-                  style: AppStyle.txtMontserratMedium15Black900,),
+                  child: Text(
+                    "Температура",
+                    style: AppStyle.txtMontserratMedium15Black900,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => InfoAtDayPage()));
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => InfoAtDayPage(
+                                cityName: "Москва",
+                                infoAboutName: "Атмосферное давление",
+                                visibleMainInfo: true,
+                                visibleInfoAtDay: false,
+                                visibleForecast: true,
+                                visibleWeatherAtHour: true,
+                                visibleWindowAtHour: false,
+                                visibleWeatherAtDay: false,
+                                visibleInfoVirus: false,
+                                appDecoration: AppDecoration.gradientPink300PinkA100,
+                                pathToPicture: ImageConstant.atmosphericPressureIcon,
+                              )));
                 },
                 child: Container(
                   decoration: BoxDecoration(color: Colors.deepOrange),
                   width: 120,
                   height: 40,
-                  child: Text("Атмосферное давление",
-                    style: AppStyle.txtMontserratMedium15Black900,),
+                  child: Text(
+                    "Атмосферное давление",
+                    style: AppStyle.txtMontserratMedium15Black900,
+                  ),
                 ),
               ),
             ),
