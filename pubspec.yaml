@@ -20,6 +20,7 @@ dependencies:
   image_picker:
   flutter_masked_text2:
   card_swiper:
+  flutter_slidable:
 dev_dependencies: 
   flutter_test: 
     sdk: flutter

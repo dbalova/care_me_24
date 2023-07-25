@@ -117,6 +117,8 @@ class CustomIconButton extends StatelessWidget {
         return ColorConstant.blue600;
       case IconButtonVariant.GradientBlue500LightblueA200:
         return null;
+      case IconButtonVariant.FillRed:
+        return ColorConstant.red900;
       default:
         return null;
     }
@@ -147,6 +149,7 @@ class CustomIconButton extends StatelessWidget {
 
   _setGradient() {
     switch (variant) {
+      case IconButtonVariant.FillRed:
       case IconButtonVariant.FillPink300:
       case IconButtonVariant.FillIndigoA100:
       case IconButtonVariant.FillYellow700:
@@ -189,6 +192,7 @@ enum IconButtonPadding {
   PaddingAll3,
 }
 enum IconButtonVariant {
+  FillRed,
   GradientBlue500LightblueA200,
   FillPink300,
   FillIndigoA100,
