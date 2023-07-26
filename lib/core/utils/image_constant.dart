@@ -1005,6 +1005,9 @@ class ImageConstant {
   static String imgSubtract = 'assets/images/img_subtract.png';
   static String imgShop = 'assets/images/Group7509shop.svg';
   static String imgNews = 'assets/images/news.png';
+  static String imgPoliceScreen = 'assets/images/policeFon2.svg';
+  static String imgHelpScreen = 'assets/images/helpScreen.svg';
+  static String imgMCHSScreen = 'assets/images/MCHSScreen.svg';
   static String imgCheckmarkBlue300 =
       'assets/images/img_checkmark_blue_300.svg';
 

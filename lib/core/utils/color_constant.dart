@@ -176,6 +176,10 @@ class ColorConstant {
 
   static Color indigoA200 = fromHex('#5d7ae2');
 
+  static Color bluePolice = fromHex('#92a3ff');
+  static Color pinkHelp = fromHex('#ff76a7');
+  static Color orangeMCHS = fromHex('#ffb72c');
+
   static Color green800 = fromHex('#08853a');
 
   static Color black9001c = fromHex('#1c000000');

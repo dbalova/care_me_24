@@ -18,6 +18,8 @@ import 'package:flutter/material.dart';
 
 // ignore_for_file: must_be_immutable
 
+
+bool _isNotCode = false;
  String _dropDownValue='';
 List<String> _locations = ['Австралия'
     ,'Австрия'
@@ -362,7 +364,67 @@ class _TwoScreenState extends State<TwoScreen> {
                           Padding(
                               padding:
                                   getPadding(top: 16, bottom: 5),
-                              child: CustomRadioButton(
+                              child:
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+
+                              children: [   GestureDetector(
+                                onTap: (){_isNotCode=!_isNotCode;
+                                setState(() {
+
+                                });
+                                },
+                                child:Container(
+                                  margin: getMargin(
+
+                                    right: 5,
+
+                                  ),
+                                  padding: getPadding(
+                                    all: 4,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadiusStyle.roundedBorder10,
+                                    color: ColorConstant.whiteA700,
+                                    border: Border.all(
+                                      color: Colors.grey,
+                                      width: getHorizontalSize(
+                                        1,
+                                      ),
+                                    ),
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        height: getSize(
+                                          10,
+                                        ),
+                                        width: getSize(
+                                          10,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: _isNotCode?Colors.grey: Colors.white,
+                                          borderRadius: BorderRadius.circular(
+                                            getHorizontalSize(
+                                              7,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+
+                                    ],
+                                  ),
+                                )),  Text("В моем адресе нет почтового кода",style: TextStyle(
+                              color: ColorConstant.gray50001,
+                              fontSize: getFontSize(
+                                12,
+                              ),
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w500,
+                            ) )],)
+                            /*CustomRadioButton(
                                   text: "В моем адресе нет почтового кода",
                                   iconSize: getHorizontalSize(20),
                                   value: "В моем адресе нет почтового кода",
@@ -372,7 +434,7 @@ class _TwoScreenState extends State<TwoScreen> {
                                   fontStyle: RadioFontStyle.MontserratMedium12,
                                   onChange: (value) {
                                     radioGroup = value;
-                                  }))
+                                  })*/)
                         ]))),
             bottomNavigationBar: CustomButton(
                 onTap: (){

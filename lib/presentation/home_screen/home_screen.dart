@@ -2,6 +2,7 @@ import 'package:careme24/core/app_export.dart';
 import 'package:careme24/presentation/news_button_page/news_button_page.dart';
 import 'package:careme24/widgets/custom_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart' as fs;
 
 import '../../custom_page_my/warning_list_page.dart';
@@ -14,8 +15,14 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.blue,
+
+    ));
+
     return SafeArea(
         child: Scaffold(
+
             backgroundColor: ColorConstant.whiteA700,
             body: Container(
                 width: double.maxFinite,
@@ -151,7 +158,7 @@ class HomeScreen extends StatelessWidget {
                                                             getHorizontalSize(
                                                                 80),
                                                             child: Text(
-                                                                "Ветер cbkmysq cbkmysq",
+                                                                "Ветер \n",
                                                                 maxLines: null,
                                                                 textAlign: TextAlign
                                                                     .center,
@@ -176,14 +183,26 @@ class HomeScreen extends StatelessWidget {
                                                         Padding(
                                                             padding:
                                                             getPadding(top: 7),
-                                                            child: Text("10 м/с",
-                                                                overflow:
-                                                                TextOverflow
-                                                                    .ellipsis,
-                                                                textAlign:
-                                                                TextAlign.left,
-                                                                style: AppStyle
-                                                                    .txtMontserratSemiBold12))
+                                                            child: Row(
+                                                              children: [
+                                                                Text("10 м/с",
+                                                                    overflow:
+                                                                    TextOverflow
+                                                                        .ellipsis,
+                                                                    textAlign:
+                                                                    TextAlign.left,
+                                                                    style: AppStyle
+                                                                        .txtMontserratSemiBold12),
+                                                                Text(" ю-в",
+                                                                    overflow:
+                                                                    TextOverflow
+                                                                        .ellipsis,
+                                                                    textAlign:
+                                                                    TextAlign.left,
+                                                                    style: AppStyle
+                                                                        .txtMontserratSemiBold12Gray50001),
+                                                              ],
+                                                            ))
                                                       ]),
                                                   Column(
 
@@ -196,7 +215,7 @@ class HomeScreen extends StatelessWidget {
                                                             getHorizontalSize(
                                                                 80),
                                                             child: Text(
-                                                                "Давление",
+                                                                "Давление\n",
                                                                 maxLines: null,
                                                                 textAlign: TextAlign
                                                                     .center,
@@ -241,7 +260,7 @@ class HomeScreen extends StatelessWidget {
                                                             getHorizontalSize(
                                                                 80),
                                                             child: Text(
-                                                                "Пожар",
+                                                                "Пожар\n",
                                                                 maxLines: null,
                                                                 textAlign: TextAlign
                                                                     .center,
@@ -278,7 +297,9 @@ class HomeScreen extends StatelessWidget {
 
                                             ])))
                                   ]))),
-                     Expanded( child: Card(
+                 Expanded(
+                     flex:1,
+                     child:   ListView(children:[ Card(
                           clipBehavior: Clip.antiAlias,
                           elevation: 0,
                           margin: getMargin(top: 10),
@@ -340,7 +361,7 @@ class HomeScreen extends StatelessWidget {
                                                       margin: getMargin(left: 10, right: 10,  bottom: 5))
                                                 ])))
 
-                                  ))),
+                                  )),
                       Padding(
                           padding: getPadding(left: 20,  right: 20),
                           child: Row(
@@ -358,7 +379,9 @@ class HomeScreen extends StatelessWidget {
                                           flex:2,
                                           child: GestureDetector(
                                               onTap: () {
-                                                onPolicePage(context);
+
+
+                                                Navigator.pushNamed(context, AppRoutes.homeTwoScreen);
                                               },
                                               child: Container(clipBehavior: Clip.antiAlias,
 
@@ -429,7 +452,7 @@ class HomeScreen extends StatelessWidget {
                                          flex:2,
                                          child: GestureDetector(
                                           onTap: () {
-                                            onMESPage(context);
+                                            Navigator.pushNamed(context, AppRoutes.homeOneScreen);
                                           },
                                           child: Container(
                                               decoration: AppDecoration
@@ -492,7 +515,8 @@ class HomeScreen extends StatelessWidget {
                                     ])),
                                 GestureDetector(
                                     onTap: () {
-                                      onTapStackfourteen(context);
+                                      Navigator.pushNamed(context, AppRoutes.homeFourScreen);
+
                                     },
                                     child: Card(
                                         clipBehavior: Clip.antiAlias,
@@ -572,12 +596,13 @@ class HomeScreen extends StatelessWidget {
                                                 ]))))
                               ])),
 
-                     Expanded( child:GestureDetector(
+                     GestureDetector(
                           onTap: () {
                             //onTapRowsixteen(context);
-                            Navigator.pushNamed(context, AppRoutes.alertScreen);
+                            Navigator.pushNamed(context, AppRoutes.newsButtonPage);
                           },
                           child: Container(
+
                               clipBehavior: Clip.antiAlias,
                               margin: getMargin(
                                   left: 20, top: 10, right: 20, bottom: 10),
@@ -615,6 +640,7 @@ class HomeScreen extends StatelessWidget {
                                             ])),
 
                                     CustomImageView(
+                                        height: getVerticalSize(122),
 width: MediaQuery.of(context).size.width/2,
                                       imagePath:
                                       ImageConstant
@@ -622,7 +648,7 @@ width: MediaQuery.of(context).size.width/2,
                       Alignment
                           .bottomRight),
 
-                                  ]))))
+                                  ])))]))
                     ])),
             bottomNavigationBar:
                 CustomBottomBar(onChanged: (BottomBarEnum type) {

@@ -12,7 +12,7 @@ class PaymentDefoultScreen extends StatefulWidget {
   @override
   State<PaymentDefoultScreen> createState() => _PaymentDefoultScreenState();
 }
-
+bool _isSave = false;
 class _PaymentDefoultScreenState extends State<PaymentDefoultScreen> {
  TextEditingController cardnumbervalueController =  MaskedTextController(mask: '0000 0000 0000 0000');
 
@@ -205,16 +205,55 @@ class _PaymentDefoultScreenState extends State<PaymentDefoultScreen> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
 
-                                Radio(
-                                    value: "radio value",
-                                    groupValue: "group value",
-                                    onChanged: (value){
-                                      print(value);
-                                      setState(() {
+                                GestureDetector(
+                                    onTap: (){_isSave=!_isSave;
+                                    setState(() {
 
-                                      });//selected value
-                                    }
-                                ),
+                                    });
+                                    },
+                                    child:Container(
+                                      margin: getMargin(
+
+                                        right: 5,
+
+                                      ),
+                                      padding: getPadding(
+                                        all: 4,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadiusStyle.roundedBorder10,
+                                        color: ColorConstant.whiteA700,
+                                        border: Border.all(
+                                          color: Colors.grey,
+                                          width: getHorizontalSize(
+                                            1,
+                                          ),
+                                        ),
+                                      ),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            height: getSize(
+                                              8,
+                                            ),
+                                            width: getSize(
+                                              8,
+                                            ),
+                                            decoration: BoxDecoration(
+                                              color: _isSave?Colors.grey: Colors.white,
+                                              borderRadius: BorderRadius.circular(
+                                                getHorizontalSize(
+                                                  7,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+
+                                        ],
+                                      ),
+                                    )),
                                 Container(
                                     height: getVerticalSize(30),
                                     width: getHorizontalSize(248),

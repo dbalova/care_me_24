@@ -19,7 +19,7 @@ class InfoAtDay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: getMargin(bottom: 16),
+      margin: getMargin(bottom: 8, top:8, left: 16, right: 16),
       width: MediaQuery.of(context).size.width-40,
         padding: getPadding(left: 12, top: 10, right: 12, bottom: 10),
         decoration: AppDecoration.outlineBlack9003f3

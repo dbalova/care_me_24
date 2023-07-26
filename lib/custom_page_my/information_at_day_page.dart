@@ -65,7 +65,7 @@ class InfoAtDayPage extends StatelessWidget {
               child:
                   Column(mainAxisAlignment: MainAxisAlignment.start, children: [
                 Container(
-                    margin: getMargin(bottom: 16),
+
                     padding: getPadding(top: 14, bottom: 14),
                     decoration: AppDecoration.white,
                     child: Row(
@@ -121,7 +121,7 @@ class InfoAtDayPage extends StatelessWidget {
                                             .MontserratRomanMedium18Lime900)
                                   ]))
                         ])),
-                Visibility(
+                Expanded(child: ListView(children:[Visibility(
                   visible: visibleMainInfo,
                   child: MainInfo(),
                 ),
@@ -136,7 +136,7 @@ class InfoAtDayPage extends StatelessWidget {
                 Visibility(
                   visible: visibleForecast,
                   child: Container(
-                    margin: getMargin(bottom: 16),
+                    margin: getMargin(bottom: 8, top:8, left: 16, right: 16),
                     width: MediaQuery.of(context).size.width-40,
                     child: Text("Прогноз",
                         overflow: TextOverflow.ellipsis,
@@ -148,7 +148,7 @@ class InfoAtDayPage extends StatelessWidget {
                   visible: visibleWeatherAtHour,
                   child: Container(
                       width: MediaQuery.of(context).size.width-40,
-                      margin: getMargin(bottom: 16),
+                      margin: getMargin(bottom: 8, top:8, left: 16, right: 16),
                       padding: getPadding(bottom: 16),
                       decoration: AppDecoration.outlineGray3004,
                       child: Row(
@@ -180,6 +180,7 @@ class InfoAtDayPage extends StatelessWidget {
                 Visibility(
                   visible: visibleWindowAtHour,
                   child: Container(
+                    margin: getMargin( top:8, left: 16, right: 16),
                     width: MediaQuery.of(context).size.width-40,
                     child: Column(
                       children: [
@@ -246,6 +247,7 @@ class InfoAtDayPage extends StatelessWidget {
                 Visibility(
                   visible: visibleWeatherAtHour,
                   child: Container(
+                    margin: getMargin(bottom: 8, top:8, left: 16, right: 16),
                       width: MediaQuery.of(context).size.width - 40,
                       height: 75,
                       child: ListView.separated(
@@ -265,7 +267,7 @@ class InfoAtDayPage extends StatelessWidget {
                 Visibility(
                   visible: visibleInfoVirus,
                   child: InfoAboutVirus(),
-                ),
+                )])),
               ]),
             ),
             bottomNavigationBar: Padding(

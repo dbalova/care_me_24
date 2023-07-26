@@ -50,6 +50,8 @@ class GoodsNewScreen extends StatelessWidget {
                                 text: "Новинки"),
                             actions: [
                               AppbarImage(
+                                onTap:
+                                    (){ Navigator.pushNamed(context, AppRoutes.goodsFavoritesScreen);},
                                   height: getSize(28),
                                   width: getSize(28),
                                   svgPath:
@@ -60,6 +62,8 @@ class GoodsNewScreen extends StatelessWidget {
                                       top: 10,
                                       right: 10)),
                               AppbarImage(
+                                  onTap:
+                                      (){ Navigator.pushNamed(context, AppRoutes.goodsBasketScreen);},
                                   height: getSize(26),
                                   width: getSize(26),
                                   imagePath:

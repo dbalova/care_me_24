@@ -16,7 +16,9 @@ class MESInfiScreen extends StatefulWidget {
 class _MESInfiScreenState extends State<MESInfiScreen> {
   final _controller = ValueNotifier<bool>(false);
   bool _checked = false;
-
+  bool _way    = false;
+  bool _mark   = false;
+  bool _price  = false;
   bool isSelectedSwitch = false;
 
   final List<String> hospitalName = <String>[
@@ -167,51 +169,109 @@ class _MESInfiScreenState extends State<MESInfiScreen> {
                                   ]))),
                       Padding(
                           padding: getPadding(top: 20),
-                          child: Row(
+                          child:  Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Container(
-                                    width: getHorizontalSize(109),
-                                    padding: getPadding(
-                                        left: 30,
-                                        top: 10,
-                                        right: 36,
-                                        bottom: 10),
-                                    decoration: AppDecoration.txtOutlineGray300,
-                                    child: Text("Путь",
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.left,
-                                        style: AppStyle
-                                            .txtMontserratMedium15Bluegray800)),
-                                Container(
-                                    width: getHorizontalSize(109),
-                                    padding: getPadding(
-                                        left: 23,
-                                        top: 10,
-                                        right: 23,
-                                        bottom: 10),
-                                    decoration: AppDecoration.txtFillBlue30001
+                                GestureDetector(
+                                    onTap: (){
+                                      _way    =true;
+                                      _mark   =false;
+                                      _price  =false;
+                                      setState(() {
+
+                                      });
+                                    },
+                                    child:Container(
+                                        width: getHorizontalSize(109),
+                                        padding: getPadding(
+                                            left: 9, top: 10, right: 9, bottom: 10),
+                                        decoration: _way ? AppDecoration.txtFillBlue30001
+                                            .copyWith(
+                                            borderRadius: BorderRadiusStyle
+                                                .txtCustomBorderTL10) : BoxDecoration(
+                                          border: Border(
+                                            bottom: BorderSide(
+                                                color:
+                                                ColorConstant.gray50002,
+                                                width: 1),),),
+                                        child: Text("Путь",
+                                            overflow: TextOverflow.ellipsis,
+                                            textAlign: TextAlign.center,
+                                            style: _way? AppStyle.txtMontserratSemiBold15 : TextStyle(
+                                              color: ColorConstant.gray50001,
+                                              fontSize: getFontSize(
+                                                15,
+                                              ),
+                                              fontFamily: 'Montserrat',
+                                              fontWeight: FontWeight.w500,
+                                            )))),
+                                GestureDetector(
+
+                                    onTap: (){
+                                      _way     =false;
+                                      _mark    =true;
+                                      _price   =false; setState(() {
+
+                                      });
+                                    },
+                                    child:Container(
+                                        width: getHorizontalSize(109),
+                                        padding: getPadding(
+                                            left: 9, top: 10, right: 9, bottom: 10),
+                                        // decoration:  AppDecoration.outlineGray50001,
+                                        decoration:  _mark ? AppDecoration.txtFillBlue30001
+                                            .copyWith(
+                                            borderRadius: BorderRadiusStyle
+                                                .txtCustomBorderTL10) : BoxDecoration(
+                                          border: Border(
+                                            bottom: BorderSide(
+                                                color:
+                                                ColorConstant.gray50002,
+                                                width: 1),),),
+                                        child: Text("Оценка",
+                                            overflow: TextOverflow.ellipsis,
+                                            textAlign: TextAlign.center,
+                                            style: _mark? AppStyle.txtMontserratSemiBold15 : TextStyle(
+                                              color: ColorConstant.gray50001,
+                                              fontSize: getFontSize(
+                                                15,
+                                              ),
+                                              fontFamily: 'Montserrat',
+                                              fontWeight: FontWeight.w500,
+                                            )))), GestureDetector(
+                                    onTap: (){
+                                      _way     =false;
+                                      _mark    =false;
+                                      _price   =true; setState(() {
+
+                                      });
+                                    },
+
+                                    child:Container( decoration: _price ? AppDecoration.txtFillBlue30001
                                         .copyWith(
                                         borderRadius: BorderRadiusStyle
-                                            .txtCustomBorderTL10),
-                                    child: Text("Оценка",
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.left,
-                                        style:
-                                        AppStyle.txtMontserratSemiBold15)),
-                                Container(
-                                    width: getHorizontalSize(109),
-                                    padding: getPadding(
-                                        left: 12,
-                                        top: 10,
-                                        right: 12,
-                                        bottom: 10),
-                                    decoration: AppDecoration.txtOutlineGray300,
-                                    child: Text("Стоимость",
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.left,
-                                        style: AppStyle
-                                            .txtMontserratMedium15Bluegray800))
+                                            .txtCustomBorderTL10) : BoxDecoration(
+                                      border: Border(
+                                        bottom: BorderSide(
+                                            color:
+                                            ColorConstant.gray50002,
+                                            width: 1),),),
+                                        width: getHorizontalSize(109),
+                                        padding: getPadding(
+                                            left: 9, top: 10, right: 9, bottom: 10),
+
+                                        child: Text("Стоимость",
+                                            overflow: TextOverflow.ellipsis,
+                                            textAlign: TextAlign.center,
+                                            style: _price? AppStyle.txtMontserratSemiBold15 : TextStyle(
+                                              color: ColorConstant.gray50001,
+                                              fontSize: getFontSize(
+                                                15,
+                                              ),
+                                              fontFamily: 'Montserrat',
+                                              fontWeight: FontWeight.w500,
+                                            )))),
+
                               ])),
                       Expanded(
                           child: Padding(

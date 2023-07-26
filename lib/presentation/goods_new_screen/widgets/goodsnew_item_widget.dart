@@ -3,8 +3,15 @@ import 'package:careme24/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class GoodsnewItemWidget extends StatelessWidget {
+class GoodsnewItemWidget extends StatefulWidget {
   GoodsnewItemWidget();
+
+  @override
+  State<GoodsnewItemWidget> createState() => _GoodsnewItemWidgetState();
+}
+
+class _GoodsnewItemWidgetState extends State<GoodsnewItemWidget> {
+bool _isActive = true;
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +123,7 @@ class GoodsnewItemWidget extends StatelessWidget {
                   margin: getMargin(
                     top: 6,
                   ),
-                  variant: ButtonVariant.FillGray50001,
+                  variant:_isActive? ButtonVariant.OutlineIndigo20049_1: ButtonVariant.FillGray50001,
                   shape: ButtonShape.RoundedBorder7,
                   padding: ButtonPadding.PaddingAll9,
                   fontStyle: ButtonFontStyle.MontserratSemiBold12,

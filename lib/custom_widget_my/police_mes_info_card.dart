@@ -73,7 +73,7 @@ class PoliceMESInfoCard extends StatelessWidget {
                             ),
                           ])),
                   Padding(
-                    padding: getPadding(left: 12),
+                    padding: getPadding(left: 12,),
                     child: Column(
                       crossAxisAlignment:
                       CrossAxisAlignment.start,

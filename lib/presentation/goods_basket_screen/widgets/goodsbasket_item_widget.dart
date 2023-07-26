@@ -9,7 +9,8 @@ class GoodsbasketItemWidget extends StatefulWidget {
   @override
   State<GoodsbasketItemWidget> createState() => _GoodsbasketItemWidgetState();
 }
-
+bool _isSelect = false;
+bool _isFavorite = false;
 class _GoodsbasketItemWidgetState extends State<GoodsbasketItemWidget> {
   @override
   Widget build(BuildContext context) {
@@ -169,9 +170,16 @@ class _GoodsbasketItemWidgetState extends State<GoodsbasketItemWidget> {
                         margin: getMargin(
                           right: 7,
                         ),
-                        child: CustomImageView(
+                        child: GestureDetector(
+
+                            onTap: (){_isFavorite=!_isFavorite;
+                              setState(() {
+
+                              });
+                              },
+                            child:Icon(Icons.favorite, color: _isFavorite ?Colors.red :Colors.grey,))/*CustomImageView(
                           svgPath: ImageConstant.imgFavoriteGray50001,
-                        ),
+                        ),*/
                       ),
                     ),
                     Container(
@@ -238,7 +246,13 @@ class _GoodsbasketItemWidgetState extends State<GoodsbasketItemWidget> {
                       ),
                     ),
                     Spacer(),
-                    Container(
+                    GestureDetector(
+                        onTap: (){_isSelect=!_isSelect;
+                          setState(() {
+
+                          });
+                          },
+                        child:Container(
                       margin: getMargin(
                         top: 10,
                         right: 1,
@@ -262,7 +276,7 @@ class _GoodsbasketItemWidgetState extends State<GoodsbasketItemWidget> {
                               14,
                             ),
                             decoration: BoxDecoration(
-                              color: ColorConstant.blue600,
+                              color: _isSelect? ColorConstant.blue600: Colors.white,
                               borderRadius: BorderRadius.circular(
                                 getHorizontalSize(
                                   7,
@@ -272,7 +286,7 @@ class _GoodsbasketItemWidgetState extends State<GoodsbasketItemWidget> {
                           ),
                         ],
                       ),
-                    ),
+                    )),
                   ],
                 ),
               ),
