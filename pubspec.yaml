@@ -58,3 +58,7 @@ flutter:
     - family: CustomIcons
       fonts:
         - asset: assets/fonts/CustomIcons.ttf
+
+    - family: AppIconAdmin
+      fonts:
+        - asset: assets/fonts/AppIconAdmin.ttf

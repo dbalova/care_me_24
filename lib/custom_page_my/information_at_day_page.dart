@@ -13,7 +13,6 @@ import '../custom_widget_my/weather_at_day.dart';
 import '../custom_widget_my/window_at_hour.dart';
 import '../presentation/prehistoric_phenomenon_heat_screen/prehistoric_phenomenon_heat_screen.dart';
 
-
 class InfoAtDayPage extends StatelessWidget {
   late String cityName;
   late String infoAboutName;
@@ -24,8 +23,8 @@ class InfoAtDayPage extends StatelessWidget {
   late bool visibleWindowAtHour;
   late bool visibleWeatherAtDay;
   late bool visibleInfoVirus;
-  late Decoration appDecoration;
-  late String pathToPicture;
+  late String backGroundColor;
+  late String pictureOnIcon;
 
   InfoAtDayPage({
     required this.cityName,
@@ -37,8 +36,8 @@ class InfoAtDayPage extends StatelessWidget {
     required this.visibleWindowAtHour,
     required this.visibleWeatherAtDay,
     required this.visibleInfoVirus,
-    required this.appDecoration,
-    required this.pathToPicture,
+    required this.backGroundColor,
+    required this.pictureOnIcon,
   });
 
   @override
@@ -65,33 +64,22 @@ class InfoAtDayPage extends StatelessWidget {
               child:
                   Column(mainAxisAlignment: MainAxisAlignment.start, children: [
                 Container(
-
-                    padding: getPadding(top: 14, bottom: 14),
+                    padding: getPadding(top: 12, bottom: 12),
                     decoration: AppDecoration.white,
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Card(
-                              clipBehavior: Clip.antiAlias,
-                              elevation: 0,
-                              margin: getMargin(bottom: 9),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadiusStyle.roundedBorder39),
-                              child: Container(
-                                  height: getSize(83),
-                                  width: getSize(83),
-                                  padding: getPadding(
-                                      left: 22, top: 18, right: 22, bottom: 18),
-                                  decoration: appDecoration,
-                                  child: Stack(children: [
-                                    CustomImageView(
-                                        svgPath: ImageConstant.atmosphericPressureIcon,
-                                        height: getVerticalSize(46),
-                                        width: getHorizontalSize(33),
-                                        alignment: Alignment.centerRight)
-                                  ]))),
+                          Stack(alignment: Alignment.center, children: [
+                            CustomImageView(
+                                svgPath: backGroundColor,
+                                height: getSize(79),
+                                width: getSize(79),
+                                margin: getMargin(top: 5, left: 10, right: 10)),
+                            CustomImageView(
+                              svgPath: pictureOnIcon,
+                            ),
+                          ]),
                           Padding(
                               padding: getPadding(top: 2),
                               child: Column(
@@ -121,153 +109,150 @@ class InfoAtDayPage extends StatelessWidget {
                                             .MontserratRomanMedium18Lime900)
                                   ]))
                         ])),
-                Expanded(child: ListView(children:[Visibility(
-                  visible: visibleMainInfo,
-                  child: MainInfo(),
-                ),
-                Visibility(
-                  visible: visibleInfoAtDay,
-                  child: InfoAtDay(
-                    date: '02.01.2023',
-                    infoText:
-                        "На сегодня МЧС рекомендует не ездить по дорогом рядом с каменистой месностью. Высока вероятность камнепада ",
+                Expanded(
+                    child: ListView(children: [
+                  Visibility(
+                    visible: visibleMainInfo,
+                    child: MainInfo(),
                   ),
-                ),
-                Visibility(
-                  visible: visibleForecast,
-                  child: Container(
-                    margin: getMargin(bottom: 8, top:8, left: 16, right: 16),
-                    width: MediaQuery.of(context).size.width-40,
-                    child: Text("Прогноз",
-                        overflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.left,
-                        style: AppStyle.txtH1),
-                  ),
-                ),
-                Visibility(
-                  visible: visibleWeatherAtHour,
-                  child: Container(
-                      width: MediaQuery.of(context).size.width-40,
-                      margin: getMargin(bottom: 8, top:8, left: 16, right: 16),
-                      padding: getPadding(bottom: 16),
-                      decoration: AppDecoration.outlineGray3004,
-                      child: Row(
-                          mainAxisAlignment:
-                              MainAxisAlignment.spaceBetween,
-                          children: [
-                            WheatherAtHour(
-                              hours: "16:00",
-                              temperature: "+25.7",
-                            ),
-                            WheatherAtHour(
-                              hours: "17:00",
-                              temperature: "+24.6",
-                            ),
-                            WheatherAtHour(
-                              hours: "18:00",
-                              temperature: "+23.7",
-                            ),
-                            WheatherAtHour(
-                              hours: "19:00",
-                              temperature: "+22.7",
-                            ),
-                            WheatherAtHour(
-                              hours: "20:00",
-                              temperature: "+21.7",
-                            ),
-                          ])),
-                ),
-                Visibility(
-                  visible: visibleWindowAtHour,
-                  child: Container(
-                    margin: getMargin( top:8, left: 16, right: 16),
-                    width: MediaQuery.of(context).size.width-40,
-                    child: Column(
-                      children: [
-                        Container(
-                            height: 64,
-                            child: ListView.separated(
-                                scrollDirection: Axis.horizontal,
-                                separatorBuilder: (context, index) {
-                                  return SizedBox(height: 26);
-                                },
-                                itemCount: 5,
-                                itemBuilder: (context, index) {
-                                  return WindowAtHour(
-                                    windDirection: "с-в",
-                                    windPower: "0.99",
-                                  );
-                                })),
-                        Padding(
-                            padding: getPadding(top: 10),
-                            child: Row(
-                                mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text("Скорость ветра м/c",
-                                      overflow: TextOverflow.ellipsis,
-                                      textAlign: TextAlign.left,
-                                      style: AppStyle
-                                          .txtMontserratMedium12),
-                                  RichText(
-                                      text: TextSpan(children: [
-                                        TextSpan(
-                                            text: "максимум сегодня ",
-                                            style: TextStyle(
-                                                color: ColorConstant
-                                                    .blueGray800,
-                                                fontSize:
-                                                getFontSize(12),
-                                                fontFamily:
-                                                'Montserrat',
-                                                fontWeight:
-                                                FontWeight.w500)),
-                                        TextSpan(
-                                            text: "0.99 м/c ",
-                                            style: TextStyle(
-                                                color: ColorConstant
-                                                    .blueGray800,
-                                                fontSize:
-                                                getFontSize(12),
-                                                fontFamily:
-                                                'Montserrat',
-                                                fontWeight:
-                                                FontWeight.w600))
-                                      ]),
-                                      textAlign: TextAlign.left)
-                                ])),
-                        Divider(
-                          thickness: 1,
-                          height: 30,
-                        ),
-                      ],
+                  Visibility(
+                    visible: visibleInfoAtDay,
+                    child: InfoAtDay(
+                      date: '02.01.2023',
+                      infoText:
+                          "На сегодня МЧС рекомендует не ездить по дорогом рядом с каменистой месностью. Высока вероятность камнепада ",
                     ),
                   ),
-                ),
-                Visibility(
-                  visible: visibleWeatherAtHour,
-                  child: Container(
-                    margin: getMargin(bottom: 8, top:8, left: 16, right: 16),
+                  Visibility(
+                    visible: visibleForecast,
+                    child: Container(
+                      margin: getMargin(bottom: 8, top: 8, left: 16, right: 16),
                       width: MediaQuery.of(context).size.width - 40,
-                      height: 75,
-                      child: ListView.separated(
-                          padding: getPadding(left: 1, bottom: 7),
-                          scrollDirection: Axis.horizontal,
-                          separatorBuilder: (context, index) {
-                            return SizedBox(height: getVerticalSize(20));
-                          },
-                          itemCount: 5,
-                          itemBuilder: (context, index) {
-                            return WheatherAtDay(
-                                day: "вт",
-                                minTemperature: "+25.7",
-                                maxTemperature: "+30.9");
-                          })),
-                ),
-                Visibility(
-                  visible: visibleInfoVirus,
-                  child: InfoAboutVirus(),
-                )])),
+                      child: Text("Прогноз",
+                          overflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.left,
+                          style: AppStyle.txtH1),
+                    ),
+                  ),
+                  Visibility(
+                    visible: visibleWeatherAtHour,
+                    child: Container(
+                        width: MediaQuery.of(context).size.width - 40,
+                        margin:
+                            getMargin(bottom: 8, top: 8, left: 16, right: 16),
+                        padding: getPadding(bottom: 16),
+                        decoration: AppDecoration.outlineGray3004,
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              WheatherAtHour(
+                                hours: "16:00",
+                                temperature: "+25.7",
+                              ),
+                              WheatherAtHour(
+                                hours: "17:00",
+                                temperature: "+24.6",
+                              ),
+                              WheatherAtHour(
+                                hours: "18:00",
+                                temperature: "+23.7",
+                              ),
+                              WheatherAtHour(
+                                hours: "19:00",
+                                temperature: "+22.7",
+                              ),
+                              WheatherAtHour(
+                                hours: "20:00",
+                                temperature: "+21.7",
+                              ),
+                            ])),
+                  ),
+                  Visibility(
+                    visible: visibleWindowAtHour,
+                    child: Container(
+                      margin: getMargin(top: 8, left: 16, right: 16),
+                      width: MediaQuery.of(context).size.width - 40,
+                      child: Column(
+                        children: [
+                          Container(
+                              height: 64,
+                              child: ListView.separated(
+                                  scrollDirection: Axis.horizontal,
+                                  separatorBuilder: (context, index) {
+                                    return SizedBox(height: 26);
+                                  },
+                                  itemCount: 5,
+                                  itemBuilder: (context, index) {
+                                    return WindowAtHour(
+                                      windDirection: "с-в",
+                                      windPower: "0.99",
+                                    );
+                                  })),
+                          Padding(
+                              padding: getPadding(top: 10),
+                              child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text("Скорость ветра м/c",
+                                        overflow: TextOverflow.ellipsis,
+                                        textAlign: TextAlign.left,
+                                        style: AppStyle.txtMontserratMedium12),
+                                    RichText(
+                                        text: TextSpan(children: [
+                                          TextSpan(
+                                              text: "максимум сегодня ",
+                                              style: TextStyle(
+                                                  color:
+                                                      ColorConstant.blueGray800,
+                                                  fontSize: getFontSize(12),
+                                                  fontFamily: 'Montserrat',
+                                                  fontWeight: FontWeight.w500)),
+                                          TextSpan(
+                                              text: "0.99 м/c ",
+                                              style: TextStyle(
+                                                  color:
+                                                      ColorConstant.blueGray800,
+                                                  fontSize: getFontSize(12),
+                                                  fontFamily: 'Montserrat',
+                                                  fontWeight: FontWeight.w600))
+                                        ]),
+                                        textAlign: TextAlign.left)
+                                  ])),
+                          Divider(
+                            thickness: 1,
+                            height: 30,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Visibility(
+                    visible: visibleWeatherAtHour,
+                    child: Container(
+                        margin:
+                            getMargin(bottom: 8, top: 8, left: 16, right: 16),
+                        width: MediaQuery.of(context).size.width - 40,
+                        height: 75,
+                        child: ListView.separated(
+                            padding: getPadding(left: 1, bottom: 7),
+                            scrollDirection: Axis.horizontal,
+                            separatorBuilder: (context, index) {
+                              return SizedBox(height: getVerticalSize(20));
+                            },
+                            itemCount: 5,
+                            itemBuilder: (context, index) {
+                              return WheatherAtDay(
+                                  day: "вт",
+                                  minTemperature: "+25.7",
+                                  maxTemperature: "+30.9");
+                            })),
+                  ),
+                  Visibility(
+                    visible: visibleInfoVirus,
+                    child: InfoAboutVirus(),
+                  )
+                ])),
               ]),
             ),
             bottomNavigationBar: Padding(

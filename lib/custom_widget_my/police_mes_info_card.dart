@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../core/utils/color_constant.dart';
 import '../core/utils/image_constant.dart';
 import '../presentation/mes_info_screen/mes_info_screen.dart';
+import '../presentation/plots_police_screen/plots_police_screen.dart';
 import '../theme/app_style.dart';
 import '../widgets/custom_image_view.dart';
 
@@ -15,6 +16,7 @@ class PoliceMESInfoCard extends StatelessWidget {
   late String minutes;
   late String estimation;
   late String imagePath;
+  late String reasonText;
   late Color cardColor;
   late String whereCall;
 
@@ -25,6 +27,7 @@ class PoliceMESInfoCard extends StatelessWidget {
     required this.minutes,
     required this.estimation,
     required this.imagePath,
+    required this.reasonText,
     required this.cardColor,
     required this.whereCall,
   });
@@ -34,10 +37,13 @@ class PoliceMESInfoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        if (whereCall == "/button_call_police_three_screen") {
-          Navigator.pushNamed(context, AppRoutes.plotsPoliceScreen);
+        print(whereCall);
+        if (whereCall == "police") {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => PlotsPoliceScreen(reasonText)));
+        } else if(whereCall == "MES") {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => MESInfiScreen(reasonText)));
         } else {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => MESInfiScreen()));
+
         }
 
       },
@@ -73,7 +79,7 @@ class PoliceMESInfoCard extends StatelessWidget {
                             ),
                           ])),
                   Padding(
-                    padding: getPadding(left: 12,),
+                    padding: getPadding(left: 12),
                     child: Column(
                       crossAxisAlignment:
                       CrossAxisAlignment.start,
@@ -82,10 +88,7 @@ class PoliceMESInfoCard extends StatelessWidget {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: MediaQuery.of(context)
-                              .size
-                              .width /
-                              1.5,
+                          width: 230,
                           child: Text(
                               policeMESName,
                               textAlign: TextAlign.left,
@@ -96,10 +99,7 @@ class PoliceMESInfoCard extends StatelessWidget {
                         Padding(
                           padding: getPadding(top: 3),
                           child: Container(
-                            width: MediaQuery.of(context)
-                                .size
-                                .width /
-                                1.5,
+                            width: 220,
                             child: Text(
                                 addres,
                                 textAlign: TextAlign.left,

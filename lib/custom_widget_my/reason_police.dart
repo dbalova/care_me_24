@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../core/utils/color_constant.dart';
 import '../core/utils/size_utils.dart';
+import '../presentation/button_call_police_three_screen/call_a_police.dart';
 import '../routes/app_routes.dart';
 import '../theme/app_style.dart';
 
@@ -29,7 +30,11 @@ class _ReasonPoliceState extends State<ReasonPolice> {
         setState(() {
           widget.backgroundColor = Color.fromRGBO(254, 246, 225, 100);
           Future.delayed(Duration(seconds: 1), () {
-            Navigator.pushNamed(context, AppRoutes.buttonCallPoliceThreeScreen);
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ButtonCallPoliceThreeScreen(widget.text
+                    )));
           });
 
         });

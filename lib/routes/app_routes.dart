@@ -10,19 +10,19 @@ import 'package:careme24/presentation/tracking_one_screen/tracking_one_screen.da
 import 'package:careme24/presentation/tracking_two_screen/tracking_two_screen.dart';
 import 'package:careme24/presentation/button_call_police_two_screen/button_call_police_two_screen.dart';
 import 'package:careme24/presentation/button_call_policecall_activ_item_screen/button_call_policecall_activ_item_screen.dart';
-import 'package:careme24/presentation/button_call_police_three_screen/button_call_police_three_screen.dart';
+import 'package:careme24/presentation/button_call_police_three_screen/call_a_police.dart';
 import 'package:careme24/presentation/button_call_police_one_screen/button_call_police_one_screen.dart';
 import 'package:careme24/presentation/plots_police_screen/plots_police_screen.dart';
 import 'package:careme24/presentation/button_honey_call_activ_item_two_screen/button_honey_call_activ_item_two_screen.dart';
 import 'package:careme24/presentation/button_honey_call_activ_item_one_screen/button_honey_call_activ_item_one_screen.dart';
 import 'package:careme24/presentation/plots_mes_one_screen/plots_mes_one_screen.dart';
-import 'package:careme24/presentation/plots_mes_screen/plots_mes_screen.dart';
+import 'package:careme24/presentation/plots_mes_screen/call_a_mes.dart';
 import 'package:careme24/presentation/k18_screen/k18_screen.dart';
 import 'package:careme24/presentation/waiting_window_screen/waiting_window_screen.dart';
 import 'package:careme24/presentation/waiting_window_two_screen/waiting_window_two_screen.dart';
 import 'package:careme24/presentation/communication_team_screen/communication_team_screen.dart';
 import 'package:careme24/presentation/tracking_screen/tracking_screen.dart';
-import 'package:careme24/presentation/button_honey_call_screen/button_honey_call_screen.dart';
+import 'package:careme24/presentation/button_honey_call_screen/call_an_ambulance.dart';
 import 'package:careme24/presentation/button_honey_call_two_screen/button_honey_call_two_screen.dart';
 import 'package:careme24/presentation/button_honey_call_one_screen/button_honey_call_one_screen.dart';
 import 'package:careme24/presentation/button_honey_call_activ_item_three_screen/button_honey_call_activ_item_three_screen.dart';
@@ -481,21 +481,20 @@ class AppRoutes {
     buttonCallPoliceTwoScreen: (context) => ButtonCallPoliceTwoScreen(),
     buttonCallPolicecallActivItemScreen: (context) =>
         ButtonCallPolicecallActivItemScreen(),
-    buttonCallPoliceThreeScreen: (context) => ButtonCallPoliceThreeScreen(),
     buttonCallPoliceOneScreen: (context) => ButtonCallPoliceOneScreen(),
-    plotsPoliceScreen: (context) => PlotsPoliceScreen(),
+
     buttonHoneyCallActivItemTwoScreen: (context) =>
         ButtonHoneyCallActivItemTwoScreen(),
     buttonHoneyCallActivItemOneScreen: (context) =>
         ButtonHoneyCallActivItemOneScreen(),
     plotsMesOneScreen: (context) => PlotsMesOneScreen(),
-    plotsMesScreen: (context) => PlotsMesScreen(),
+
     k18Screen: (context) => K18Screen(),
     waitingWindowScreen: (context) => WaitingWindowScreen(),
     waitingWindowTwoScreen: (context) => WaitingWindowTwoScreen(),
     communicationTeamScreen: (context) => CommunicationTeamScreen(),
     trackingScreen: (context) => TrackingScreen(),
-    buttonHoneyCallScreen: (context) => ButtonHoneyCallScreen(),
+
     buttonHoneyCallTwoScreen: (context) => ButtonHoneyCallTwoScreen(),
     buttonHoneyCallOneScreen: (context) => ButtonHoneyCallOneScreen(),
     buttonHoneyCallActivItemThreeScreen: (context) =>

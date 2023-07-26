@@ -88,10 +88,7 @@ class HospitalInfoCard extends StatelessWidget {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: MediaQuery.of(context)
-                              .size
-                              .width /
-                              1.5,
+                          width: 220,
                           child: Text(
                               hospitalName,
                               textAlign: TextAlign.left,
@@ -102,10 +99,7 @@ class HospitalInfoCard extends StatelessWidget {
                         Padding(
                           padding: getPadding(top: 3),
                           child: Container(
-                            width: MediaQuery.of(context)
-                                .size
-                                .width /
-                                1.5,
+                            width: 220,
                             child: Text(
                                addres,
                                 textAlign: TextAlign.left,

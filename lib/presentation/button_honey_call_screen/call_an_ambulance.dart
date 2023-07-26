@@ -1,5 +1,5 @@
 import 'package:careme24/core/app_export.dart';
-import 'package:careme24/custom_widget_my/police_mes_info_card.dart';
+import 'package:careme24/custom_widget_my/hospital_info_card.dart';
 import 'package:careme24/widgets/app_bar/appbar_image.dart';
 import 'package:careme24/widgets/app_bar/appbar_title.dart';
 import 'package:careme24/widgets/app_bar/custom_app_bar.dart';
@@ -10,25 +10,28 @@ import '../waiting_window_screen/waiting_window_screen.dart';
 
 final _controller = ValueNotifier<bool>(false);
 
-class PlotsMesScreen extends StatefulWidget {
+class ButtonHoneyCallScreen extends StatefulWidget {
+  late String reasonForTheCall;
+  ButtonHoneyCallScreen(this.reasonForTheCall);
+
   @override
-  State<PlotsMesScreen> createState() => _PlotsMesScreenState();
+  State<ButtonHoneyCallScreen> createState() => _ButtonHoneyCallScreenState();
 }
 
-class _PlotsMesScreenState extends State<PlotsMesScreen> {
+class _ButtonHoneyCallScreenState extends State<ButtonHoneyCallScreen> {
   bool isSelectedSwitch = false;
 
   String descriptionOfTheReason = "";
 
   String radioGroup = "";
 
-  String picturePath = ImageConstant.mesCar;
+  String picturePath = ImageConstant.imgGroup7507;
 
-  void change_picture() {
-    if (picturePath == ImageConstant.mesCar) {
-      picturePath = ImageConstant.mesActiveCar;
+  void change_picture(){
+    if (picturePath == ImageConstant.imgGroup7507){
+    picturePath = ImageConstant.hospitalactivecar;
     } else {
-      picturePath = ImageConstant.mesCar;
+      picturePath = ImageConstant.imgGroup7507;
     }
   }
 
@@ -49,7 +52,7 @@ class _PlotsMesScreenState extends State<PlotsMesScreen> {
                       onTapArrowleft17(context);
                     }),
                 centerTitle: true,
-                title: AppbarTitle(text: "Вызов МЧС"),
+                title: AppbarTitle(text: "Вызов скорой"),
                 styleType: Style.bgFillBlue60001),
             body: Container(
                 width: double.maxFinite,
@@ -120,9 +123,13 @@ class _PlotsMesScreenState extends State<PlotsMesScreen> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                  "Причина вызова",
-                                  style: AppStyle.txtMontserratSemiBold19,
+                                Container(
+                                  width: 240,
+                                  child: Text(
+                                    widget.reasonForTheCall,
+                                    style: AppStyle.txtMontserratSemiBold19,
+                                    overflow: TextOverflow.ellipsis
+                                  ),
                                 ),
                                 CustomImageView(
                                   svgPath:
@@ -136,7 +143,7 @@ class _PlotsMesScreenState extends State<PlotsMesScreen> {
                       Padding(
                         padding: getPadding(top: 18),
                         child: GestureDetector(
-                          onDoubleTap: () {
+                          onDoubleTap: (){
                             setState(() {
                               change_picture();
                             });
@@ -167,7 +174,7 @@ class _PlotsMesScreenState extends State<PlotsMesScreen> {
                                   Padding(
                                     padding: getPadding(top: 11),
                                     child: Text(
-                                      "Вызвать МЧС",
+                                      "Вызвать скорую",
                                       style:
                                           AppStyle.txtMontserratRomanSemiBold18,
                                     ),
@@ -179,19 +186,16 @@ class _PlotsMesScreenState extends State<PlotsMesScreen> {
                         ),
                       ),
                       Padding(
-                          padding: getPadding(top: 20),
-                          child: PoliceMESInfoCard(
-                              policeMESName: "МЧС",
-                              addres: "ул. Пречистенка, 22, Москва, 119034",
-                              meters: "1200м",
-                              minutes: "30 мин",
-                              estimation: "4.7",
-                              imagePath: ImageConstant.fireSmallIcon,
-                              cardColor: ColorConstant.yellow700,
-                              whereCall: ModalRoute.of(context)!
-                                  .settings
-                                  .name
-                                  .toString())),
+                        padding: getPadding(top: 20),
+                        child: HospitalInfoCard(
+                            hospitalName: "Городская больница № 6 им.Семашко",
+                          addres: "ул. Семашко, 6, Симферополь",
+                          meters: "1200м",
+                          minutes: "30 мин.",
+                          imagePath: ImageConstant.imgMask,
+                          estimation: "4.7",
+                        )
+                      ),
                     ]))));
   }
 

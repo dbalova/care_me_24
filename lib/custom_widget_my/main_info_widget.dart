@@ -9,7 +9,7 @@ class MainInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         width: MediaQuery.of(context).size.width - 40,
-        margin: getMargin(bottom: 8, top:8, left: 16, right: 16),
+        margin: getMargin(bottom: 8, top:16, left: 16, right: 16),
         padding:
         getPadding(left: 12, top: 19, right: 12, bottom: 19),
         decoration: AppDecoration.outlineBlack9003f3.copyWith(

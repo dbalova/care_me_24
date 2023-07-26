@@ -1,15 +1,10 @@
 import 'package:careme24/core/app_export.dart';
+import 'package:careme24/custom_widget_my/information_main_icon.dart';
 import 'package:careme24/presentation/news_button_page/news_button_page.dart';
 import 'package:careme24/widgets/custom_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg_provider/flutter_svg_provider.dart' as fs;
 
-import '../../custom_page_my/warning_list_page.dart';
-import '../prehistoric_phenomenon_heat_one_screen/prehistoric_phenomenon_heat_one_screen.dart';
-import '../prehistoric_phenomenon_heat_screen/prehistoric_phenomenon_heat_screen.dart';
-
-// ignore_for_file: must_be_immutable
 class HomeScreen extends StatelessWidget {
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 
@@ -17,12 +12,10 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.blue,
-
     ));
 
     return SafeArea(
         child: Scaffold(
-
             backgroundColor: ColorConstant.whiteA700,
             body: Container(
                 width: double.maxFinite,
@@ -35,620 +28,423 @@ class HomeScreen extends StatelessWidget {
                               padding: getPadding(top: 20, bottom: 20),
                               decoration: AppDecoration.outlineBlack90026,
                               child: Column(
-
-
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     SingleChildScrollView(
                                         scrollDirection: Axis.horizontal,
-
                                         child: IntrinsicWidth(
                                             child: Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.center,
-
                                                 children: [
-
-                                                  Column(
-
-                                                      mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                      children: [
-                                                        Container(
-
-                                                            width:
-                                                            getHorizontalSize(
-                                                                80),
-                                                            child: Text(
-                                                                "Загрязнение воздуха",
-                                                                maxLines: null,
-                                                                textAlign: TextAlign
-                                                                    .center,
-                                                                style: AppStyle
-                                                                    .txtMontserratMedium12)),
-                                                        Stack(
-                                                            alignment: Alignment.center,
-                                                            children: [
-                                                              CustomImageView(
-                                                                  svgPath: 'assets/images/critical.svg',
-                                                                  height: getSize(79),
-                                                                  width: getSize(79),
-
-                                                                  margin:
-                                                                  getMargin(top: 5, left: 10, right: 10)),
-                                                              CustomImageView(
-                                                                svgPath: 'assets/images/airPollution.svg',
-
-                                                              ),
-                                                            ]),
-                                                        //Image.asset("assets/images/harmfully.png"),
-                                                        Padding(
-                                                            padding:
-                                                            getPadding(top: 7),
-                                                            child: Text("AQR 78",
-                                                                overflow:
-                                                                TextOverflow
-                                                                    .ellipsis,
-                                                                textAlign:
-                                                                TextAlign.left,
-                                                                style: AppStyle
-                                                                    .txtMontserratSemiBold12))
-                                                      ]),
-                                                  GestureDetector(
-                                                    onTap: (){
-                                                      Navigator.push(context, MaterialPageRoute(builder: (context) => WarningListPage()));
-                                                    },
-                                                    child: Column(
-
-                                                        mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                        children: [
-                                                          Container(
-
-                                                              width:
-                                                              getHorizontalSize(
-                                                                  80),
-                                                              child: Text(
-                                                                  "Аномальная жара",
-                                                                  maxLines: null,
-                                                                  textAlign: TextAlign
-                                                                      .center,
-                                                                  style: AppStyle
-                                                                      .txtMontserratMedium12)),
-                                                          Stack(
-                                                              alignment: Alignment.center,
-                                                              children: [
-                                                            CustomImageView(
-                                                                svgPath: 'assets/images/harmfully.svg',
-                                                                height: getSize(79),
-                                                                width: getSize(79),
-
-                                                                margin:
-                                                                getMargin(top: 5, left: 10, right: 10)),
-                                                            CustomImageView(
-                                                                svgPath: 'assets/images/img_settings.svg',
-
-                                                            ),
-                                                            ]),
-                                                          //Image.asset("assets/images/harmfully.png"),
-                                                          Padding(
-                                                              padding:
-                                                              getPadding(top: 7),
-                                                              child: Text("AQR 78",
-                                                                  overflow:
-                                                                  TextOverflow
-                                                                      .ellipsis,
-                                                                  textAlign:
-                                                                  TextAlign.left,
-                                                                  style: AppStyle
-                                                                      .txtMontserratSemiBold12))
-                                                        ]),
-                                                  ),
-                                                  Column(
-
-                                                      mainAxisAlignment:
-                                                      MainAxisAlignment.spaceBetween,
-                                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                                      children: [
-                                                        Container(
-                                                          alignment: Alignment.center,
-
-
-                                                            width:
-                                                            getHorizontalSize(
-                                                                80),
-                                                            child: Text(
-                                                                "Ветер \n",
-                                                                maxLines: null,
-                                                                textAlign: TextAlign
-                                                                    .center,
-                                                                style: AppStyle
-                                                                    .txtMontserratMedium12)),
-                                                        Stack(
-                                                            alignment: Alignment.center,
-                                                            children: [
-                                                              CustomImageView(
-                                                                  svgPath: 'assets/images/medium.svg',
-                                                                  height: getSize(80),
-                                                                  width: getSize(80),
-
-                                                                  margin:
-                                                                  getMargin(top: 5, left: 10, right: 10)),
-                                                              CustomImageView(
-                                                                svgPath: 'assets/images/wind.svg',
-
-                                                              ),
-                                                            ]),
-                                                        //Image.asset("assets/images/harmfully.png"),
-                                                        Padding(
-                                                            padding:
-                                                            getPadding(top: 7),
-                                                            child: Row(
-                                                              children: [
-                                                                Text("10 м/с",
-                                                                    overflow:
-                                                                    TextOverflow
-                                                                        .ellipsis,
-                                                                    textAlign:
-                                                                    TextAlign.left,
-                                                                    style: AppStyle
-                                                                        .txtMontserratSemiBold12),
-                                                                Text(" ю-в",
-                                                                    overflow:
-                                                                    TextOverflow
-                                                                        .ellipsis,
-                                                                    textAlign:
-                                                                    TextAlign.left,
-                                                                    style: AppStyle
-                                                                        .txtMontserratSemiBold12Gray50001),
-                                                              ],
-                                                            ))
-                                                      ]),
-                                                  Column(
-
-                                                      mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                      children: [
-                                                        Container(
-
-                                                            width:
-                                                            getHorizontalSize(
-                                                                80),
-                                                            child: Text(
-                                                                "Давление\n",
-                                                                maxLines: null,
-                                                                textAlign: TextAlign
-                                                                    .center,
-                                                                style: AppStyle
-                                                                    .txtMontserratMedium12)),
-                                                        Stack(
-                                                            alignment: Alignment.center,
-                                                            children: [
-                                                              CustomImageView(
-                                                                  svgPath: 'assets/images/good.svg',
-                                                                  height: getSize(79),
-                                                                  width: getSize(79),
-
-                                                                  margin:
-                                                                  getMargin(top: 5, left: 10, right: 10)),
-                                                              CustomImageView(
-                                                                svgPath: 'assets/images/pressure.svg',
-
-                                                              ),
-                                                            ]),
-                                                        //Image.asset("assets/images/harmfully.png"),
-                                                        Padding(
-                                                            padding:
-                                                            getPadding(top: 7),
-                                                            child: Text("720 мм.р.с",
-                                                                overflow:
-                                                                TextOverflow
-                                                                    .ellipsis,
-                                                                textAlign:
-                                                                TextAlign.left,
-                                                                style: AppStyle
-                                                                    .txtMontserratSemiBold12))
-                                                      ]),
-                                                  Column(
-
-                                                      mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                      children: [
-                                                        Container(
-
-                                                            width:
-                                                            getHorizontalSize(
-                                                                80),
-                                                            child: Text(
-                                                                "Пожар\n",
-                                                                maxLines: null,
-                                                                textAlign: TextAlign
-                                                                    .center,
-                                                                style: AppStyle
-                                                                    .txtMontserratMedium12)),
-                                                        Stack(
-                                                            alignment: Alignment.center,
-                                                            children: [
-                                                              CustomImageView(
-                                                                  svgPath: 'assets/images/unactive.svg',
-                                                                  height: getSize(79),
-                                                                  width: getSize(79),
-
-                                                                  margin:
-                                                                  getMargin(top: 5, left: 10, right: 10)),
-                                                              CustomImageView(
-                                                                svgPath: 'assets/images/forestFire.svg',
-
-                                                              ),
-                                                            ]),
-                                                        //Image.asset("assets/images/harmfully.png"),
-                                                        Padding(
-                                                            padding:
-                                                            getPadding(top: 7),
-                                                            child: Text("10",
-                                                                overflow:
-                                                                TextOverflow
-                                                                    .ellipsis,
-                                                                textAlign:
-                                                                TextAlign.left,
-                                                                style: AppStyle
-                                                                    .txtMontserratSemiBold12))
-                                                      ]),
-
+                                              InfoMainIcon(
+                                                  backGroundColor:
+                                                      'assets/images/critical.svg',
+                                                  pictureOnIcon:
+                                                      'assets/images/airPollution.svg',
+                                                  warningName:
+                                                      "Загрязнение воздуха",
+                                                  infoOfWarning: "AQR 78"),
+                                              InfoMainIcon(
+                                                  backGroundColor:
+                                                      'assets/images/harmfully.svg',
+                                                  pictureOnIcon:
+                                                      'assets/images/img_settings.svg',
+                                                  warningName:
+                                                      "Высокая температура",
+                                                  infoOfWarning:
+                                                      "Аномальная жара"),
+                                              InfoMainIcon(
+                                                  backGroundColor:
+                                                      'assets/images/medium.svg',
+                                                  pictureOnIcon:
+                                                      'assets/images/wind.svg',
+                                                  warningName: "Ветер",
+                                                  infoOfWarning: "10 м/с ю-в"),
+                                              InfoMainIcon(
+                                                  backGroundColor:
+                                                      'assets/images/good.svg',
+                                                  pictureOnIcon:
+                                                      'assets/images/pressure.svg',
+                                                  warningName:
+                                                      "Атмосферное давление",
+                                                  infoOfWarning: "720 мм.р.с"),
+                                              InfoMainIcon(
+                                                  backGroundColor:
+                                                      'assets/images/unactive.svg',
+                                                  pictureOnIcon:
+                                                      'assets/images/forestFire.svg',
+                                                  warningName: "Пожар",
+                                                  infoOfWarning: "10"),
                                             ])))
                                   ]))),
-                 Expanded(
-                     flex:1,
-                     child:   ListView(children:[ Card(
-                          clipBehavior: Clip.antiAlias,
-                          elevation: 0,
-                          margin: getMargin(top: 10),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadiusStyle.roundedBorder10),
-                          child: Container(
-
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadiusStyle.roundedBorder10),
-                              child:
-
-
-
-                                    GestureDetector(
+                      Expanded(
+                          flex: 1,
+                          child: ListView(children: [
+                            Card(
+                                clipBehavior: Clip.antiAlias,
+                                elevation: 0,
+                                margin: getMargin(top: 10),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadiusStyle.roundedBorder10),
+                                child: Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadiusStyle.roundedBorder10),
+                                    child: GestureDetector(
                                         onTap: () {
                                           onTapColumnseven(context);
                                         },
                                         child: Container(
                                             margin: getMargin(
-                                                left: 20, top: 10, right: 20, bottom: 10),
-                                            decoration: AppDecoration.fillBlue100.copyWith(
-                                                borderRadius:
-                                                BorderRadiusStyle.roundedBorder10),
-                                            child: Row(
-                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                                                children: [
-                                                  Padding(
-                                                      padding: getPadding(
-                                                          left: 15, top: 0, bottom: 0),
-                                                      child: Column(
-                                                          crossAxisAlignment:
-                                                          CrossAxisAlignment.start,
-                                                          mainAxisAlignment:
-                                                          MainAxisAlignment.center,
-                                                          children: [
-                                                            Text("Магазин",
-                                                                    overflow:
-                                                                    TextOverflow.ellipsis,
-                                                                    textAlign: TextAlign.left,
-                                                                    style: AppStyle
-                                                                        .txtMontserratSemiBold15),
-                                                            Container(
-                                                                width: MediaQuery.of(context).size.width/3,
-                                                                margin: getMargin(top: 3),
-                                                                child: Text(
-                                                                    "Все для вашего здоровья",
-                                                                    maxLines: null,
-                                                                    textAlign: TextAlign.left,
-                                                                    style: AppStyle
-                                                                        .txtMontserratMedium12WhiteA700))
-                                                          ])),
-
-                                                  CustomImageView(
-                                                      svgPath: ImageConstant.imgShop,
-                                                      height: getVerticalSize(122),
-
-                                                      margin: getMargin(left: 10, right: 10,  bottom: 5))
-                                                ])))
-
-                                  )),
-                      Padding(
-                          padding: getPadding(left: 20,  right: 20),
-                          child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                               Container(
-                                   height: MediaQuery.of(context).size.height/4,
-                                   width: MediaQuery.of(context).size.width/2-30,
-                                   child:Column(
-
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-
-                                      Expanded(
-                                          flex:2,
-                                          child: GestureDetector(
-                                              onTap: () {
-
-
-                                                Navigator.pushNamed(context, AppRoutes.homeTwoScreen);
-                                              },
-                                              child: Container(clipBehavior: Clip.antiAlias,
-
-                                                  decoration: AppDecoration
-                                                      .fillIndigoA100
-                                                      .copyWith(
-                                                      borderRadius:
-                                                      BorderRadiusStyle
-                                                          .roundedBorder10),
-                                                  child: Stack(children:[
-
-                                                    Align(
-                                                        alignment: Alignment.bottomRight,
-                                                        child:CustomImageView(
-                                                          height:  (MediaQuery.of(context).size.height/4)/2-20,
-                                                          svgPath: ImageConstant
-                                                              .imgFrameHalf,
-                                                        )),
-                                                    Row(
-                                                      mainAxisAlignment:
-                                                      MainAxisAlignment.spaceBetween,
-                                                      crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-
-                                                      children: [
-                                                        Padding(
-                                                            padding: getPadding(
-                                                              left: 15,
-
-                                                            ),
-                                                            child: Column(
-                                                                crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                                mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                                children: [
-                                                                  Text("Полиция",
-                                                                      overflow:
-                                                                      TextOverflow
-                                                                          .ellipsis,
-                                                                      textAlign:
-                                                                      TextAlign
-                                                                          .left,
-                                                                      style: AppStyle
-                                                                          .txtMontserratSemiBold15),
-                                                                  Container(
-
-                                                                      margin:
-                                                                      getMargin(
-                                                                          top:
-                                                                          4),
-                                                                      child: Text(
-                                                                          "Безопасность",
-                                                                          maxLines:
-                                                                          null,
-                                                                          textAlign:
-                                                                          TextAlign
-                                                                              .left,
-                                                                          style: AppStyle
-                                                                              .txtMontserratMedium12WhiteA700))
-                                                                ])),
-
-                                                      ]),])))),
-                                    SizedBox(height: 10,),
-                                     Expanded(
-                                         flex:2,
-                                         child: GestureDetector(
-                                          onTap: () {
-                                            Navigator.pushNamed(context, AppRoutes.homeOneScreen);
-                                          },
-                                          child: Container(
-                                              decoration: AppDecoration
-                                                  .fillYellow700
-                                                  .copyWith(
-                                                      borderRadius:
-                                                          BorderRadiusStyle
-                                                              .roundedBorder10),
-                                              child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.spaceBetween,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-
-                                                  children: [
-                                                    Padding(
-                                                        padding: getPadding(
-                                                            left: 15,
-                                                            ),
-                                                        child: Column(
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            children: [
-                                                              Text("МЧС",
-                                                                  overflow:
-                                                                      TextOverflow
-                                                                          .ellipsis,
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .left,
-                                                                  style: AppStyle
-                                                                      .txtMontserratSemiBold15),
-                                                              Container(
-                                                                  width:
-                                                                  MediaQuery.of(context).size.width/5,
-                                                                  margin:
-                                                                      getMargin(
-                                                                          top:
-                                                                              4),
-                                                                  child: Text(
-                                                                      "Будь всегда  \nна готове",
-                                                                      maxLines:
-                                                                          null,
-                                                                      textAlign:
-                                                                          TextAlign
-                                                                              .left,
-                                                                      style: AppStyle
-                                                                          .txtMontserratMedium12WhiteA700))
-                                                            ])),
-                                                    CustomImageView(
-                                                      height:  (MediaQuery.of(context).size.height/4)/2-5,
-                                                        svgPath: ImageConstant
-                                                            .imgFireHalf,
-                                                       )
-                                                  ]))))
-                                    ])),
-                                GestureDetector(
-                                    onTap: () {
-                                      Navigator.pushNamed(context, AppRoutes.homeFourScreen);
-
-                                    },
-                                    child: Card(
-                                        clipBehavior: Clip.antiAlias,
-                                        elevation: 0,
-                                        margin: getMargin(left: 10),
-                                        color: ColorConstant.pink300,
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadiusStyle
-                                                .roundedBorder10),
-                                        child: Container(
-                                            height: MediaQuery.of(context).size.height/4,
-                                            width: MediaQuery.of(context).size.width/2-30,
+                                                left: 20,
+                                                top: 10,
+                                                right: 20,
+                                                bottom: 10),
                                             decoration: AppDecoration
-                                                .fillPink300
+                                                .fillBlue100
                                                 .copyWith(
                                                     borderRadius:
                                                         BorderRadiusStyle
                                                             .roundedBorder10),
-                                            child: Stack(
-                                                alignment:
-                                                    Alignment.centerRight,
+                                            child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
                                                 children: [
-                                                  CustomImageView(
-                                                      width: MediaQuery.of(context).size.width/3,
-                                                      imagePath:
-                                                      ImageConstant
-                                                          .imgGroup7335,
-
-                                                      alignment:
-                                                      Alignment
-                                                          .bottomRight),
-                                                  Align(
-                                                      alignment:
-                                                          Alignment.topLeft,
-                                                      child: Padding(
-                                                          padding: getPadding(
-                                                              left: 14,
-                                                              top: 14),
-                                                          child: Column(
-
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Text("Скорая",
-                                                                    overflow:
-                                                                        TextOverflow
-                                                                            .ellipsis,
+                                                  Padding(
+                                                      padding: getPadding(
+                                                          left: 15,
+                                                          top: 0,
+                                                          bottom: 0),
+                                                      child: Column(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Text("Магазин",
+                                                                overflow:
+                                                                    TextOverflow
+                                                                        .ellipsis,
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .left,
+                                                                style: AppStyle
+                                                                    .txtMontserratSemiBold15),
+                                                            Container(
+                                                                width: MediaQuery
+                                                                            .of(
+                                                                                context)
+                                                                        .size
+                                                                        .width /
+                                                                    3,
+                                                                margin:
+                                                                    getMargin(
+                                                                        top: 3),
+                                                                child: Text(
+                                                                    "Все для вашего здоровья",
+                                                                    maxLines:
+                                                                        null,
                                                                     textAlign:
                                                                         TextAlign
                                                                             .left,
                                                                     style: AppStyle
-                                                                        .txtMontserratSemiBold15),
-                                                                Container(
-                                                                    width:
-                                                                        getHorizontalSize(
-                                                                            94),
-                                                                    margin:
-                                                                        getMargin(
-                                                                            top:
-                                                                                3),
-                                                                    child: Text(
-                                                                        "Быстрый вызов помощи",
-                                                                        maxLines:
-                                                                            null,
-                                                                        textAlign:
-                                                                            TextAlign
-                                                                                .left,
-                                                                        style: AppStyle
-                                                                            .txtMontserratMedium12WhiteA700))
-                                                              ]))),
-
-
-                                                ]))))
-                              ])),
-
-                     GestureDetector(
-                          onTap: () {
-                            //onTapRowsixteen(context);
-                            Navigator.pushNamed(context, AppRoutes.newsButtonPage);
-                          },
-                          child: Container(
-
-                              clipBehavior: Clip.antiAlias,
-                              margin: getMargin(
-                                  left: 20, top: 10, right: 20, bottom: 10),
-                              decoration: AppDecoration.fillCyan300.copyWith(
-                                  borderRadius:
-                                  BorderRadiusStyle.roundedBorder10),
-                              child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                                  children: [
-                                    Padding(
-                                        padding: getPadding(
-                                            left: 15, top: 0, bottom: 0),
-                                        child: Column(
-                                            crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                            mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                            children: [
-                                              Text("Новости",
-                                                  overflow:
-                                                  TextOverflow.ellipsis,
-                                                  textAlign: TextAlign.left,
-                                                  style: AppStyle
-                                                      .txtMontserratSemiBold15),
-                                              Container(
-                                                  width: MediaQuery.of(context).size.width/3,
-                                                  margin: getMargin(top: 3),
-                                                  child: Text(
-                                                      "Узнавайте больше из СМИ",
-                                                      maxLines: null,
-                                                      textAlign: TextAlign.left,
-                                                      style: AppStyle
-                                                          .txtMontserratMedium12WhiteA700))
-                                            ])),
-
-                                    CustomImageView(
-                                        height: getVerticalSize(122),
-width: MediaQuery.of(context).size.width/2,
-                                      imagePath:
-                                      ImageConstant
-                                          .imgNews,alignment:
-                      Alignment
-                          .bottomRight),
-
-                                  ])))]))
+                                                                        .txtMontserratMedium12WhiteA700))
+                                                          ])),
+                                                  CustomImageView(
+                                                      svgPath:
+                                                          ImageConstant.imgShop,
+                                                      height:
+                                                          getVerticalSize(122),
+                                                      margin: getMargin(
+                                                          left: 10,
+                                                          right: 10,
+                                                          bottom: 5))
+                                                ]))))),
+                            Padding(
+                                padding: getPadding(left: 20, right: 20),
+                                child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height /
+                                              4,
+                                          width: MediaQuery.of(context)
+                                                      .size
+                                                      .width /
+                                                  2 -
+                                              30,
+                                          child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Expanded(
+                                                    flex: 2,
+                                                    child: GestureDetector(
+                                                        onTap: () {
+                                                          Navigator.pushNamed(
+                                                              context,
+                                                              AppRoutes
+                                                                  .homeTwoScreen);
+                                                        },
+                                                        child: Container(
+                                                            clipBehavior:
+                                                                Clip.antiAlias,
+                                                            decoration: AppDecoration
+                                                                .fillIndigoA100
+                                                                .copyWith(
+                                                                    borderRadius:
+                                                                        BorderRadiusStyle
+                                                                            .roundedBorder10),
+                                                            child: Stack(
+                                                                children: [
+                                                                  Align(
+                                                                      alignment:
+                                                                          Alignment
+                                                                              .bottomRight,
+                                                                      child:
+                                                                          CustomImageView(
+                                                                        height:
+                                                                            (MediaQuery.of(context).size.height / 4) / 2 -
+                                                                                20,
+                                                                        svgPath:
+                                                                            ImageConstant.imgFrameHalf,
+                                                                      )),
+                                                                  Row(
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .spaceBetween,
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .center,
+                                                                      children: [
+                                                                        Padding(
+                                                                            padding:
+                                                                                getPadding(
+                                                                              left: 15,
+                                                                            ),
+                                                                            child:
+                                                                                Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.center, children: [
+                                                                              Text("Полиция", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtMontserratSemiBold15),
+                                                                              Container(margin: getMargin(top: 4), child: Text("Безопасность", maxLines: null, textAlign: TextAlign.left, style: AppStyle.txtMontserratMedium12WhiteA700))
+                                                                            ])),
+                                                                      ]),
+                                                                ])))),
+                                                SizedBox(
+                                                  height: 10,
+                                                ),
+                                                Expanded(
+                                                    flex: 2,
+                                                    child: GestureDetector(
+                                                        onTap: () {
+                                                          Navigator.pushNamed(
+                                                              context,
+                                                              AppRoutes
+                                                                  .homeOneScreen);
+                                                        },
+                                                        child: Container(
+                                                            decoration: AppDecoration
+                                                                .fillYellow700
+                                                                .copyWith(
+                                                                    borderRadius:
+                                                                        BorderRadiusStyle
+                                                                            .roundedBorder10),
+                                                            child: Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .center,
+                                                                children: [
+                                                                  Padding(
+                                                                      padding:
+                                                                          getPadding(
+                                                                        left:
+                                                                            15,
+                                                                      ),
+                                                                      child: Column(
+                                                                          crossAxisAlignment: CrossAxisAlignment
+                                                                              .start,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.center,
+                                                                          children: [
+                                                                            Text("МЧС",
+                                                                                overflow: TextOverflow.ellipsis,
+                                                                                textAlign: TextAlign.left,
+                                                                                style: AppStyle.txtMontserratSemiBold15),
+                                                                            Container(
+                                                                                width: MediaQuery.of(context).size.width / 5,
+                                                                                margin: getMargin(top: 4),
+                                                                                child: Text("Будь всегда  \nна готове", maxLines: null, textAlign: TextAlign.left, style: AppStyle.txtMontserratMedium12WhiteA700))
+                                                                          ])),
+                                                                  CustomImageView(
+                                                                    height:
+                                                                        (MediaQuery.of(context).size.height / 4) /
+                                                                                2 -
+                                                                            5,
+                                                                    svgPath:
+                                                                        ImageConstant
+                                                                            .imgFireHalf,
+                                                                  )
+                                                                ]))))
+                                              ])),
+                                      GestureDetector(
+                                          onTap: () {
+                                            Navigator.pushNamed(context,
+                                                AppRoutes.homeFourScreen);
+                                          },
+                                          child: Card(
+                                              clipBehavior: Clip.antiAlias,
+                                              elevation: 0,
+                                              margin: getMargin(left: 10),
+                                              color: ColorConstant.pink300,
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadiusStyle
+                                                          .roundedBorder10),
+                                              child: Container(
+                                                  height: MediaQuery.of(context)
+                                                          .size
+                                                          .height /
+                                                      4,
+                                                  width: MediaQuery.of(context)
+                                                              .size
+                                                              .width /
+                                                          2 -
+                                                      30,
+                                                  decoration: AppDecoration
+                                                      .fillPink300
+                                                      .copyWith(
+                                                          borderRadius:
+                                                              BorderRadiusStyle
+                                                                  .roundedBorder10),
+                                                  child: Stack(
+                                                      alignment:
+                                                          Alignment.centerRight,
+                                                      children: [
+                                                        CustomImageView(
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width /
+                                                                3,
+                                                            imagePath:
+                                                                ImageConstant
+                                                                    .imgGroup7335,
+                                                            alignment: Alignment
+                                                                .bottomRight),
+                                                        Align(
+                                                            alignment: Alignment
+                                                                .topLeft,
+                                                            child: Padding(
+                                                                padding:
+                                                                    getPadding(
+                                                                        left:
+                                                                            14,
+                                                                        top:
+                                                                            14),
+                                                                child: Column(
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Text(
+                                                                          "Скорая",
+                                                                          overflow: TextOverflow
+                                                                              .ellipsis,
+                                                                          textAlign: TextAlign
+                                                                              .left,
+                                                                          style:
+                                                                              AppStyle.txtMontserratSemiBold15),
+                                                                      Container(
+                                                                          width: getHorizontalSize(
+                                                                              94),
+                                                                          margin: getMargin(
+                                                                              top:
+                                                                                  3),
+                                                                          child: Text(
+                                                                              "Быстрый вызов помощи",
+                                                                              maxLines: null,
+                                                                              textAlign: TextAlign.left,
+                                                                              style: AppStyle.txtMontserratMedium12WhiteA700))
+                                                                    ]))),
+                                                      ]))))
+                                    ])),
+                            GestureDetector(
+                                onTap: () {
+                                  //onTapRowsixteen(context);
+                                  Navigator.pushNamed(
+                                      context, AppRoutes.newsButtonPage);
+                                },
+                                child: Container(
+                                    clipBehavior: Clip.antiAlias,
+                                    margin: getMargin(
+                                        left: 20,
+                                        top: 10,
+                                        right: 20,
+                                        bottom: 10),
+                                    decoration: AppDecoration.fillCyan300
+                                        .copyWith(
+                                            borderRadius: BorderRadiusStyle
+                                                .roundedBorder10),
+                                    child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Padding(
+                                              padding: getPadding(
+                                                  left: 15, top: 0, bottom: 0),
+                                              child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Text("Новости",
+                                                        overflow: TextOverflow
+                                                            .ellipsis,
+                                                        textAlign:
+                                                            TextAlign.left,
+                                                        style: AppStyle
+                                                            .txtMontserratSemiBold15),
+                                                    Container(
+                                                        width: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .width /
+                                                            3,
+                                                        margin:
+                                                            getMargin(top: 3),
+                                                        child: Text(
+                                                            "Узнавайте больше из СМИ",
+                                                            maxLines: null,
+                                                            textAlign:
+                                                                TextAlign.left,
+                                                            style: AppStyle
+                                                                .txtMontserratMedium12WhiteA700))
+                                                  ])),
+                                          CustomImageView(
+                                              height: getVerticalSize(122),
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width /
+                                                  2,
+                                              imagePath: ImageConstant.imgNews,
+                                              alignment: Alignment.bottomRight),
+                                        ])))
+                          ]))
                     ])),
             bottomNavigationBar:
                 CustomBottomBar(onChanged: (BottomBarEnum type) {

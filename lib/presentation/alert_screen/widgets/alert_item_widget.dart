@@ -1,3 +1,4 @@
+import 'package:careme24/app_icon_admin.dart';
 import 'package:careme24/core/app_export.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -21,7 +22,7 @@ class AlertItemWidget extends StatelessWidget {
                   onPressed: (BuildContext context ) { },
                   backgroundColor:ColorConstant.blueGray800,
                   foregroundColor: Colors.white,
-                  icon: Icons.call,
+                  icon: AppIconAdmin.no_admin,
                   label: 'Не админ',
                 ),
                 SlidableAction(

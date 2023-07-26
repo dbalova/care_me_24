@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../core/utils/color_constant.dart';
 import '../core/utils/size_utils.dart';
+import '../presentation/button_honey_call_screen/call_an_ambulance.dart';
 import '../routes/app_routes.dart';
 import '../theme/app_style.dart';
 
@@ -29,7 +30,11 @@ class _ReasonState extends State<Reason> {
         setState(() {
           widget.backgroundColor = Color.fromRGBO(254, 246, 225, 100);
           Future.delayed(Duration(seconds: 1), () {
-            Navigator.pushNamed(context, AppRoutes.buttonHoneyCallScreen);
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ButtonHoneyCallScreen(widget.text
+                    )));
           });
 
         });

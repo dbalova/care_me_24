@@ -1,32 +1,39 @@
 import 'package:careme24/core/app_export.dart';
-import 'package:careme24/custom_widget_my/hospital_info_card.dart';
 import 'package:careme24/widgets/app_bar/appbar_image.dart';
 import 'package:careme24/widgets/app_bar/appbar_title.dart';
 import 'package:careme24/widgets/app_bar/custom_app_bar.dart';
 import 'package:careme24/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
+import '../../custom_widget_my/police_mes_info_card.dart';
+import '../waiting_window_screen/waiting_window_screen.dart';
+
 final _controller = ValueNotifier<bool>(false);
 
-class ButtonHoneyCallScreen extends StatefulWidget {
+class ButtonCallPoliceThreeScreen extends StatefulWidget {
+  late String reasonForTheCall;
+  ButtonCallPoliceThreeScreen(this.reasonForTheCall);
+
   @override
-  State<ButtonHoneyCallScreen> createState() => _ButtonHoneyCallScreenState();
+  State<ButtonCallPoliceThreeScreen> createState() =>
+      _ButtonCallPoliceThreeScreenState();
 }
 
-class _ButtonHoneyCallScreenState extends State<ButtonHoneyCallScreen> {
+class _ButtonCallPoliceThreeScreenState
+    extends State<ButtonCallPoliceThreeScreen> {
   bool isSelectedSwitch = false;
 
   String descriptionOfTheReason = "";
 
   String radioGroup = "";
 
-  String picturePath = ImageConstant.imgGroup7507;
+  String picturePath = ImageConstant.imgGroup7506;
 
-  void change_picture(){
-    if (picturePath == ImageConstant.imgGroup7507){
-    picturePath = ImageConstant.hospitalactivecar;
+  void change_picture() {
+    if (picturePath == ImageConstant.imgGroup7506) {
+      picturePath = ImageConstant.imgGroup7506WhiteA700;
     } else {
-      picturePath = ImageConstant.imgGroup7507;
+      picturePath = ImageConstant.imgGroup7506;
     }
   }
 
@@ -47,7 +54,7 @@ class _ButtonHoneyCallScreenState extends State<ButtonHoneyCallScreen> {
                       onTapArrowleft17(context);
                     }),
                 centerTitle: true,
-                title: AppbarTitle(text: "Вызов скорой"),
+                title: AppbarTitle(text: "Вызов полиции"),
                 styleType: Style.bgFillBlue60001),
             body: Container(
                 width: double.maxFinite,
@@ -118,9 +125,13 @@ class _ButtonHoneyCallScreenState extends State<ButtonHoneyCallScreen> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                  "Причина вызова",
-                                  style: AppStyle.txtMontserratSemiBold19,
+                                Container(
+                                  width: 240,
+                                  child: Text(
+                                    widget.reasonForTheCall,
+                                    style: AppStyle.txtMontserratSemiBold19,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
                                 ),
                                 CustomImageView(
                                   svgPath:
@@ -134,10 +145,13 @@ class _ButtonHoneyCallScreenState extends State<ButtonHoneyCallScreen> {
                       Padding(
                         padding: getPadding(top: 18),
                         child: GestureDetector(
-                          onDoubleTap: (){
+                          onDoubleTap: () {
                             setState(() {
                               change_picture();
                             });
+                          },
+                          onLongPress: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => WaitingWindowScreen()));
                           },
                           child: Card(
                             elevation: 8,
@@ -162,7 +176,7 @@ class _ButtonHoneyCallScreenState extends State<ButtonHoneyCallScreen> {
                                   Padding(
                                     padding: getPadding(top: 11),
                                     child: Text(
-                                      "Вызвать скорую",
+                                      "Вызвать полицию",
                                       style:
                                           AppStyle.txtMontserratRomanSemiBold18,
                                     ),
@@ -175,14 +189,18 @@ class _ButtonHoneyCallScreenState extends State<ButtonHoneyCallScreen> {
                       ),
                       Padding(
                         padding: getPadding(top: 20),
-                        child: HospitalInfoCard(
-                            hospitalName: "Городская больница № 6 им.Семашко",
-                          addres: "ул. Семашко, 6, Симферополь",
+                        child: PoliceMESInfoCard(
+                          policeMESName:
+                              "Участковый пункт полиции № 1 по району Арбат",
+                          addres: "ул. Ильинка, 3/8, стр. 5, Москва, 109012",
                           meters: "1200м",
-                          minutes: "30 мин.",
-                          imagePath: ImageConstant.imgMask,
+                          minutes: "30 мин",
                           estimation: "4.7",
-                        )
+                          imagePath: ImageConstant.policehat,
+                          cardColor: ColorConstant.indigoA100,
+                          whereCall:
+                              "police", reasonText: widget.reasonForTheCall,
+                        ),
                       ),
                     ]))));
   }

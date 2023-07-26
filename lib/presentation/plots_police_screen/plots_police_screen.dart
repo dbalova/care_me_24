@@ -9,6 +9,10 @@ import 'package:careme24/widgets/custom_drop_down.dart';
 import 'package:flutter/material.dart';
 
 class PlotsPoliceScreen extends StatefulWidget {
+  late String reasonForTheCall;
+
+  PlotsPoliceScreen(this.reasonForTheCall);
+
   @override
   State<PlotsPoliceScreen> createState() => _PlotsPoliceScreenState();
 }
@@ -142,30 +146,34 @@ bool _price  = false;
                                         ]))
                               ])),
                       Container(
-                          width: double.maxFinite,
-                          child: Container(
-                              margin: getMargin(left: 1, top: 16, right: 1),
-                              padding: getPadding(
-                                  left: 20, right: 20, bottom: 13),
-                              decoration: AppDecoration.fillBlue100.copyWith(
-                                  borderRadius:
-                                      BorderRadiusStyle.roundedBorder10),
-                              child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    CustomDropDown(
-                                        focusNode: FocusNode(),
-                                        icon: Container(
-                                            margin: getMargin(left: 30),
-                                            child: CustomImageView(
-                                                svgPath: ImageConstant
-                                                    .imgArrowdownLightBlue900)),
-                                        hintText: "Проведение дем...",
-                                        margin: getMargin(top: 2),
-                                        variant: DropDownVariant.None,
-                                        onChanged: (value) {})
-                                  ]))),
+                        margin: getMargin(top: 32),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Color.fromRGBO(178, 218, 255, 100),
+                        ),
+                        width: MediaQuery.of(context).size.width - 40,
+                        height: 80,
+                        child: Padding(
+                          padding: getPadding(left: 20, right: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                width: 240,
+                                child: Text(
+                                  widget.reasonForTheCall,
+                                  style: AppStyle.txtMontserratSemiBold19,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                              CustomImageView(
+                                svgPath:
+                                ImageConstant.imgArrowdownLightBlue900,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
                       Padding(
                           padding: getPadding(top: 20),
                           child:
@@ -293,7 +301,7 @@ bool _price  = false;
                                     whereCall: ModalRoute.of(context)!
                                         .settings
                                         .name
-                                        .toString(),
+                                        .toString(), reasonText: "",
                                   );
                                 },
                                 separatorBuilder: (BuildContext context,

@@ -8,9 +8,210 @@ import 'package:careme24/widgets/custom_icon_button.dart';
 import 'package:careme24/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
+import '../alert_screen/alert_screen.dart';
+
 // ignore_for_file: must_be_immutable
-class WaitingWindowScreen extends StatelessWidget {
+class WaitingWindowScreen extends StatefulWidget {
+  @override
+  State<WaitingWindowScreen> createState() => _WaitingWindowScreenState();
+}
+
+class _WaitingWindowScreenState extends State<WaitingWindowScreen> {
   TextEditingController relativesnotifiController = TextEditingController();
+
+  String centerText = "Нажмите для срочной помощи подготовленных людей";
+  Widget bottomWidget = Column(children: [
+    Card(
+        clipBehavior: Clip.antiAlias,
+        elevation: 0,
+        margin: EdgeInsets.all(0),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadiusStyle
+                .roundedBorder39),
+        child: Container(
+            height: getSize(78),
+            width: getSize(78),
+            padding: getPadding(
+                left: 21,
+                top: 27,
+                right: 21,
+                bottom: 27),
+            decoration: AppDecoration
+                .outlineLightgreen90066
+                .copyWith(
+                borderRadius:
+                BorderRadiusStyle
+                    .roundedBorder39),
+            child: Stack(children: [
+              CustomImageView(
+                  svgPath: ImageConstant
+                      .imgVideocameraWhiteA700,
+                  height: getVerticalSize(19),
+                  width:
+                  getHorizontalSize(31),
+                  alignment:
+                  Alignment.bottomRight)
+            ]))),
+    Padding(
+        padding: getPadding(top: 4),
+        child: Text("Видео",
+            overflow:
+            TextOverflow.ellipsis,
+            textAlign: TextAlign.left,
+            style: AppStyle
+                .txtUbuntuMedium12))
+  ],);
+  Widget centerWidget = Container(
+      margin: getMargin(left: 111, top: 34, right: 111),
+      padding: getPadding(
+          left: 28, top: 38, right: 28, bottom: 38),
+      decoration: AppDecoration.outlineRed90066
+          .copyWith(
+          borderRadius:
+          BorderRadiusStyle.circleBorder53),
+      child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+                padding: getPadding(top: 1),
+                child: Text("SOS",
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.left,
+                    style: AppStyle
+                        .txtMontserratRomanBold22))
+          ]));
+
+  void change_widget(){
+    if (centerText == "Нажмите для срочной помощи подготовленных людей"){
+      bottomWidget = Column(children: [
+        Card(
+            clipBehavior: Clip.antiAlias,
+            elevation: 0,
+            margin: EdgeInsets.all(0),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadiusStyle
+                    .roundedBorder39),
+            child: Container(
+                height: 80,
+                width: 80,
+                decoration: AppDecoration
+                    .outlineRed90066
+                    .copyWith(
+                    borderRadius:
+                    BorderRadiusStyle
+                        .roundedBorder39),
+                child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("SOS",
+                          overflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.left,
+                          style: AppStyle
+                              .txtMontserratRomanBold22)
+                    ]))),
+        Padding(
+            padding: getPadding(top: 4),
+            child: Text("SOS",
+                overflow:
+                TextOverflow.ellipsis,
+                textAlign: TextAlign.left,
+                style: AppStyle
+                    .txtUbuntuMedium12))
+      ],
+      );
+      centerWidget = Container(
+          margin: getMargin(left: 111, top: 34, right: 111),
+          height: 112,
+          width: 112,
+          padding: getPadding(
+              left: 21,
+              top: 27,
+              right: 21,
+              bottom: 27),
+          decoration: AppDecoration
+              .outlineLightgreen90066
+              .copyWith(
+              borderRadius:
+              BorderRadiusStyle
+                  .circleBorder53),
+          child: Stack(children: [
+            CustomImageView(
+                svgPath: ImageConstant
+                    .imgVideocameraWhiteA700,
+                height: getVerticalSize(19),
+                width:
+                getHorizontalSize(31),
+                alignment:
+                Alignment.center)
+          ]));
+      centerText = "Запись видео на сервер";
+    } else {
+      bottomWidget = Column(children: [
+        Card(
+            clipBehavior: Clip.antiAlias,
+            elevation: 0,
+            margin: EdgeInsets.all(0),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadiusStyle
+                    .roundedBorder39),
+            child: Container(
+                height: getSize(78),
+                width: getSize(78),
+                padding: getPadding(
+                    left: 21,
+                    top: 27,
+                    right: 21,
+                    bottom: 27),
+                decoration: AppDecoration
+                    .outlineLightgreen90066
+                    .copyWith(
+                    borderRadius:
+                    BorderRadiusStyle
+                        .roundedBorder39),
+                child: Stack(children: [
+                  CustomImageView(
+                      svgPath: ImageConstant
+                          .imgVideocameraWhiteA700,
+                      height: getVerticalSize(19),
+                      width:
+                      getHorizontalSize(31),
+                      alignment:
+                      Alignment.bottomRight)
+                ]))),
+        Padding(
+            padding: getPadding(top: 4),
+            child: Text("Видео",
+                overflow:
+                TextOverflow.ellipsis,
+                textAlign: TextAlign.left,
+                style: AppStyle
+                    .txtUbuntuMedium12))
+      ],);
+      centerText = "Нажмите для срочной помощи подготовленных людей";
+      centerWidget = Container(
+          margin: getMargin(left: 111, top: 34, right: 111),
+          padding: getPadding(
+              left: 28, top: 38, right: 28, bottom: 38),
+          decoration: AppDecoration.outlineRed90066
+              .copyWith(
+              borderRadius:
+              BorderRadiusStyle.circleBorder53),
+          child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                    padding: getPadding(top: 1),
+                    child: Text("SOS",
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.left,
+                        style: AppStyle
+                            .txtMontserratRomanBold22))
+              ]));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,38 +243,47 @@ class WaitingWindowScreen extends StatelessWidget {
                 elevation: 8,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8)),
-                child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                    Radius.circular(8),
-                  )),
-                  height: 72,
-                  width: MediaQuery.of(context).size.width - 40,
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: getPadding(left: 16),
-                        child: Container(
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AlertScreen()));
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                      Radius.circular(8),
+
+                    )),
+                    height: 72,
+                    width: MediaQuery.of(context).size.width - 40,
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: getPadding(left: 16),
+                          child: Container(
+                              width: 24,
+                              height: 24,
+                              child: CustomImageView(
+                                imagePath: ImageConstant.imgInfoCircle,
+                              )),
+                        ),
+                        Padding(
+                          padding: getPadding(left: 12, right: 24),
+                          child: Text(
+                            "Родственники оповещены",
+                            style: AppStyle.txtMontserratMedium15Black900,
+                          ),
+                        ),
+                        Container(
                             width: 24,
                             height: 24,
                             child: CustomImageView(
-                              imagePath: ImageConstant.imgInfoCircle,
-                            )),
-                      ),
-                      Padding(
-                        padding: getPadding(left: 12, right: 24),
-                        child: Text(
-                          "Родственники оповещены",
-                          style: AppStyle.txtMontserratMedium15Black900,
-                        ),
-                      ),
-                      Container(
-                          width: 24,
-                          height: 24,
-                          child: CustomImageView(
-                            svgPath: ImageConstant.imgCloseGray50001,
-                          ))
-                    ],
+                              svgPath: ImageConstant.imgCloseGray50001,
+                            ))
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -114,29 +324,17 @@ class WaitingWindowScreen extends StatelessWidget {
                               style: AppStyle.txtMontserratMedium17,
                             ),
                           ),
-                          Container(
-                              margin: getMargin(left: 111, top: 34, right: 111),
-                              padding: getPadding(
-                                  left: 28, top: 38, right: 28, bottom: 38),
-                              decoration: AppDecoration.outlineRed90066
-                                  .copyWith(
-                                      borderRadius:
-                                          BorderRadiusStyle.circleBorder53),
-                              child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                        padding: getPadding(top: 1),
-                                        child: Text("SOS",
-                                            overflow: TextOverflow.ellipsis,
-                                            textAlign: TextAlign.left,
-                                            style: AppStyle
-                                                .txtMontserratRomanBold22))
-                                  ])),
+                          GestureDetector(
+                            onTap: (){
+                              setState(() {
+                                change_widget();
+                              });
+                            },
+                            child: centerWidget
+                          ),
                           Padding(
                             padding: getPadding(top: 12, bottom: 32),
-                            child: Text("Нажмите для срочной помощи подготовленных людей",
+                            child: Text(centerText,
                             style: AppStyle.txtMontserratSemiBold15redtext,
                             textAlign: TextAlign.center,),
                           ),
@@ -188,47 +386,7 @@ class WaitingWindowScreen extends StatelessWidget {
                                 ])),
                       ],
                     ),
-                    Column(children: [
-                      Card(
-                          clipBehavior: Clip.antiAlias,
-                          elevation: 0,
-                          margin: EdgeInsets.all(0),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadiusStyle
-                                  .roundedBorder39),
-                          child: Container(
-                              height: getSize(78),
-                              width: getSize(78),
-                              padding: getPadding(
-                                  left: 21,
-                                  top: 27,
-                                  right: 21,
-                                  bottom: 27),
-                              decoration: AppDecoration
-                                  .outlineLightgreen90066
-                                  .copyWith(
-                                  borderRadius:
-                                  BorderRadiusStyle
-                                      .roundedBorder39),
-                              child: Stack(children: [
-                                CustomImageView(
-                                    svgPath: ImageConstant
-                                        .imgVideocameraWhiteA700,
-                                    height: getVerticalSize(19),
-                                    width:
-                                    getHorizontalSize(31),
-                                    alignment:
-                                    Alignment.bottomRight)
-                              ]))),
-                      Padding(
-                          padding: getPadding(top: 4),
-                          child: Text("Видео",
-                              overflow:
-                              TextOverflow.ellipsis,
-                              textAlign: TextAlign.left,
-                              style: AppStyle
-                                  .txtUbuntuMedium12))
-                    ],),
+                    bottomWidget,
                     Column(children: [
                       Padding(
                           padding: getPadding(top: 20),
@@ -268,83 +426,6 @@ class WaitingWindowScreen extends StatelessWidget {
           ],
         ),
       ),
-
-
-
-      //КНОПКА ТАКСИ  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      /*Padding(
-                                padding: getPadding(top: 20),
-                                child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.start,
-                                    children: [
-                                      CustomIconButton(
-                                          height: 58,
-                                          width: 58,
-                                          child: CustomImageView(
-                                              svgPath:
-                                                  ImageConstant.imgFile)),
-                                      Padding(
-                                          padding: getPadding(top: 4),
-                                          child: Text("Такси",
-                                              overflow:
-                                                  TextOverflow.ellipsis,
-                                              textAlign: TextAlign.left,
-                                              style: AppStyle
-                                                  .txtUbuntuMedium12))
-                                    ])),*/
-
-      // КНОПКА ВИДЕО !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      /*Card(
-                                      clipBehavior: Clip.antiAlias,
-                                      elevation: 0,
-                                      margin: EdgeInsets.all(0),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadiusStyle
-                                              .roundedBorder39),
-                                      child: Container(
-                                          height: getSize(78),
-                                          width: getSize(78),
-                                          padding: getPadding(
-                                              left: 21,
-                                              top: 27,
-                                              right: 21,
-                                              bottom: 27),
-                                          decoration: AppDecoration
-                                              .outlineLightgreen90066
-                                              .copyWith(
-                                                  borderRadius:
-                                                      BorderRadiusStyle
-                                                          .roundedBorder39),
-                                          child: Stack(children: [
-                                            CustomImageView(
-                                                svgPath: ImageConstant
-                                                    .imgVideocameraWhiteA700,
-                                                height: getVerticalSize(19),
-                                                width:
-                                                    getHorizontalSize(31),
-                                                alignment:
-                                                    Alignment.bottomRight)
-                                          ]))),*/
-
-      // СТИЛЬ ТЕКСТА ВНИЗУ           txtUbuntuMedium12 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-      // КНОПКА ЧТО ДЕЛАТЬ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      /*bottomNavigationBar: CustomButton(
-                text: "Что делать",
-                margin: getMargin(left: 23, right: 23, bottom: 37),
-                variant: ButtonVariant.OutlineIndigo20049,
-                fontStyle: ButtonFontStyle.MontserratRomanSemiBold18),*/
-
-      // КОНоПКА ОТСЛЕДИТЬ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      /*floatingActionButton: CustomFloatingButton(
-                height: 58,
-                width: 58,
-                variant: FloatingButtonVariant.GradientBlue500LightblueA200,
-                child: CustomImageView(
-                    svgPath: ImageConstant.imgLocationWhiteA700,
-                    height: getVerticalSize(29.0),
-                    width: getHorizontalSize(29.0)))*/
     ));
   }
 

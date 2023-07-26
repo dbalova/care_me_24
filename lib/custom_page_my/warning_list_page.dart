@@ -55,8 +55,8 @@ class WarningListPage extends StatelessWidget {
                                 visibleWindowAtHour: true,
                                 visibleWeatherAtDay: true,
                                 visibleInfoVirus: true,
-                                appDecoration: AppDecoration.gradientPink300PinkA100,
-                                pathToPicture: ImageConstant.atmosphericPressureIcon,
+                            backGroundColor: "123",
+                            pictureOnIcon: "123",
                               )));
                 },
                 child: Container(

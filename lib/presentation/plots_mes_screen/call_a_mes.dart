@@ -1,35 +1,35 @@
 import 'package:careme24/core/app_export.dart';
+import 'package:careme24/custom_widget_my/police_mes_info_card.dart';
 import 'package:careme24/widgets/app_bar/appbar_image.dart';
 import 'package:careme24/widgets/app_bar/appbar_title.dart';
 import 'package:careme24/widgets/app_bar/custom_app_bar.dart';
 import 'package:careme24/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
-import '../../custom_widget_my/police_mes_info_card.dart';
+import '../waiting_window_screen/waiting_window_screen.dart';
 
 final _controller = ValueNotifier<bool>(false);
 
-class ButtonCallPoliceThreeScreen extends StatefulWidget {
+class PlotsMesScreen extends StatefulWidget {
+  late String reasonForTheCall;
+
+  PlotsMesScreen(this.reasonForTheCall);
+
   @override
-  State<ButtonCallPoliceThreeScreen> createState() =>
-      _ButtonCallPoliceThreeScreenState();
+  State<PlotsMesScreen> createState() => _PlotsMesScreenState();
 }
 
-class _ButtonCallPoliceThreeScreenState
-    extends State<ButtonCallPoliceThreeScreen> {
+class _PlotsMesScreenState extends State<PlotsMesScreen> {
   bool isSelectedSwitch = false;
-
   String descriptionOfTheReason = "";
-
   String radioGroup = "";
-
-  String picturePath = ImageConstant.imgGroup7506;
+  String picturePath = ImageConstant.mesCar;
 
   void change_picture() {
-    if (picturePath == ImageConstant.imgGroup7506) {
-      picturePath = ImageConstant.imgGroup7506WhiteA700;
+    if (picturePath == ImageConstant.mesCar) {
+      picturePath = ImageConstant.mesActiveCar;
     } else {
-      picturePath = ImageConstant.imgGroup7506;
+      picturePath = ImageConstant.mesCar;
     }
   }
 
@@ -50,7 +50,7 @@ class _ButtonCallPoliceThreeScreenState
                       onTapArrowleft17(context);
                     }),
                 centerTitle: true,
-                title: AppbarTitle(text: "Вызов полиции"),
+                title: AppbarTitle(text: "Вызов МЧС"),
                 styleType: Style.bgFillBlue60001),
             body: Container(
                 width: double.maxFinite,
@@ -121,9 +121,13 @@ class _ButtonCallPoliceThreeScreenState
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                  "Причина вызова",
-                                  style: AppStyle.txtMontserratSemiBold19,
+                                Container(
+                                  width: 240,
+                                  child: Text(
+                                    widget.reasonForTheCall,
+                                    style: AppStyle.txtMontserratSemiBold19,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
                                 ),
                                 CustomImageView(
                                   svgPath:
@@ -141,6 +145,13 @@ class _ButtonCallPoliceThreeScreenState
                             setState(() {
                               change_picture();
                             });
+                          },
+                          onLongPress: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        WaitingWindowScreen()));
                           },
                           child: Card(
                             elevation: 8,
@@ -165,7 +176,7 @@ class _ButtonCallPoliceThreeScreenState
                                   Padding(
                                     padding: getPadding(top: 11),
                                     child: Text(
-                                      "Вызвать полицию",
+                                      "Вызвать МЧС",
                                       style:
                                           AppStyle.txtMontserratRomanSemiBold18,
                                     ),
@@ -177,20 +188,18 @@ class _ButtonCallPoliceThreeScreenState
                         ),
                       ),
                       Padding(
-                        padding: getPadding(top: 20),
-                        child: PoliceMESInfoCard(
-                          policeMESName:
-                              "Участковый пункт полиции № 1 по району Арбат",
-                          addres: "ул. Ильинка, 3/8, стр. 5, Москва, 109012",
-                          meters: "1200м",
-                          minutes: "30 мин",
-                          estimation: "4.7",
-                          imagePath: ImageConstant.policehat,
-                          cardColor: ColorConstant.indigoA100,
-                          whereCall:
-                              ModalRoute.of(context)!.settings.name.toString(),
-                        ),
-                      ),
+                          padding: getPadding(top: 20),
+                          child: PoliceMESInfoCard(
+                            policeMESName: "МЧС",
+                            addres: "ул. Пречистенка, 22, Москва, 119034",
+                            meters: "1200м",
+                            minutes: "30 мин",
+                            estimation: "4.7",
+                            imagePath: ImageConstant.fireSmallIcon,
+                            cardColor: ColorConstant.yellow700,
+                            whereCall: "MES",
+                            reasonText: widget.reasonForTheCall,
+                          )),
                     ]))));
   }
 

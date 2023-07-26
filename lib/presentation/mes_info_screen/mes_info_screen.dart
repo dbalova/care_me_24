@@ -1,4 +1,3 @@
-
 import 'package:careme24/core/app_export.dart';
 import 'package:careme24/custom_widget_my/police_mes_info_card.dart';
 import 'package:careme24/widgets/app_bar/appbar_image.dart';
@@ -9,6 +8,9 @@ import 'package:careme24/widgets/custom_drop_down.dart';
 import 'package:flutter/material.dart';
 
 class MESInfiScreen extends StatefulWidget {
+  late String reasonForTheCall;
+
+  MESInfiScreen(this.reasonForTheCall);
   @override
   State<MESInfiScreen> createState() => _MESInfiScreenState();
 }
@@ -16,9 +18,9 @@ class MESInfiScreen extends StatefulWidget {
 class _MESInfiScreenState extends State<MESInfiScreen> {
   final _controller = ValueNotifier<bool>(false);
   bool _checked = false;
-  bool _way    = false;
-  bool _mark   = false;
-  bool _price  = false;
+  bool _way = false;
+  bool _mark = false;
+  bool _price = false;
   bool isSelectedSwitch = false;
 
   final List<String> hospitalName = <String>[
@@ -83,7 +85,7 @@ class _MESInfiScreenState extends State<MESInfiScreen> {
                       width: getSize(22),
                       svgPath: ImageConstant.imgFilter,
                       margin:
-                      getMargin(left: 26, top: 9, right: 26, bottom: 17))
+                          getMargin(left: 26, top: 9, right: 26, bottom: 17))
                 ],
                 styleType: Style.bgFillBlue60001),
             body: Container(
@@ -104,12 +106,12 @@ class _MESInfiScreenState extends State<MESInfiScreen> {
                                     variant: ButtonVariant
                                         .GradientBlue500LightblueA200,
                                     fontStyle:
-                                    ButtonFontStyle.MontserratSemiBold18),
+                                        ButtonFontStyle.MontserratSemiBold18),
                                 Padding(
                                     padding: getPadding(bottom: 1),
                                     child: Column(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.start,
+                                            MainAxisAlignment.start,
                                         children: [
                                           Text("Платная услуга",
                                               overflow: TextOverflow.ellipsis,
@@ -119,7 +121,7 @@ class _MESInfiScreenState extends State<MESInfiScreen> {
                                           Container(
                                             decoration: BoxDecoration(
                                               borderRadius:
-                                              BorderRadius.circular(10),
+                                                  BorderRadius.circular(10),
                                               border: Border.all(
                                                 color: ColorConstant.gray50001,
                                                 width: 1,
@@ -128,9 +130,9 @@ class _MESInfiScreenState extends State<MESInfiScreen> {
                                             child: AdvancedSwitch(
                                               controller: _controller,
                                               activeColor:
-                                              ColorConstant.greenA70002,
+                                                  ColorConstant.greenA70002,
                                               inactiveColor:
-                                              ColorConstant.gray100,
+                                                  ColorConstant.gray100,
                                               borderRadius: BorderRadius.all(
                                                   const Radius.circular(8)),
                                               width: 80.0,
@@ -142,136 +144,169 @@ class _MESInfiScreenState extends State<MESInfiScreen> {
                                         ]))
                               ])),
                       Container(
-                          width: double.maxFinite,
-                          child: Container(
-                              margin: getMargin(left: 1, top: 16, right: 1),
-                              padding: getPadding(
-                                  left: 20, top: 13, right: 20, bottom: 13),
-                              decoration: AppDecoration.fillBlue100.copyWith(
-                                  borderRadius:
-                                  BorderRadiusStyle.roundedBorder10),
-                              child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    CustomDropDown(
-                                        focusNode: FocusNode(),
-                                        icon: Container(
-                                            margin: getMargin(left: 30),
-                                            child: CustomImageView(
-                                                svgPath: ImageConstant
-                                                    .imgArrowdownLightBlue900)),
-                                        hintText:
-                                        "Проведение дем...",
-                                        margin: getMargin(top: 2),
-                                        variant: DropDownVariant.None,
-                                        onChanged: (value) {})
-                                  ]))),
+                        margin: getMargin(top: 32),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Color.fromRGBO(178, 218, 255, 100),
+                        ),
+                        width: MediaQuery.of(context).size.width - 40,
+                        height: 80,
+                        child: Padding(
+                          padding: getPadding(left: 20, right: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                width: 240,
+                                child: Text(
+                                  widget.reasonForTheCall,
+                                  style: AppStyle.txtMontserratSemiBold19,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                              CustomImageView(
+                                svgPath:
+                                ImageConstant.imgArrowdownLightBlue900,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
                       Padding(
                           padding: getPadding(top: 20),
-                          child:  Row(
+                          child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 GestureDetector(
-                                    onTap: (){
-                                      _way    =true;
-                                      _mark   =false;
-                                      _price  =false;
-                                      setState(() {
-
-                                      });
+                                    onTap: () {
+                                      _way = true;
+                                      _mark = false;
+                                      _price = false;
+                                      setState(() {});
                                     },
-                                    child:Container(
+                                    child: Container(
                                         width: getHorizontalSize(109),
                                         padding: getPadding(
-                                            left: 9, top: 10, right: 9, bottom: 10),
-                                        decoration: _way ? AppDecoration.txtFillBlue30001
-                                            .copyWith(
-                                            borderRadius: BorderRadiusStyle
-                                                .txtCustomBorderTL10) : BoxDecoration(
-                                          border: Border(
-                                            bottom: BorderSide(
-                                                color:
-                                                ColorConstant.gray50002,
-                                                width: 1),),),
+                                            left: 9,
+                                            top: 10,
+                                            right: 9,
+                                            bottom: 10),
+                                        decoration: _way
+                                            ? AppDecoration.txtFillBlue30001
+                                                .copyWith(
+                                                    borderRadius:
+                                                        BorderRadiusStyle
+                                                            .txtCustomBorderTL10)
+                                            : BoxDecoration(
+                                                border: Border(
+                                                  bottom: BorderSide(
+                                                      color: ColorConstant
+                                                          .gray50002,
+                                                      width: 1),
+                                                ),
+                                              ),
                                         child: Text("Путь",
                                             overflow: TextOverflow.ellipsis,
                                             textAlign: TextAlign.center,
-                                            style: _way? AppStyle.txtMontserratSemiBold15 : TextStyle(
-                                              color: ColorConstant.gray50001,
-                                              fontSize: getFontSize(
-                                                15,
-                                              ),
-                                              fontFamily: 'Montserrat',
-                                              fontWeight: FontWeight.w500,
-                                            )))),
+                                            style: _way
+                                                ? AppStyle
+                                                    .txtMontserratSemiBold15
+                                                : TextStyle(
+                                                    color:
+                                                        ColorConstant.gray50001,
+                                                    fontSize: getFontSize(
+                                                      15,
+                                                    ),
+                                                    fontFamily: 'Montserrat',
+                                                    fontWeight: FontWeight.w500,
+                                                  )))),
                                 GestureDetector(
-
-                                    onTap: (){
-                                      _way     =false;
-                                      _mark    =true;
-                                      _price   =false; setState(() {
-
-                                      });
+                                    onTap: () {
+                                      _way = false;
+                                      _mark = true;
+                                      _price = false;
+                                      setState(() {});
                                     },
-                                    child:Container(
+                                    child: Container(
                                         width: getHorizontalSize(109),
                                         padding: getPadding(
-                                            left: 9, top: 10, right: 9, bottom: 10),
+                                            left: 9,
+                                            top: 10,
+                                            right: 9,
+                                            bottom: 10),
                                         // decoration:  AppDecoration.outlineGray50001,
-                                        decoration:  _mark ? AppDecoration.txtFillBlue30001
-                                            .copyWith(
-                                            borderRadius: BorderRadiusStyle
-                                                .txtCustomBorderTL10) : BoxDecoration(
-                                          border: Border(
-                                            bottom: BorderSide(
-                                                color:
-                                                ColorConstant.gray50002,
-                                                width: 1),),),
+                                        decoration: _mark
+                                            ? AppDecoration.txtFillBlue30001
+                                                .copyWith(
+                                                    borderRadius:
+                                                        BorderRadiusStyle
+                                                            .txtCustomBorderTL10)
+                                            : BoxDecoration(
+                                                border: Border(
+                                                  bottom: BorderSide(
+                                                      color: ColorConstant
+                                                          .gray50002,
+                                                      width: 1),
+                                                ),
+                                              ),
                                         child: Text("Оценка",
                                             overflow: TextOverflow.ellipsis,
                                             textAlign: TextAlign.center,
-                                            style: _mark? AppStyle.txtMontserratSemiBold15 : TextStyle(
-                                              color: ColorConstant.gray50001,
-                                              fontSize: getFontSize(
-                                                15,
-                                              ),
-                                              fontFamily: 'Montserrat',
-                                              fontWeight: FontWeight.w500,
-                                            )))), GestureDetector(
-                                    onTap: (){
-                                      _way     =false;
-                                      _mark    =false;
-                                      _price   =true; setState(() {
-
-                                      });
+                                            style: _mark
+                                                ? AppStyle
+                                                    .txtMontserratSemiBold15
+                                                : TextStyle(
+                                                    color:
+                                                        ColorConstant.gray50001,
+                                                    fontSize: getFontSize(
+                                                      15,
+                                                    ),
+                                                    fontFamily: 'Montserrat',
+                                                    fontWeight: FontWeight.w500,
+                                                  )))),
+                                GestureDetector(
+                                    onTap: () {
+                                      _way = false;
+                                      _mark = false;
+                                      _price = true;
+                                      setState(() {});
                                     },
-
-                                    child:Container( decoration: _price ? AppDecoration.txtFillBlue30001
-                                        .copyWith(
-                                        borderRadius: BorderRadiusStyle
-                                            .txtCustomBorderTL10) : BoxDecoration(
-                                      border: Border(
-                                        bottom: BorderSide(
-                                            color:
-                                            ColorConstant.gray50002,
-                                            width: 1),),),
+                                    child: Container(
+                                        decoration: _price
+                                            ? AppDecoration.txtFillBlue30001
+                                                .copyWith(
+                                                    borderRadius:
+                                                        BorderRadiusStyle
+                                                            .txtCustomBorderTL10)
+                                            : BoxDecoration(
+                                                border: Border(
+                                                  bottom: BorderSide(
+                                                      color: ColorConstant
+                                                          .gray50002,
+                                                      width: 1),
+                                                ),
+                                              ),
                                         width: getHorizontalSize(109),
                                         padding: getPadding(
-                                            left: 9, top: 10, right: 9, bottom: 10),
-
+                                            left: 9,
+                                            top: 10,
+                                            right: 9,
+                                            bottom: 10),
                                         child: Text("Стоимость",
                                             overflow: TextOverflow.ellipsis,
                                             textAlign: TextAlign.center,
-                                            style: _price? AppStyle.txtMontserratSemiBold15 : TextStyle(
-                                              color: ColorConstant.gray50001,
-                                              fontSize: getFontSize(
-                                                15,
-                                              ),
-                                              fontFamily: 'Montserrat',
-                                              fontWeight: FontWeight.w500,
-                                            )))),
-
+                                            style: _price
+                                                ? AppStyle
+                                                    .txtMontserratSemiBold15
+                                                : TextStyle(
+                                                    color:
+                                                        ColorConstant.gray50001,
+                                                    fontSize: getFontSize(
+                                                      15,
+                                                    ),
+                                                    fontFamily: 'Montserrat',
+                                                    fontWeight: FontWeight.w500,
+                                                  )))),
                               ])),
                       Expanded(
                           child: Padding(
@@ -286,9 +321,17 @@ class _MESInfiScreenState extends State<MESInfiScreen> {
                                     minutes: minutesForHospital,
                                     estimation: estimationHospital,
                                     imagePath: ImageConstant.fireSmallIcon,
-                                    cardColor: ColorConstant.yellow700, whereCall: ModalRoute.of(context)!.settings.name.toString(),);
+                                    cardColor: ColorConstant.yellow700,
+                                    whereCall: ModalRoute.of(context)!
+                                        .settings
+                                        .name
+                                        .toString(),
+                                    reasonText: "",
+                                  );
                                 },
-                                separatorBuilder: (BuildContext context, int index) => Padding(padding: getPadding(bottom: 12)),
+                                separatorBuilder: (BuildContext context,
+                                        int index) =>
+                                    Padding(padding: getPadding(bottom: 12)),
                               )))
                     ]))));
   }

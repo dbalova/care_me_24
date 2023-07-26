@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../core/utils/color_constant.dart';
 import '../core/utils/size_utils.dart';
+import '../presentation/plots_mes_screen/call_a_mes.dart';
 import '../routes/app_routes.dart';
 import '../theme/app_style.dart';
 
@@ -29,7 +30,11 @@ class _ReasonMESState extends State<ReasonMES> {
         setState(() {
           widget.backgroundColor = Color.fromRGBO(254, 246, 225, 100);
           Future.delayed(Duration(seconds: 1), () {
-            Navigator.pushNamed(context, AppRoutes.plotsMesScreen);
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => PlotsMesScreen(widget.text
+                    )));
           });
 
         });
