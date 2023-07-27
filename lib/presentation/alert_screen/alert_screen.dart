@@ -10,8 +10,15 @@ import 'package:flutter/material.dart';
 
 final _controller = ValueNotifier<bool>(false);
 
-class AlertScreen extends StatelessWidget {
+class AlertScreen extends StatefulWidget {
+  @override
+  State<AlertScreen> createState() => _AlertScreenState();
+}
+
+class _AlertScreenState extends State<AlertScreen> {
   bool isSelectedSwitch = false;
+
+bool _fromMe = true;
 
   @override
   Widget build(BuildContext context) {
@@ -55,30 +62,41 @@ class AlertScreen extends StatelessWidget {
                                   height: getVerticalSize(37),
                                   decoration: AppDecoration.outlineGray50001
                                       .copyWith(
-                                          borderRadius: BorderRadiusStyle
-                                              .customBorderTL10),
+                                      borderRadius: BorderRadius.all(Radius.circular(11))),
                                   child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        CustomButton(
+                                       GestureDetector(
+                                         onTap:(){_fromMe=!_fromMe;
+                                           setState(() {
+
+                                           });
+                                           },
+                                         child: CustomButton(
                                             height: getVerticalSize(29),
                                             width: MediaQuery.of(context).size.width/2-23,
                                             text: "От меня",
-                                            variant: ButtonVariant.FillBlue600,
-                                            shape: ButtonShape.RoundedBorder7,
+                                            variant: _fromMe ? ButtonVariant.FillBlue600:ButtonVariant.FillWhiteA700,
+                                            shape: ButtonShape.RoundedBorder10,
                                             padding: ButtonPadding.PaddingAll9,
-                                            fontStyle: ButtonFontStyle
-                                                .MontserratSemiBold12WhiteA700),
-                                        CustomButton(
+                                            fontStyle: _fromMe? ButtonFontStyle
+                                                .MontserratSemiBold12WhiteA700:ButtonFontStyle.MontserratMedium15Gray50001
+                                                 ),),
+                                       GestureDetector(
+                                           onTap: (){_fromMe=!_fromMe;
+                                             setState(() {
+
+                                             });},
+                                           child: CustomButton(
                                             height: getVerticalSize(29),
                                             width: MediaQuery.of(context).size.width/2-23,
                                             text: "Мне",
-                                            variant: ButtonVariant.FillBlue600,
-                                            shape: ButtonShape.RoundedBorder7,
+                                            variant: _fromMe ?ButtonVariant.FillWhiteA700: ButtonVariant.FillBlue600,
+                                            shape: ButtonShape.RoundedBorder10,
                                             padding: ButtonPadding.PaddingAll9,
-                                            fontStyle: ButtonFontStyle
-                                                .MontserratSemiBold12WhiteA700),
+                                            fontStyle:  _fromMe? ButtonFontStyle.MontserratMedium15Gray50001:ButtonFontStyle
+                                                .MontserratSemiBold12WhiteA700)),
 
                                       ]))),
                           Container(

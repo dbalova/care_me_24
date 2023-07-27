@@ -346,7 +346,8 @@ class _WaitingWindowScreenState extends State<WaitingWindowScreen> {
                           Padding(
                             padding: getPadding(top: 18),
                             child: Text("Отмена вызова",
-                            style: AppStyle.txtMontserratSemiBold15Gray50001,),
+                            style: AppStyle.txtMontserratSemiBold15Gray50001,
+                            textAlign: TextAlign.center,),
                           )
                         ],
                       ),
@@ -395,6 +396,7 @@ class _WaitingWindowScreenState extends State<WaitingWindowScreen> {
                               MainAxisAlignment.start,
                               children: [
                                 CustomIconButton(
+                                  onTap: (){ Navigator.pushNamed(context, AppRoutes.trackingScreen);},
                                     height: 58,
                                     width: 58,
                                     child: CustomImageView(
@@ -418,6 +420,7 @@ class _WaitingWindowScreenState extends State<WaitingWindowScreen> {
             Padding(
               padding: getPadding(top: 16),
               child: CustomButton(
+                onTap: (){Navigator.pushNamed(context, AppRoutes.communicationTeamScreen);},
                   text: "Что делать",
                   margin: getMargin(left: 23, right: 23),
                   variant: ButtonVariant.OutlineIndigo20049,

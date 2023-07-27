@@ -83,81 +83,81 @@ class _CallActivScreenState extends State<CallActivScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                  GestureDetector(
-                      onTap: (){
-                        _isSpeaker=!_isSpeaker;
-                        setState(() {
+                    GestureDetector(
+                        onTap: (){
+                          _isSpeaker=!_isSpeaker;
+                          setState(() {
 
-                        });
+                          });
 
-                      },
-                      child:  Padding(
-                      padding: getPadding(
-                        bottom: 31,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          CustomIconButton(
-                            height: 58,
-                            width: 58,
-                            variant: _isSpeaker? IconButtonVariant.FillGray20002:IconButtonVariant.FillBluegray900,
-                            padding: IconButtonPadding.PaddingAll15,
-                            child: CustomImageView(
-                              svgPath: ImageConstant.imgFrame8040,
-                            ),
+                        },
+                        child:  Padding(
+                          padding: getPadding(
+                            bottom: 31,
                           ),
-                          Padding(
-                            padding: getPadding(
-                              top: 8,
-                            ),
-                            child: Text(
-                              "Громкая",
-                              overflow: TextOverflow.ellipsis,
-                              textAlign: TextAlign.left,
-                              style: AppStyle.txtMontserratMedium12WhiteA700,
-                            ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              CustomIconButton(
+                                height: 58,
+                                width: 58,
+                                variant: _isSpeaker? IconButtonVariant.FillGray20002:IconButtonVariant.FillBluegray900,
+                                padding: IconButtonPadding.PaddingAll15,
+                                child: CustomImageView(
+                                  svgPath: ImageConstant.imgFrame8040,
+                                ),
+                              ),
+                              Padding(
+                                padding: getPadding(
+                                  top: 8,
+                                ),
+                                child: Text(
+                                  "Громкая",
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.left,
+                                  style: AppStyle.txtMontserratMedium12WhiteA700,
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                    )),
+                        )),
                     GestureDetector(
                         onTap: (){
                           _isVideo=!_isVideo;
-                              setState(() {
+                          setState(() {
 
-                              });
+                          });
                         },
                         child:Padding(
-                      padding: getPadding(
-                        bottom: 31,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          CustomIconButton(
-                            height: 58,
-                            width: 58,
-                            variant: IconButtonVariant.FillGray20002,
-                            padding: IconButtonPadding.PaddingAll15,
-                            child: CustomImageView(
-                              svgPath: _isVideo?ImageConstant.img1BlueGray800:ImageConstant.img1,
-                            ),
+                          padding: getPadding(
+                            bottom: 31,
                           ),
-                          Padding(
-                            padding: getPadding(
-                              top: 8,
-                            ),
-                            child: Text(
-                              "Выкл. видео",
-                              overflow: TextOverflow.ellipsis,
-                              textAlign: TextAlign.left,
-                              style: AppStyle.txtMontserratMedium12WhiteA700,
-                            ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              CustomIconButton(
+                                height: 58,
+                                width: 58,
+                                variant: IconButtonVariant.FillGray20002,
+                                padding: IconButtonPadding.PaddingAll15,
+                                child: CustomImageView(
+                                  svgPath: _isVideo?ImageConstant.img1BlueGray800:ImageConstant.img1,
+                                ),
+                              ),
+                              Padding(
+                                padding: getPadding(
+                                  top: 8,
+                                ),
+                                child: Text(
+                                  "Выкл. видео",
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.left,
+                                  style: AppStyle.txtMontserratMedium12WhiteA700,
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                    )),
+                        )),
                     GestureDetector(
                         onTap: (){
                           _isSound = !_isSound;
@@ -167,35 +167,35 @@ class _CallActivScreenState extends State<CallActivScreen> {
 
                         },
                         child:Padding(
-                      padding: getPadding(
-                        bottom: 31,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          CustomIconButton(
-                            height: 58,
-                            width: 58,
-                            variant: _isSound?IconButtonVariant.FillWhiteA70019:IconButtonVariant.FillGray20002,
-                            padding: IconButtonPadding.PaddingAll15,
-                            child: CustomImageView(
-                              svgPath: _isSound? ImageConstant.imgMicrophone:  ImageConstant.imgFrame8041,
-                            ),
+                          padding: getPadding(
+                            bottom: 31,
                           ),
-                          Padding(
-                            padding: getPadding(
-                              top: 8,
-                            ),
-                            child: Text(
-                              "Вкл. звук",
-                              overflow: TextOverflow.ellipsis,
-                              textAlign: TextAlign.left,
-                              style: AppStyle.txtMontserratMedium12WhiteA700,
-                            ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              CustomIconButton(
+                                height: 58,
+                                width: 58,
+                                variant: _isSound?IconButtonVariant.FillWhiteA70019:IconButtonVariant.FillGray20002,
+                                padding: IconButtonPadding.PaddingAll15,
+                                child: CustomImageView(
+                                  svgPath: _isSound? ImageConstant.imgMicrophone:  ImageConstant.imgFrame8041,
+                                ),
+                              ),
+                              Padding(
+                                padding: getPadding(
+                                  top: 8,
+                                ),
+                                child: Text(
+                                  "Вкл. звук",
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.left,
+                                  style: AppStyle.txtMontserratMedium12WhiteA700,
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                    )),
+                        )),
                     Padding(
                       padding: getPadding(
 

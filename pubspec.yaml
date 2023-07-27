@@ -21,6 +21,7 @@ dependencies:
   flutter_masked_text2:
   card_swiper:
   flutter_slidable:
+  camera:
 dev_dependencies: 
   flutter_test: 
     sdk: flutter
@@ -62,3 +63,6 @@ flutter:
     - family: AppIconAdmin
       fonts:
         - asset: assets/fonts/AppIconAdmin.ttf
+    - family: CarCustom
+      fonts:
+        - asset: assets/fonts/CarCustom.ttf

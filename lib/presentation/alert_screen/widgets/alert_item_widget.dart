@@ -1,5 +1,6 @@
 import 'package:careme24/app_icon_admin.dart';
 import 'package:careme24/core/app_export.dart';
+import 'package:careme24/custom_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
@@ -45,7 +46,10 @@ class AlertItemWidget extends StatelessWidget {
           motion:  ScrollMotion(),
           children:  [
             SlidableAction(
-              onPressed: (BuildContext context ) { Navigator.pushNamed(context, AppRoutes.callActivScreen);},
+              onPressed: (BuildContext context ) {
+                Navigator.pushNamed(context, AppRoutes.callActivScreen);
+
+                },
               backgroundColor: Colors.blue,
               foregroundColor: Colors.white,
               icon: Icons.call,
@@ -55,7 +59,7 @@ class AlertItemWidget extends StatelessWidget {
               onPressed: (BuildContext context){},
               backgroundColor: Colors.green,
               foregroundColor: Colors.white,
-              icon: Icons.share,
+              icon: CustomIcons.whatsapp,
               label: 'WhatsApp',
             ),
           ],

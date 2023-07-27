@@ -17,6 +17,8 @@ class InfoMainIcon extends StatelessWidget {
   bool visibleWindowAtHour = false;
   bool visibleWeatherAtDay = false;
   bool visibleInfoVirus = false;
+  bool visibleInfoAir = false;
+  bool visibleInfoDirtyAir = false;
 
   InfoMainIcon({
     required this.backGroundColor,
@@ -29,13 +31,15 @@ class InfoMainIcon extends StatelessWidget {
     print(warningName);
     switch (warningName) {
       case "Загрязнение воздуха":
-        visibleMainInfo = true;
+        visibleMainInfo = false;
         visibleInfoAtDay = false;
-        visibleForecast = true;
-        visibleWeatherAtHour = true;
+        visibleForecast = false;
+        visibleWeatherAtHour = false;
         visibleWindowAtHour = false;
         visibleWeatherAtDay = false;
         visibleInfoVirus = false;
+        visibleInfoAir = true;
+        visibleInfoDirtyAir = true;
         break;case "Ветер":
         visibleMainInfo = true;
         visibleInfoAtDay = false;
@@ -44,6 +48,7 @@ class InfoMainIcon extends StatelessWidget {
         visibleWindowAtHour = true;
         visibleWeatherAtDay = false;
         visibleInfoVirus = false;
+        visibleInfoAir = false;visibleInfoDirtyAir = false;
         break;
       case "Шквал":
         visibleMainInfo = true;
@@ -53,6 +58,7 @@ class InfoMainIcon extends StatelessWidget {
         visibleWindowAtHour = true;
         visibleWeatherAtDay = false;
         visibleInfoVirus = false;
+        visibleInfoAir = false;visibleInfoDirtyAir = false;
         break;
       case "Ураган":
         visibleMainInfo = true;
@@ -62,6 +68,7 @@ class InfoMainIcon extends StatelessWidget {
         visibleWindowAtHour = true;
         visibleWeatherAtDay = false;
         visibleInfoVirus = false;
+        visibleInfoAir = false;visibleInfoDirtyAir = false;
         break;
       case "Высокая температура":
         visibleMainInfo = true;
@@ -71,6 +78,7 @@ class InfoMainIcon extends StatelessWidget {
         visibleWindowAtHour = false;
         visibleWeatherAtDay = false;
         visibleInfoVirus = false;
+        visibleInfoAir = false;visibleInfoDirtyAir = false;
         break;case "Низкая температура":
         visibleMainInfo = true;
         visibleInfoAtDay = false;
@@ -79,6 +87,7 @@ class InfoMainIcon extends StatelessWidget {
         visibleWindowAtHour = false;
         visibleWeatherAtDay = false;
         visibleInfoVirus = false;
+        visibleInfoAir = false;visibleInfoDirtyAir = false;
         break;
       case "Атмосферное давление":
         visibleMainInfo = true;
@@ -88,6 +97,7 @@ class InfoMainIcon extends StatelessWidget {
         visibleWindowAtHour = false;
         visibleWeatherAtDay = false;
         visibleInfoVirus = false;
+        visibleInfoAir = false;visibleInfoDirtyAir = false;
         break;
       case "Вирусное заражение":
         visibleMainInfo = true;
@@ -97,6 +107,7 @@ class InfoMainIcon extends StatelessWidget {
         visibleWindowAtHour = false;
         visibleWeatherAtDay = false;
         visibleInfoVirus = true;
+        visibleInfoAir = false;visibleInfoDirtyAir = false;
         break;
       case "Град":
         visibleMainInfo = false;
@@ -106,6 +117,7 @@ class InfoMainIcon extends StatelessWidget {
         visibleWindowAtHour = true;
         visibleWeatherAtDay = true;
         visibleInfoVirus = false;
+        visibleInfoAir = false;visibleInfoDirtyAir = false;
         break;
       case "Гололед":
         visibleMainInfo = false;
@@ -115,6 +127,7 @@ class InfoMainIcon extends StatelessWidget {
         visibleWindowAtHour = true;
         visibleWeatherAtDay = true;
         visibleInfoVirus = false;
+        visibleInfoAir = false;visibleInfoDirtyAir = false;
         break;
       case "Землетрясение":
         visibleMainInfo = true;
@@ -124,6 +137,7 @@ class InfoMainIcon extends StatelessWidget {
         visibleWindowAtHour = false;
         visibleWeatherAtDay = false;
         visibleInfoVirus = false;
+        visibleInfoAir = false;visibleInfoDirtyAir = false;
         break;
       case "Извержение вулкана":
         visibleMainInfo = true;
@@ -133,6 +147,7 @@ class InfoMainIcon extends StatelessWidget {
         visibleWindowAtHour = false;
         visibleWeatherAtDay = false;
         visibleInfoVirus = false;
+        visibleInfoAir = false;visibleInfoDirtyAir = false;
         break;
       case "Камнепад":
         visibleMainInfo = false;
@@ -142,6 +157,7 @@ class InfoMainIcon extends StatelessWidget {
         visibleWindowAtHour = false;
         visibleWeatherAtDay = false;
         visibleInfoVirus = false;
+        visibleInfoAir = false;visibleInfoDirtyAir = false;
         break;
       case "Наводнение":
         visibleMainInfo = true;
@@ -151,6 +167,7 @@ class InfoMainIcon extends StatelessWidget {
         visibleWindowAtHour = false;
         visibleWeatherAtDay = false;
         visibleInfoVirus = false;
+        visibleInfoAir = false;visibleInfoDirtyAir = false;
         break;
       case "Пожар":
         visibleMainInfo = false;
@@ -160,6 +177,7 @@ class InfoMainIcon extends StatelessWidget {
         visibleWindowAtHour = true;
         visibleWeatherAtDay = false;
         visibleInfoVirus = false;
+        visibleInfoAir = false;visibleInfoDirtyAir = false;
         break;
       case "Радиация":
         visibleMainInfo = true;
@@ -169,6 +187,7 @@ class InfoMainIcon extends StatelessWidget {
         visibleWindowAtHour = false;
         visibleWeatherAtDay = false;
         visibleInfoVirus = false;
+        visibleInfoAir = false;visibleInfoDirtyAir = false;
         break;
       case "Солнечная радиация":
         visibleMainInfo = false;
@@ -178,6 +197,7 @@ class InfoMainIcon extends StatelessWidget {
         visibleWindowAtHour = false;
         visibleWeatherAtDay = false;
         visibleInfoVirus = false;
+        visibleInfoAir = false;visibleInfoDirtyAir = false;
         break;
       case "Электромагнитное излучение":
         visibleMainInfo = false;
@@ -187,6 +207,7 @@ class InfoMainIcon extends StatelessWidget {
         visibleWindowAtHour = false;
         visibleWeatherAtDay = false;
         visibleInfoVirus = false;
+        visibleInfoAir = false;visibleInfoDirtyAir = false;
         break;
       case "Снежная лавина":
         visibleMainInfo = false;
@@ -196,6 +217,7 @@ class InfoMainIcon extends StatelessWidget {
         visibleWindowAtHour = false;
         visibleWeatherAtDay = false;
         visibleInfoVirus = false;
+        visibleInfoAir = false;visibleInfoDirtyAir = false;
         break;
       case "Террористическая опасность":
         visibleMainInfo = false;
@@ -205,6 +227,7 @@ class InfoMainIcon extends StatelessWidget {
         visibleWindowAtHour = false;
         visibleWeatherAtDay = false;
         visibleInfoVirus = false;
+        visibleInfoAir = false;visibleInfoDirtyAir = false;
         break;
       case "Торнадо":
         visibleMainInfo = false;
@@ -214,6 +237,7 @@ class InfoMainIcon extends StatelessWidget {
         visibleWindowAtHour = false;
         visibleWeatherAtDay = false;
         visibleInfoVirus = false;
+        visibleInfoAir = false;visibleInfoDirtyAir = false;
         break;
       case "Туман":
         visibleMainInfo = false;
@@ -222,7 +246,7 @@ class InfoMainIcon extends StatelessWidget {
         visibleWeatherAtHour = false;
         visibleWindowAtHour = false;
         visibleWeatherAtDay = false;
-        visibleInfoVirus = false;
+        visibleInfoVirus = false;visibleInfoAir = false;visibleInfoDirtyAir = false;
         break;
       case "Цунами":
         visibleMainInfo = false;
@@ -231,7 +255,16 @@ class InfoMainIcon extends StatelessWidget {
         visibleWeatherAtHour = false;
         visibleWindowAtHour = false;
         visibleWeatherAtDay = false;
-        visibleInfoVirus = false;
+        visibleInfoVirus = false;visibleInfoAir = false;visibleInfoDirtyAir = false;
+        break;
+      case "Воздушная тревога":
+        visibleMainInfo = false;
+        visibleInfoAtDay = false;
+        visibleForecast = false;
+        visibleWeatherAtHour = false;
+        visibleWindowAtHour = false;
+        visibleWeatherAtDay = false;
+        visibleInfoVirus = false;visibleInfoAir = true;visibleInfoDirtyAir = false;
         break;
       default:
         visibleMainInfo = true;
@@ -240,7 +273,7 @@ class InfoMainIcon extends StatelessWidget {
         visibleWeatherAtHour = true;
         visibleWindowAtHour = true;
         visibleWeatherAtDay = true;
-        visibleInfoVirus = true;
+        visibleInfoVirus = true;visibleInfoDirtyAir = false;
     }
   }
 
@@ -262,6 +295,8 @@ class InfoMainIcon extends StatelessWidget {
                       visibleWindowAtHour: visibleWindowAtHour,
                       visibleWeatherAtDay: visibleWeatherAtDay,
                       visibleInfoVirus: visibleInfoVirus,
+                  visibleInfoAir:visibleInfoAir,
+                  visibleInfoDirtyAir:visibleInfoDirtyAir,
                       backGroundColor: backGroundColor,
                       pictureOnIcon: pictureOnIcon,
                     )));

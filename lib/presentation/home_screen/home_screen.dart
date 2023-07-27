@@ -53,7 +53,7 @@ class HomeScreen extends StatelessWidget {
                                                   warningName:
                                                       "Высокая температура",
                                                   infoOfWarning:
-                                                      "Аномальная жара"),
+                                                      "+29°"),
                                               InfoMainIcon(
                                                   backGroundColor:
                                                       'assets/images/medium.svg',

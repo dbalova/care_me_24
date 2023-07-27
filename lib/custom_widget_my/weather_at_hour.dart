@@ -30,7 +30,7 @@ class WheatherAtHour extends StatelessWidget {
                   text:
                   TextSpan(children: [
                     TextSpan(
-                        text: temperature + "°",
+                        text: temperature ,
                         style: AppStyle.txtMontserratSemiBold15Bluegray800),
                   ]),
                   textAlign:

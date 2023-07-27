@@ -1,3 +1,4 @@
+import 'package:careme24/car_custom_icons.dart';
 import 'package:careme24/core/app_export.dart';
 import 'package:careme24/widgets/app_bar/appbar_image.dart';
 import 'package:careme24/widgets/app_bar/appbar_title.dart';
@@ -216,9 +217,10 @@ class _TrackingScreenState extends State<TrackingScreen> {
                                                       latitude: 59.853845,  longitude: 30.179760),
                                                   markerIcon: MarkerIcon(
                                                       icon: Icon(
-                                                        CustomIcons.img_2,
 
-                                                        size: 150,
+                                                        CarCustom.mchs__1_,
+                                                        size: 100,
+
                                                       )),
                                                 );
                                                 //_route();
