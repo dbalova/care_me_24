@@ -324,14 +324,7 @@ class _WaitingWindowScreenState extends State<WaitingWindowScreen> {
                               style: AppStyle.txtMontserratMedium17,
                             ),
                           ),
-                          GestureDetector(
-                            onTap: (){
-                              setState(() {
-                                change_widget();
-                              });
-                            },
-                            child: centerWidget
-                          ),
+                          centerWidget,
                           Padding(
                             padding: getPadding(top: 12, bottom: 32),
                             child: Text(centerText,
@@ -387,7 +380,13 @@ class _WaitingWindowScreenState extends State<WaitingWindowScreen> {
                                 ])),
                       ],
                     ),
-                    bottomWidget,
+                    GestureDetector(
+                        onTap: (){
+                          setState(() {
+                            change_widget();
+                          });
+                        },
+                        child: bottomWidget),
                     Column(children: [
                       Padding(
                           padding: getPadding(top: 20),

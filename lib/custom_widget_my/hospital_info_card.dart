@@ -14,6 +14,8 @@ class HospitalInfoCard extends StatelessWidget {
   late String minutes;
   late String estimation;
   late String imagePath;
+  late String whereCall;
+
 
   HospitalInfoCard({
     required this.hospitalName,
@@ -22,14 +24,21 @@ class HospitalInfoCard extends StatelessWidget {
     required this.minutes,
     required this.estimation,
     required this.imagePath,
+    required this.whereCall,
   });
+
 
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.pushNamed(context, AppRoutes.hospitalsScreen);
+        if(whereCall == "hospital"){
+          Navigator.pushNamed(context, AppRoutes.hospitalsScreen);
+        } else {
+
+        }
+
       },
       child: Card(
         elevation: 10,

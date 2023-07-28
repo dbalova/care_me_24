@@ -293,7 +293,8 @@ class _HospitalsScreenState extends State<HospitalsScreen> {
                                       meters: metersForHospital,
                                       minutes: minutesForHospital,
                                       estimation: estimationHospital,
-                                      imagePath: ImageConstant.imgMask);
+                                      imagePath: ImageConstant.imgMask,
+                                  whereCall: "",);
                                 },
                                 separatorBuilder: (BuildContext context, int index) => Padding(padding: getPadding(bottom: 12)),
                               )))

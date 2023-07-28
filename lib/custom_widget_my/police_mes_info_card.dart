@@ -37,7 +37,6 @@ class PoliceMESInfoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        print(whereCall);
         if (whereCall == "police") {
           Navigator.push(context, MaterialPageRoute(builder: (context) => PlotsPoliceScreen(reasonText)));
         } else if(whereCall == "MES") {

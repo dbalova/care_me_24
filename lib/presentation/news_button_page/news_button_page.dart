@@ -54,7 +54,7 @@ class _NewsButtonPageState extends State<NewsButtonPage> {
                   svgPath: ImageConstant.imgArrowleft,
                   margin: getMargin(left: 32, top: 12, bottom: 10),
                   onTap: () {
-
+                    Navigator.pop(context);
                   }),
               centerTitle: true,
               title: AppbarTitle(text: "Новости"),

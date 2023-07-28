@@ -194,6 +194,7 @@ class _ButtonHoneyCallScreenState extends State<ButtonHoneyCallScreen> {
                           minutes: "30 мин.",
                           imagePath: ImageConstant.imgMask,
                           estimation: "4.7",
+                          whereCall: "hospital",
                         )
                       ),
                     ]))));
