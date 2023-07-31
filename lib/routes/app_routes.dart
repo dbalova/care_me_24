@@ -474,7 +474,6 @@ class AppRoutes {
 
   static Map<String, WidgetBuilder> routes = {
     homeScreen: (context) => HomeScreen(),
-    homeThreeScreen: (context) => HomeThreeScreen(),
     homeFourScreen: (context) => HomeFourScreen(),
     homeTwoScreen: (context) => HomeTwoScreen(),
     homeOneScreen: (context) => HomeOneScreen(),
