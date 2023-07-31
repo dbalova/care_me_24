@@ -1180,7 +1180,7 @@ enum ButtonShape {
   RoundedBorder10,
   CustomBorderTL10,
   RoundedBorder7,
-  RoundedBorder15,
+  RoundedBorder15, CustomBorderBR30,
 }
 enum ButtonPadding {
   PaddingAll17,
@@ -1195,7 +1195,7 @@ enum ButtonPadding {
   PaddingAll6,
   PaddingAll12,
   PaddingT37,
-  PaddingT6,
+  PaddingT6, PaddingT31,
 }
 enum ButtonVariant {
   Outline_2,
@@ -1233,7 +1233,7 @@ enum ButtonVariant {
   OutlineBlack9003f,
   FillWhiteA700,
   OutlineBlue600_1,
-  FillYellowA40002,
+  FillYellowA40002, OutlineGray9003d,
 }
 enum ButtonFontStyle {
   MontserratRomanSemiBold18Blue600,

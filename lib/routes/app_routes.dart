@@ -130,6 +130,8 @@ import 'package:careme24/presentation/prehistoric_phenomenon_tsunami_one_screen/
 import 'package:careme24/presentation/prehistoric_phenomenon_tsunami_screen/prehistoric_phenomenon_tsunami_screen.dart';
 import 'package:careme24/presentation/app_navigation_screen/app_navigation_screen.dart';
 
+import '../about_hospital.dart';
+import '../med_home_page.dart';
 import '../presentation/news_button_page/news_button_page.dart';
 
 class AppRoutes {
@@ -174,8 +176,10 @@ class AppRoutes {
   static const String plotsMesOneScreen = '/plots_mes_one_screen';
 
   static const String plotsMesScreen = '/plots_mes_screen';
+  static const String aboutHospital = '/about_hospital';
 
   static const String k18Screen = '/k18_screen';
+  static const String medHomePage = '/med_home_page';
 
   static const String waitingWindowScreen = '/waiting_window_screen';
 
@@ -659,6 +663,9 @@ class AppRoutes {
     prehistoricPhenomenonTsunamiScreen: (context) =>
         PrehistoricPhenomenonTsunamiScreen(),
     appNavigationScreen: (context) => AppNavigationScreen(),
+    medHomePage:  (context) => HoneyMainPage(),
+    aboutHospital: (context) => AboutHospital(),
+
 
   };
 }

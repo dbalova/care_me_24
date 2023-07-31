@@ -36,7 +36,7 @@ class HospitalInfoCard extends StatelessWidget {
         if(whereCall == "hospital"){
           Navigator.pushNamed(context, AppRoutes.hospitalsScreen);
         } else {
-
+          Navigator.pushNamed(context, AppRoutes.aboutHospital);
         }
 
       },
