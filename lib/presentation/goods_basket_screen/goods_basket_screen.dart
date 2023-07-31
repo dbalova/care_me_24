@@ -6,7 +6,9 @@ import 'package:careme24/widgets/app_bar/custom_app_bar.dart';
 import 'package:careme24/widgets/custom_radio_button.dart';
 import 'package:flutter/material.dart';
 
-// ignore_for_file: must_be_immutable
+import '../goods_favorites_screen/goods_favorites_screen.dart';
+import '../goods_orders_expected_screen/goods_orders_expected_screen.dart';
+
 class GoodsBasketScreen extends StatelessWidget {
   String radioGroup = "";
 
@@ -30,11 +32,23 @@ class GoodsBasketScreen extends StatelessWidget {
                 title: AppbarTitle(text: "Корзина"),
                 actions: [
                   AppbarImage(
+                      onTap: (){
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => GoodsFavoritesScreen()));
+                      },
                       height: getSize(28),
                       width: getSize(28),
                       svgPath: ImageConstant.imgFavorite,
                       margin: getMargin(left: 32, top: 8, right: 8)),
                   AppbarImage(
+                      onTap: (){
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => GoodsOrdersExpectedScreen()));
+                      },
                       height: getSize(28),
                       width: getSize(28),
                       svgPath: ImageConstant.imgFrame7563,

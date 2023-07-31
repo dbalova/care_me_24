@@ -1,6 +1,8 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:careme24/presentation/shop_screen/widgets/shop_item_widget.dart';
 
+import '../goods_basket_screen/goods_basket_screen.dart';
+import '../goods_favorites_screen/goods_favorites_screen.dart';
 import '../goods_more_one_screen/widgets/goodsmoreone_item_widget.dart';
 import '../goods_more_one_screen/widgets/listellipse153_item_widget.dart';
 import '../goods_more_one_screen/widgets/listfourhundred2_item_widget.dart';
@@ -225,12 +227,24 @@ class _GoodsMoreOneScreenState extends State<GoodsMoreOneScreen> {
                                 title: AppbarTitle(text: "Товары"),
                                 actions: [
                                   AppbarImage(
+                                      onTap: (){
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => GoodsFavoritesScreen()));
+                                      },
                                       height: getSize(28),
                                       width: getSize(28),
                                       svgPath: ImageConstant.imgFavorite,
                                       margin: getMargin(
                                           left: 24, top: 8, right: 12)),
                                   AppbarImage(
+                                      onTap: (){
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => GoodsBasketScreen()));
+                                      },
                                       height: getSize(26),
                                       width: getSize(26),
                                       imagePath: ImageConstant.imgGroup7508,

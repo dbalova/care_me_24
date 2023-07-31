@@ -1,3 +1,5 @@
+import '../goods_basket_screen/goods_basket_screen.dart';
+import '../goods_favorites_screen/goods_favorites_screen.dart';
 import '../goods_orders_expected_screen/widgets/listfive_item_widget.dart';
 import 'package:careme24/core/app_export.dart';
 import 'package:careme24/widgets/app_bar/appbar_image.dart';
@@ -36,11 +38,23 @@ class _GoodsOrdersExpectedScreenState extends State<GoodsOrdersExpectedScreen> {
                 title: AppbarTitle(text: "Заказы"),
                 actions: [
                   AppbarImage(
+                      onTap: (){
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => GoodsFavoritesScreen()));
+                      },
                       height: getSize(28),
                       width: getSize(28),
                       svgPath: ImageConstant.imgFavorite,
                       margin: getMargin(left: 32, top: 8, right: 8,bottom: 8)),
                   AppbarImage(
+                      onTap: (){
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => GoodsBasketScreen()));
+                      },
                       height: getSize(26),
                       width: getSize(26),
                       imagePath: ImageConstant.imgGroup7508,
