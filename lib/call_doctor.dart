@@ -294,7 +294,7 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                             cost: "1500 ₽",
                                             meters: "1200 м",
                                             minute: "9 мин",
-                                            estimation: "4.8"),
+                                            estimation: "4.8", where_call: widget.appbartitle,),
                                         DoctorCard(
                                             doctor_image:
                                                 ImageConstant.doctorImage,
@@ -304,7 +304,7 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                             cost: "1500 ₽",
                                             meters: "1200 м",
                                             minute: "9 мин",
-                                            estimation: "4.8"),
+                                            estimation: "4.8", where_call: widget.appbartitle,),
                                         DoctorCard(
                                             doctor_image:
                                                 ImageConstant.doctorImage,
@@ -314,7 +314,7 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                             cost: "1500 ₽",
                                             meters: "1200 м",
                                             minute: "9 мин",
-                                            estimation: "4.8"),
+                                            estimation: "4.8", where_call: widget.appbartitle,),
                                         DoctorCard(
                                             doctor_image:
                                                 ImageConstant.doctorImage,
@@ -324,7 +324,7 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                             cost: "1500 ₽",
                                             meters: "1200 м",
                                             minute: "9 мин",
-                                            estimation: "4.8"),
+                                            estimation: "4.8", where_call: widget.appbartitle,),
                                       ]))
                             ]))))));
   }
