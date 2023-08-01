@@ -104,7 +104,6 @@ class _GoodsOrdersExpectedScreenState extends State<GoodsOrdersExpectedScreen> {
                                       fontWeight: FontWeight.w500,
                                     )))),
                             GestureDetector(
-
                                 onTap: (){
                                   _finish=true;
                                   _undo=false;

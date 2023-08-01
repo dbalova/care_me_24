@@ -1,4 +1,3 @@
-
 import 'package:careme24/routes/app_routes.dart';
 import 'package:careme24/theme/app_decoration.dart';
 import 'package:careme24/theme/app_style.dart';
@@ -8,15 +7,15 @@ import 'package:careme24/widgets/app_bar/custom_app_bar.dart';
 import 'package:careme24/widgets/custom_button.dart';
 import 'package:careme24/widgets/custom_drop_down.dart';
 import 'package:careme24/widgets/custom_image_view.dart';
-import 'package:careme24/widgets/custom_switch.dart';
 import 'package:flutter/material.dart';
 
 import 'core/utils/color_constant.dart';
 import 'core/utils/image_constant.dart';
 import 'core/utils/size_utils.dart';
-// ignore_for_file: must_be_immutable
+import 'custom_widget_my/what_do_med_card.dart';
 
-// ignore_for_file: must_be_immutable
+final _controller = ValueNotifier<bool>(false);
+
 class HoneyMainPage extends StatelessWidget {
   bool isSelectedSwitch = false;
 
@@ -57,24 +56,38 @@ class HoneyMainPage extends StatelessWidget {
                                         .GradientGreenA700GreenA70001,
                                     fontStyle:
                                         ButtonFontStyle.MontserratSemiBold18),
-                                Padding(
-                                    padding: getPadding(bottom: 1),
-                                    child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Text("Платная услуга",
-                                              overflow: TextOverflow.ellipsis,
-                                              textAlign: TextAlign.left,
-                                              style: AppStyle
-                                                  .txtMontserratSemiBold12),
-                                          CustomSwitch(
-                                              margin: getMargin(top: 5),
-                                              value: isSelectedSwitch,
-                                              onChanged: (value) {
-                                                isSelectedSwitch = value;
-                                              })
-                                        ]))
+                                Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Text("Платная услуга",
+                                          overflow: TextOverflow.ellipsis,
+                                          textAlign: TextAlign.left,
+                                          style:
+                                              AppStyle.txtMontserratSemiBold12),
+                                      Container(
+                                        margin: getMargin(top: 4),
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          border: Border.all(
+                                            color: ColorConstant.gray50001,
+                                            width: 1,
+                                          ),
+                                        ),
+                                        child: AdvancedSwitch(
+                                          controller: _controller,
+                                          activeColor:
+                                              ColorConstant.greenA70002,
+                                          inactiveColor: ColorConstant.gray100,
+                                          borderRadius: BorderRadius.all(
+                                              const Radius.circular(8)),
+                                          width: 80.0,
+                                          height: 36.0,
+                                          enabled: true,
+                                          disabledOpacity: 0.5,
+                                        ),
+                                      ),
+                                    ])
                               ])),
                       CustomDropDown(
                           focusNode: FocusNode(),
@@ -93,87 +106,28 @@ class HoneyMainPage extends StatelessWidget {
                           child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                CustomButton(
-                                    height: getVerticalSize(84),
-                                    text: "Вызов врача",
-                                    variant: ButtonVariant.OutlineGray9003d,
-                                    shape: ButtonShape.CustomBorderBR30,
-                                    padding: ButtonPadding.PaddingT31,
-                                    fontStyle: ButtonFontStyle
-                                        .MontserratSemiBold18Bluegray800,
-                                    prefixWidget: Container(
-                                        margin: getMargin(right: 10),
-                                        child: CustomImageView(
-                                            imagePath:
-                                                ImageConstant.imgGroup7507,
-                                            height: getVerticalSize(84),
-                                            width: getHorizontalSize(128))),
-                                    onTap: () {
-                                    //  onTaptf(context);
-                                    }),
-                                CustomButton(
-                                    height: getVerticalSize(84),
-                                    text: "Запись к врачу",
-                                    margin: getMargin(top: 16),
-                                    variant: ButtonVariant.OutlineGray9003d,
-                                    shape: ButtonShape.CustomBorderBR30,
-                                    padding: ButtonPadding.PaddingT31,
-                                    fontStyle: ButtonFontStyle
-                                        .MontserratSemiBold18Bluegray800,
-                                    prefixWidget: Container(
-                                        margin: getMargin(right: 10),
-                                        child: CustomImageView(
-                                            imagePath: ImageConstant
-                                                .img,
-                                            height: getVerticalSize(84),
-                                            width: getHorizontalSize(128))),
-                                    onTap: () {
-                                    //  onTaptf1(context);
-                                    }),
-                                CustomButton(
-                                    height: getVerticalSize(84),
-                                    text: "Помощь онлайн",
-                                    margin: getMargin(top: 16),
-                                    variant: ButtonVariant.OutlineGray9003d,
-                                    shape: ButtonShape.CustomBorderBR30,
-                                    padding: ButtonPadding.PaddingT31,
-                                    fontStyle: ButtonFontStyle
-                                        .MontserratSemiBold18Bluegray800,
-                                    prefixWidget: Container(
-                                        margin: getMargin(right: 10),
-                                        child: CustomImageView(
-                                            imagePath: ImageConstant
-                                                .img,
-                                            height: getVerticalSize(84),
-                                            width: getHorizontalSize(128))),
-                                    onTap: () {
-                                     // onTaptf2(context);
-                                    }),
-                                Container(
-                                    margin: getMargin(top: 16),
-                                    decoration: AppDecoration.outlineGray6003a
-                                        .copyWith(
-                                            borderRadius: BorderRadiusStyle
-                                                .customBorderBR30),
-                                    child: Row(children: [
-                                      CustomImageView(
-                                          imagePath: ImageConstant
-                                              .img,
-                                          height: getVerticalSize(84),
-                                          width: getHorizontalSize(128)),
-                                      Padding(
-                                          padding: getPadding(
-                                              left: 10, top: 32, bottom: 29),
-                                          child: Text("Самопомощь",
-                                              overflow: TextOverflow.ellipsis,
-                                              textAlign: TextAlign.left,
-                                              style: AppStyle.txtH1))
-                                    ]))
+                                WhatDoMedCard(
+                                  color_icon: ColorConstant.blueicon,
+                                  icon_path: ImageConstant.doctorIcon,
+                                  action_text: "Вызов врача",
+                                ),WhatDoMedCard(
+                                  color_icon: ColorConstant.violet,
+                                  icon_path: ImageConstant.notePenIcon,
+                                  action_text: "Запись к врачу",
+                                ),WhatDoMedCard(
+                                  color_icon: ColorConstant.yellow700,
+                                  icon_path: ImageConstant.medPhoneIcon,
+                                  action_text: "Помощь онлайн",
+                                ), WhatDoMedCard(
+                                  color_icon: ColorConstant.green400,
+                                  icon_path: ImageConstant.twoArmPlusIcon,
+                                  action_text: "Самопомощь",
+                                ),
                               ]))
                     ]))));
   }
 
- /* onTaptf(BuildContext context) {
+/* onTaptf(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.callDoctorScreen);
   }
 
@@ -184,4 +138,275 @@ class HoneyMainPage extends StatelessWidget {
   onTaptf2(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.helpOnlineScreen);
   }*/
+}
+
+class AdvancedSwitch extends StatefulWidget {
+  const AdvancedSwitch({
+    Key? key,
+    this.controller,
+    this.activeColor = const Color(0xFF4CAF50),
+    this.inactiveColor = const Color(0xFF9E9E9E),
+    this.activeChild,
+    this.inactiveChild,
+    this.activeImage,
+    this.inactiveImage,
+    this.borderRadius = const BorderRadius.all(const Radius.circular(15)),
+    this.width = 50.0,
+    this.height = 30.0,
+    this.enabled = true,
+    this.disabledOpacity = 0.5,
+    this.thumb,
+  }) : super(key: key);
+
+  /// Determines if widget is enabled
+  final bool enabled;
+
+  /// Determines current state.
+  final ValueNotifier<bool>? controller;
+
+  /// Determines background color for the active state.
+  final Color activeColor;
+
+  /// Determines background color for the inactive state.
+  final Color inactiveColor;
+
+  /// Determines label for the active state.
+  final Widget? activeChild;
+
+  /// Determines label for the inactive state.
+  final Widget? inactiveChild;
+
+  /// Determines background image for the active state.
+  final ImageProvider? activeImage;
+
+  /// Determines background image for the inactive state.
+  final ImageProvider? inactiveImage;
+
+  /// Determines border radius.
+  final BorderRadius borderRadius;
+
+  /// Determines width.
+  final double width;
+
+  /// Determines height.
+  final double height;
+
+  /// Determines opacity of disabled control.
+  final double disabledOpacity;
+
+  /// Thumb widget.
+  final Widget? thumb;
+
+  @override
+  _AdvancedSwitchState createState() => _AdvancedSwitchState();
+}
+
+class _AdvancedSwitchState extends State<AdvancedSwitch>
+    with SingleTickerProviderStateMixin {
+  static const _duration = Duration(milliseconds: 250);
+  late ValueNotifier<bool> _controller;
+  late AnimationController _animationController;
+  late Animation<Offset> _slideAnimation;
+  late Animation<Color?> _colorAnimation;
+  late double _thumbSize;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = widget.controller ?? ValueNotifier<bool>(false);
+    _controller.addListener(_handleControllerValueChanged);
+
+    _animationController = AnimationController(
+      vsync: this,
+      duration: _duration,
+      value: _controller.value ? 1.0 : 0.0,
+    );
+
+    _initAnimation();
+  }
+
+  @override
+  void didUpdateWidget(covariant AdvancedSwitch oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    _initAnimation();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final labelSize = widget.width - _thumbSize;
+    final containerSize = labelSize * 2 + _thumbSize;
+
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: _handlePressed,
+        child: Opacity(
+          opacity: widget.enabled ? 1 : widget.disabledOpacity,
+          child: AnimatedBuilder(
+            animation: _animationController,
+            builder: (_, child) {
+              return ClipRRect(
+                borderRadius: widget.borderRadius,
+                clipBehavior: Clip.antiAlias,
+                child: Container(
+                  width: widget.width,
+                  height: widget.height,
+                  color: _colorAnimation.value,
+                  child: child,
+                ),
+              );
+            },
+            child: Stack(
+              children: [
+                if (widget.activeImage != null || widget.inactiveImage != null)
+                  ValueListenableBuilder<bool>(
+                    valueListenable: _controller,
+                    builder: (_, __, ___) {
+                      return AnimatedCrossFade(
+                        crossFadeState: _controller.value
+                            ? CrossFadeState.showSecond
+                            : CrossFadeState.showFirst,
+                        duration: _duration,
+                        firstChild: Image(
+                          width: widget.width,
+                          height: widget.height,
+                          image: widget.inactiveImage ?? widget.activeImage!,
+                          fit: BoxFit.cover,
+                        ),
+                        secondChild: Image(
+                          width: widget.width,
+                          height: widget.height,
+                          image: widget.activeImage ?? widget.inactiveImage!,
+                          fit: BoxFit.cover,
+                        ),
+                      );
+                    },
+                  ),
+                AnimatedBuilder(
+                  animation: _animationController,
+                  builder: (context, child) {
+                    return Transform.translate(
+                      offset: _slideAnimation.value,
+                      child: child,
+                    );
+                  },
+                  child: OverflowBox(
+                    minWidth: containerSize,
+                    maxWidth: containerSize,
+                    minHeight: widget.height,
+                    maxHeight: widget.height,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconTheme(
+                          data: const IconThemeData(
+                            color: Color(0xFFFFFFFF),
+                            size: 20,
+                          ),
+                          child: DefaultTextStyle(
+                            style: const TextStyle(
+                              color: Color(0xFFFFFFFF),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12,
+                            ),
+                            child: Container(
+                              width: labelSize,
+                              height: widget.height,
+                              alignment: Alignment.center,
+                              child: widget.activeChild,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.all(2),
+                          width: _thumbSize - 4,
+                          height: _thumbSize - 4,
+                          child: widget.thumb ??
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: ColorConstant.gray50001,
+                                  borderRadius: widget.borderRadius
+                                      .subtract(BorderRadius.circular(1)),
+                                ),
+                              ),
+                        ),
+                        IconTheme(
+                          data: const IconThemeData(
+                            color: Color(0xFFFFFFFF),
+                            size: 20,
+                          ),
+                          child: DefaultTextStyle(
+                            style: const TextStyle(
+                              color: Color(0xFFFFFFFF),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12,
+                            ),
+                            child: Container(
+                              width: labelSize,
+                              height: widget.height,
+                              alignment: Alignment.center,
+                              child: widget.inactiveChild,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _initAnimation() {
+    _thumbSize = widget.height;
+    final offset = widget.width / 2 - _thumbSize / 2;
+
+    final animation = CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.easeInOut,
+    );
+
+    _slideAnimation = Tween<Offset>(
+      begin: Offset(-offset, 0),
+      end: Offset(offset, 0),
+    ).animate(animation);
+
+    _colorAnimation = ColorTween(
+      begin: widget.inactiveColor,
+      end: widget.activeColor,
+    ).animate(animation);
+  }
+
+  void _handleControllerValueChanged() {
+    if (_controller.value) {
+      _animationController.forward();
+    } else {
+      _animationController.reverse();
+    }
+  }
+
+  void _handlePressed() {
+    if (widget.controller != null && widget.enabled) {
+      _controller.value = !_controller.value;
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.removeListener(_handleControllerValueChanged);
+
+    if (widget.controller == null) {
+      _controller.dispose();
+    }
+
+    _animationController.dispose();
+
+    super.dispose();
+  }
 }

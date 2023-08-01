@@ -12,6 +12,8 @@ class ColorConstant {
 
   static Color blue30001 = fromHex('#5fb2ff');
 
+  static Color blueicon = fromHex('#37c6f3');
+
   static Color blue30002 = fromHex('#62b0dc');
 
   static Color blue30003 = fromHex('#74b5da');
@@ -213,6 +215,8 @@ class ColorConstant {
   static Color orange700 = fromHex('#d68003');
 
   static Color blue30035 = fromHex('#355fb2ff');
+
+  static Color violet = fromHex('#5D03CF');
 
   static Color orange300 = fromHex('#ffc556');
 

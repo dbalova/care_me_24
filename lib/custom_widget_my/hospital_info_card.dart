@@ -38,7 +38,6 @@ class HospitalInfoCard extends StatelessWidget {
         } else {
           Navigator.pushNamed(context, AppRoutes.aboutHospital);
         }
-
       },
       child: Card(
         elevation: 10,

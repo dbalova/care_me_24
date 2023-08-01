@@ -26,6 +26,8 @@ class ImageConstant {
 
   static String imgCar = 'assets/images/img_car.svg';
 
+  static String doctorImage = 'assets/images/doctor_image.png';
+
   static String imgFrame14 = 'assets/images/img_frame_14.svg';
 
   static String imgVectorBlue2002x2 =
@@ -130,6 +132,14 @@ class ImageConstant {
   static String imgVector = 'assets/images/img_vector.svg';
 
   static String imgArrowleft = 'assets/images/img_arrowleft.svg';
+
+  static String doctorIcon = 'assets/images/doctor_icon.svg';
+
+  static String medPhoneIcon = 'assets/images/med_phone_icon.svg';
+
+  static String notePenIcon = 'assets/images/note_pen_icon.svg';
+
+  static String twoArmPlusIcon = 'assets/images/two_arm_plus_icon.svg';
 
   static String mesCar = 'assets/images/mes_car.svg';
 

@@ -569,6 +569,15 @@ class AppStyle {
     fontWeight: FontWeight.w500,
   );
 
+  static TextStyle txtMontserratMedium12Green = TextStyle(
+    color: ColorConstant.greenA700,
+    fontSize: getFontSize(
+      12,
+    ),
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w500,
+  );
+
   static TextStyle txtMontserratRegular12Black900 = TextStyle(
     color: ColorConstant.black900,
     fontSize: getFontSize(
