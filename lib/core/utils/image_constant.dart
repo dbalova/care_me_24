@@ -20,6 +20,25 @@ class ImageConstant {
 
   static String imgVectorRed4004x1 = 'assets/images/img_vector_red_400_4x1.svg';
 
+  static String imgVirus = 'assets/images/img_virus.svg';
+
+  static String imgAirWarning = 'assets/images/img_air_warning.svg';
+
+  static String img_black_ice = 'assets/images/img_black_ice.svg';
+  static String img_hail = 'assets/images/img_hail.svg';
+  static String img_earthquake = 'assets/images/img_earthquake.svg';
+  static String img_volcano = 'assets/images/img_volcano.svg';
+  static String img_rockfall = 'assets/images/img_rockfall.svg';
+  static String img_flood = 'assets/images/img_flood.svg';
+  static String img_fog = 'assets/images/img_fog.svg';
+  static String img_radiation = 'assets/images/img_radiation.svg';
+  static String img_solar_radiation = 'assets/images/img_solar_radiation.svg';
+  static String img_snow_avalanche = 'assets/images/img_snow_avalanche.svg';
+  static String img_electromagnetic_radiation = 'assets/images/img_electromagnetic_radiation.svg';
+  static String img_terrorist_danger = 'assets/images/img_terrorist_danger.svg';
+  static String img_tornado = 'assets/images/img_tornado.svg';
+  static String img_tsunami = 'assets/images/img_tsunami.svg';
+
   static String imgVector16 = 'assets/images/img_vector_16.svg';
 
   static String imgFrame39 = 'assets/images/img_frame_39.svg';

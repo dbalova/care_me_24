@@ -1,5 +1,6 @@
 import 'package:careme24/custom_widget_my/information_about_virus.dart';
 import 'package:careme24/custom_widget_my/main_info_widget.dart';
+import 'package:careme24/custom_widget_my/wind_speed.dart';
 import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
 import '../../custom_widget_my/weather_at_hour.dart';
 import 'package:careme24/core/app_export.dart';
@@ -19,6 +20,7 @@ class InfoAtDayPage extends StatefulWidget {
   late String cityName;
   late String infoAboutName;
   late bool visibleMainInfo;
+  late bool visibleWind;
   late bool visibleInfoAtDay;
   late bool visibleForecast;
   late bool visibleWeatherAtHour;
@@ -34,6 +36,7 @@ class InfoAtDayPage extends StatefulWidget {
     required this.cityName,
     required this.infoAboutName,
     required this.visibleMainInfo,
+    required this.visibleWind,
     required this.visibleInfoAtDay,
     required this.visibleForecast,
     required this.visibleWeatherAtHour,
@@ -49,20 +52,19 @@ class InfoAtDayPage extends StatefulWidget {
   @override
   State<InfoAtDayPage> createState() => _InfoAtDayPageState();
 }
+
 MapController controller = MapController(
   initMapWithUserPosition: false,
   initPosition: GeoPoint(latitude: 59.939099, longitude: 30.315877),
 );
+
 class _InfoAtDayPageState extends State<InfoAtDayPage> {
-  void initState(){
+  void initState() {
     MapController controller = MapController(
       initMapWithUserPosition: false,
       initPosition: GeoPoint(latitude: 59.939099, longitude: 30.315877),
     );
-
     super.initState();
-
-
   }
 
   @override
@@ -140,6 +142,8 @@ class _InfoAtDayPageState extends State<InfoAtDayPage> {
                     visible: widget.visibleMainInfo,
                     child: MainInfo(),
                   ),
+                      Visibility(
+                          visible: widget.visibleWind, child: WindSpeed()),
                   Visibility(
                     visible: widget.visibleInfoAtDay,
                     child: InfoAtDay(
@@ -172,23 +176,23 @@ class _InfoAtDayPageState extends State<InfoAtDayPage> {
                             children: [
                               WheatherAtHour(
                                 hours: "16:00",
-                                temperature: "+25.7"+ "°",
+                                temperature: "+25.7" + "°",
                               ),
                               WheatherAtHour(
                                 hours: "17:00",
-                                temperature: "+24.6"+ "°",
+                                temperature: "+24.6" + "°",
                               ),
                               WheatherAtHour(
                                 hours: "18:00",
-                                temperature: "+23.7"+ "°",
+                                temperature: "+23.7" + "°",
                               ),
                               WheatherAtHour(
                                 hours: "19:00",
-                                temperature: "+22.7"+ "°",
+                                temperature: "+22.7" + "°",
                               ),
                               WheatherAtHour(
                                 hours: "20:00",
-                                temperature: "+21.7"+ "°",
+                                temperature: "+21.7" + "°",
                               ),
                             ])),
                   ),
@@ -253,7 +257,7 @@ class _InfoAtDayPageState extends State<InfoAtDayPage> {
                     ),
                   ),
                   Visibility(
-                    visible: widget.visibleWeatherAtHour,
+                    visible: widget.visibleWeatherAtDay,
                     child: Container(
                         margin:
                             getMargin(bottom: 8, top: 8, left: 16, right: 16),
@@ -276,98 +280,121 @@ class _InfoAtDayPageState extends State<InfoAtDayPage> {
                   Visibility(
                     visible: widget.visibleInfoVirus,
                     child: InfoAboutVirus(),
-                  ),Visibility (
-                          visible: widget.visibleInfoAir,
-                          child: Column(children:[
+                  ),
+                  Visibility(
+                      visible: widget.visibleInfoAir,
+                      child: Column(children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height / 3,
+                          child: OSMFlutter(
+                            controller: controller,
+                            //markerOption: MarkerOption(defaultMarker: MarkerIcon(icon: ,)),
 
+                            initZoom: 12,
+                            onMapIsReady: (_ready) async {
+                              await controller.currentLocation();
 
-                            Container(
-                              height: MediaQuery.of(context).size.height/3,
-
-                              child:  OSMFlutter(
-                                controller: controller,
-                                //markerOption: MarkerOption(defaultMarker: MarkerIcon(icon: ,)),
-
-                                initZoom: 12,
-                                onMapIsReady: (_ready) async{
-                                  await controller.currentLocation();
-
-                                  await controller. drawCircle(CircleOSM(key: "airWarning", centerPoint: GeoPoint(latitude: 59.939099, longitude: 30.315877), radius: 1000, color: Colors.red, strokeWidth: 0.3));
-
-
+                              await controller.drawCircle(CircleOSM(
+                                  key: "airWarning",
+                                  centerPoint: GeoPoint(
+                                      latitude: 59.939099,
+                                      longitude: 30.315877),
+                                  radius: 1000,
+                                  color: Colors.red,
+                                  strokeWidth: 0.3));
+                            },
+                          ),
+                        ),
+                        Align(
+                            alignment: Alignment.bottomCenter,
+                            child: GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              DirtyMapScreen()));
                                 },
-
-                              ),), Align(
-                                alignment: Alignment.bottomCenter,
-
-                                child: GestureDetector(
-                                    onTap: (){Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                DirtyMapScreen()));},
-                                    child:Container(
-                                        height: 100,
-                                        width: MediaQuery.of(context).size.width ,
-                                        margin: getMargin(bottom: 8,),
-                                        padding:
-                                        getPadding(left: 12, top: 19, right: 12, bottom: 19),
-                                        decoration: AppDecoration.outlineBlack9003f3.copyWith(
-                                            borderRadius: BorderRadiusStyle.roundedBorder10),
-                                        child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Column(
-                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                  children: [
-                                                    Text("Радиус нанесения удара",
-                                                        overflow: TextOverflow.clip,
-                                                        textAlign: TextAlign.left,
-                                                        style: AppStyle
-                                                            .txtMontserratMedium15Bluegray800),
-                                                    Text("Москва",
-                                                        overflow: TextOverflow.ellipsis,
-                                                        textAlign: TextAlign.left,
-                                                        style: AppStyle.txtMontserratSemiBold18)
-                                                  ]),
-                                              Text("30 км",
-                                                  overflow: TextOverflow.ellipsis,
-                                                  textAlign: TextAlign.left,
-                                                  style: AppStyle.txtMontserratRomanSemiBold32)
-                                            ])))),])),
-                      Visibility(
-                          visible: widget.visibleInfoDirtyAir,
-
-                          child:Container(
+                                child: Container(
+                                    height: 100,
+                                    width: MediaQuery.of(context).size.width,
+                                    margin: getMargin(
+                                      bottom: 8,
+                                    ),
+                                    padding: getPadding(
+                                        left: 12,
+                                        top: 19,
+                                        right: 12,
+                                        bottom: 19),
+                                    decoration: AppDecoration.outlineBlack9003f3
+                                        .copyWith(
+                                            borderRadius: BorderRadiusStyle
+                                                .roundedBorder10),
+                                    child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Text("Радиус нанесения удара",
+                                                    overflow: TextOverflow.clip,
+                                                    textAlign: TextAlign.left,
+                                                    style: AppStyle
+                                                        .txtMontserratMedium15Bluegray800),
+                                                Text("Москва",
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    textAlign: TextAlign.left,
+                                                    style: AppStyle
+                                                        .txtMontserratSemiBold18)
+                                              ]),
+                                          Text("30 км",
+                                              overflow: TextOverflow.ellipsis,
+                                              textAlign: TextAlign.left,
+                                              style: AppStyle
+                                                  .txtMontserratRomanSemiBold32)
+                                        ])))),
+                      ])),
+                  Visibility(
+                      visible: widget.visibleInfoDirtyAir,
+                      child: Container(
                           width: MediaQuery.of(context).size.width - 40,
-
-                          padding:
-                          getPadding(left: 12, top: 19, right: 12, bottom: 19),
-                         /* decoration: AppDecoration.outlineBlack9003f3.copyWith(
-                              borderRadius: BorderRadiusStyle.roundedBorder10),*/
+                          padding: getPadding(
+                              left: 12, top: 19, right: 12, bottom: 19),
                           child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Container(
-
-                                        width: MediaQuery.of(context).size.width - 40,
+                                        width:
+                                            MediaQuery.of(context).size.width -
+                                                40,
                                         child: Text("Прогноз",
                                             overflow: TextOverflow.ellipsis,
                                             textAlign: TextAlign.left,
                                             style: AppStyle.txtH1),
                                       ),
                                       Container(
-                                          width: MediaQuery.of(context).size.width - 40,
-
-                                          padding: getPadding(bottom: 16, top: 12),
-                                          decoration: AppDecoration.outlineGray3004,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width -
+                                              40,
+                                          padding:
+                                              getPadding(bottom: 16, top: 12),
+                                          decoration:
+                                              AppDecoration.outlineGray3004,
                                           child: Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
                                                 WheatherAtHour(
                                                   hours: "16:00",
@@ -391,58 +418,74 @@ class _InfoAtDayPageState extends State<InfoAtDayPage> {
                                                 ),
                                               ])),
                                       Padding(
-                                          padding: getPadding(top:16, bottom: 8),
-                                          child:Text("Характеристики",
-                                          overflow: TextOverflow.clip,
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            color: ColorConstant.blueGray800,
-                                            fontSize: getFontSize(
-                                              18,
-                                            ),
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w600,
-                                          ))),
-                                    Padding(
-                                        padding: getPadding(top:10, left: 7,right: 7, bottom: 12),
-                                        child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [Text('Загрязнитель',style: TextStyle(
-                                          color: ColorConstant.blueGray800,
-                                          fontSize: getFontSize(
-                                            12,
-                                          ),
-                                          fontFamily: 'Montserrat',
-                                          fontWeight: FontWeight.w500,
-                                        )),
-                                          Text('Концентрация', style: TextStyle(
-                                            color: ColorConstant.blueGray800,
-                                            fontSize: getFontSize(
-                                              12,
-                                            ),
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w500,
+                                          padding:
+                                              getPadding(top: 16, bottom: 8),
+                                          child: Text("Характеристики",
+                                              overflow: TextOverflow.clip,
+                                              textAlign: TextAlign.left,
+                                              style: TextStyle(
+                                                color:
+                                                    ColorConstant.blueGray800,
+                                                fontSize: getFontSize(
+                                                  18,
+                                                ),
+                                                fontFamily: 'Montserrat',
+                                                fontWeight: FontWeight.w600,
+                                              ))),
+                                      Padding(
+                                          padding: getPadding(
+                                              top: 10,
+                                              left: 7,
+                                              right: 7,
+                                              bottom: 12),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text('Загрязнитель',
+                                                  style: TextStyle(
+                                                    color: ColorConstant
+                                                        .blueGray800,
+                                                    fontSize: getFontSize(
+                                                      12,
+                                                    ),
+                                                    fontFamily: 'Montserrat',
+                                                    fontWeight: FontWeight.w500,
+                                                  )),
+                                              Text('Концентрация',
+                                                  style: TextStyle(
+                                                    color: ColorConstant
+                                                        .blueGray800,
+                                                    fontSize: getFontSize(
+                                                      12,
+                                                    ),
+                                                    fontFamily: 'Montserrat',
+                                                    fontWeight: FontWeight.w500,
+                                                  )),
+                                              Text('%',
+                                                  style: TextStyle(
+                                                    color: ColorConstant
+                                                        .blueGray800,
+                                                    fontSize: getFontSize(
+                                                      12,
+                                                    ),
+                                                    fontFamily: 'Montserrat',
+                                                    fontWeight: FontWeight.w500,
+                                                  ))
+                                            ],
                                           )),
-                                          Text('%', style:TextStyle(
-                                            color: ColorConstant.blueGray800,
-                                            fontSize: getFontSize(
-                                              12,
-                                            ),
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w500,
-                                          ))],)),
                                       ListView.builder(
                                           shrinkWrap: true,
-
                                           itemCount: 5,
-                                          itemBuilder: (BuildContext context, int index) {
-                                            return _dirty(0.2,'Название', '44 рр');
-                                          }
-                                      ),
+                                          itemBuilder: (BuildContext context,
+                                              int index) {
+                                            return _dirty(
+                                                0.2, 'Название', '44 рр');
+                                          }),
                                     ]),
-                              ])) )
+                              ])))
                 ])),
-                  ]),
+              ]),
             ),
             bottomNavigationBar: Padding(
                 padding: getPadding(left: 22, right: 22, bottom: 32),
@@ -473,60 +516,63 @@ class _InfoAtDayPageState extends State<InfoAtDayPage> {
                     )))));
   }
 
-  Widget _dirty(double _value, String _elementName, String _elementValue){
-    return  Row(
+  Widget _dirty(double _value, String _elementName, String _elementValue) {
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: [  Padding(
-          padding: getPadding(
-              left: 7,
-              top: 5,
-              bottom: 8),
-          child:
-              Container(
-                  height: getVerticalSize(30),
-                  width: MediaQuery.of(context).size.width/1.5,
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                          borderRadius: BorderRadius.circular(getHorizontalSize(20)),
-                          child: LinearProgressIndicator(
-                              minHeight: 9.0,
-                              value: _value,
-                              valueColor: AlwaysStoppedAnimation<Color>(ColorConstant.blueGray800))),
-                     Padding(
-                         padding: getPadding(top:4),
-                         child: Row(
-
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [Text(_elementName, style: TextStyle(
-                          color: ColorConstant.blueGray800,
-                          fontSize: getFontSize(
-                            14,
-                          ),
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.w400,
-                        )), Text(_elementValue,style: TextStyle(
-                          color: ColorConstant.gray50001,
-                          fontSize: getFontSize(
-                            14,
-                          ),
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.w500,
-                        ))],))
-                    ],
-                  )),
-
-            ),
+      children: [
         Padding(
-            padding:
-            getPadding(left: 7, top: 1, right: 2),
+          padding: getPadding(left: 7, top: 5, bottom: 8),
+          child: Container(
+              height: getVerticalSize(30),
+              width: MediaQuery.of(context).size.width / 1.5,
+              child: Column(
+                children: [
+                  ClipRRect(
+                      borderRadius:
+                          BorderRadius.circular(getHorizontalSize(20)),
+                      child: LinearProgressIndicator(
+                          minHeight: 9.0,
+                          value: _value,
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                              ColorConstant.blueGray800))),
+                  Padding(
+                      padding: getPadding(top: 4),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(_elementName,
+                              style: TextStyle(
+                                color: ColorConstant.blueGray800,
+                                fontSize: getFontSize(
+                                  14,
+                                ),
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w400,
+                              )),
+                          Text(_elementValue,
+                              style: TextStyle(
+                                color: ColorConstant.gray50001,
+                                fontSize: getFontSize(
+                                  14,
+                                ),
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w500,
+                              ))
+                        ],
+                      ))
+                ],
+              )),
+        ),
+        Padding(
+            padding: getPadding(left: 7, top: 1, right: 2),
             child: Container(
-                padding: getPadding(all:6),
-                decoration: BoxDecoration(color: ColorConstant.gray400,
-                    borderRadius: BorderRadius.circular(getHorizontalSize(10))
-                ),
-                child:Text("${_value * 100}%", overflow: TextOverflow.ellipsis,
+                padding: getPadding(all: 6),
+                decoration: BoxDecoration(
+                    color: ColorConstant.gray400,
+                    borderRadius: BorderRadius.circular(getHorizontalSize(10))),
+                child: Text("${_value * 100}%",
+                    overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: ColorConstant.black900,
@@ -535,7 +581,9 @@ class _InfoAtDayPageState extends State<InfoAtDayPage> {
                       ),
                       fontFamily: 'Montserrat',
                       fontWeight: FontWeight.w600,
-                    ))))],);
+                    ))))
+      ],
+    );
   }
 
   onTapArrowleft64(BuildContext context) {

@@ -509,7 +509,6 @@ class AppRoutes {
         ButtonHoneyCallActivItemScreen(),
     buttonCallPoliceScreen: (context) => ButtonCallPoliceScreen(),
     newsButtonContainerScreen: (context) => NewsButtonContainerScreen(),
-    newsButtonPage:(context) => NewsButtonPage(),
     newsReadScreen: (context) => NewsReadScreen(),
     goodsNewScreen: (context) => GoodsNewScreen(),
     goodsPromotionScreen: (context) => GoodsPromotionScreen(),

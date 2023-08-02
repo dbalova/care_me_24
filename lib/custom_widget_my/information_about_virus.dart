@@ -12,7 +12,7 @@ class InfoAboutVirus extends StatelessWidget {
     return Column(
       children: [
         Container(
-            margin: getMargin(bottom: 16),
+            margin: getMargin(bottom: 16, top: 12),
             width: MediaQuery.of(context).size.width - 40,
             child: Text("COVID-19 (Коронавирусная инфекция ",
                 maxLines: null,

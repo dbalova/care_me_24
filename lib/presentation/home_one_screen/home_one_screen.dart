@@ -57,13 +57,4 @@ class _HomeOneScreenState extends State<HomeOneScreen> {
     }
   }
 
-  ///Handling page based on route
-  Widget getCurrentPage(String currentRoute) {
-    switch (currentRoute) {
-      case AppRoutes.newsButtonPage:
-        return NewsButtonPage();
-      default:
-        return DefaultWidget();
-    }
-  }
 }

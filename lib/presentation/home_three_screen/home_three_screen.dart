@@ -4398,15 +4398,6 @@ class HomeThreeScreen extends StatelessWidget {
     }
   }
 
-  ///Handling page based on route
-  Widget getCurrentPage(String currentRoute) {
-    switch (currentRoute) {
-      case AppRoutes.newsButtonPage:
-        return NewsButtonPage();
-      default:
-        return DefaultWidget();
-    }
-  }
 
   onTapColumnthirty(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.shopScreen);

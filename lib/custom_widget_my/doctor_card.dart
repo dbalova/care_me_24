@@ -61,7 +61,7 @@ class DoctorCard extends StatelessWidget {
                   height: getVerticalSize(109),
                   width: getHorizontalSize(77)),
               Padding(
-                padding: getPadding(top: 12, left: 12),
+                padding: getPadding(top: 8, left: 12),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -189,7 +189,7 @@ class DoctorCard extends StatelessWidget {
                                   Text("Свободные даты",
                                   style: AppStyle.txtMontserratMedium12Black900,),
                                   Padding(
-                                    padding: getPadding(top: 4),
+                                    padding: getPadding(top: 2),
                                     child: Container(
                                       width: 128,
                                       child: Text("1 3 7 12 14 15 16 17 18",

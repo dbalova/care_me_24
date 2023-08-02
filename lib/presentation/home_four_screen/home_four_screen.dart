@@ -57,13 +57,4 @@ class _HomeFourScreenState extends State<HomeFourScreen> {
     }
   }
 
-  ///Handling page based on route
-  Widget getCurrentPage(String currentRoute) {
-    switch (currentRoute) {
-      case AppRoutes.newsButtonPage:
-        return NewsButtonPage();
-      default:
-        return DefaultWidget();
-    }
-  }
 }

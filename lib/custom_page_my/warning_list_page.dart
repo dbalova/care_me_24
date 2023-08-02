@@ -54,10 +54,12 @@ class WarningListPage extends StatelessWidget {
                                 visibleWeatherAtHour: true,
                                 visibleWindowAtHour: true,
                                 visibleWeatherAtDay: true,
+                                visibleWind: true,
                                 visibleInfoVirus: true,
-                            visibleInfoDirtyAir: false,
-                            backGroundColor: "123",
-                            pictureOnIcon: "123", visibleInfoAir: false,
+                                visibleInfoDirtyAir: false,
+                                backGroundColor: "123",
+                                pictureOnIcon: "123",
+                                visibleInfoAir: false,
                               )));
                 },
                 child: Container(

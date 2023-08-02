@@ -1,3 +1,4 @@
+import '../../widgets/custom_bottom_bar.dart';
 import '../shop_screen/widgets/shop_item_widget.dart';
 import 'package:careme24/core/app_export.dart';
 import 'package:careme24/widgets/app_bar/appbar_image.dart';
@@ -7,7 +8,15 @@ import 'package:flutter/material.dart';
 
 TextEditingController _serchController= TextEditingController();
 
-class ShopScreen extends StatelessWidget {
+class ShopScreen extends StatefulWidget {
+
+  @override
+  State<ShopScreen> createState() => _ShopScreenState();
+}
+
+class _ShopScreenState extends State<ShopScreen> {
+
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -653,7 +662,8 @@ class ShopScreen extends StatelessWidget {
                                   itemBuilder: (context, index) {
                                     return ShopItemWidget();
                                   })))
-                    ]))));
+                    ])),
+        ));
   }
 
   onTapColumnframe7685(BuildContext context) {

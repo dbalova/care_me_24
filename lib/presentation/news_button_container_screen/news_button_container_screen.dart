@@ -40,7 +40,7 @@ class NewsButtonContainerScreen extends StatelessWidget {
   Widget getCurrentPage(String currentRoute) {
     switch (currentRoute) {
       case AppRoutes.newsButtonPage:
-        return NewsButtonPage();
+        return NewsButtonPage(bottomBarIndex: 0,);
       default:
         return DefaultWidget();
     }

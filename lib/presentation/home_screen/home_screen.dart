@@ -15,6 +15,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _bottomBarIndex = 0;
+  List<String> appBarTitle = [
+    "Новости", "Медицинская помощь", "Полиция", "МЧС",
+  ];
   List<BottomMenuModel> bottomMenuList = [
     BottomMenuModel(
       icon: ImageConstant.imgFrameBlue600,
@@ -164,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget getCurrentPage(String currentRoute) {
     switch (currentRoute) {
       case AppRoutes.newsButtonPage:
-        return NewsButtonPage();
+        return NewsButtonPage(bottomBarIndex: 0,);
       default:
         return DefaultWidget();
     }
