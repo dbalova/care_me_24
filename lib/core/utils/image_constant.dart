@@ -3,6 +3,7 @@ class ImageConstant {
       'assets/images/img_vector_blue_300_2x5.svg';
 
   static String imgRectangle2626 = 'assets/images/img_rectangle2626.png';
+  static String img7972 = 'assets/images/7972.svg';
 
   static String imgHospital = 'assets/images/image_hospital.png';
 

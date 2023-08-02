@@ -131,8 +131,8 @@ class DoctorCard extends StatelessWidget {
                                                   style: AppStyle
                                                       .txtMontserratMedium15Bluegray800),
                                               CustomImageView(
-                                                  imagePath: ImageConstant
-                                                      .imgVector12x12,
+                                                  svgPath: ImageConstant
+                                                      .imgStarGold,
                                                   height: getSize(12),
                                                   width: getSize(12),
                                                   margin: getMargin(
@@ -173,7 +173,7 @@ class DoctorCard extends StatelessWidget {
                                             style: AppStyle
                                                 .txtMontserratMedium15Bluegray800)),
                                     CustomImageView(
-                                        imagePath: ImageConstant.imgVector12x12,
+                                        svgPath: ImageConstant.imgStarGold,
                                         height: getSize(12),
                                         width: getSize(12),
                                         margin: getMargin(
