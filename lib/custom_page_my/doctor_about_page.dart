@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
+import '../car_custom_icons.dart';
 import '../core/utils/color_constant.dart';
 import '../core/utils/image_constant.dart';
 import '../core/utils/size_utils.dart';
+import '../routes/app_routes.dart';
 import '../theme/app_decoration.dart';
 import '../theme/app_style.dart';
 import '../widgets/app_bar/appbar_image.dart';
@@ -9,8 +12,11 @@ import '../widgets/app_bar/appbar_title.dart';
 import '../widgets/app_bar/custom_app_bar.dart';
 import '../widgets/custom_image_view.dart';
 
-class DoctorAboutScreen extends StatelessWidget {
-  bool map_visible = true;
+MapController controller = MapController(
+  initMapWithUserPosition: false,
+  initPosition: GeoPoint(latitude: 59.939099, longitude: 30.315877),
+);
+class DoctorAboutScreen extends StatefulWidget {
   late bool freeVersion;
 
   late String whereCall;
@@ -20,19 +26,34 @@ class DoctorAboutScreen extends StatelessWidget {
     required this.freeVersion,
 });
 
+  @override
+  State<DoctorAboutScreen> createState() => _DoctorAboutScreenState();
+}
+
+class _DoctorAboutScreenState extends State<DoctorAboutScreen> {
+  bool map_visible = true;
 
   void mapEdit() {
-    if (whereCall == "Помощь онлайн") {
+    if (widget.whereCall == "Помощь онлайн") {
       map_visible = false;
     }
   }
+  void initState(){
+    MapController controller = MapController(
+      initMapWithUserPosition: false,
+      initPosition: GeoPoint(latitude: 59.939099, longitude: 30.315877),
+    );
 
+    super.initState();
+
+
+  }
 
   @override
   Widget build(BuildContext context) {
     mapEdit();
     print("что пришло на экран об докторе");
-    print(freeVersion);
+    print(widget.freeVersion);
     return SafeArea(
         child: Scaffold(
             backgroundColor: ColorConstant.whiteA700,
@@ -435,8 +456,7 @@ class DoctorAboutScreen extends StatelessWidget {
                                 width: MediaQuery.of(context).size.width,
                                 child: Stack(
                                     children: [
-                                      CustomImageView(imagePath: ImageConstant
-                                          .img7972,),
+
                                       Column(
                                           mainAxisSize:
                                           MainAxisSize.min,
@@ -520,63 +540,46 @@ class DoctorAboutScreen extends StatelessWidget {
                                                                     Padding(padding: getPadding(left: 6), child: Text("7 мин 30 с", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtH1))
                                                                   ]))
                                                         ]))),
-                                            Container(
-                                                height:
-                                                getVerticalSize(
-                                                    175),
-                                                width:
-                                                getHorizontalSize(
-                                                    66),
-                                                margin: getMargin(
-                                                    top: 52,
-                                                    right: 100,
-                                                    bottom: 58),
-                                                child: Stack(
-                                                    alignment: Alignment
-                                                        .bottomCenter,
-                                                    children: [
-                                                      Align(
-                                                          alignment:
-                                                          Alignment
-                                                              .bottomCenter,
-                                                          child: SizedBox(
-                                                              height: getVerticalSize(
-                                                                  89),
-                                                              child: VerticalDivider(
-                                                                  width:
-                                                                  getHorizontalSize(3),
-                                                                  thickness: getVerticalSize(3),
-                                                                  color: ColorConstant.pink600,
-                                                                  endIndent: getHorizontalSize(19)))),
-                                                      CustomImageView(
-                                                          svgPath:
-                                                          ImageConstant
-                                                              .imgLightbulb,
-                                                          height:
-                                                          getSize(
-                                                              28),
-                                                          width:
-                                                          getSize(
-                                                              28),
-                                                          alignment:
-                                                          Alignment
-                                                              .bottomCenter),
-                                                      CustomImageView(
-                                                          imagePath:
-                                                          ImageConstant
-                                                              .img2,
-                                                          height:
-                                                          getVerticalSize(
-                                                              94),
-                                                          width:
-                                                          getHorizontalSize(
-                                                              66),
-                                                          alignment:
-                                                          Alignment
-                                                              .topCenter)
-                                                    ]
-                                                )
-                                            )
+                                          GestureDetector(
+                                              onTap: (){Navigator.pushNamed(context,
+                                                  AppRoutes.trackingScreen);},
+
+                                              child:  Container(
+                                              height: MediaQuery.of(context).size.height/3,
+                                              width: MediaQuery.of(context).size.width,
+
+                                              child:  OSMFlutter(
+                                                controller: controller,
+                                                //markerOption: MarkerOption(defaultMarker: MarkerIcon(icon: ,)),
+
+                                                initZoom: 12,
+                                                onMapIsReady: (_ready) async{
+                                                  controller.addMarker(
+                                                    GeoPoint(
+                                                        latitude: 59.853845,  longitude: 30.179760),
+                                                    markerIcon: MarkerIcon(
+                                                        icon: Icon(
+
+                                                          CarCustom.mchs__1_,
+                                                          size: 100,
+
+                                                        )),
+                                                  );
+                                                  //_route();
+                                                  RoadInfo roadInfo = await controller.drawRoad(
+                                                    GeoPoint(latitude: 59.853845,  longitude: 30.179760),
+                                                    GeoPoint(latitude: 59.949474, longitude:  30.264044),
+                                                    roadType: RoadType.car,
+                                                    //intersectPoint : [ GeoPoint(latitude: 47.4361, longitude: 8.6156), GeoPoint(latitude: 47.4481, longitude: 8.6266)],
+                                                    roadOption: RoadOption(
+                                                      roadWidth: 10,
+                                                      roadColor: Colors.red,
+
+                                                    ),
+                                                  );
+                                                },
+
+                                              ),))
                                           ]
                                       )
                                     ]
@@ -584,7 +587,7 @@ class DoctorAboutScreen extends StatelessWidget {
                             ),
                           ),
                           Visibility(
-                            visible: !freeVersion,
+                            visible: !widget.freeVersion,
                             child: Card(
                               margin: getMargin(top: 24, bottom: 24),
                               elevation: 10,
@@ -629,7 +632,7 @@ class DoctorAboutScreen extends StatelessWidget {
                 )
             ),
             bottomNavigationBar: Visibility(
-              visible: freeVersion,
+              visible: widget.freeVersion,
               child: Container(
                 width: 1,
                 height: 100,
