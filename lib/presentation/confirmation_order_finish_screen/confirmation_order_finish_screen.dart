@@ -36,8 +36,8 @@ class ConfirmationOrderFinishScreen extends StatelessWidget {
                       CustomIconButton(
                           height: 39,
                           width: 39,
-                          variant: IconButtonVariant.FillBlue600,
-                          shape: IconButtonShape.RoundedBorder21,
+
+
                           child: CustomImageView(
                               svgPath: ImageConstant.imgCheckmarkWhiteA700)),
                       Padding(

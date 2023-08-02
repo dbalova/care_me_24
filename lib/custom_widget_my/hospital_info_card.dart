@@ -151,8 +151,8 @@ class HospitalInfoCard extends StatelessWidget {
                             style: AppStyle
                                 .txtMontserratMedium16)),
                     CustomImageView(
-                        imagePath:
-                        ImageConstant.imgVector12x12,
+                        svgPath:
+                        ImageConstant.imgStarGold,
                         height: getSize(14),
                         width: getSize(14),
                         margin: getMargin(

@@ -59,7 +59,7 @@ class ShopItemWidget extends StatelessWidget {
                   ),
                 ),
                 CustomImageView(
-                  imagePath: ImageConstant.imgVector12x12,
+                  svgPath: ImageConstant.imgStarGold,
                   height: getSize(
                     12,
                   ),

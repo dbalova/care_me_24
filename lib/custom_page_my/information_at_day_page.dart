@@ -113,11 +113,13 @@ class _InfoAtDayPageState extends State<InfoAtDayPage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Text(widget.infoAboutName,
+                                    Container(
+                                        width: MediaQuery.of(context).size.width/1.5 ,
+                                        child:Text(widget.infoAboutName,
                                         overflow: TextOverflow.ellipsis,
                                         textAlign: TextAlign.left,
                                         style: AppStyle
-                                            .txtMontserratRomanSemiBold18Bluegray800),
+                                            .txtMontserratRomanSemiBold18Bluegray800)),
                                     Padding(
                                         padding: getPadding(top: 1),
                                         child: Text(widget.cityName,

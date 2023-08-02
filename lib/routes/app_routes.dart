@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:careme24/presentation/home_screen/home_screen.dart';
-import 'package:careme24/presentation/home_three_screen/home_three_screen.dart';
+
 import 'package:careme24/presentation/home_four_screen/home_four_screen.dart';
 import 'package:careme24/presentation/home_two_screen/home_two_screen.dart';
 import 'package:careme24/presentation/home_one_screen/home_one_screen.dart';
-import 'package:careme24/presentation/waiting_window_five_screen/waiting_window_five_screen.dart';
-import 'package:careme24/presentation/waiting_window_three_screen/waiting_window_three_screen.dart';
-import 'package:careme24/presentation/tracking_one_screen/tracking_one_screen.dart';
-import 'package:careme24/presentation/tracking_two_screen/tracking_two_screen.dart';
+
+
 import 'package:careme24/presentation/button_call_police_two_screen/button_call_police_two_screen.dart';
 import 'package:careme24/presentation/button_call_policecall_activ_item_screen/button_call_policecall_activ_item_screen.dart';
 import 'package:careme24/presentation/button_call_police_three_screen/call_a_police.dart';
@@ -17,9 +15,9 @@ import 'package:careme24/presentation/button_honey_call_activ_item_two_screen/bu
 import 'package:careme24/presentation/button_honey_call_activ_item_one_screen/button_honey_call_activ_item_one_screen.dart';
 import 'package:careme24/presentation/plots_mes_one_screen/plots_mes_one_screen.dart';
 import 'package:careme24/presentation/plots_mes_screen/call_a_mes.dart';
-import 'package:careme24/presentation/k18_screen/k18_screen.dart';
+
 import 'package:careme24/presentation/waiting_window_screen/waiting_window_screen.dart';
-import 'package:careme24/presentation/waiting_window_two_screen/waiting_window_two_screen.dart';
+
 import 'package:careme24/presentation/communication_team_screen/communication_team_screen.dart';
 import 'package:careme24/presentation/tracking_screen/tracking_screen.dart';
 import 'package:careme24/presentation/button_honey_call_screen/call_an_ambulance.dart';
@@ -27,21 +25,19 @@ import 'package:careme24/presentation/button_honey_call_two_screen/button_honey_
 import 'package:careme24/presentation/button_honey_call_one_screen/button_honey_call_one_screen.dart';
 import 'package:careme24/presentation/button_honey_call_activ_item_three_screen/button_honey_call_activ_item_three_screen.dart';
 import 'package:careme24/presentation/hospitals_screen/hospitals_screen.dart';
-import 'package:careme24/presentation/waiting_window_four_screen/waiting_window_four_screen.dart';
-import 'package:careme24/presentation/waiting_window_one_screen/waiting_window_one_screen.dart';
+
 import 'package:careme24/presentation/button_honey_call_activ_item_screen/button_honey_call_activ_item_screen.dart';
 import 'package:careme24/presentation/button_call_police_screen/button_call_police_screen.dart';
 import 'package:careme24/presentation/news_button_container_screen/news_button_container_screen.dart';
 import 'package:careme24/presentation/news_read_screen/news_read_screen.dart';
 import 'package:careme24/presentation/goods_new_screen/goods_new_screen.dart';
 import 'package:careme24/presentation/goods_promotion_screen/goods_promotion_screen.dart';
-import 'package:careme24/presentation/k37_screen/k37_screen.dart';
+
 import 'package:careme24/presentation/one_screen/one_screen.dart';
-import 'package:careme24/presentation/three_screen/three_screen.dart';
-import 'package:careme24/presentation/four_screen/four_screen.dart';
+
 import 'package:careme24/presentation/two_screen/two_screen.dart';
 import 'package:careme24/presentation/alert_screen/alert_screen.dart';
-import 'package:careme24/presentation/alert_call_screen/alert_call_screen.dart';
+
 import 'package:careme24/presentation/call_screen/call_screen.dart';
 import 'package:careme24/presentation/call_activ_screen/call_activ_screen.dart';
 import 'package:careme24/presentation/call_activ_button_screen/call_activ_button_screen.dart';
@@ -49,8 +45,7 @@ import 'package:careme24/presentation/call_activ_video_screen/call_activ_video_s
 import 'package:careme24/presentation/call_sound_off_two_screen/call_sound_off_two_screen.dart';
 import 'package:careme24/presentation/call_sound_off_one_screen/call_sound_off_one_screen.dart';
 import 'package:careme24/presentation/call_sound_off_screen/call_sound_off_screen.dart';
-import 'package:careme24/presentation/alert_admin_settings_screen/alert_admin_settings_screen.dart';
-import 'package:careme24/presentation/alert_admin_settings_one_screen/alert_admin_settings_one_screen.dart';
+
 import 'package:careme24/presentation/general_information_screen/general_information_screen.dart';
 import 'package:careme24/presentation/shop_screen/shop_screen.dart';
 import 'package:careme24/presentation/goods_more_screen/goods_more_screen.dart';
@@ -58,8 +53,7 @@ import 'package:careme24/presentation/goods_more_one_screen/goods_more_one_scree
 import 'package:careme24/presentation/goods_basket_screen/goods_basket_screen.dart';
 import 'package:careme24/presentation/goods_favorites_screen/goods_favorites_screen.dart';
 import 'package:careme24/presentation/goods_orders_expected_screen/goods_orders_expected_screen.dart';
-import 'package:careme24/presentation/goods_orders_completed_screen/goods_orders_completed_screen.dart';
-import 'package:careme24/presentation/goods_orders_canceled_screen/goods_orders_canceled_screen.dart';
+
 import 'package:careme24/presentation/about_order_screen/about_order_screen.dart';
 import 'package:careme24/presentation/heckout_screen/heckout_screen.dart';
 import 'package:careme24/presentation/payment_defoult_screen/payment_defoult_screen.dart';
@@ -67,67 +61,21 @@ import 'package:careme24/presentation/payment_completed_screen/payment_completed
 import 'package:careme24/presentation/payment_error_screen/payment_error_screen.dart';
 import 'package:careme24/presentation/payment_failed_screen/payment_failed_screen.dart';
 import 'package:careme24/presentation/payment_successful_screen/payment_successful_screen.dart';
-import 'package:careme24/presentation/cart_defoult_screen/cart_defoult_screen.dart';
-import 'package:careme24/presentation/cart_added_screen/cart_added_screen.dart';
+
 import 'package:careme24/presentation/confirmation_order_finish_screen/confirmation_order_finish_screen.dart';
 import 'package:careme24/presentation/quality_control_defoult_screen/quality_control_defoult_screen.dart';
-import 'package:careme24/presentation/quality_control_screen/quality_control_screen.dart';
+
 import 'package:careme24/presentation/payment_successful_one_screen/payment_successful_one_screen.dart';
 import 'package:careme24/presentation/prehistoric_phenomenon_air_pollution_map_screen/prehistoric_phenomenon_air_pollution_map_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_air_pollution_screen/prehistoric_phenomenon_air_pollution_screen.dart';
+
 import 'package:careme24/presentation/prehistoric_phenomenon_air_pollution_one_screen/prehistoric_phenomenon_air_pollution_one_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_heat_three_screen/prehistoric_phenomenon_heat_three_screen.dart';
+
 import 'package:careme24/presentation/prehistoric_phenomenon_heat_screen/prehistoric_phenomenon_heat_screen.dart';
 import 'package:careme24/presentation/prehistoric_phenomenon_heat_one_screen/prehistoric_phenomenon_heat_one_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_heat_two_screen/prehistoric_phenomenon_heat_two_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_cold_two_screen/prehistoric_phenomenon_cold_two_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_heat_four_screen/prehistoric_phenomenon_heat_four_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_cold_screen/prehistoric_phenomenon_cold_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_cold_one_screen/prehistoric_phenomenon_cold_one_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_pressure_screen/prehistoric_phenomenon_pressure_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_pressure_two_screen/prehistoric_phenomenon_pressure_two_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_pressure_one_screen/prehistoric_phenomenon_pressure_one_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_virus_screen/prehistoric_phenomenon_virus_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_virus_one_screen/prehistoric_phenomenon_virus_one_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_wind_screen/prehistoric_phenomenon_wind_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_wind_one_screen/prehistoric_phenomenon_wind_one_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_wind_two_screen/prehistoric_phenomenon_wind_two_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_air_raid_alert_one_screen/prehistoric_phenomenon_air_raid_alert_one_screen.dart';
 import 'package:careme24/presentation/prehistoric_phenomenon_air_raid_alert_screen/prehistoric_phenomenon_air_raid_alert_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_air_raid_aler_map_screen/prehistoric_phenomenon_air_raid_aler_map_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_ice_one_screen/prehistoric_phenomenon_ice_one_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_ice_two_screen/prehistoric_phenomenon_ice_two_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_ice_screen/prehistoric_phenomenon_ice_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_hail_screen/prehistoric_phenomenon_hail_screen.dart';
 import 'package:careme24/presentation/prehistoric_phenomenon_hail_one_screen/prehistoric_phenomenon_hail_one_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_hail_two_screen/prehistoric_phenomenon_hail_two_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_earthquake_screen/prehistoric_phenomenon_earthquake_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_earthquake_one_screen/prehistoric_phenomenon_earthquake_one_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_eruption_screen/prehistoric_phenomenon_eruption_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_eruption_one_screen/prehistoric_phenomenon_eruption_one_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_rockfall_one_screen/prehistoric_phenomenon_rockfall_one_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_rockfall_screen/prehistoric_phenomenon_rockfall_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_flood_screen/prehistoric_phenomenon_flood_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_flood_one_screen/prehistoric_phenomenon_flood_one_screen.dart';
 import 'package:careme24/presentation/prehistoric_phenomenon_fire_screen/prehistoric_phenomenon_fire_screen.dart';
 import 'package:careme24/presentation/prehistoric_phenomenon_fire_two_screen/prehistoric_phenomenon_fire_two_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_fire_one_screen/prehistoric_phenomenon_fire_one_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_radiation_screen/prehistoric_phenomenon_radiation_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_radiation_one_screen/prehistoric_phenomenon_radiation_one_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_nuclear_pollution_one_screen/prehistoric_phenomenon_nuclear_pollution_one_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_nuclear_pollution_three_screen/prehistoric_phenomenon_nuclear_pollution_three_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_nuclear_pollution_two_screen/prehistoric_phenomenon_nuclear_pollution_two_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_nuclear_pollution_screen/prehistoric_phenomenon_nuclear_pollution_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_avalanche_one_screen/prehistoric_phenomenon_avalanche_one_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_avalanche_screen/prehistoric_phenomenon_avalanche_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_terror_one_screen/prehistoric_phenomenon_terror_one_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_terror_screen/prehistoric_phenomenon_terror_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_tornado_one_screen/prehistoric_phenomenon_tornado_one_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_tornado_screen/prehistoric_phenomenon_tornado_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_fog_screen/prehistoric_phenomenon_fog_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_fog_one_screen/prehistoric_phenomenon_fog_one_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_tsunami_one_screen/prehistoric_phenomenon_tsunami_one_screen.dart';
-import 'package:careme24/presentation/prehistoric_phenomenon_tsunami_screen/prehistoric_phenomenon_tsunami_screen.dart';
 import 'package:careme24/presentation/app_navigation_screen/app_navigation_screen.dart';
 
 import '../about_hospital.dart';
@@ -477,10 +425,6 @@ class AppRoutes {
     homeFourScreen: (context) => HomeFourScreen(),
     homeTwoScreen: (context) => HomeTwoScreen(),
     homeOneScreen: (context) => HomeOneScreen(),
-    waitingWindowFiveScreen: (context) => WaitingWindowFiveScreen(),
-    waitingWindowThreeScreen: (context) => WaitingWindowThreeScreen(),
-    trackingOneScreen: (context) => TrackingOneScreen(),
-    trackingTwoScreen: (context) => TrackingTwoScreen(),
     buttonCallPoliceTwoScreen: (context) => ButtonCallPoliceTwoScreen(),
     buttonCallPolicecallActivItemScreen: (context) =>
         ButtonCallPolicecallActivItemScreen(),
@@ -491,10 +435,7 @@ class AppRoutes {
     buttonHoneyCallActivItemOneScreen: (context) =>
         ButtonHoneyCallActivItemOneScreen(),
     plotsMesOneScreen: (context) => PlotsMesOneScreen(),
-
-    k18Screen: (context) => K18Screen(),
     waitingWindowScreen: (context) => WaitingWindowScreen(),
-    waitingWindowTwoScreen: (context) => WaitingWindowTwoScreen(),
     communicationTeamScreen: (context) => CommunicationTeamScreen(),
     trackingScreen: (context) => TrackingScreen(),
 
@@ -503,8 +444,6 @@ class AppRoutes {
     buttonHoneyCallActivItemThreeScreen: (context) =>
         ButtonHoneyCallActivItemThreeScreen(),
     hospitalsScreen: (context) => HospitalsScreen(),
-    waitingWindowFourScreen: (context) => WaitingWindowFourScreen(),
-    waitingWindowOneScreen: (context) => WaitingWindowOneScreen(),
     buttonHoneyCallActivItemScreen: (context) =>
         ButtonHoneyCallActivItemScreen(),
     buttonCallPoliceScreen: (context) => ButtonCallPoliceScreen(),
@@ -512,13 +451,9 @@ class AppRoutes {
     newsReadScreen: (context) => NewsReadScreen(),
     goodsNewScreen: (context) => GoodsNewScreen(),
     goodsPromotionScreen: (context) => GoodsPromotionScreen(),
-    k37Screen: (context) => K37Screen(),
     oneScreen: (context) => OneScreen(),
-    threeScreen: (context) => ThreeScreen(),
-    fourScreen: (context) => FourScreen(),
     twoScreen: (context) => TwoScreen(),
     alertScreen: (context) => AlertScreen(),
-    alertCallScreen: (context) => AlertCallScreen(),
     callScreen: (context) => CallScreen(),
     callActivScreen: (context) => CallActivScreen(),
     callActivButtonScreen: (context) => CallActivButtonScreen(),
@@ -526,8 +461,6 @@ class AppRoutes {
     callSoundOffTwoScreen: (context) => CallSoundOffTwoScreen(),
     callSoundOffOneScreen: (context) => CallSoundOffOneScreen(),
     callSoundOffScreen: (context) => CallSoundOffScreen(),
-    alertAdminSettingsScreen: (context) => AlertAdminSettingsScreen(),
-    alertAdminSettingsOneScreen: (context) => AlertAdminSettingsOneScreen(),
     generalInformationScreen: (context) => GeneralInformationScreen(),
     shopScreen: (context) => ShopScreen(),
     goodsMoreScreen: (context) => GoodsMoreScreen(),
@@ -535,8 +468,6 @@ class AppRoutes {
     goodsBasketScreen: (context) => GoodsBasketScreen(),
     goodsFavoritesScreen: (context) => GoodsFavoritesScreen(),
     goodsOrdersExpectedScreen: (context) => GoodsOrdersExpectedScreen(),
-    goodsOrdersCompletedScreen: (context) => GoodsOrdersCompletedScreen(),
-    goodsOrdersCanceledScreen: (context) => GoodsOrdersCanceledScreen(),
     aboutOrderScreen: (context) => AboutOrderScreen(),
     heckoutScreen: (context) => HeckoutScreen(),
     paymentDefoultScreen: (context) => PaymentDefoultScreen(),
@@ -544,122 +475,29 @@ class AppRoutes {
     paymentErrorScreen: (context) => PaymentErrorScreen(),
     paymentFailedScreen: (context) => PaymentFailedScreen(),
     paymentSuccessfulScreen: (context) => PaymentSuccessfulScreen(),
-    cartDefoultScreen: (context) => CartDefoultScreen(),
-    cartAddedScreen: (context) => CartAddedScreen(),
     confirmationOrderFinishScreen: (context) => ConfirmationOrderFinishScreen(),
     qualityControlDefoultScreen: (context) => QualityControlDefoultScreen(),
-    qualityControlScreen: (context) => QualityControlScreen(),
     paymentSuccessfulOneScreen: (context) => PaymentSuccessfulOneScreen(),
     prehistoricPhenomenonAirPollutionMapScreen: (context) =>
         PrehistoricPhenomenonAirPollutionMapScreen(),
-    prehistoricPhenomenonAirPollutionScreen: (context) =>
-        PrehistoricPhenomenonAirPollutionScreen(),
+
     prehistoricPhenomenonAirPollutionOneScreen: (context) =>
         PrehistoricPhenomenonAirPollutionOneScreen(),
-    prehistoricPhenomenonHeatThreeScreen: (context) =>
-        PrehistoricPhenomenonHeatThreeScreen(),
     prehistoricPhenomenonHeatScreen: (context) =>
         PrehistoricPhenomenonHeatScreen(),
     prehistoricPhenomenonHeatOneScreen: (context) =>
         PrehistoricPhenomenonHeatOneScreen(),
-    prehistoricPhenomenonHeatTwoScreen: (context) =>
-        PrehistoricPhenomenonHeatTwoScreen(),
-    prehistoricPhenomenonColdTwoScreen: (context) =>
-        PrehistoricPhenomenonColdTwoScreen(),
-    prehistoricPhenomenonHeatFourScreen: (context) =>
-        PrehistoricPhenomenonHeatFourScreen(),
-    prehistoricPhenomenonColdScreen: (context) =>
-        PrehistoricPhenomenonColdScreen(),
-    prehistoricPhenomenonColdOneScreen: (context) =>
-        PrehistoricPhenomenonColdOneScreen(),
-    prehistoricPhenomenonPressureScreen: (context) =>
-        PrehistoricPhenomenonPressureScreen(),
-    prehistoricPhenomenonPressureTwoScreen: (context) =>
-        PrehistoricPhenomenonPressureTwoScreen(),
-    prehistoricPhenomenonPressureOneScreen: (context) =>
-        PrehistoricPhenomenonPressureOneScreen(),
-    prehistoricPhenomenonVirusScreen: (context) =>
-        PrehistoricPhenomenonVirusScreen(),
-    prehistoricPhenomenonVirusOneScreen: (context) =>
-        PrehistoricPhenomenonVirusOneScreen(),
-    prehistoricPhenomenonWindScreen: (context) =>
-        PrehistoricPhenomenonWindScreen(),
-    prehistoricPhenomenonWindOneScreen: (context) =>
-        PrehistoricPhenomenonWindOneScreen(),
-    prehistoricPhenomenonWindTwoScreen: (context) =>
-        PrehistoricPhenomenonWindTwoScreen(),
-    prehistoricPhenomenonAirRaidAlertOneScreen: (context) =>
-        PrehistoricPhenomenonAirRaidAlertOneScreen(),
     prehistoricPhenomenonAirRaidAlertScreen: (context) =>
         PrehistoricPhenomenonAirRaidAlertScreen(),
-    prehistoricPhenomenonAirRaidAlerMapScreen: (context) =>
-        PrehistoricPhenomenonAirRaidAlerMapScreen(),
-    prehistoricPhenomenonIceOneScreen: (context) =>
-        PrehistoricPhenomenonIceOneScreen(),
-    prehistoricPhenomenonIceTwoScreen: (context) =>
-        PrehistoricPhenomenonIceTwoScreen(),
-    prehistoricPhenomenonIceScreen: (context) =>
-        PrehistoricPhenomenonIceScreen(),
-    prehistoricPhenomenonHailScreen: (context) =>
-        PrehistoricPhenomenonHailScreen(),
+
     prehistoricPhenomenonHailOneScreen: (context) =>
         PrehistoricPhenomenonHailOneScreen(),
-    prehistoricPhenomenonHailTwoScreen: (context) =>
-        PrehistoricPhenomenonHailTwoScreen(),
-    prehistoricPhenomenonEarthquakeScreen: (context) =>
-        PrehistoricPhenomenonEarthquakeScreen(),
-    prehistoricPhenomenonEarthquakeOneScreen: (context) =>
-        PrehistoricPhenomenonEarthquakeOneScreen(),
-    prehistoricPhenomenonEruptionScreen: (context) =>
-        PrehistoricPhenomenonEruptionScreen(),
-    prehistoricPhenomenonEruptionOneScreen: (context) =>
-        PrehistoricPhenomenonEruptionOneScreen(),
-    prehistoricPhenomenonRockfallOneScreen: (context) =>
-        PrehistoricPhenomenonRockfallOneScreen(),
-    prehistoricPhenomenonRockfallScreen: (context) =>
-        PrehistoricPhenomenonRockfallScreen(),
-    prehistoricPhenomenonFloodScreen: (context) =>
-        PrehistoricPhenomenonFloodScreen(),
-    prehistoricPhenomenonFloodOneScreen: (context) =>
-        PrehistoricPhenomenonFloodOneScreen(),
+
     prehistoricPhenomenonFireScreen: (context) =>
         PrehistoricPhenomenonFireScreen(),
     prehistoricPhenomenonFireTwoScreen: (context) =>
         PrehistoricPhenomenonFireTwoScreen(),
-    prehistoricPhenomenonFireOneScreen: (context) =>
-        PrehistoricPhenomenonFireOneScreen(),
-    prehistoricPhenomenonRadiationScreen: (context) =>
-        PrehistoricPhenomenonRadiationScreen(),
-    prehistoricPhenomenonRadiationOneScreen: (context) =>
-        PrehistoricPhenomenonRadiationOneScreen(),
-    prehistoricPhenomenonNuclearPollutionOneScreen: (context) =>
-        PrehistoricPhenomenonNuclearPollutionOneScreen(),
-    prehistoricPhenomenonNuclearPollutionThreeScreen: (context) =>
-        PrehistoricPhenomenonNuclearPollutionThreeScreen(),
-    prehistoricPhenomenonNuclearPollutionTwoScreen: (context) =>
-        PrehistoricPhenomenonNuclearPollutionTwoScreen(),
-    prehistoricPhenomenonNuclearPollutionScreen: (context) =>
-        PrehistoricPhenomenonNuclearPollutionScreen(),
-    prehistoricPhenomenonAvalancheOneScreen: (context) =>
-        PrehistoricPhenomenonAvalancheOneScreen(),
-    prehistoricPhenomenonAvalancheScreen: (context) =>
-        PrehistoricPhenomenonAvalancheScreen(),
-    prehistoricPhenomenonTerrorOneScreen: (context) =>
-        PrehistoricPhenomenonTerrorOneScreen(),
-    prehistoricPhenomenonTerrorScreen: (context) =>
-        PrehistoricPhenomenonTerrorScreen(),
-    prehistoricPhenomenonTornadoOneScreen: (context) =>
-        PrehistoricPhenomenonTornadoOneScreen(),
-    prehistoricPhenomenonTornadoScreen: (context) =>
-        PrehistoricPhenomenonTornadoScreen(),
-    prehistoricPhenomenonFogScreen: (context) =>
-        PrehistoricPhenomenonFogScreen(),
-    prehistoricPhenomenonFogOneScreen: (context) =>
-        PrehistoricPhenomenonFogOneScreen(),
-    prehistoricPhenomenonTsunamiOneScreen: (context) =>
-        PrehistoricPhenomenonTsunamiOneScreen(),
-    prehistoricPhenomenonTsunamiScreen: (context) =>
-        PrehistoricPhenomenonTsunamiScreen(),
+
     appNavigationScreen: (context) => AppNavigationScreen(),
     medHomePage:  (context) => HoneyMainPage(),
     aboutHospital: (context) => AboutHospital(),

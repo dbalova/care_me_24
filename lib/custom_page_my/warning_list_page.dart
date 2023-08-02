@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../core/utils/color_constant.dart';
 import '../presentation/prehistoric_phenomenon_heat_one_screen/prehistoric_phenomenon_heat_one_screen.dart';
-import '../presentation/prehistoric_phenomenon_pressure_screen/prehistoric_phenomenon_pressure_screen.dart';
+
 import 'information_at_day_page.dart';
 
 class WarningListPage extends StatelessWidget {

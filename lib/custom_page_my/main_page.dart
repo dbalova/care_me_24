@@ -106,15 +106,15 @@ class _HomeScreenState extends State<MainPage> {
                                         backGroundColor:
                                             'assets/images/medium.svg',
                                         pictureOnIcon:
-                                            'assets/images/img_earthquake.svg ',
-                                        warningName: "Землятресение",
+                                            'assets/images/img_earthquake.svg',
+                                        warningName: "Землетрясение",
                                         infoOfWarning: ""),
                                     InfoMainIcon(
                                         backGroundColor:
                                             'assets/images/harmfully.svg',
                                         pictureOnIcon:
                                             'assets/images/img_volcano.svg',
-                                        warningName: "Извережение вулкана",
+                                        warningName: "Извержение вулкана",
                                         infoOfWarning: ""),
                                     InfoMainIcon(
                                         backGroundColor:
@@ -128,7 +128,7 @@ class _HomeScreenState extends State<MainPage> {
                                             'assets/images/medium.svg',
                                         pictureOnIcon:
                                             'assets/images/img_flood.svg',
-                                        warningName: "Новоднение",
+                                        warningName: "Наводнение",
                                         infoOfWarning: ""),
                                     InfoMainIcon(
                                         backGroundColor:
@@ -257,7 +257,7 @@ class _HomeScreenState extends State<MainPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                                height: MediaQuery.of(context).size.height / 4,
+                                height: MediaQuery.of(context).size.height / 3.5,
                                 width:
                                     MediaQuery.of(context).size.width / 2 - 30,
                                 child: Column(
@@ -431,7 +431,7 @@ class _HomeScreenState extends State<MainPage> {
                                     child: Container(
                                         height:
                                             MediaQuery.of(context).size.height /
-                                                4,
+                                                3.5,
                                         width:
                                             MediaQuery.of(context).size.width /
                                                     2 -

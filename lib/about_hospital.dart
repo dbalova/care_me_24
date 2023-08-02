@@ -52,7 +52,7 @@ class AboutHospital extends StatelessWidget {
                                               .customBorderBR301,
                                           image: DecorationImage(
                                               image: AssetImage(
-                                                  ImageConstant.img),
+                                                  ImageConstant.imgArrowleft),
                                               fit: BoxFit.cover)),
                                       child: Column(
                                           mainAxisSize: MainAxisSize.min,
@@ -61,7 +61,7 @@ class AboutHospital extends StatelessWidget {
                                           children: [
                                             CustomImageView(
                                                 imagePath:
-                                                    ImageConstant.img,
+                                                    ImageConstant.imgArrowleft,
                                                 height: getVerticalSize(224),
                                                 width: getHorizontalSize(375),
                                                 radius: BorderRadius.only(
@@ -331,7 +331,7 @@ class AboutHospital extends StatelessWidget {
                                       alignment: Alignment.center,
                                       children: [
                                         CustomImageView(
-                                            svgPath: ImageConstant.img,
+                                            svgPath: ImageConstant.imgArrowleft,
                                             height: getVerticalSize(1),
                                             width: getHorizontalSize(11),
                                             alignment: Alignment.topRight,
@@ -346,7 +346,7 @@ class AboutHospital extends StatelessWidget {
                                                         image: DecorationImage(
                                                             image: AssetImage(
                                                                 ImageConstant
-                                                                    .imgFrame7194),
+                                                                    .imgCar),
                                                             fit: BoxFit.cover)),
                                                 child: Column(
                                                     mainAxisSize:

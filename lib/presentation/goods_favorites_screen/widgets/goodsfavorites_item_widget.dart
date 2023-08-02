@@ -78,7 +78,7 @@ class GoodsfavoritesItemWidget extends StatelessWidget {
                                 style: AppStyle.txtMontserratRegular14,
                               ),
                               CustomImageView(
-                                imagePath: ImageConstant.imgVector12x12,
+                                svgPath: ImageConstant.imgStarGold,
                                 height: getVerticalSize(
                                   11,
                                 ),

@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import '../../goods_more_one_screen/goods_more_one_screen.dart';
 
 // ignore: must_be_immutable
+
+int _count = 1;
 class GoodsbasketItemWidget extends StatefulWidget {
   GoodsbasketItemWidget();
 
@@ -192,16 +194,16 @@ class _GoodsbasketItemWidgetState extends State<GoodsbasketItemWidget> {
                       ),
                       Container(
                         width: getHorizontalSize(
-                          86,
+                          90,
                         ),
                         margin: getMargin(
                           left: 24,
                           top: 3,
                         ),
                         padding: getPadding(
-                          left: 11,
+                          left: 6,
                           top: 6,
-                          right: 11,
+                          right: 6,
                           bottom: 6,
                         ),
                         decoration: AppDecoration.outlineGray3006.copyWith(
@@ -229,14 +231,20 @@ class _GoodsbasketItemWidgetState extends State<GoodsbasketItemWidget> {
                                 bottom: 1,
                               ),
                               child: Text(
-                                "1",
+                               _count.toString(),
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.left,
                                 style:
                                     AppStyle.txtMontserratSemiBold15Bluegray800,
                               ),
                             ),
-                            CustomImageView(
+                       GestureDetector (
+                           onTap: (){_count++;
+                             setState(() {
+
+                             });},
+                           child:   CustomImageView(
+
                               svgPath: ImageConstant.imgPlus,
                               height: getSize(
                                 10,
@@ -249,7 +257,7 @@ class _GoodsbasketItemWidgetState extends State<GoodsbasketItemWidget> {
                                 top: 3,
                                 bottom: 4,
                               ),
-                            ),
+                            )),
                           ],
                         ),
                       ),

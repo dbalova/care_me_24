@@ -82,7 +82,7 @@ class Listellipse153ItemWidget extends StatelessWidget {
                         ),
                         CustomImageView(
                           alignment: Alignment.centerRight,
-                          imagePath: ImageConstant.imgVector12x12,
+                          svgPath: ImageConstant.imgStarGold,
                           height: getSize(
                             11,
                           ),

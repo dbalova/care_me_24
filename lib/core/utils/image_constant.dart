@@ -323,7 +323,7 @@ class ImageConstant {
   static String imgSettingsLightBlue900 =
       'assets/images/img_settings_light_blue_900.svg';
 
-  static String img = 'assets/images/img_.png';
+
   static String imgAirPollution = 'assets/images/airPollution.svg';
   static String imgCritical = 'assets/images/critical.svg';
   static String imgForestFire = 'assets/images/forestFire.svg';
@@ -634,7 +634,7 @@ class ImageConstant {
 
   static String imgFrame19 = 'assets/images/img_frame_19.svg';
 
-  static String imgCallBlue600 = 'assets/images/img_call_blue_600.png';
+
 
   static String imgFrame8041Gray50001 =
       'assets/images/img_frame8041_gray_500_01.svg';
@@ -684,7 +684,7 @@ class ImageConstant {
 
   static String hospitalactivecar = 'assets/images/hospital_active_car.svg';
 
-  static String imgFolder = 'assets/images/img_folder.svg';
+
 
   static String imgFrame8040 = 'assets/images/img_frame8040.svg';
 
@@ -887,7 +887,7 @@ class ImageConstant {
   static String imgCheckmarkBlue700 =
       'assets/images/img_checkmark_blue_700.svg';
 
-  static String imgFrame7194 = 'assets/images/img_frame7194.png';
+
 
   static String imgFrame17 = 'assets/images/img_frame_17.svg';
 
@@ -930,7 +930,7 @@ class ImageConstant {
 
   static String imgFile = 'assets/images/img_file.svg';
 
-  static String imgCameraBlue200 = 'assets/images/img_camera_blue_200.svg';
+
 
   static String imgTicketBlueGray800 =
       'assets/images/img_ticket_blue_gray_800.svg';
@@ -986,7 +986,7 @@ class ImageConstant {
 
   static String imgUserWhiteA700 = 'assets/images/img_user_white_a700.svg';
 
-  static String imgCamera = 'assets/images/img_camera.svg';
+
 
   static String imgTicketBlue700 = 'assets/images/img_ticket_blue_700.svg';
 
@@ -1236,7 +1236,7 @@ class ImageConstant {
 
   static String img1WhiteA700 = 'assets/images/img_1_white_a700.svg';
 
-  static String imgFrame7194524x375 = 'assets/images/img_frame7194_524x375.png';
+
 
   static String imgGroup7508 = 'assets/images/img_group7508.png';
 

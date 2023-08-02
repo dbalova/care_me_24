@@ -436,7 +436,7 @@ class DoctorAboutScreen extends StatelessWidget {
                                                     image: DecorationImage(
                                                         image: AssetImage(
                                                             ImageConstant
-                                                                .imgFrame7194),
+                                                        .imgCar),
                                                         fit: BoxFit.cover)),
                                                 child: Column(
                                                     mainAxisSize:
