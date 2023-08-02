@@ -151,7 +151,7 @@ class _PlotsMesScreenState extends State<PlotsMesScreen> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        WaitingWindowScreen()));
+                                        WaitingWindowScreen(whereCall: 'МЧС', whereCallAppBar: 'МЧС',)));
                           },
                           child: Card(
                             elevation: 8,

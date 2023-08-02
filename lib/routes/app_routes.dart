@@ -493,7 +493,6 @@ class AppRoutes {
     plotsMesOneScreen: (context) => PlotsMesOneScreen(),
 
     k18Screen: (context) => K18Screen(),
-    waitingWindowScreen: (context) => WaitingWindowScreen(),
     waitingWindowTwoScreen: (context) => WaitingWindowTwoScreen(),
     communicationTeamScreen: (context) => CommunicationTeamScreen(),
     trackingScreen: (context) => TrackingScreen(),

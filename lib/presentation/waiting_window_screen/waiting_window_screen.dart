@@ -10,8 +10,16 @@ import 'package:flutter/material.dart';
 
 import '../alert_screen/alert_screen.dart';
 
-// ignore_for_file: must_be_immutable
+
 class WaitingWindowScreen extends StatefulWidget {
+  late String whereCall;
+  late String whereCallAppBar;
+  WaitingWindowScreen({
+    required this.whereCall,
+    required this.whereCallAppBar,
+});
+
+
   @override
   State<WaitingWindowScreen> createState() => _WaitingWindowScreenState();
 }
@@ -231,7 +239,7 @@ class _WaitingWindowScreenState extends State<WaitingWindowScreen> {
                 onTapArrowleft14(context);
               }),
           centerTitle: true,
-          title: AppbarTitle(text: "Вызов МЧС"),
+          title: AppbarTitle(text: "Вызов " + widget.whereCallAppBar),
           styleType: Style.bgFillBlue60001),
       body: Align(
         alignment: Alignment.center,
@@ -308,7 +316,7 @@ class _WaitingWindowScreenState extends State<WaitingWindowScreen> {
                           Padding(
                             padding: getPadding(top: 24, bottom: 24),
                             child: Text(
-                              "МЧС ВЫЗВАНА",
+                              widget.whereCall + " ВЫЗВАНА",
                               style: AppStyle.txtMontserratSemiBold20,
                             ),
                           ),

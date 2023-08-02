@@ -41,6 +41,10 @@ class ImageConstant {
 
   static String imgVector16 = 'assets/images/img_vector_16.svg';
 
+  static String imgGroup12 = 'assets/images/img_group12.png';
+
+  static String imgFrame7425 = 'assets/images/img_frame7425.png';
+
   static String imgFrame39 = 'assets/images/img_frame_39.svg';
 
   static String imgCar = 'assets/images/img_car.svg';

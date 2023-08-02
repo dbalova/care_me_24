@@ -151,7 +151,7 @@ class _ButtonCallPoliceThreeScreenState
                             });
                           },
                           onLongPress: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => WaitingWindowScreen()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => WaitingWindowScreen(whereCall: 'ПОЛИЦИЯ', whereCallAppBar: 'ПОЛИЦИИ',)));
                           },
                           child: Card(
                             elevation: 8,

@@ -126,18 +126,6 @@ class HoneyMainPage extends StatelessWidget {
                               ]))
                     ]))));
   }
-
-/* onTaptf(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.callDoctorScreen);
-  }
-
-  onTaptf1(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.doctorAppointmentScreen);
-  }
-
-  onTaptf2(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.helpOnlineScreen);
-  }*/
 }
 
 class AdvancedSwitch extends StatefulWidget {
@@ -395,6 +383,8 @@ class _AdvancedSwitchState extends State<AdvancedSwitch>
     if (widget.controller != null && widget.enabled) {
       _controller.value = !_controller.value;
     }
+    print("что в контролере");
+    print(_controller.value);
   }
 
   @override

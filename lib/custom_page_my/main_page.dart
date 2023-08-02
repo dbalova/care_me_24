@@ -106,7 +106,7 @@ class _HomeScreenState extends State<MainPage> {
                                         backGroundColor:
                                             'assets/images/medium.svg',
                                         pictureOnIcon:
-                                            'assets/images/img_earthquake.svg ',
+                                            'assets/images/img_earthquake.svg',
                                         warningName: "Землятресение",
                                         infoOfWarning: ""),
                                     InfoMainIcon(
