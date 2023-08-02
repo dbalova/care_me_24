@@ -1,6 +1,7 @@
 import 'package:careme24/core/utils/size_utils.dart';
 import 'package:flutter/material.dart';
 import '../call_doctor.dart';
+import '../presentation/self_help_screen/self_help_screen.dart';
 import '../theme/app_style.dart';
 import '../widgets/custom_image_view.dart';
 
@@ -22,10 +23,17 @@ class WhatDoMedCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => CallDoctorScreen(action_text)));
+        if (action_text == "Самопомощь"){
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => SelfHelpScreen()));
+        } else {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => CallDoctorScreen(action_text)));
+        }
       },
       child: Card(
         margin: getMargin(bottom: 24),

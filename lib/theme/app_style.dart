@@ -910,6 +910,15 @@ class AppStyle {
     fontWeight: FontWeight.w500,
   );
 
+  static TextStyle txtMontserratMedium14Gray = TextStyle(
+    color: ColorConstant.gray50001,
+    fontSize: getFontSize(
+      14,
+    ),
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w500,
+  );
+
   static TextStyle txtMontserratMedium13 = TextStyle(
     color: ColorConstant.blueGray800,
     fontSize: getFontSize(

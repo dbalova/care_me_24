@@ -25,6 +25,8 @@ class ImageConstant {
 
   static String imgAirWarning = 'assets/images/img_air_warning.svg';
 
+  static String imgImage18 = 'assets/images/img_image18.png';
+
   static String img_black_ice = 'assets/images/img_black_ice.svg';
   static String img_hail = 'assets/images/img_hail.svg';
   static String img_earthquake = 'assets/images/img_earthquake.svg';
@@ -1136,7 +1138,7 @@ class ImageConstant {
   static String imgVectorBlue3001x2 =
       'assets/images/img_vector_blue_300_1x2.svg';
 
-  static String imgEye = 'assets/images/img_eye.svg';
+  static String imgEye = 'assets/images/img_eye_gray_500_01.svg';
 
   static String imgTicketBlue2006x8 =
       'assets/images/img_ticket_blue_200_6x8.svg';
