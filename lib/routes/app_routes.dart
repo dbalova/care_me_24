@@ -429,16 +429,13 @@ class AppRoutes {
     buttonCallPolicecallActivItemScreen: (context) =>
         ButtonCallPolicecallActivItemScreen(),
     buttonCallPoliceOneScreen: (context) => ButtonCallPoliceOneScreen(),
-
     buttonHoneyCallActivItemTwoScreen: (context) =>
         ButtonHoneyCallActivItemTwoScreen(),
     buttonHoneyCallActivItemOneScreen: (context) =>
         ButtonHoneyCallActivItemOneScreen(),
     plotsMesOneScreen: (context) => PlotsMesOneScreen(),
-    waitingWindowScreen: (context) => WaitingWindowScreen(),
     communicationTeamScreen: (context) => CommunicationTeamScreen(),
     trackingScreen: (context) => TrackingScreen(),
-
     buttonHoneyCallTwoScreen: (context) => ButtonHoneyCallTwoScreen(),
     buttonHoneyCallOneScreen: (context) => ButtonHoneyCallOneScreen(),
     buttonHoneyCallActivItemThreeScreen: (context) =>

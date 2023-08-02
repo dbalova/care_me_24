@@ -227,6 +227,15 @@ class AppStyle {
     fontWeight: FontWeight.w600,
   );
 
+  static TextStyle txtMontserratSemiBold40Blue = TextStyle(
+    color: ColorConstant.blue600,
+    fontSize: getFontSize(
+      40,
+    ),
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w600,
+  );
+
   static TextStyle txtUbuntuMedium18 = TextStyle(
     color: ColorConstant.blueGray800,
     fontSize: getFontSize(
@@ -339,6 +348,14 @@ class AppStyle {
     color: ColorConstant.whiteA700,
     fontSize: getFontSize(
       15,
+    ),
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w600,
+  );
+  static TextStyle txtMontserratSemiBold22 = TextStyle(
+    color: Colors.black,
+    fontSize: getFontSize(
+      22,
     ),
     fontFamily: 'Montserrat',
     fontWeight: FontWeight.w600,

@@ -149,7 +149,7 @@ class _ButtonHoneyCallScreenState extends State<ButtonHoneyCallScreen> {
                             });
                           },
                           onLongPress: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => WaitingWindowScreen()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => WaitingWindowScreen(whereCall: 'СКОРАЯ', whereCallAppBar: 'СКОРОЙ',)));
                           },
                           child: Card(
                             elevation: 8,

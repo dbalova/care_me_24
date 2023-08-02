@@ -12,10 +12,9 @@ import 'core/utils/color_constant.dart';
 import 'core/utils/image_constant.dart';
 import 'core/utils/size_utils.dart';
 
-
-
 class CallDoctorScreen extends StatefulWidget {
   late String appbartitle;
+
   CallDoctorScreen(this.appbartitle);
 
   @override
@@ -90,31 +89,35 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                                   textAlign: TextAlign.left,
                                                   style: AppStyle
                                                       .txtMontserratMedium12Green),
-                                              Container(
-                                                margin: getMargin(top: 4),
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(10),
-                                                  border: Border.all(
-                                                    color:
-                                                        ColorConstant.greenA700,
-                                                    width: 1,
+                                              GestureDetector(
+                                                onTap: () {},
+                                                child: Container(
+                                                  margin: getMargin(top: 4),
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                    border: Border.all(
+                                                      color: ColorConstant
+                                                          .greenA700,
+                                                      width: 1,
+                                                    ),
                                                   ),
-                                                ),
-                                                child: AdvancedSwitch(
-                                                  controller: _controller,
-                                                  activeColor:
-                                                      ColorConstant.gray100,
-                                                  inactiveColor:
-                                                      ColorConstant.gray100,
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          const Radius.circular(
-                                                              8)),
-                                                  width: 80.0,
-                                                  height: 36.0,
-                                                  enabled: true,
-                                                  disabledOpacity: 0.5,
+                                                  child: AdvancedSwitch(
+                                                    controller: _controller,
+                                                    activeColor:
+                                                        ColorConstant.gray100,
+                                                    inactiveColor:
+                                                        ColorConstant.gray100,
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                            const Radius
+                                                                .circular(8)),
+                                                    width: 80.0,
+                                                    height: 36.0,
+                                                    enabled: true,
+                                                    disabledOpacity: 0.5,
+                                                  ),
                                                 ),
                                               ),
                                             ])
@@ -286,45 +289,57 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                           MainAxisAlignment.start,
                                       children: [
                                         DoctorCard(
-                                            doctor_image:
-                                                ImageConstant.doctorImage,
-                                            doctor_name: "Иванов Аексей",
-                                            doctor_qualification:
-                                                "Участковый врач",
-                                            cost: "1500 ₽",
-                                            meters: "1200 м",
-                                            minute: "9 мин",
-                                            estimation: "4.8", where_call: widget.appbartitle,),
+                                          doctor_image:
+                                              ImageConstant.doctorImage,
+                                          doctor_name: "Иванов Аексей",
+                                          doctor_qualification:
+                                              "Участковый врач",
+                                          cost: "1500 ₽",
+                                          meters: "1200 м",
+                                          minute: "9 мин",
+                                          estimation: "4.8",
+                                          where_call: widget.appbartitle,
+                                          freeVersion: _controller.value,
+                                        ),
                                         DoctorCard(
-                                            doctor_image:
-                                                ImageConstant.doctorImage,
-                                            doctor_name: "Иванов Аексей",
-                                            doctor_qualification:
-                                                "Участковый врач",
-                                            cost: "1500 ₽",
-                                            meters: "1200 м",
-                                            minute: "9 мин",
-                                            estimation: "4.8", where_call: widget.appbartitle,),
+                                          doctor_image:
+                                              ImageConstant.doctorImage,
+                                          doctor_name: "Иванов Аексей",
+                                          doctor_qualification:
+                                              "Участковый врач",
+                                          cost: "1500 ₽",
+                                          meters: "1200 м",
+                                          minute: "9 мин",
+                                          estimation: "4.8",
+                                          where_call: widget.appbartitle,
+                                          freeVersion: _controller.value,
+                                        ),
                                         DoctorCard(
-                                            doctor_image:
-                                                ImageConstant.doctorImage,
-                                            doctor_name: "Иванов Аексей",
-                                            doctor_qualification:
-                                                "Участковый врач",
-                                            cost: "1500 ₽",
-                                            meters: "1200 м",
-                                            minute: "9 мин",
-                                            estimation: "4.8", where_call: widget.appbartitle,),
+                                          doctor_image:
+                                              ImageConstant.doctorImage,
+                                          doctor_name: "Иванов Аексей",
+                                          doctor_qualification:
+                                              "Участковый врач",
+                                          cost: "1500 ₽",
+                                          meters: "1200 м",
+                                          minute: "9 мин",
+                                          estimation: "4.8",
+                                          where_call: widget.appbartitle,
+                                          freeVersion: _controller.value,
+                                        ),
                                         DoctorCard(
-                                            doctor_image:
-                                                ImageConstant.doctorImage,
-                                            doctor_name: "Иванов Аексей",
-                                            doctor_qualification:
-                                                "Участковый врач",
-                                            cost: "1500 ₽",
-                                            meters: "1200 м",
-                                            minute: "9 мин",
-                                            estimation: "4.8", where_call: widget.appbartitle,),
+                                          doctor_image:
+                                              ImageConstant.doctorImage,
+                                          doctor_name: "Иванов Аексей",
+                                          doctor_qualification:
+                                              "Участковый врач",
+                                          cost: "1500 ₽",
+                                          meters: "1200 м",
+                                          minute: "9 мин",
+                                          estimation: "4.8",
+                                          where_call: widget.appbartitle,
+                                          freeVersion: _controller.value,
+                                        ),
                                       ]))
                             ]))))));
   }
@@ -589,6 +604,7 @@ class _AdvancedSwitchState extends State<AdvancedSwitch>
     if (widget.controller != null && widget.enabled) {
       _controller.value = !_controller.value;
     }
+    print(_controller.value);
   }
 
   @override
