@@ -176,7 +176,7 @@ class SelfHelpReadScreen extends StatelessWidget {
                                           Expanded(
                                               child: Container(
                                                   width: getHorizontalSize(316),
-                                                  margin: getMargin(left: 8, bottom: 12),
+                                                  margin: getMargin(left: 8, bottom: 12 ),
                                                   child: Text(
                                                       "если вы находитесь в лесу, где возник пожар, то определите направление ветра и распространения огня;",
                                                       maxLines: null,

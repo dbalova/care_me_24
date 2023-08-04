@@ -190,6 +190,8 @@ class ColorConstant {
 
   static Color pinkA200 = fromHex('#ff2983');
 
+  static Color bluegradient = fromHex('#298EEB');
+
   static Color black900 = fromHex('#000000');
 
   static Color yellow700 = fromHex('#ffbb26');
@@ -215,6 +217,8 @@ class ColorConstant {
   static Color orange700 = fromHex('#d68003');
 
   static Color blue30035 = fromHex('#355fb2ff');
+
+  static Color bluebg = fromHex('#5FB2FF');
 
   static Color violet = fromHex('#5D03CF');
 

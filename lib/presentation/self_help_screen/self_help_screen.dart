@@ -11,7 +11,7 @@ import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_drop_down.dart';
 import '../../widgets/custom_image_view.dart';
-import '../../widgets/custom_switch.dart';
+import '../list_symptoms_screen/list_symptoms_screen.dart';
 
 class SelfHelpScreen extends StatefulWidget {
   @override
@@ -100,17 +100,22 @@ class _SelfHelpScreenState extends State<SelfHelpScreen> {
                                       ),
                                     ])
                               ])),
-                      CustomDropDown(
-                          focusNode: FocusNode(),
-                          icon: Container(
-                              margin: getMargin(left: 30, right: 20),
-                              child: CustomImageView(
-                                  svgPath:
-                                      ImageConstant.imgArrowdownLightBlue900)),
-                          hintText: "Боль в ухе",
-                          margin: getMargin(top: 16),
-                          items: dropdownItemList,
-                          onChanged: (value) {}),
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => ListSymptomsScreen()));
+                        },
+                        child: CustomDropDown(
+
+                            icon: Container(
+                                margin: getMargin(left: 30, right: 20),
+                                child: CustomImageView(
+                                    svgPath:
+                                        ImageConstant.imgArrowdownLightBlue900)),
+                            hintText: "Боль в ухе",
+                            margin: getMargin(top: 16),
+
+                            ),
+                      ),
                       Expanded(
                           child: Padding(
                               padding: getPadding(top: 20, right: 6),

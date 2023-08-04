@@ -379,6 +379,15 @@ class AppStyle {
     fontWeight: FontWeight.w600,
   );
 
+  static TextStyle txtMontserratSemiBold36Black = TextStyle(
+    color: ColorConstant.black900,
+    fontSize: getFontSize(
+      36,
+    ),
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w600,
+  );
+
   static TextStyle txtMontserratSemiBold12 = TextStyle(
     color: ColorConstant.blueGray800,
     fontSize: getFontSize(
@@ -442,6 +451,15 @@ class AppStyle {
     fontWeight: FontWeight.w600,
   );
 
+  static TextStyle txtMontserratRomanSemiBold18Gray = TextStyle(
+    color: ColorConstant.gray50001,
+    fontSize: getFontSize(
+      18,
+    ),
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w600,
+  );
+
   static TextStyle txtMontserratRegular10WhiteA700 = TextStyle(
     color: ColorConstant.whiteA700,
     fontSize: getFontSize(
@@ -471,6 +489,15 @@ class AppStyle {
 
   static TextStyle txtMontserratSemiBold25 = TextStyle(
     color: ColorConstant.blueGray800,
+    fontSize: getFontSize(
+      25,
+    ),
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle txtMontserratSemiBold25Blue = TextStyle(
+    color: ColorConstant.blue600,
     fontSize: getFontSize(
       25,
     ),

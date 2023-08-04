@@ -4,6 +4,8 @@ import '../car_custom_icons.dart';
 import '../core/utils/color_constant.dart';
 import '../core/utils/image_constant.dart';
 import '../core/utils/size_utils.dart';
+import '../core/utils/version_constant.dart';
+import '../presentation/call_doctor_waiting_window_screen/call_doctor_waiting_window_screen.dart';
 import '../routes/app_routes.dart';
 import '../theme/app_decoration.dart';
 import '../theme/app_style.dart';
@@ -17,13 +19,11 @@ MapController controller = MapController(
   initPosition: GeoPoint(latitude: 59.939099, longitude: 30.315877),
 );
 class DoctorAboutScreen extends StatefulWidget {
-  late bool freeVersion;
 
   late String whereCall;
 
   DoctorAboutScreen({
     required this.whereCall,
-    required this.freeVersion,
 });
 
   @override
@@ -52,8 +52,8 @@ class _DoctorAboutScreenState extends State<DoctorAboutScreen> {
   @override
   Widget build(BuildContext context) {
     mapEdit();
-    print("что пришло на экран об докторе");
-    print(widget.freeVersion);
+    print("проверка что пришло на экран об докторе");
+    VersionConstant.printBool();
     return SafeArea(
         child: Scaffold(
             backgroundColor: ColorConstant.whiteA700,
@@ -587,7 +587,7 @@ class _DoctorAboutScreenState extends State<DoctorAboutScreen> {
                             ),
                           ),
                           Visibility(
-                            visible: !widget.freeVersion,
+                            visible: VersionConstant.isPaidSubscription,
                             child: Card(
                               margin: getMargin(top: 24, bottom: 24),
                               elevation: 10,
@@ -612,14 +612,19 @@ class _DoctorAboutScreenState extends State<DoctorAboutScreen> {
                                     ),
                                     Padding(
                                       padding: getPadding(top: 20),
-                                      child: Container(
-                                        width: MediaQuery.of(context).size.width-60,
-                                        height: 46,
-                                        decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10)), gradient: LinearGradient(
-                                            colors: [ColorConstant.indigoA400, ColorConstant.blue60001],
-                                            begin: Alignment.bottomLeft,
-                                            end: Alignment.topRight),),
-                                        child: Center(child: Text("Оформить", style: AppStyle.txtMontserratSemiBold15,)),
+                                      child: GestureDetector(
+                                        onTap: (){
+                                          Navigator.push(context, MaterialPageRoute(builder: (context) => CallDoctorWaitingWindowScreen()));
+                                        },
+                                        child: Container(
+                                          width: MediaQuery.of(context).size.width-60,
+                                          height: 46,
+                                          decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10)), gradient: LinearGradient(
+                                              colors: [ColorConstant.indigoA400, ColorConstant.blue60001],
+                                              begin: Alignment.bottomLeft,
+                                              end: Alignment.topRight),),
+                                          child: Center(child: Text("Оформить", style: AppStyle.txtMontserratSemiBold15,)),
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -632,19 +637,24 @@ class _DoctorAboutScreenState extends State<DoctorAboutScreen> {
                 )
             ),
             bottomNavigationBar: Visibility(
-              visible: widget.freeVersion,
-              child: Container(
-                width: 1,
-                height: 100,
-                child: Center(
-                  child: Container(
-                    width: MediaQuery.of(context).size.width-40,
-                    height: 46,
-                    decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10)), gradient: LinearGradient(
-                        colors: [ColorConstant.indigoA400, ColorConstant.blue60001],
-                        begin: Alignment.bottomLeft,
-                        end: Alignment.topRight),),
-                    child: Center(child: Text("Записаться", style: AppStyle.txtMontserratSemiBold15,)),
+              visible: !VersionConstant.isPaidSubscription,
+              child: GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => CallDoctorWaitingWindowScreen()));
+                },
+                child: Container(
+                  width: 1,
+                  height: 100,
+                  child: Center(
+                    child: Container(
+                      width: MediaQuery.of(context).size.width-40,
+                      height: 46,
+                      decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10)), gradient: LinearGradient(
+                          colors: [ColorConstant.indigoA400, ColorConstant.blue60001],
+                          begin: Alignment.bottomLeft,
+                          end: Alignment.topRight),),
+                      child: Center(child: Text("Записаться", style: AppStyle.txtMontserratSemiBold15,)),
+                    ),
                   ),
                 ),
               ),

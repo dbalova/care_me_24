@@ -247,6 +247,24 @@ class AppDecoration {
           ),
         ],
       );
+  static BoxDecoration get smallOutBlackLine => BoxDecoration(
+    color: ColorConstant.whiteA700,
+    boxShadow: [
+      BoxShadow(
+        color: ColorConstant.black9003f,
+        spreadRadius: getHorizontalSize(
+          1,
+        ),
+        blurRadius: getHorizontalSize(
+          1,
+        ),
+        offset: Offset(
+          0,
+          0,
+        ),
+      ),
+    ],
+  );
   static BoxDecoration get txtOutlineRed90066 => BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment(

@@ -1,3 +1,4 @@
+import 'package:careme24/core/utils/version_constant.dart';
 import 'package:careme24/custom_widget_my/doctor_card.dart';
 import 'package:careme24/theme/app_decoration.dart';
 import 'package:careme24/theme/app_style.dart';
@@ -13,21 +14,23 @@ import 'core/utils/image_constant.dart';
 import 'core/utils/size_utils.dart';
 
 class CallDoctorScreen extends StatefulWidget {
-  late String appbartitle;
 
+  late String appbartitle;
   CallDoctorScreen(this.appbartitle);
+
 
   @override
   State<CallDoctorScreen> createState() => _CallDoctorScreenState();
 }
 
 class _CallDoctorScreenState extends State<CallDoctorScreen> {
-  bool isSelectedSwitch = false;
   bool _wait = true;
   bool _finish = false;
   bool _undo = false;
   final _controller = ValueNotifier<bool>(false);
   List<String> dropdownItemList = ["Item One", "Item Two", "Item Three"];
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -89,35 +92,32 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                                   textAlign: TextAlign.left,
                                                   style: AppStyle
                                                       .txtMontserratMedium12Green),
-                                              GestureDetector(
-                                                onTap: () {},
-                                                child: Container(
-                                                  margin: getMargin(top: 4),
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10),
-                                                    border: Border.all(
-                                                      color: ColorConstant
-                                                          .greenA700,
-                                                      width: 1,
-                                                    ),
+                                              Container(
+                                                margin: getMargin(top: 4),
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          10),
+                                                  border: Border.all(
+                                                    color: ColorConstant
+                                                        .greenA700,
+                                                    width: 1,
                                                   ),
-                                                  child: AdvancedSwitch(
-                                                    controller: _controller,
-                                                    activeColor:
-                                                        ColorConstant.gray100,
-                                                    inactiveColor:
-                                                        ColorConstant.gray100,
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                            const Radius
-                                                                .circular(8)),
-                                                    width: 80.0,
-                                                    height: 36.0,
-                                                    enabled: true,
-                                                    disabledOpacity: 0.5,
-                                                  ),
+                                                ),
+                                                child: AdvancedSwitch(
+                                                  controller: _controller,
+                                                  activeColor:
+                                                      ColorConstant.gray100,
+                                                  inactiveColor:
+                                                      ColorConstant.gray100,
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          const Radius
+                                                              .circular(8)),
+                                                  width: 80.0,
+                                                  height: 36.0,
+                                                  enabled: true,
+                                                  disabledOpacity: 0.5,
                                                 ),
                                               ),
                                             ])
@@ -299,7 +299,6 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                           minute: "9 мин",
                                           estimation: "4.8",
                                           where_call: widget.appbartitle,
-                                          freeVersion: _controller.value,
                                         ),
                                         DoctorCard(
                                           doctor_image:
@@ -312,7 +311,6 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                           minute: "9 мин",
                                           estimation: "4.8",
                                           where_call: widget.appbartitle,
-                                          freeVersion: _controller.value,
                                         ),
                                         DoctorCard(
                                           doctor_image:
@@ -325,7 +323,6 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                           minute: "9 мин",
                                           estimation: "4.8",
                                           where_call: widget.appbartitle,
-                                          freeVersion: _controller.value,
                                         ),
                                         DoctorCard(
                                           doctor_image:
@@ -338,7 +335,6 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                           minute: "9 мин",
                                           estimation: "4.8",
                                           where_call: widget.appbartitle,
-                                          freeVersion: _controller.value,
                                         ),
                                       ]))
                             ]))))));
@@ -604,7 +600,7 @@ class _AdvancedSwitchState extends State<AdvancedSwitch>
     if (widget.controller != null && widget.enabled) {
       _controller.value = !_controller.value;
     }
-    print(_controller.value);
+    VersionConstant.changeBool();
   }
 
   @override

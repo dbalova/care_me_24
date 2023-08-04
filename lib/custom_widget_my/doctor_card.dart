@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import '../core/utils/color_constant.dart';
 import '../core/utils/image_constant.dart';
 import '../core/utils/size_utils.dart';
+import '../core/utils/version_constant.dart';
+import '../presentation/appointment_to_doctor_screen/appointment_to_doctor_screen.dart';
 import '../theme/app_decoration.dart';
 import '../theme/app_style.dart';
 import '../widgets/custom_image_view.dart';
@@ -17,7 +19,6 @@ class DoctorCard extends StatelessWidget {
   late String minute;
   late String estimation;
   late String where_call;
-  late bool freeVersion;
 
   bool bottomInfo = false;
   bool leftColumnMeters = false;
@@ -33,7 +34,6 @@ class DoctorCard extends StatelessWidget {
     required this.minute,
     required this.estimation,
     required this.where_call,
-    required this.freeVersion,
   });
 
   void form_card() {
@@ -52,11 +52,13 @@ class DoctorCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     form_card();
-    print("значение в карточки");
-    print(freeVersion);
     return GestureDetector(
       onTap:(){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => DoctorAboutScreen(whereCall: where_call, freeVersion: freeVersion,)));
+        if (where_call == "Запись к врачу") {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => AppointmentToDoctorScreen()));
+        } else {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => DoctorAboutScreen(whereCall: where_call,)));
+        }
       },
       child: Card(
         margin: getMargin(bottom: 12),

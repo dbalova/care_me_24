@@ -83,6 +83,9 @@ class ImageConstant {
 
   static String imgFrame721213 = 'assets/images/img_frame7212_13.png';
 
+  static String imgDoctor173137 = 'assets/images/img_doctor_image_173_137.png';
+
+
   static String imgLocationRed100 = 'assets/images/img_location_red_100.svg';
 
   static String imgFrame21 = 'assets/images/img_frame_21.svg';
