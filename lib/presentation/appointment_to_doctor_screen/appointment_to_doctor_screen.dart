@@ -3,7 +3,6 @@ import 'package:careme24/presentation/appointment_to_doctor_screen/widgets/date_
 import 'package:careme24/presentation/appointment_to_doctor_screen/widgets/time_container.dart';
 import 'package:flutter/material.dart';
 import 'package:outline_gradient_button/outline_gradient_button.dart';
-
 import '../../core/utils/color_constant.dart';
 import '../../core/utils/image_constant.dart';
 import '../../core/utils/size_utils.dart';
@@ -12,6 +11,8 @@ import '../../widgets/app_bar/appbar_title.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_image_view.dart';
+import '../more_time_to_record/record_details_page.dart';
+import '../payment_defoult_screen/payment_defoult_screen.dart';
 
 class AppointmentToDoctorScreen extends StatefulWidget {
   @override
@@ -21,6 +22,17 @@ class AppointmentToDoctorScreen extends StatefulWidget {
 
 class _AppointmentToDoctorScreenState extends State<AppointmentToDoctorScreen> {
   int isSelectedIndex = -1;
+  bool isSelectedTime = false;
+  callBackTime(varTime){
+    setState(() {
+      isSelectedTime = varTime;
+      print(isSelectedTime);
+    });
+  }
+
+  bool isRecordSelected(){
+    return isSelectedTime == true && (isSelectedIndex != -1) ? true : false;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -141,7 +153,11 @@ class _AppointmentToDoctorScreenState extends State<AppointmentToDoctorScreen> {
                             return GestureDetector(
                                 onTap: () {
                                   setState(() {
-                                    isSelectedIndex = index;
+                                    if (isSelectedIndex == index){
+                                      isSelectedIndex = -1;
+                                    } else {
+                                      isSelectedIndex = index;
+                                    }
                                   });
                                 },
                                 child: DateContainer(
@@ -170,7 +186,7 @@ class _AppointmentToDoctorScreenState extends State<AppointmentToDoctorScreen> {
                     style: AppStyle.txtMontserratSemiBold18Black900,
                   ),
                 ),
-                Center(child: TimeContainer()),
+                Center(child: TimeContainer(timeCount: 8, callback: callBackTime,)),
                 Align(
                     alignment: Alignment.center,
                     child: Padding(
@@ -200,6 +216,9 @@ class _AppointmentToDoctorScreenState extends State<AppointmentToDoctorScreen> {
                                 bottomRight:
                                 Radius.circular(7)),
                             child: CustomButton(
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => RecordDetailsOneScreen()));
+                              },
                                 height: getVerticalSize(47),
                                 text: "Больше",
                                 variant:
@@ -213,38 +232,58 @@ class _AppointmentToDoctorScreenState extends State<AppointmentToDoctorScreen> {
             ),
           ),
           Center(
-            child: Container(
-              margin: getMargin(top: 32),
-              padding: getPadding(left: 50, right: 50),
-              width: MediaQuery.of(context).size.width - 40,
-              height: 56,
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      ColorConstant.indigoA400,
-                      ColorConstant.bluegradient,
-                    ],
-                    begin: Alignment.bottomLeft,
-                    end: Alignment.topRight,
-                  ),
-                  borderRadius: BorderRadius.circular(10)),
-              child: Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "1450₽",
-                        style: AppStyle.txtMontserratSemiBold18WhiteA700,
-                      ),Text(
-                        "Записаться",
-                        style: AppStyle.txtMontserratSemiBold18WhiteA700,
-                      ),
-                    ],
-                  )),
+            child: GestureDetector(
+
+              child: Container(
+                margin: getMargin(top: 28),
+                padding: getPadding(left: 50, right: 50),
+                width: MediaQuery.of(context).size.width - 40,
+                height: 56,
+                decoration: BoxDecoration(
+                    gradient: isRecordSelected() ? LinearGradient(
+                      colors: [
+                        ColorConstant.indigoA400,
+                        ColorConstant.bluegradient,
+                      ],
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
+                    ) : LinearGradient(
+                      colors: [
+                        ColorConstant.gray50001,
+                        ColorConstant.gray50001,
+                      ],
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
+                    ),
+                    borderRadius: BorderRadius.circular(10)),
+                child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "1450₽",
+                          style: AppStyle.txtMontserratSemiBold18WhiteA700,
+                        ),Text(
+                          "Записаться",
+                          style: AppStyle.txtMontserratSemiBold18WhiteA700,
+                        ),
+                      ],
+                    )),
+              ),
             ),
           )
         ],
       ),
-    ));
+    )
+    );
   }
 }
+
+
+
+
+/*onTap: () {
+                  if (isRecordSelected()){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => PaymentDefoultScreen()));
+                  }
+                },*/

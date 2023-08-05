@@ -577,6 +577,15 @@ class CustomButton extends StatelessWidget {
           fontFamily: 'Montserrat',
           fontWeight: FontWeight.w600,
         );
+        case ButtonFontStyle.MontserratRomanSemiBold18White:
+        return TextStyle(
+          color: ColorConstant.whiteA700,
+          fontSize: getFontSize(
+            18,
+          ),
+          fontFamily: 'Montserrat',
+          fontWeight: FontWeight.w600,
+        );
       case ButtonFontStyle.MontserratMedium15:
         return TextStyle(
           color: ColorConstant.blueGray800,
@@ -1264,6 +1273,7 @@ enum ButtonFontStyle {
   MontserratRomanSemiBold15,
   MontserratRomanSemiBold15Blue,
   MontserratRomanSemiBold15Gray50001,
+  MontserratRomanSemiBold18White,
   MontserratRomanSemiBold12,
   MontserratMedium15Gray50001,
   MontserratRomanSemiBold16Gray300,

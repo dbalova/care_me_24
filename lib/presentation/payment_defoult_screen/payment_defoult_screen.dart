@@ -7,18 +7,23 @@ import 'package:careme24/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 
-// ignore_for_file: must_be_immutable
+import '../record_final_screen/record_final_screen.dart';
+
 class PaymentDefoultScreen extends StatefulWidget {
   @override
   State<PaymentDefoultScreen> createState() => _PaymentDefoultScreenState();
 }
-bool _isSave = false;
-class _PaymentDefoultScreenState extends State<PaymentDefoultScreen> {
- TextEditingController cardnumbervalueController =  MaskedTextController(mask: '0000 0000 0000 0000');
 
- TextEditingController dateValueController =  MaskedTextController(mask: '00/00');
- bool selectedOption=false;
- TextEditingController cvcValueController =  MaskedTextController(mask: '000');
+bool _isSave = false;
+
+class _PaymentDefoultScreenState extends State<PaymentDefoultScreen> {
+  TextEditingController cardnumbervalueController =
+      MaskedTextController(mask: '0000 0000 0000 0000');
+
+  TextEditingController dateValueController =
+      MaskedTextController(mask: '00/00');
+  bool selectedOption = false;
+  TextEditingController cvcValueController = MaskedTextController(mask: '000');
 
   @override
   Widget build(BuildContext context) {
@@ -113,7 +118,6 @@ class _PaymentDefoultScreenState extends State<PaymentDefoultScreen> {
                                             style: AppStyle
                                                 .txtMontserratMedium12Gray50001)),
                                     CustomTextFormField(
-
                                         controller: cardnumbervalueController,
                                         hintText: "4321 1234 3445 8000 ",
                                         margin: getMargin(top: 3),
@@ -138,19 +142,25 @@ class _PaymentDefoultScreenState extends State<PaymentDefoultScreen> {
                                                     textAlign: TextAlign.left,
                                                     style: AppStyle
                                                         .txtMontserratMedium12Gray50001),
-                                               Container(
-                                                width: MediaQuery.of(context).size.width/4,
-                                                 child: CustomTextFormField(
-
-                                                     controller: dateValueController,
-                                                     hintText: "MM/ГГ ",
-                                                     margin: getMargin(top: 3),
-                                                     padding:
-                                                     TextFormFieldPadding.PaddingAll12,
-                                                     fontStyle: TextFormFieldFontStyle
-                                                         .MontserratMedium15Gray50001,
-                                                     textInputAction: TextInputAction.done),
-                                               )
+                                                Container(
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width /
+                                                      4,
+                                                  child: CustomTextFormField(
+                                                      controller:
+                                                          dateValueController,
+                                                      hintText: "MM/ГГ ",
+                                                      margin: getMargin(top: 3),
+                                                      padding:
+                                                          TextFormFieldPadding
+                                                              .PaddingAll12,
+                                                      fontStyle:
+                                                          TextFormFieldFontStyle
+                                                              .MontserratMedium15Gray50001,
+                                                      textInputAction:
+                                                          TextInputAction.done),
+                                                )
                                               ]),
                                           Padding(
                                               padding: getPadding(left: 9),
@@ -166,26 +176,38 @@ class _PaymentDefoultScreenState extends State<PaymentDefoultScreen> {
                                                         textAlign:
                                                             TextAlign.left,
                                                         style: TextStyle(
-                                                         color: ColorConstant.gray50001,
-                                                         fontSize: getFontSize(
-                                                          12,
-                                                         ),
-                                                         fontFamily: 'Montserrat',
-                                                         fontWeight: FontWeight.w500,
+                                                          color: ColorConstant
+                                                              .gray50001,
+                                                          fontSize: getFontSize(
+                                                            12,
+                                                          ),
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          fontWeight:
+                                                              FontWeight.w500,
                                                         )),
-                                                   Container(
-                                                    width: MediaQuery.of(context).size.width/4,
-                                                    child: CustomTextFormField(
-
-                                                        controller: cvcValueController,
-                                                        hintText: "• • • ",
-                                                        margin: getMargin(top: 3),
-                                                        padding:
-                                                        TextFormFieldPadding.PaddingAll12,
-                                                        fontStyle: TextFormFieldFontStyle
-                                                            .MontserratMedium15Gray50001,
-                                                        textInputAction: TextInputAction.done),
-                                                   )
+                                                    Container(
+                                                      width:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .width /
+                                                              4,
+                                                      child: CustomTextFormField(
+                                                          controller:
+                                                              cvcValueController,
+                                                          hintText: "• • • ",
+                                                          margin:
+                                                              getMargin(top: 3),
+                                                          padding:
+                                                              TextFormFieldPadding
+                                                                  .PaddingAll12,
+                                                          fontStyle:
+                                                              TextFormFieldFontStyle
+                                                                  .MontserratMedium15Gray50001,
+                                                          textInputAction:
+                                                              TextInputAction
+                                                                  .done),
+                                                    )
                                                   ])),
                                           Container(
                                               width: getHorizontalSize(73),
@@ -204,24 +226,21 @@ class _PaymentDefoultScreenState extends State<PaymentDefoultScreen> {
                           child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-
                                 GestureDetector(
-                                    onTap: (){_isSave=!_isSave;
-                                    setState(() {
-
-                                    });
+                                    onTap: () {
+                                      _isSave = !_isSave;
+                                      setState(() {});
                                     },
-                                    child:Container(
+                                    child: Container(
                                       margin: getMargin(
-
                                         right: 5,
-
                                       ),
                                       padding: getPadding(
                                         all: 4,
                                       ),
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadiusStyle.roundedBorder10,
+                                        borderRadius:
+                                            BorderRadiusStyle.roundedBorder10,
                                         color: ColorConstant.whiteA700,
                                         border: Border.all(
                                           color: Colors.grey,
@@ -232,7 +251,8 @@ class _PaymentDefoultScreenState extends State<PaymentDefoultScreen> {
                                       ),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
                                         children: [
                                           Container(
                                             height: getSize(
@@ -242,15 +262,17 @@ class _PaymentDefoultScreenState extends State<PaymentDefoultScreen> {
                                               8,
                                             ),
                                             decoration: BoxDecoration(
-                                              color: _isSave?Colors.grey: Colors.white,
-                                              borderRadius: BorderRadius.circular(
+                                              color: _isSave
+                                                  ? Colors.grey
+                                                  : Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(
                                                 getHorizontalSize(
                                                   7,
                                                 ),
                                               ),
                                             ),
                                           ),
-
                                         ],
                                       ),
                                     )),
@@ -259,65 +281,91 @@ class _PaymentDefoultScreenState extends State<PaymentDefoultScreen> {
                                     width: getHorizontalSize(248),
                                     margin: getMargin(left: 7),
                                     child: Container(
-                                        width: MediaQuery.of(context).size.width-50,
+                                        width:
+                                            MediaQuery.of(context).size.width -
+                                                50,
                                         child:
 
-                                       /* Text(
+                                            /* Text(
                                             "Сохранить данные карты для следующих плтежей. Это безопасно",
                                             maxLines: null,
                                             textAlign: TextAlign.left,
                                             style: AppStyle
                                                 .txtMontserratMedium12)*/
 
-                                        RichText(
+                                            RichText(
                                           text: TextSpan(
-                                            style: AppStyle
-                                                .txtMontserratMedium12,
+                                            style:
+                                                AppStyle.txtMontserratMedium12,
                                             children: [
-                                              TextSpan(text: 'Сохранить данные карты для следующих плтежей. Это безопасно'),
+                                              TextSpan(
+                                                  text:
+                                                      'Сохранить данные карты для следующих плтежей. Это безопасно'),
                                               WidgetSpan(
                                                 child: Padding(
-                                                  padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                                                  child:
-                                                  Icon(Icons.info, color: Colors.grey, size: 14,)
+                                                    padding: const EdgeInsets
+                                                            .symmetric(
+                                                        horizontal: 2.0),
+                                                    child: Icon(
+                                                      Icons.info,
+                                                      color: Colors.grey,
+                                                      size: 14,
+                                                    )
 
-                                                  /* CustomImageView(
+                                                    /* CustomImageView(
                                                       svgPath: ImageConstant.imgWarning,
                                                       height: getSize(13),
                                                       width: getSize(13),
 
                                                       margin: getMargin(
                                                           right: 86, bottom: 1)),*/
-                                                ),
+                                                    ),
                                               ),
-
                                             ],
                                           ),
-                                        )
-
-                                    ))
+                                        )))
                               ])),
                       CustomButton(
-                        onTap: (){
+                          onTap: () {
+                            print(cardnumbervalueController.toString().length);
+                            print(dateValueController.toString().length);
+                            print(cvcValueController.toString().length);
+                            print(cardnumbervalueController.text);
+                            print(dateValueController.text);
+                            print(cvcValueController.text);
+                            print(cardnumbervalueController.text.length);
+                            print(dateValueController.text.length);
+                            print(cvcValueController.text.length);
 
-                          print(cardnumbervalueController.toString().length);
-                          print(dateValueController.toString().length);
-                          print(cvcValueController.toString().length);
-
-
-                          if((cardnumbervalueController.toString().length==220)
-                          &(dateValueController.toString().length==205)
-                          &(cvcValueController.toString().length==203))
-                            Navigator.pushNamed(context, AppRoutes.paymentFailedScreen);
-
-                        },
+                            if ((cardnumbervalueController.text ==
+                                    "1111 1111 1111 1111") &
+                                (dateValueController.text == "11/11") &
+                                (cvcValueController.text == "111")) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          RecordFinalScreen()));
+                            } else if ((cardnumbervalueController.text.length ==
+                                    19) &
+                                (dateValueController.text.length == 5) &
+                                (cvcValueController.text.length == 3)) {
+                              Navigator.pushNamed(
+                                  context, AppRoutes.paymentFailedScreen);
+                            }
+                          },
                           height: getVerticalSize(56),
                           text: "Оплатить ",
                           margin: getMargin(top: 18, bottom: 5),
-                          variant: ((cardnumbervalueController.toString().length==220)
-                          &(dateValueController.toString().length==205)
-                          &(cvcValueController.toString().length==203))?  ButtonVariant.OutlineBlue70049:
-                          ButtonVariant.FillGray50001,
+                          variant: ((cardnumbervalueController
+                                          .toString()
+                                          .length ==
+                                      220) &
+                                  (dateValueController.toString().length ==
+                                      205) &
+                                  (cvcValueController.toString().length == 203))
+                              ? ButtonVariant.OutlineBlue70049
+                              : ButtonVariant.FillGray50001,
                           fontStyle:
                               ButtonFontStyle.MontserratRomanSemiBold18Gray300)
                     ]))));
