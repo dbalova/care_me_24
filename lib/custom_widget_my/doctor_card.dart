@@ -54,7 +54,7 @@ class DoctorCard extends StatelessWidget {
     form_card();
     return GestureDetector(
       onTap:(){
-        if (where_call == "Запись к врачу") {
+        if (where_call == "Запись к врачу" || where_call == "Помощь онлайн" ) {
           Navigator.push(context, MaterialPageRoute(builder: (context) => AppointmentToDoctorScreen()));
         } else {
           Navigator.push(context, MaterialPageRoute(builder: (context) => DoctorAboutScreen(whereCall: where_call,)));
