@@ -541,8 +541,7 @@ class _DoctorAboutScreenState extends State<DoctorAboutScreen> {
                                                                   ]))
                                                         ]))),
                                           GestureDetector(
-                                              onTap: (){Navigator.pushNamed(context,
-                                                  AppRoutes.trackingScreen);},
+                                              onTap: (){ Navigator.pushNamed(context, AppRoutes.trackingScreen);},
 
                                               child:  Container(
                                               height: MediaQuery.of(context).size.height/3,

@@ -7,6 +7,7 @@ import 'package:careme24/widgets/app_bar/custom_app_bar.dart';
 import 'package:careme24/widgets/custom_button.dart';
 import 'package:careme24/widgets/custom_drop_down.dart';
 import 'package:careme24/widgets/custom_image_view.dart';
+import 'package:careme24/widgets/med_screens/chat_page.dart';
 import 'package:flutter/material.dart';
 
 import 'core/utils/color_constant.dart';
@@ -49,9 +50,15 @@ class HoneyMainPage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 CustomButton(
+                                  onTap: (){
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => ChatScreen()));
+                                  },
+
                                     width: getHorizontalSize(200),
-                                    text: "Мне",
-                                    margin: getMargin(top: 1),
+                                    text: "Мне", margin: getMargin(top: 1),
                                     variant: ButtonVariant
                                         .GradientGreenA700GreenA70001,
                                     fontStyle:

@@ -22,6 +22,14 @@ dependencies:
   card_swiper:
   flutter_slidable:
   camera:
+  audioplayers: ^3.0.1
+  just_audio: ^0.9.31
+  syncfusion_flutter_sliders: ^20.4.51
+  sizer:
+  social_media_recorder:
+  media_picker_widget:
+
+
 dev_dependencies: 
   flutter_test: 
     sdk: flutter

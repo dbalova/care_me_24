@@ -1,6 +1,8 @@
 import 'package:careme24/core/app_export.dart';
 import 'package:flutter/material.dart';
 
+import '../med_home_page.dart';
+
 class CustomBottomBar extends StatefulWidget {
   CustomBottomBar({this.onChanged});
 
@@ -22,17 +24,17 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
     BottomMenuModel(
       icon: ImageConstant.imgLocationGray400,
       title: "Мед",
-      type: BottomBarEnum.tf,
+      type: BottomBarEnum.med,
     ),
     BottomMenuModel(
       icon: ImageConstant.imgFrameGray40001,
       title: "Полиция",
-      type: BottomBarEnum.tf,
+      type: BottomBarEnum.police,
     ),
     BottomMenuModel(
       icon: ImageConstant.imgFireGray40001,
       title: "МЧС",
-      type: BottomBarEnum.tf,
+      type: BottomBarEnum.mchs,
     )
   ];
 
@@ -132,7 +134,29 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
         onTap: (index) {
           selectedIndex = index;
           widget.onChanged?.call(bottomMenuList[index].type);
+          switch(index)
+          {case 0:
+            bottomMenuList[index].type = BottomBarEnum.tf;
+            break;
+            case 1:
+              bottomMenuList[index].type = BottomBarEnum.med;
+              break;
+            case 2:
+              bottomMenuList[index].type = BottomBarEnum.police;
+              break;
+            case 3:
+              bottomMenuList[index].type = BottomBarEnum.mchs;
+              break;
+            default : bottomMenuList[index].type = BottomBarEnum.tf;
 
+          }
+
+          if (bottomMenuList[index].type ==BottomBarEnum.police){
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => HoneyMainPage()));
+          }
           setState(() {});
         },
       ),
@@ -142,6 +166,9 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
 
 enum BottomBarEnum {
   tf,
+  med,
+  police,
+  mchs
 }
 
 class BottomMenuModel {
