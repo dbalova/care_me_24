@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'core/utils/color_constant.dart';
 import 'core/utils/image_constant.dart';
 import 'core/utils/size_utils.dart';
+import 'custom_widget_my/for_whom.dart';
 import 'custom_widget_my/what_do_med_card.dart';
 
 final _controller = ValueNotifier<bool>(false);
@@ -48,14 +49,7 @@ class HoneyMainPage extends StatelessWidget {
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                CustomButton(
-                                    width: getHorizontalSize(200),
-                                    text: "Мне",
-                                    margin: getMargin(top: 1),
-                                    variant: ButtonVariant
-                                        .GradientGreenA700GreenA70001,
-                                    fontStyle:
-                                        ButtonFontStyle.MontserratSemiBold18),
+                                ForWhom(name: 'Мне',),
                                 Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [

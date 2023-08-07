@@ -10,7 +10,9 @@ import 'package:flutter/animation.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
+import '../../custom_widget_my/for_whom.dart';
 import '../../custom_widget_my/reason_ambulance.dart';
+import '../list_reason_setting/list_reason_setting.dart';
 
 final _controller = ValueNotifier<bool>(false);
 bool _checked = false;
@@ -103,14 +105,7 @@ class _ButtonHoneyCallOneScreenState extends State<ButtonHoneyCallOneScreen> {
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                CustomButton(
-                                    width: getHorizontalSize(200),
-                                    text: "Мне",
-                                    margin: getMargin(top: 1),
-                                    variant: ButtonVariant
-                                        .GradientGreenA700GreenA70001,
-                                    fontStyle:
-                                        ButtonFontStyle.MontserratSemiBold18),
+                                ForWhom(name: 'Мне',),
                                 Padding(
                                     padding: getPadding(bottom: 1),
                                     child: Column(
@@ -175,9 +170,14 @@ class _ButtonHoneyCallOneScreenState extends State<ButtonHoneyCallOneScreen> {
                                         "Причина вызова",
                                         style: AppStyle.txtMontserratSemiBold19,
                                       ),
-                                      CustomImageView(
-                                        svgPath: ImageConstant
-                                            .imgSettingsLightBlue900,
+                                      GestureDetector(
+                                        onTap: (){
+                                          Navigator.push(context, MaterialPageRoute(builder: (context) => ListReasonSettingPage()));
+                                        },
+                                        child: CustomImageView(
+                                          svgPath: ImageConstant
+                                              .imgSettingsLightBlue900,
+                                        ),
                                       )
                                     ],
                                   ),

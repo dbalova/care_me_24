@@ -8,6 +8,8 @@ import 'package:careme24/widgets/custom_button.dart';
 import 'package:careme24/widgets/custom_drop_down.dart';
 import 'package:flutter/material.dart';
 
+import '../../custom_widget_my/for_whom.dart';
+
 class PlotsPoliceScreen extends StatefulWidget {
   late String reasonForTheCall;
 
@@ -101,14 +103,7 @@ bool _price  = false;
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                CustomButton(
-                                    width: getHorizontalSize(200),
-                                    text: "Степанов Илья",
-                                    margin: getMargin(top: 1),
-                                    variant: ButtonVariant
-                                        .GradientBlue500LightblueA200,
-                                    fontStyle:
-                                        ButtonFontStyle.MontserratSemiBold18),
+                                ForWhom(name: 'Степанов Илья',),
                                 Padding(
                                     padding: getPadding(bottom: 1),
                                     child: Column(

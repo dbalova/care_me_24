@@ -1,29 +1,22 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:careme24/core/app_export.dart';
 import 'package:careme24/widgets/app_bar/appbar_image.dart';
 import 'package:careme24/widgets/app_bar/appbar_title.dart';
 import 'package:careme24/widgets/app_bar/custom_app_bar.dart';
-import 'package:careme24/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:flutter/widgets.dart';
 
-String _imgResult = "";
-TextEditingController _commentController = TextEditingController();
+import '../../widgets/custom_button.dart';
 
 var delivery = [false, false, false, false, false];
 var qualityProduct = [false, false, false, false, false];
 var qualityDeliverySpeed = [false, false, false, false, false];
 
-class QualityControlDefoultScreen extends StatefulWidget {
+class QualityControl extends StatefulWidget {
   @override
-  State<QualityControlDefoultScreen> createState() =>
-      _QualityControlDefoultScreenState();
+  State<QualityControl> createState() => _QualityControlState();
 }
 
-class _QualityControlDefoultScreenState
-    extends State<QualityControlDefoultScreen> {
+class _QualityControlState extends State<QualityControl> {
   @override
   void initState() {
     delivery = [false, false, false, false, false];
@@ -31,6 +24,8 @@ class _QualityControlDefoultScreenState
     qualityDeliverySpeed = [false, false, false, false, false];
     super.initState();
   }
+
+  TextEditingController _commentController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +41,7 @@ class _QualityControlDefoultScreenState
                     svgPath: ImageConstant.imgArrowleft,
                     margin: getMargin(left: 32, top: 12, bottom: 20),
                     onTap: () {
-                      onTapArrowleft56(context);
+                      Navigator.pop(context);
                     }),
                 centerTitle: true,
                 title: AppbarTitle(text: "Отзыв"),
@@ -76,8 +71,9 @@ class _QualityControlDefoultScreenState
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
                                       children: [
-                                        Text("Оцените скорость доставки",
-                                            overflow: TextOverflow.ellipsis,
+                                        Text(
+                                            "Понравилась ли вам скорость обслуживания?",
+                                            overflow: TextOverflow.clip,
                                             textAlign: TextAlign.left,
                                             style: AppStyle
                                                 .txtMontserratSemiBold15Bluegray800),
@@ -215,8 +211,9 @@ class _QualityControlDefoultScreenState
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
                                       children: [
-                                        Text("Оцените качество достваки",
-                                            overflow: TextOverflow.ellipsis,
+                                        Text(
+                                            "На сколько хорошо с вами обращались?",
+                                            overflow: TextOverflow.clip,
                                             textAlign: TextAlign.left,
                                             style: AppStyle
                                                 .txtMontserratSemiBold15Bluegray800),
@@ -349,8 +346,9 @@ class _QualityControlDefoultScreenState
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
                                       children: [
-                                        Text("На сколько качественный товар",
-                                            overflow: TextOverflow.ellipsis,
+                                        Text(
+                                            "На сколько вы довольны лечением и его эффективностью?",
+                                            overflow: TextOverflow.clip,
                                             textAlign: TextAlign.left,
                                             style: AppStyle
                                                 .txtMontserratSemiBold15Bluegray800),
@@ -509,49 +507,13 @@ class _QualityControlDefoultScreenState
                                   )),
                             ),
                           ),
-                          Padding(
-                              padding: getPadding(top: 22),
-                              child: Text("Добавить изображение",
-                                  overflow: TextOverflow.ellipsis,
-                                  textAlign: TextAlign.left,
-                                  style:
-                                      AppStyle.txtMontserratRomanSemiBold15)),
-                          GestureDetector(
-                              onTap: () async {
-                                String _pathFoto;
-                                await _getFromGallery();
-                              },
-                              child: Card(
-                                  clipBehavior: Clip.antiAlias,
-                                  elevation: 0,
-                                  margin: getMargin(top: 7, bottom: 8),
-                                  shape: RoundedRectangleBorder(
-                                      side: BorderSide(
-                                          color: ColorConstant.gray50001,
-                                          width: getHorizontalSize(1)),
-                                      borderRadius:
-                                          BorderRadiusStyle.roundedBorder10),
-                                  child: Container(
-                                      height: getVerticalSize(77),
-                                      width: getHorizontalSize(86),
-                                      padding: getPadding(
-                                          left: 25,
-                                          top: 24,
-                                          right: 25,
-                                          bottom: 24),
-                                      decoration: AppDecoration
-                                          .outlineGray500012
-                                          .copyWith(
-                                              borderRadius: BorderRadiusStyle
-                                                  .roundedBorder10),
-                                      child: Stack(children: [
-                                        CustomImageView(
-                                            svgPath:
-                                                ImageConstant.imgCameraGray300,
-                                            height: getVerticalSize(28),
-                                            width: getHorizontalSize(35),
-                                            alignment: Alignment.topCenter)
-                                      ]))))
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              "Доступно 300 символов",
+                              style: AppStyle.txtMontserratSemiBold12Gray50001,
+                            ),
+                          )
                         ]))),
             bottomNavigationBar: Container(
                 height: getVerticalSize(56),
@@ -594,23 +556,5 @@ class _QualityControlDefoultScreenState
                           ButtonFontStyle.MontserratRomanSemiBold18Gray300,
                       alignment: Alignment.center)
                 ]))));
-  }
-
-  _getFromGallery() async {
-    XFile? pickedFile = await ImagePicker().pickImage(
-      source: ImageSource.gallery,
-      maxWidth: 1800,
-      maxHeight: 1800,
-    );
-    if (pickedFile != null) {
-      final bytes = await File(pickedFile.path).readAsBytes();
-      String img64 = base64Encode(bytes);
-      _imgResult = img64;
-      setState(() {});
-    }
-  }
-
-  onTapArrowleft56(BuildContext context) {
-    Navigator.pop(context);
   }
 }

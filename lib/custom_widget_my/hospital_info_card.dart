@@ -1,6 +1,6 @@
 import 'package:careme24/core/app_export.dart';
+import 'package:careme24/presentation/about_hospital/about_hospital.dart';
 import 'package:flutter/material.dart';
-
 import '../core/utils/color_constant.dart';
 import '../core/utils/image_constant.dart';
 import '../theme/app_style.dart';
@@ -36,7 +36,7 @@ class HospitalInfoCard extends StatelessWidget {
         if(whereCall == "hospital"){
           Navigator.pushNamed(context, AppRoutes.hospitalsScreen);
         } else {
-          Navigator.pushNamed(context, AppRoutes.aboutHospital);
+          Navigator.push(context, MaterialPageRoute(builder: (context) => AboutHospital()));
         }
       },
       child: Card(

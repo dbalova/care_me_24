@@ -11,6 +11,15 @@ class AppStyle {
     fontWeight: FontWeight.w500,
   );
 
+  static TextStyle txtMontserratMedium12Bluegray800 = TextStyle(
+    color: ColorConstant.blueGray800,
+    fontSize: getFontSize(
+      12,
+    ),
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w500,
+  );
+
   static TextStyle txtMontserratRegular9 = TextStyle(
     color: ColorConstant.blueGray800,
     fontSize: getFontSize(
@@ -319,6 +328,15 @@ class AppStyle {
 
   static TextStyle txtMontserratSemiBold18 = TextStyle(
     color: ColorConstant.blue600,
+    fontSize: getFontSize(
+      18,
+    ),
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle txtMontserratSemiBold18Green = TextStyle(
+    color: ColorConstant.green500,
     fontSize: getFontSize(
       18,
     ),

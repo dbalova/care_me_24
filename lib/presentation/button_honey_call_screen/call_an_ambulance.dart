@@ -6,6 +6,7 @@ import 'package:careme24/widgets/app_bar/custom_app_bar.dart';
 import 'package:careme24/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
+import '../../custom_widget_my/for_whom.dart';
 import '../waiting_window_screen/waiting_window_screen.dart';
 
 final _controller = ValueNotifier<bool>(false);
@@ -65,14 +66,7 @@ class _ButtonHoneyCallScreenState extends State<ButtonHoneyCallScreen> {
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                CustomButton(
-                                    width: getHorizontalSize(200),
-                                    text: "Мне",
-                                    margin: getMargin(top: 1),
-                                    variant: ButtonVariant
-                                        .GradientGreenA700GreenA70001,
-                                    fontStyle:
-                                        ButtonFontStyle.MontserratSemiBold18),
+                                ForWhom(name: 'Мне',),
                                 Padding(
                                     padding: getPadding(bottom: 1),
                                     child: Column(

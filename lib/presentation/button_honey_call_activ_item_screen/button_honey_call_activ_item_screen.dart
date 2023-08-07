@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import '../../custom_widget_my/for_whom.dart';
 import '../../custom_widget_my/reason_mes.dart';
 
 
@@ -102,14 +103,7 @@ class _ButtonHoneyCallActivItemScreenState extends State<ButtonHoneyCallActivIte
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                CustomButton(
-                                    width: getHorizontalSize(200),
-                                    text: "Мне",
-                                    margin: getMargin(top: 1),
-                                    variant: ButtonVariant
-                                        .GradientGreenA700GreenA70001,
-                                    fontStyle:
-                                    ButtonFontStyle.MontserratSemiBold18),
+                                ForWhom(name: 'Мне',),
                                 Padding(
                                     padding: getPadding(bottom: 1),
                                     child: Column(

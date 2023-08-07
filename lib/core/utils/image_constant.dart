@@ -7,6 +7,8 @@ class ImageConstant {
 
   static String imgHospital = 'assets/images/image_hospital.png';
 
+  static String imgCheckMark = 'assets/images/check_mark.svg';
+
   static String atmosphericPressureIcon = 'assets/images/atmospheric_pressure_icon.svg';
 
   static String imgHospitalSvg = 'assets/images/hospital_svg.svg';
@@ -26,6 +28,7 @@ class ImageConstant {
   static String imgAirWarning = 'assets/images/img_air_warning.svg';
 
   static String imgImage18 = 'assets/images/img_image18.png';
+  static String imgImage17 = 'assets/images/img_image17.png';
 
   static String img_black_ice = 'assets/images/img_black_ice.svg';
   static String img_hail = 'assets/images/img_hail.svg';

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../core/utils/color_constant.dart';
 import '../../core/utils/image_constant.dart';
 import '../../core/utils/size_utils.dart';
+import '../../custom_widget_my/for_whom.dart';
 import '../../theme/app_style.dart';
 import '../../widgets/app_bar/appbar_image.dart';
 import '../../widgets/app_bar/appbar_title.dart';
@@ -54,14 +55,7 @@ class _SelfHelpScreenState extends State<SelfHelpScreen> {
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                CustomButton(
-                                    width: getHorizontalSize(200),
-                                    text: "Степанов Илья ",
-                                    margin: getMargin(top: 1),
-                                    variant: ButtonVariant
-                                        .GradientBlue500LightblueA200,
-                                    fontStyle:
-                                        ButtonFontStyle.MontserratSemiBold18),
+                                ForWhom(name: 'Степанов Илья',),
                                 Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [

@@ -253,6 +253,7 @@ class CustomButton extends StatelessWidget {
       case ButtonVariant.Dividers:
       case ButtonVariant.OutlineIndigo20049:
       case ButtonVariant.GradientGreenA700GreenA70001:
+      case ButtonVariant.GradientGray:
       case ButtonVariant.GradientBlue500LightblueA200:
       case ButtonVariant.GradientBlue60001IndigoA400:
       case ButtonVariant.OutlineGray50001:
@@ -342,6 +343,7 @@ class CustomButton extends StatelessWidget {
         );
       case ButtonVariant.OutlineIndigo20049:
       case ButtonVariant.GradientGreenA700GreenA70001:
+      case ButtonVariant.GradientGray:
       case ButtonVariant.FillBlue100:
       case ButtonVariant.GradientBlue500LightblueA200:
       case ButtonVariant.FillGray50001:
@@ -387,6 +389,7 @@ class CustomButton extends StatelessWidget {
         return ColorConstant.blue70049;
       case ButtonVariant.Dividers:
       case ButtonVariant.GradientGreenA700GreenA70001:
+      case ButtonVariant.GradientGray:
       case ButtonVariant.OutlineGray300:
       case ButtonVariant.FillBlue100:
       case ButtonVariant.OutlineGray300_1:
@@ -861,6 +864,7 @@ class CustomButton extends StatelessWidget {
         );
       case ButtonVariant.OutlineIndigo20049:
       case ButtonVariant.GradientGreenA700GreenA70001:
+      case ButtonVariant.GradientGray:
       case ButtonVariant.FillBlue100:
       case ButtonVariant.GradientBlue500LightblueA200:
       case ButtonVariant.FillGray50001:
@@ -892,6 +896,7 @@ class CustomButton extends StatelessWidget {
     switch (variant) {
       case ButtonVariant.OutlineIndigo20049:
       case ButtonVariant.GradientGreenA700GreenA70001:
+      case ButtonVariant.GradientGray:
       case ButtonVariant.GradientBlue500LightblueA200:
       case ButtonVariant.GradientBlue60001IndigoA400:
       case ButtonVariant.OutlineIndigo20049_1:
@@ -947,6 +952,21 @@ class CustomButton extends StatelessWidget {
           colors: [
             ColorConstant.blue500,
             ColorConstant.lightBlueA200,
+          ],
+        );
+        case ButtonVariant.GradientGray:
+        return LinearGradient(
+          begin: Alignment(
+            0.97,
+            0.94,
+          ),
+          end: Alignment(
+            0.22,
+            0.05,
+          ),
+          colors: [
+            ColorConstant.gray40001,
+            ColorConstant.gray400,
           ],
         );
       case ButtonVariant.GradientBlue60001IndigoA400:
@@ -1150,6 +1170,7 @@ class CustomButton extends StatelessWidget {
       case ButtonVariant.FillBlue100:
       case ButtonVariant.OutlineGray300_1:
       case ButtonVariant.GradientBlue500LightblueA200:
+      case ButtonVariant.GradientGray:
       case ButtonVariant.FillGray50001:
       case ButtonVariant.FillBlue60001:
       case ButtonVariant.GradientBlue60001IndigoA400:
@@ -1251,7 +1272,7 @@ enum ButtonVariant {
   OutlineBlack9003f,
   FillWhiteA700,
   OutlineBlue600_1,
-  FillYellowA40002, OutlineGray9003d,
+  FillYellowA40002, OutlineGray9003d, GradientGray,
 }
 enum ButtonFontStyle {
   MontserratRomanSemiBold18Blue600,

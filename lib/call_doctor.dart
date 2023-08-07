@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'core/utils/color_constant.dart';
 import 'core/utils/image_constant.dart';
 import 'core/utils/size_utils.dart';
+import 'custom_widget_my/for_whom.dart';
 
 class CallDoctorScreen extends StatefulWidget {
   late String appbartitle;
@@ -289,14 +290,7 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        CustomButton(
-                                            width: getHorizontalSize(200),
-                                            text: "Степанов Илья ",
-                                            margin: getMargin(bottom: 1),
-                                            variant: ButtonVariant
-                                                .GradientBlue500LightblueA200,
-                                            fontStyle: ButtonFontStyle
-                                                .MontserratSemiBold18),
+                                        ForWhom(name: 'Степанов Илья',),
                                         Column(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.start,

@@ -1,5 +1,6 @@
 import 'package:careme24/custom_widget_my/hospital_info_card.dart';
 
+import '../../custom_widget_my/for_whom.dart';
 import '../hospitals_screen/widgets/hospitals_item_widget.dart';
 import 'package:careme24/core/app_export.dart';
 import 'package:careme24/widgets/app_bar/appbar_image.dart';
@@ -101,14 +102,7 @@ class _HospitalsScreenState extends State<HospitalsScreen> {
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                CustomButton(
-                                    width: getHorizontalSize(200),
-                                    text: "Степанов Илья",
-                                    margin: getMargin(top: 1),
-                                    variant: ButtonVariant
-                                        .GradientBlue500LightblueA200,
-                                    fontStyle:
-                                        ButtonFontStyle.MontserratSemiBold18),
+                                ForWhom(name: 'Степанов Илья',),
                                 Padding(
                                     padding: getPadding(bottom: 1),
                                     child: Column(
