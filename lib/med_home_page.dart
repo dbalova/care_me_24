@@ -51,10 +51,7 @@ class HoneyMainPage extends StatelessWidget {
                               children: [
                                 CustomButton(
                                   onTap: (){
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => ChatScreen()));
+
                                   },
 
                                     width: getHorizontalSize(200),
