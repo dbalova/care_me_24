@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:careme24/custom_camera_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:media_picker_widget/media_picker_widget.dart';
 import 'package:sizer/sizer.dart';
@@ -9,6 +10,7 @@ import 'package:social_media_recorder/screen/social_media_recorder.dart';
 import '../../../core/utils/color_constant.dart';
 import '../../../core/utils/image_constant.dart';
 import '../../../core/utils/size_utils.dart';
+import '../../../theme/app_decoration.dart';
 import '../../../theme/app_style.dart';
 import '../../app_bar/appbar_image.dart';
 import '../../app_bar/appbar_subtitle_2.dart';
@@ -24,6 +26,9 @@ bool _isVisible=true;
 bool _isSelectMedia = false;
 bool _isFilePicker = false;
 bool _isFileSelect = false;
+bool _isChatOpen = true;
+
+int _indexSelect = -1;
 class MyAppChat extends StatefulWidget {
   const MyAppChat({Key? key}) : super(key: key);
 
@@ -95,7 +100,15 @@ class _ChatPageState extends State<ChatPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-              Container(
+             GestureDetector(
+                 onTap: (){
+                   Navigator.pop(context);
+                   Navigator.push(
+                       context,
+                       MaterialPageRoute(
+                           builder: (context) => CustomCameraScreen()));
+                 },
+                 child:Container(
                 decoration: BoxDecoration(
                   color: Colors.blue,
                   borderRadius: BorderRadius.circular(10),
@@ -114,7 +127,7 @@ class _ChatPageState extends State<ChatPage> {
                    color: Colors.white,
                    fontFamily: 'Montserrat',
                    fontWeight: FontWeight.w200,
-                 ),),],),),
+                 ),),],),)),
               SizedBox(width: 10,),
               GestureDetector(
 
@@ -295,7 +308,219 @@ class _ChatPageState extends State<ChatPage> {
                             ]))
                   ])),
               styleType: Style.bgFillBlue60001),
-          body: _messagesWithUserInfo(context),
+          body: _isChatOpen?_messagesWithUserInfo(context):Container(
+              width: double.maxFinite,
+              padding: getPadding(top: 12, bottom: 12),
+              child:
+              Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+                Padding(
+                    padding: getPadding(top: 143),
+                    child: Text("Чат откроется через:",
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: getFontSize(
+                            22,
+                          ),
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.w600,
+                        ))),
+                Padding(
+                    padding: getPadding(top: 16),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                              padding: getPadding(top: 1),
+                              child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text("День",
+                                        overflow: TextOverflow.ellipsis,
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: getFontSize(
+                                            18,
+                                          ),
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w500,
+                                        )),
+                                    Container(
+                                        width: getHorizontalSize(61),
+                                        margin: getMargin(top: 5),
+                                        padding: getPadding(
+                                            left: 26,
+                                            top: 20,
+                                            right: 26,
+                                            bottom: 20),
+                                        decoration: AppDecoration
+                                            .txtOutlineBlue30001
+                                            .copyWith(
+                                            borderRadius:
+                                            BorderRadiusStyle
+                                                .txtRoundedBorder10),
+                                        child: Text("1",
+                                            overflow: TextOverflow.ellipsis,
+                                            textAlign: TextAlign.center,
+                                            style: AppStyle
+                                                .txtMontserratSemiBold15Bluegray800))
+                                  ])),
+                          CustomImageView(
+                              svgPath: ImageConstant.imgGroup7371,
+                              height: getVerticalSize(17),
+                              width: getHorizontalSize(3),
+                              margin:
+                              getMargin(left: 9, top: 55, bottom: 26)),
+                          Padding(
+                              padding: getPadding(left: 8),
+                              child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text("Час",
+                                        overflow: TextOverflow.ellipsis,
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: getFontSize(
+                                            18,
+                                          ),
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w500,
+                                        )),
+                                    Container(
+                                        width: getHorizontalSize(61),
+                                        margin: getMargin(top: 7),
+                                        padding: getPadding(
+                                            left: 17,
+                                            top: 20,
+                                            right: 17,
+                                            bottom: 20),
+                                        decoration: AppDecoration
+                                            .txtOutlineBlue30001
+                                            .copyWith(
+                                            borderRadius:
+                                            BorderRadiusStyle
+                                                .txtRoundedBorder10),
+                                        child: Text("23",
+                                            overflow: TextOverflow.ellipsis,
+                                            textAlign: TextAlign.center,
+                                            style: AppStyle
+                                                .txtMontserratSemiBold15Bluegray800))
+                                  ])),
+                          CustomImageView(
+                              svgPath: ImageConstant.imgGroup7371,
+                              height: getVerticalSize(17),
+                              width: getHorizontalSize(3),
+                              margin:
+                              getMargin(left: 9, top: 55, bottom: 26)),
+                          Padding(
+                              padding: getPadding(left: 9),
+                              child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text("Мин",
+                                        overflow: TextOverflow.ellipsis,
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: getFontSize(
+                                            18,
+                                          ),
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w500,
+                                        )),
+                                    Container(
+                                        width: getHorizontalSize(61),
+                                        margin: getMargin(top: 7),
+                                        padding: getPadding(
+                                            left: 15,
+                                            top: 20,
+                                            right: 15,
+                                            bottom: 20),
+                                        decoration: AppDecoration
+                                            .txtOutlineBlue30001
+                                            .copyWith(
+                                            borderRadius:
+                                            BorderRadiusStyle
+                                                .txtRoundedBorder10),
+                                        child: Text("40",
+                                            overflow: TextOverflow.ellipsis,
+                                            textAlign: TextAlign.center,
+                                            style: AppStyle
+                                                .txtMontserratSemiBold15Bluegray800))
+                                  ]))
+                        ])),
+                Container(
+                    width: getHorizontalSize(200),
+                    margin: getMargin(top: 32),
+                    child: Text(
+                        "После окончания таймера вы сможете писать в чате",
+                        maxLines: null,
+                        textAlign: TextAlign.center,
+                        style: AppStyle.txtMontserratMedium15Blue600)),
+                Spacer(),
+                Container(
+                    width: double.maxFinite,
+                    padding:
+                    getPadding(left: 22, top: 23, right: 22, bottom: 23),
+                    decoration: BoxDecoration(
+                      color: Colors.lightBlue.shade100,
+                    ),
+                    child: Row(children: [
+                      Text("Вы записаны на:",
+                          overflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.left,
+                          style: AppStyle.txtMontserratSemiBold15Bluegray800),
+                      Padding(
+                          padding: getPadding(left: 17),
+                          child: Text("24.07.2022",
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.left,
+                              style:
+                              AppStyle.txtMontserratMedium15Blue600)),
+                      Padding(
+                          padding: getPadding(left: 27),
+                          child: Text("14:30",
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.left,
+                              style: AppStyle.txtMontserratMedium15Blue600))
+                    ])), Padding(
+                  padding: getPadding(top: 10, right:4),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+
+                        width: MediaQuery.of(context).size.width-70,
+                        child: TextField(
+                          // controller: _controllertimestart,
+                          enabled: false,
+                          decoration: InputDecoration(
+                              suffixIcon:Icon(Icons.attach_file, size: 24, color: Colors.blue,),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              labelText: 'Сообщение',
+                              labelStyle: TextStyle(
+                                color: ColorConstant.gray50001,
+                                fontSize: getFontSize(
+                                  13,
+                                ),
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w400,
+                              )
+                          ),
+                        ),
+                      ),
+                      Icon(Icons.mic, size: 24, color: Colors.blue,)
+                    ],
+                  ),
+
+                ),
+              ]))
+
+        ,
 
 
 
@@ -393,7 +618,17 @@ class _ChatPageState extends State<ChatPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
+                  GestureDetector(
+                      onTap: (){
+                        _isFilePicker= false;
+                        setState(() {
+
+                        });
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CustomCameraScreen()));},
+                      child: Container(
                       decoration: BoxDecoration(
                         color: Colors.blue,
                         borderRadius: BorderRadius.circular(10),
@@ -412,7 +647,7 @@ class _ChatPageState extends State<ChatPage> {
                               color: Colors.white,
                               fontFamily: 'Montserrat',
                               fontWeight: FontWeight.w200,
-                            ),),],),),
+                            ),),],),)),
                     SizedBox(width: 10,),
                    GestureDetector(
                        onTap: (){openImagePicker(context);
@@ -444,6 +679,64 @@ class _ChatPageState extends State<ChatPage> {
 
 
                   ],),),
+            Divider(thickness: 2,),
+            Container(height: 20,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [GestureDetector(
+                onTap:(){
+                  _indexSelect = 1;
+                  setState(() {
+
+                  });
+                },
+                child: Text('Все',  style :TextStyle(
+                  fontSize: 14,
+                  color:   _indexSelect == 1?Colors.blue:Colors.black,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w200,
+                ))),
+              GestureDetector(
+                onTap:(){
+                  _indexSelect = 2;
+                  setState(() {
+
+                  });
+                },
+                child: Text('Фото',  style :TextStyle(
+                  fontSize: 14,
+                  color:   _indexSelect == 2?Colors.blue:Colors.black,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w200,
+                ))),
+              GestureDetector(
+                onTap:(){
+                  _indexSelect =3;
+                  setState(() {
+
+                  });
+                },
+                child: Text('Видео',  style :TextStyle(
+                  fontSize: 14,
+                  color:   _indexSelect == 3?Colors.blue:Colors.black,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w200,
+                ))),
+              GestureDetector(
+                onTap:(){
+                  _indexSelect = 4;
+                  setState(() {
+
+                  });
+                },
+                child: Text('Текстовые',  style :TextStyle(
+                  fontSize: 14,
+                  color:   _indexSelect == 4?Colors.blue:Colors.black,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w200,
+                ))),],),
+            ),
+            Divider(thickness: 2,),
             Expanded( child: Container(
                  //height: MediaQuery.of(context).size.height/4,
                  child: filesss(context))),
@@ -566,7 +859,17 @@ class _ChatPageState extends State<ChatPage> {
 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                GestureDetector(
-                   onTap: (){},
+                   onTap: (){
+                     _isSelectMedia = false;
+                     setState(() {
+
+                     });
+                     Navigator.push(
+                         context,
+                         MaterialPageRoute(
+                             builder: (context) => CustomCameraScreen()));
+
+                   },
                    child:Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

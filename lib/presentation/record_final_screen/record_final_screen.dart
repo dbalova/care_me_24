@@ -9,6 +9,7 @@ import '../../widgets/app_bar/appbar_title.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_image_view.dart';
+import '../../widgets/med_screens/chat_page.dart';
 
 class RecordFinalScreen extends StatelessWidget {
   @override
@@ -52,7 +53,14 @@ class RecordFinalScreen extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                               textAlign: TextAlign.left,
                               style: AppStyle.txtMontserratBold18)),
-                      Container(
+                    GestureDetector(
+
+                        onTap:
+                        (){ Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ChatScreen()));},
+                        child: Container(
                         margin: getMargin(top: 56),
                         width: MediaQuery.of(context).size.width - 40,
                         height: 56,
@@ -71,7 +79,7 @@ class RecordFinalScreen extends StatelessWidget {
                               "Перейти",
                               style: AppStyle.txtMontserratSemiBold18WhiteA700,
                             )),
-                      )
+                      ))
                     ]))));
   }
 

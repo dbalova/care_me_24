@@ -233,6 +233,13 @@ class _AppointmentToDoctorScreenState extends State<AppointmentToDoctorScreen> {
           ),
           Center(
             child: GestureDetector(
+              onTap: (){
+                if (isRecordSelected()){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => PaymentDefoultScreen()));
+                }
+
+              }
+              ,
 
               child: Container(
                 margin: getMargin(top: 28),

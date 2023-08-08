@@ -6,6 +6,7 @@ import '../../theme/app_decoration.dart';
 import '../../theme/app_style.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_image_view.dart';
+import '../../widgets/med_screens/chat_page.dart';
 
 class CallDoctorWaitingWindowScreen extends StatelessWidget {
   @override
@@ -89,7 +90,12 @@ class CallDoctorWaitingWindowScreen extends StatelessWidget {
                                 ),
                               ],
                             )),
-                        Container(
+                       GestureDetector(
+                           onTap: (){ Navigator.push(
+                               context,
+                               MaterialPageRoute(
+                                   builder: (context) => ChatScreen()));},
+                           child: Container(
                           margin: getMargin(top: 56),
                           width: MediaQuery.of(context).size.width - 40,
                           height: 56,
@@ -108,7 +114,7 @@ class CallDoctorWaitingWindowScreen extends StatelessWidget {
                             "Написать врачу",
                             style: AppStyle.txtMontserratSemiBold18WhiteA700,
                           )),
-                        )
+                        ))
                       ],
                     ),
                   ),

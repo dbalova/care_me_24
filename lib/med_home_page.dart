@@ -53,17 +53,7 @@ class HoneyMainPage extends StatelessWidget {
 
                                 ForWhom(name: 'Мне',),
 
-                                CustomButton(
-                                  onTap: (){
 
-                                  },
-
-                                    width: getHorizontalSize(200),
-                                    text: "Мне", margin: getMargin(top: 1),
-                                    variant: ButtonVariant
-                                        .GradientGreenA700GreenA70001,
-                                    fontStyle:
-                                        ButtonFontStyle.MontserratSemiBold18),
 
                                 Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
