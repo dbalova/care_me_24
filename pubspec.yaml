@@ -21,10 +21,22 @@ dependencies:
   flutter_masked_text2:
   card_swiper:
   flutter_slidable:
-  camera: ^0.10.1
+
+
   video_player: ^2.4.10
   path_provider: ^2.0.11
   permission_handler: ^10.2.0
+
+  camera:
+  audioplayers: ^3.0.1
+  just_audio: ^0.9.31
+  syncfusion_flutter_sliders: ^20.4.51
+  sizer:
+  social_media_recorder:
+  media_picker_widget:
+
+
+
 dev_dependencies: 
   flutter_test: 
     sdk: flutter

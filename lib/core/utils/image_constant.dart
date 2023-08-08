@@ -2,15 +2,18 @@ class ImageConstant {
   static String imgVectorBlue3002x5 =
       'assets/images/img_vector_blue_300_2x5.svg';
 
-  static String imgRectangle2626 = 'assets/images/img_rectangle2626.png';
+  static String imgRectangle2626 = 'assets/images/img_rectangle2626_3.png';
   static String img7972 = 'assets/images/7972.svg';
-
+  static String imgFrameBlue60001 = 'assets/images/img_frame_blue_600_01.svg';
+  static String imgEllipse136 = 'assets/images/img_ellipse136.png';
   static String imgHospital = 'assets/images/image_hospital.png';
 
   static String imgCheckMark = 'assets/images/check_mark.svg';
 
-  static String atmosphericPressureIcon = 'assets/images/atmospheric_pressure_icon.svg';
+  static String imgGroup7371 = 'assets/images/img_group7371.svg';
 
+  static String atmosphericPressureIcon = 'assets/images/atmospheric_pressure_icon.svg';
+  static String imgTrashBlue300 = 'assets/images/img_trash_blue_300.svg';
   static String imgHospitalSvg = 'assets/images/hospital_svg.svg';
 
   static String imgVector5x9 = 'assets/images/img_vector_5x9.svg';
