@@ -1,3 +1,4 @@
+import 'package:careme24/custom_page_my/police_recomendation_read_page.dart';
 import 'package:careme24/presentation/self_help_screen/widgets/selfhelp_item_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -9,21 +10,18 @@ import '../../theme/app_style.dart';
 import '../../widgets/app_bar/appbar_image.dart';
 import '../../widgets/app_bar/appbar_title.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
-import '../../widgets/custom_button.dart';
+
 import '../../widgets/custom_drop_down.dart';
 import '../../widgets/custom_image_view.dart';
-import '../list_symptoms_screen/list_symptoms_screen.dart';
 
-class SelfHelpScreen extends StatefulWidget {
+class PoliceRecomendation extends StatefulWidget {
   @override
-  State<SelfHelpScreen> createState() => _SelfHelpScreenState();
+  State<PoliceRecomendation> createState() => _PoliceRecomendationState();
 }
 
-class _SelfHelpScreenState extends State<SelfHelpScreen> {
+class _PoliceRecomendationState extends State<PoliceRecomendation> {
   bool isSelectedSwitch = false;
   final _controller = ValueNotifier<bool>(false);
-
-  List<String> dropdownItemList = ["Item One", "Item Two", "Item Three"];
 
   @override
   Widget build(BuildContext context) {
@@ -96,19 +94,19 @@ class _SelfHelpScreenState extends State<SelfHelpScreen> {
                               ])),
                       GestureDetector(
                         onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => ListSymptomsScreen()));
+                          //Navigator.push(context, MaterialPageRoute(builder: (context) => PoliceRecomendationReadPage()));
                         },
                         child: CustomDropDown(
 
-                            icon: Container(
-                                margin: getMargin(left: 30, right: 20),
-                                child: CustomImageView(
-                                    svgPath:
-                                        ImageConstant.imgArrowdownLightBlue900)),
-                            hintText: "Боль в ухе",
-                            margin: getMargin(top: 16),
+                          icon: Container(
+                              margin: getMargin(left: 30, right: 20),
+                              child: CustomImageView(
+                                  svgPath:
+                                  ImageConstant.imgArrowdownLightBlue900)),
+                          hintText: "12.01. Ограбление",
+                          margin: getMargin(top: 16),
 
-                            ),
+                        ),
                       ),
                       Expanded(
                           child: Padding(
@@ -122,7 +120,7 @@ class _SelfHelpScreenState extends State<SelfHelpScreen> {
                                   },
                                   itemCount: 4,
                                   itemBuilder: (context, index) {
-                                    return SelfhelpItemWidget(imagepath: ImageConstant.imgImage18, textproblem: "Что делать при боли в ухе в домашних условиях?", wherecall: 'Скорая',);
+                                    return SelfhelpItemWidget(imagepath: ImageConstant.imageTheft, textproblem: 'Правила поведения при нападении', wherecall: 'Полиция',);
                                   })))
                     ]))));
   }

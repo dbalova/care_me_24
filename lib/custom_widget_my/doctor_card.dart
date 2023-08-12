@@ -66,6 +66,7 @@ class DoctorCard extends StatelessWidget {
         clipBehavior: Clip.hardEdge,
         child: Container(
             decoration: BoxDecoration(borderRadius: BorderRadiusStyle.roundedBorder10),
+            width: 326,
             child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -74,7 +75,7 @@ class DoctorCard extends StatelessWidget {
                       height: getVerticalSize(109),
                       width: getHorizontalSize(77)),
                   Padding(
-                    padding: getPadding(top: 8, left: 12),
+                    padding: getPadding(top: 8, left: 8),
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -187,7 +188,7 @@ class DoctorCard extends StatelessWidget {
                                           height: getVerticalSize(11),
                                           width: getHorizontalSize(6),
                                           margin: getMargin(
-                                              left: 38, top: 5, bottom: 2))
+                                              left: 30, top: 5, bottom: 2))
                                     ])),
                           ),
                           Visibility(
@@ -217,7 +218,7 @@ class DoctorCard extends StatelessWidget {
                                       height: getVerticalSize(11),
                                       width: getHorizontalSize(6),
                                       margin: getMargin(
-                                          left: 96, top: 5, bottom: 2))
+                                          left: 60, top: 5, bottom: 2))
                                 ],
                               ),
                             ),

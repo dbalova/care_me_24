@@ -1,29 +1,24 @@
-import 'package:careme24/presentation/self_help_screen/widgets/selfhelp_item_widget.dart';
+import 'package:careme24/theme/app_style.dart';
+import 'package:careme24/widgets/app_bar/appbar_image.dart';
+import 'package:careme24/widgets/app_bar/appbar_title.dart';
+import 'package:careme24/widgets/app_bar/custom_app_bar.dart';
+import 'package:careme24/widgets/custom_drop_down.dart';
+import 'package:careme24/widgets/custom_image_view.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/utils/color_constant.dart';
-import '../../core/utils/image_constant.dart';
-import '../../core/utils/size_utils.dart';
-import '../../custom_widget_my/for_whom.dart';
-import '../../theme/app_style.dart';
-import '../../widgets/app_bar/appbar_image.dart';
-import '../../widgets/app_bar/appbar_title.dart';
-import '../../widgets/app_bar/custom_app_bar.dart';
-import '../../widgets/custom_button.dart';
-import '../../widgets/custom_drop_down.dart';
-import '../../widgets/custom_image_view.dart';
-import '../list_symptoms_screen/list_symptoms_screen.dart';
+import '../core/utils/color_constant.dart';
+import '../core/utils/image_constant.dart';
+import '../core/utils/size_utils.dart';
+import '../custom_widget_my/for_whom.dart';
 
-class SelfHelpScreen extends StatefulWidget {
-  @override
-  State<SelfHelpScreen> createState() => _SelfHelpScreenState();
-}
+import '../custom_widget_my/what_do_police_card.dart';
 
-class _SelfHelpScreenState extends State<SelfHelpScreen> {
+
+
+final _controller = ValueNotifier<bool>(false);
+
+class PoliceMainPage extends StatelessWidget {
   bool isSelectedSwitch = false;
-  final _controller = ValueNotifier<bool>(false);
-
-  List<String> dropdownItemList = ["Item One", "Item Two", "Item Three"];
 
   @override
   Widget build(BuildContext context) {
@@ -32,60 +27,52 @@ class _SelfHelpScreenState extends State<SelfHelpScreen> {
             backgroundColor: ColorConstant.whiteA700,
             appBar: CustomAppBar(
                 height: getVerticalSize(48),
-                leadingWidth: 43,
+                leadingWidth: 49,
                 leading: AppbarImage(
-                    height: getVerticalSize(16),
-                    width: getHorizontalSize(11),
-                    svgPath: ImageConstant.imgArrowleft,
-                    margin: getMargin(left: 32, top: 12, bottom: 20),
-                    onTap: () {
-                      onTapArrowleft45(context);
-                    }),
+                    height: getSize(24),
+                    width: getSize(24),
+                    svgPath: ImageConstant.imgSettings,
+                    margin: getMargin(left: 25, top: 9, bottom: 15)),
                 centerTitle: true,
-                title: AppbarTitle(text: "Самопомощь"),
+                title: AppbarTitle(text: "Полиция"),
                 styleType: Style.bgFillBlue60001),
             body: Container(
                 width: double.maxFinite,
-                padding: getPadding(left: 20, right: 20),
+                padding: getPadding(left: 20, top: 21, right: 20, bottom: 21),
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Padding(
-                          padding: getPadding(left: 2, top: 17, right: 3),
+                          padding: getPadding(left: 2, right: 3),
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                ForWhom(name: 'Степанов Илья',),
+                                ForWhom(name: 'Мне',),
                                 Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Text("Платная услуга",
                                           overflow: TextOverflow.ellipsis,
                                           textAlign: TextAlign.left,
-                                          style: AppStyle
-                                              .txtMontserratMedium12Green),
+                                          style:
+                                          AppStyle.txtMontserratSemiBold12),
                                       Container(
                                         margin: getMargin(top: 4),
                                         decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadius.circular(
-                                              10),
+                                          BorderRadius.circular(10),
                                           border: Border.all(
-                                            color: ColorConstant
-                                                .greenA700,
+                                            color: ColorConstant.gray50001,
                                             width: 1,
                                           ),
                                         ),
                                         child: AdvancedSwitch(
                                           controller: _controller,
                                           activeColor:
-                                          ColorConstant.gray100,
-                                          inactiveColor:
-                                          ColorConstant.gray100,
-                                          borderRadius:
-                                          BorderRadius.all(
-                                              const Radius
-                                                  .circular(8)),
+                                          ColorConstant.greenA70002,
+                                          inactiveColor: ColorConstant.gray100,
+                                          borderRadius: BorderRadius.all(
+                                              const Radius.circular(8)),
                                           width: 80.0,
                                           height: 36.0,
                                           enabled: true,
@@ -94,41 +81,40 @@ class _SelfHelpScreenState extends State<SelfHelpScreen> {
                                       ),
                                     ])
                               ])),
-                      GestureDetector(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => ListSymptomsScreen()));
-                        },
-                        child: CustomDropDown(
-
-                            icon: Container(
-                                margin: getMargin(left: 30, right: 20),
-                                child: CustomImageView(
-                                    svgPath:
-                                        ImageConstant.imgArrowdownLightBlue900)),
-                            hintText: "Боль в ухе",
-                            margin: getMargin(top: 16),
-
-                            ),
-                      ),
-                      Expanded(
-                          child: Padding(
-                              padding: getPadding(top: 20, right: 6),
-                              child: ListView.separated(
-                                  physics: BouncingScrollPhysics(),
-                                  shrinkWrap: true,
-                                  separatorBuilder: (context, index) {
-                                    return SizedBox(
-                                        height: getVerticalSize(14));
-                                  },
-                                  itemCount: 4,
-                                  itemBuilder: (context, index) {
-                                    return SelfhelpItemWidget(imagepath: ImageConstant.imgImage18, textproblem: "Что делать при боли в ухе в домашних условиях?", wherecall: 'Скорая',);
-                                  })))
+                      CustomDropDown(
+                          focusNode: FocusNode(),
+                          icon: Container(
+                              margin: getMargin(left: 30, right: 20),
+                              child: CustomImageView(
+                                  svgPath:
+                                  ImageConstant.imgArrowdownLightBlue900)),
+                          hintText: "Проблема",
+                          margin: getMargin(top: 16, right: 6),),
+                      Padding(
+                          padding:
+                          getPadding(left: 3, top: 30, right: 3, bottom: 5),
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                WhatDoPoliceCard(
+                                  color_icon: ColorConstant.redA200,
+                                  icon_path: ImageConstant.policeIcon,
+                                  action_text: "Сообщить",
+                                ),WhatDoPoliceCard(
+                                  color_icon: ColorConstant.blueA200,
+                                  icon_path: ImageConstant.hammerIcon,
+                                  action_text: "Юрист онлайн",
+                                ),WhatDoPoliceCard(
+                                  color_icon: ColorConstant.pinkA200,
+                                  icon_path: ImageConstant.noteIcon,
+                                  action_text: "Заявление",
+                                ), WhatDoPoliceCard(
+                                  color_icon: ColorConstant.greenA70002,
+                                  icon_path: ImageConstant.starNotificationIcon,
+                                  action_text: "Рекомендации",
+                                ),
+                              ]))
                     ]))));
-  }
-
-  onTapArrowleft45(BuildContext context) {
-    Navigator.pop(context);
   }
 }
 
@@ -318,7 +304,7 @@ class _AdvancedSwitchState extends State<AdvancedSwitch>
                           child: widget.thumb ??
                               Container(
                                 decoration: BoxDecoration(
-                                  color: ColorConstant.greenA70002,
+                                  color: ColorConstant.gray50001,
                                   borderRadius: widget.borderRadius
                                       .subtract(BorderRadius.circular(1)),
                                 ),
@@ -387,6 +373,7 @@ class _AdvancedSwitchState extends State<AdvancedSwitch>
     if (widget.controller != null && widget.enabled) {
       _controller.value = !_controller.value;
     }
+    print("что в контролере");
     print(_controller.value);
   }
 

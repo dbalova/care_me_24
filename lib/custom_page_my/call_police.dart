@@ -5,25 +5,26 @@ import 'package:careme24/theme/app_style.dart';
 import 'package:careme24/widgets/app_bar/appbar_image.dart';
 import 'package:careme24/widgets/app_bar/appbar_title.dart';
 import 'package:careme24/widgets/app_bar/custom_app_bar.dart';
-import 'package:careme24/widgets/custom_button.dart';
 import 'package:careme24/widgets/custom_drop_down.dart';
 import 'package:careme24/widgets/custom_image_view.dart';
 import 'package:flutter/material.dart';
-import 'core/utils/color_constant.dart';
-import 'core/utils/image_constant.dart';
-import 'core/utils/size_utils.dart';
-import 'custom_widget_my/for_whom.dart';
 
-class CallDoctorScreen extends StatefulWidget {
+import '../core/utils/color_constant.dart';
+import '../core/utils/image_constant.dart';
+import '../core/utils/size_utils.dart';
+import '../custom_widget_my/for_whom.dart';
+
+
+class CallPoliceScreen extends StatefulWidget {
   late String appbartitle;
 
-  CallDoctorScreen(this.appbartitle);
+  CallPoliceScreen(this.appbartitle);
 
   @override
-  State<CallDoctorScreen> createState() => new _CallDoctorScreenState();
+  State<CallPoliceScreen> createState() => new _CallPoliceScreenState();
 }
 
-class _CallDoctorScreenState extends State<CallDoctorScreen> {
+class _CallPoliceScreenState extends State<CallPoliceScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   TextEditingController _controllertimestart = TextEditingController();
   TextEditingController _controllertimeend = TextEditingController();
@@ -138,7 +139,7 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                   decoration: InputDecoration(
                                     border: OutlineInputBorder(
                                         borderRadius:
-                                            BorderRadius.circular(10)),
+                                        BorderRadius.circular(10)),
                                     labelText: 'От',
                                   ),
                                 ),
@@ -155,7 +156,7 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                   decoration: InputDecoration(
                                     border: OutlineInputBorder(
                                         borderRadius:
-                                            BorderRadius.circular(10)),
+                                        BorderRadius.circular(10)),
                                     labelText: 'До',
                                   ),
                                 ),
@@ -238,9 +239,9 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                               borderRadius: BorderRadius.circular(10)),
                           child: Center(
                               child: Text(
-                            "Отменить",
-                            style: AppStyle.txtMontserratSemiBold18WhiteA700,
-                          )),
+                                "Отменить",
+                                style: AppStyle.txtMontserratSemiBold18WhiteA700,
+                              )),
                         )
                       ],
                     ),
@@ -271,7 +272,7 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                         width: getSize(22),
                         svgPath: ImageConstant.imgFilter,
                         margin:
-                            getMargin(left: 26, top: 9, right: 26, bottom: 17));
+                        getMargin(left: 26, top: 9, right: 26, bottom: 17));
                   })
                 ],
                 styleType: Style.bgFillBlue60001),
@@ -280,7 +281,7 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                 child: SingleChildScrollView(
                     padding: getPadding(top: 20),
                     child: Padding(
-                        padding: getPadding(left: 20, right: 20),
+                        padding: getPadding(left: 21, right: 22),
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
@@ -288,16 +289,16 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                   padding: getPadding(left: 2),
                                   child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                       children: [
                                         ForWhom(name: 'Степанов Илья',),
                                         Column(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.start,
+                                            MainAxisAlignment.start,
                                             children: [
                                               Text("Платная услуга",
                                                   overflow:
-                                                      TextOverflow.ellipsis,
+                                                  TextOverflow.ellipsis,
                                                   textAlign: TextAlign.left,
                                                   style: AppStyle
                                                       .txtMontserratMedium12Green),
@@ -305,23 +306,23 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                                 margin: getMargin(top: 4),
                                                 decoration: BoxDecoration(
                                                   borderRadius:
-                                                      BorderRadius.circular(10),
+                                                  BorderRadius.circular(10),
                                                   border: Border.all(
                                                     color:
-                                                        ColorConstant.greenA700,
+                                                    ColorConstant.greenA700,
                                                     width: 1,
                                                   ),
                                                 ),
                                                 child: AdvancedSwitch(
                                                   controller: _controller,
                                                   activeColor:
-                                                      ColorConstant.gray100,
+                                                  ColorConstant.gray100,
                                                   inactiveColor:
-                                                      ColorConstant.gray100,
+                                                  ColorConstant.gray100,
                                                   borderRadius:
-                                                      BorderRadius.all(
-                                                          const Radius.circular(
-                                                              8)),
+                                                  BorderRadius.all(
+                                                      const Radius.circular(
+                                                          8)),
                                                   width: 80.0,
                                                   height: 36.0,
                                                   enabled: true,
@@ -362,37 +363,37 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                                   bottom: 10),
                                               decoration: _wait
                                                   ? AppDecoration
-                                                      .txtFillBlue30001
-                                                      .copyWith(
-                                                          borderRadius:
-                                                              BorderRadiusStyle
-                                                                  .txtCustomBorderTL10)
+                                                  .txtFillBlue30001
+                                                  .copyWith(
+                                                  borderRadius:
+                                                  BorderRadiusStyle
+                                                      .txtCustomBorderTL10)
                                                   : BoxDecoration(
-                                                      border: Border(
-                                                        bottom: BorderSide(
-                                                            color: ColorConstant
-                                                                .gray50002,
-                                                            width: 1),
-                                                      ),
-                                                    ),
+                                                border: Border(
+                                                  bottom: BorderSide(
+                                                      color: ColorConstant
+                                                          .gray50002,
+                                                      width: 1),
+                                                ),
+                                              ),
                                               child: Text("Путь",
                                                   overflow:
-                                                      TextOverflow.ellipsis,
+                                                  TextOverflow.ellipsis,
                                                   textAlign: TextAlign.center,
                                                   style: _wait
                                                       ? AppStyle
-                                                          .txtMontserratSemiBold15
+                                                      .txtMontserratSemiBold15
                                                       : TextStyle(
-                                                          color: ColorConstant
-                                                              .black900,
-                                                          fontSize: getFontSize(
-                                                            15,
-                                                          ),
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        )))),
+                                                    color: ColorConstant
+                                                        .black900,
+                                                    fontSize: getFontSize(
+                                                      15,
+                                                    ),
+                                                    fontFamily:
+                                                    'Montserrat',
+                                                    fontWeight:
+                                                    FontWeight.w500,
+                                                  )))),
                                       GestureDetector(
                                           onTap: () {
                                             _finish = true;
@@ -410,37 +411,37 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                               // decoration:  AppDecoration.outlineGray50001,
                                               decoration: _finish
                                                   ? AppDecoration
-                                                      .txtFillBlue30001
-                                                      .copyWith(
-                                                          borderRadius:
-                                                              BorderRadiusStyle
-                                                                  .txtCustomBorderTL10)
+                                                  .txtFillBlue30001
+                                                  .copyWith(
+                                                  borderRadius:
+                                                  BorderRadiusStyle
+                                                      .txtCustomBorderTL10)
                                                   : BoxDecoration(
-                                                      border: Border(
-                                                        bottom: BorderSide(
-                                                            color: ColorConstant
-                                                                .gray50002,
-                                                            width: 1),
-                                                      ),
-                                                    ),
+                                                border: Border(
+                                                  bottom: BorderSide(
+                                                      color: ColorConstant
+                                                          .gray50002,
+                                                      width: 1),
+                                                ),
+                                              ),
                                               child: Text("Оценка",
                                                   overflow:
-                                                      TextOverflow.ellipsis,
+                                                  TextOverflow.ellipsis,
                                                   textAlign: TextAlign.center,
                                                   style: _finish
                                                       ? AppStyle
-                                                          .txtMontserratSemiBold15
+                                                      .txtMontserratSemiBold15
                                                       : TextStyle(
-                                                          color: ColorConstant
-                                                              .black900,
-                                                          fontSize: getFontSize(
-                                                            15,
-                                                          ),
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        )))),
+                                                    color: ColorConstant
+                                                        .black900,
+                                                    fontSize: getFontSize(
+                                                      15,
+                                                    ),
+                                                    fontFamily:
+                                                    'Montserrat',
+                                                    fontWeight:
+                                                    FontWeight.w500,
+                                                  )))),
                                       GestureDetector(
                                           onTap: () {
                                             _finish = false;
@@ -451,19 +452,19 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                           child: Container(
                                               decoration: _undo
                                                   ? AppDecoration
-                                                      .txtFillBlue30001
-                                                      .copyWith(
-                                                          borderRadius:
-                                                              BorderRadiusStyle
-                                                                  .txtCustomBorderTL10)
+                                                  .txtFillBlue30001
+                                                  .copyWith(
+                                                  borderRadius:
+                                                  BorderRadiusStyle
+                                                      .txtCustomBorderTL10)
                                                   : BoxDecoration(
-                                                      border: Border(
-                                                        bottom: BorderSide(
-                                                            color: ColorConstant
-                                                                .gray50002,
-                                                            width: 1),
-                                                      ),
-                                                    ),
+                                                border: Border(
+                                                  bottom: BorderSide(
+                                                      color: ColorConstant
+                                                          .gray50002,
+                                                      width: 1),
+                                                ),
+                                              ),
                                               width: getHorizontalSize(109),
                                               padding: getPadding(
                                                   left: 9,
@@ -472,36 +473,36 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                                   bottom: 10),
                                               child: Text("Стоимость",
                                                   overflow:
-                                                      TextOverflow.ellipsis,
+                                                  TextOverflow.ellipsis,
                                                   textAlign: TextAlign.center,
                                                   style: _undo
                                                       ? AppStyle
-                                                          .txtMontserratSemiBold15
+                                                      .txtMontserratSemiBold15
                                                       : TextStyle(
-                                                          color: ColorConstant
-                                                              .black900,
-                                                          fontSize: getFontSize(
-                                                            15,
-                                                          ),
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        )))),
+                                                    color: ColorConstant
+                                                        .black900,
+                                                    fontSize: getFontSize(
+                                                      15,
+                                                    ),
+                                                    fontFamily:
+                                                    'Montserrat',
+                                                    fontWeight:
+                                                    FontWeight.w500,
+                                                  )))),
                                     ]),
                               ),
                               Padding(
                                   padding: getPadding(left: 2, top: 18),
                                   child: Column(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      MainAxisAlignment.start,
                                       children: [
                                         DoctorCard(
                                           doctor_image:
-                                              ImageConstant.doctorImage,
+                                          ImageConstant.doctorImage,
                                           doctor_name: "Иванов Аексей",
                                           doctor_qualification:
-                                              "Участковый врач",
+                                          "Участковый врач",
                                           cost: "1500 ₽",
                                           meters: "1200 м",
                                           minute: "9 мин",
@@ -510,10 +511,10 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                         ),
                                         DoctorCard(
                                           doctor_image:
-                                              ImageConstant.doctorImage,
+                                          ImageConstant.doctorImage,
                                           doctor_name: "Иванов Аексей",
                                           doctor_qualification:
-                                              "Участковый врач",
+                                          "Участковый врач",
                                           cost: "1500 ₽",
                                           meters: "1200 м",
                                           minute: "9 мин",
@@ -522,10 +523,10 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                         ),
                                         DoctorCard(
                                           doctor_image:
-                                              ImageConstant.doctorImage,
+                                          ImageConstant.doctorImage,
                                           doctor_name: "Иванов Аексей",
                                           doctor_qualification:
-                                              "Участковый врач",
+                                          "Участковый врач",
                                           cost: "1500 ₽",
                                           meters: "1200 м",
                                           minute: "9 мин",
@@ -534,10 +535,10 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                         ),
                                         DoctorCard(
                                           doctor_image:
-                                              ImageConstant.doctorImage,
+                                          ImageConstant.doctorImage,
                                           doctor_name: "Иванов Аексей",
                                           doctor_qualification:
-                                              "Участковый врач",
+                                          "Участковый врач",
                                           cost: "1500 ₽",
                                           meters: "1200 м",
                                           minute: "9 мин",

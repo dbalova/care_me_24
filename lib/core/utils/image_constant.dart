@@ -20,6 +20,11 @@ class ImageConstant {
 
   static String imgTelevision = 'assets/images/img_television.svg';
 
+  static String videoButton = 'assets/images/video_button.svg';
+  static String videoSmallButton = 'assets/images/video_small_button.svg';
+  static String sosButton = 'assets/images/sos_button.svg';
+  static String sosSmallButton = 'assets/images/sos_small_button.svg';
+
   static String imgGroup227 = 'assets/images/img_group227.png';
 
   static String imgPolygon6 = 'assets/images/img_polygon6.svg';
@@ -31,6 +36,7 @@ class ImageConstant {
   static String imgAirWarning = 'assets/images/img_air_warning.svg';
 
   static String imgImage18 = 'assets/images/img_image18.png';
+  static String imageTheft = 'assets/images/image_theft.png';
   static String imgImage17 = 'assets/images/img_image17.png';
 
   static String img_black_ice = 'assets/images/img_black_ice.svg';
@@ -173,6 +179,14 @@ class ImageConstant {
   static String medPhoneIcon = 'assets/images/med_phone_icon.svg';
 
   static String notePenIcon = 'assets/images/note_pen_icon.svg';
+
+  static String policeIcon = 'assets/images/police_icon.svg';
+
+  static String noteIcon = 'assets/images/note_icon.svg';
+
+  static String hammerIcon = 'assets/images/hammer_icon.svg';
+
+  static String starNotificationIcon = 'assets/images/star_notification_icon.svg';
 
   static String twoArmPlusIcon = 'assets/images/two_arm_plus_icon.svg';
 

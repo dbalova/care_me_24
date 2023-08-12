@@ -1,17 +1,16 @@
 import 'package:careme24/core/utils/size_utils.dart';
 import 'package:flutter/material.dart';
-import '../call_doctor.dart';
+import '../custom_page_my/call_police.dart';
 import '../custom_page_my/police_recomendation.dart';
-import '../presentation/self_help_screen/self_help_screen.dart';
 import '../theme/app_style.dart';
 import '../widgets/custom_image_view.dart';
 
-class WhatDoMedCard extends StatelessWidget {
+class WhatDoPoliceCard extends StatelessWidget {
   late Color color_icon;
   late String icon_path;
   late String action_text;
 
-  WhatDoMedCard({
+  WhatDoPoliceCard({
     required this.color_icon,
     required this.icon_path,
     required this.action_text,
@@ -21,10 +20,7 @@ class WhatDoMedCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if (action_text == "Самопомощь") {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => SelfHelpScreen()));
-        } else if (action_text == "Рекомендации") {
+        if (action_text == "Рекомендации") {
           Navigator.push(
               context,
               MaterialPageRoute(
@@ -33,7 +29,7 @@ class WhatDoMedCard extends StatelessWidget {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => CallDoctorScreen(action_text)));
+                  builder: (context) => CallPoliceScreen(action_text)));
         }
       },
       child: Card(

@@ -1,16 +1,32 @@
 import 'package:flutter/material.dart';
 import '../../../core/utils/image_constant.dart';
 import '../../../core/utils/size_utils.dart';
+import '../../../custom_page_my/police_recomendation_read_page.dart';
 import '../../../theme/app_style.dart';
 import '../../../widgets/custom_image_view.dart';
 import '../../self_help_read_screen/self_help_read_screen.dart';
 
 class SelfhelpItemWidget extends StatelessWidget {
+  late String imagepath;
+  late String wherecall;
+  late String textproblem;
+  SelfhelpItemWidget({
+    required this.imagepath,
+    required this.textproblem,
+    required this.wherecall,
+});
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => SelfHelpReadScreen()));
+        if (wherecall == "Скорая"){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => SelfHelpReadScreen()));
+        } else if (wherecall == "Полиция"){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => PoliceRecomendationReadPage()));
+        } else {
+          print("что то не так написал в переходе на read страницу");
+        }
       },
       child: Card(
         clipBehavior: Clip.hardEdge,
@@ -23,7 +39,7 @@ class SelfhelpItemWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomImageView(
-                imagePath: ImageConstant.imgImage18,
+                imagePath: imagepath,
                 height: getVerticalSize(
                   126,
                 ),
@@ -103,7 +119,7 @@ class SelfhelpItemWidget extends StatelessWidget {
                         top: 8,
                       ),
                       child: Text(
-                        "Что делать при боли в ухе в домашних условиях?",
+                        textproblem,
                         maxLines: null,
                         textAlign: TextAlign.left,
                         style: AppStyle.txtMontserratRomanMedium14,
