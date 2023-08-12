@@ -1,16 +1,14 @@
 import 'package:careme24/custom_page_my/doctor_about_page.dart';
 import 'package:flutter/material.dart';
-
 import '../core/utils/color_constant.dart';
 import '../core/utils/image_constant.dart';
 import '../core/utils/size_utils.dart';
-
-import '../presentation/appointment_to_doctor_screen/appointment_to_doctor_screen.dart';
+import '../custom_page_my/appointment_to_police_page.dart';
 import '../theme/app_decoration.dart';
 import '../theme/app_style.dart';
 import '../widgets/custom_image_view.dart';
 
-class DoctorCard extends StatelessWidget {
+class PoliceCard extends StatelessWidget {
   late String doctor_image;
   late String doctor_name;
   late String doctor_qualification;
@@ -24,8 +22,9 @@ class DoctorCard extends StatelessWidget {
   bool leftColumnMeters = false;
   bool leftColumnEstimation = false;
   bool freeDates = false;
+  bool ququalificationvisible = false;
 
-  DoctorCard({
+  PoliceCard({
     required this.doctor_image,
     required this.doctor_name,
     required this.doctor_qualification,
@@ -37,15 +36,15 @@ class DoctorCard extends StatelessWidget {
   });
 
   void form_card() {
-    if (where_call == "Вызов врача") {
+    if (where_call == "Сообщить") {
       bottomInfo = true;
-    } else if (where_call == "Запись к врачу") {
-      leftColumnMeters = true;
+    } else if (where_call == "Заявление") {
+      bottomInfo = true;
+      ququalificationvisible = true;
+    } else if (where_call == "Юрист онлайн") {
       leftColumnEstimation = true;
       freeDates = true;
-    } else if (where_call == "Помощь онлайн") {
-      leftColumnEstimation = true;
-      freeDates = true;
+      ququalificationvisible = true;
     }
   }
 
@@ -54,8 +53,8 @@ class DoctorCard extends StatelessWidget {
     form_card();
     return GestureDetector(
       onTap:(){
-        if (where_call == "Запись к врачу" || where_call == "Помощь онлайн" ) {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => AppointmentToDoctorScreen()));
+        if (where_call == "Юрист онлайн") {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => AppointmentToPoliceScreen()));
         } else {
           Navigator.push(context, MaterialPageRoute(builder: (context) => DoctorAboutScreen(whereCall: where_call,)));
         }
@@ -69,10 +68,21 @@ class DoctorCard extends StatelessWidget {
             child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CustomImageView(
-                      imagePath: doctor_image,
-                      height: getVerticalSize(109),
-                      width: getHorizontalSize(77)),
+                Container(
+                width: 71,
+                height: 109,
+                decoration: BoxDecoration(
+                  color: ColorConstant.indigoA100,
+                  borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(30)),
+                ),
+                child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      CustomImageView(
+                        svgPath: ImageConstant.policehat,
+                      ),
+                    ])),
                   Padding(
                     padding: getPadding(top: 8, left: 8),
                     child: Column(
@@ -94,13 +104,16 @@ class DoctorCard extends StatelessWidget {
                                             textAlign: TextAlign.left,
                                             style: AppStyle
                                                 .txtMontserratSemiBold15Blue600),
-                                        Padding(
-                                            padding: getPadding(top: 4),
-                                            child: Text(doctor_qualification,
-                                                overflow: TextOverflow.ellipsis,
-                                                textAlign: TextAlign.left,
-                                                style:
-                                                    AppStyle.txtMontserratMedium12)),
+                                        Visibility(
+                                          visible: ququalificationvisible,
+                                          child: Padding(
+                                              padding: getPadding(top: 4),
+                                              child: Text(doctor_qualification,
+                                                  overflow: TextOverflow.ellipsis,
+                                                  textAlign: TextAlign.left,
+                                                  style:
+                                                  AppStyle.txtMontserratMedium12)),
+                                        ),
 
                                       ]),
                                   Padding(
@@ -112,7 +125,7 @@ class DoctorCard extends StatelessWidget {
                                                 text: cost,
                                                 style: TextStyle(
                                                     color:
-                                                        ColorConstant.blueGray800,
+                                                    ColorConstant.blueGray800,
                                                     fontSize: getFontSize(17),
                                                     fontFamily: 'Montserrat',
                                                     fontWeight: FontWeight.w700),
@@ -202,14 +215,14 @@ class DoctorCard extends StatelessWidget {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Text("Свободные даты",
-                                      style: AppStyle.txtMontserratMedium12Black900,),
+                                        style: AppStyle.txtMontserratMedium12Black900,),
                                       Padding(
                                         padding: getPadding(top: 2),
                                         child: Container(
                                           width: 128,
                                           child: Text("1 3 7 12 14 15 16 17 18",
                                             style: AppStyle.txtMontserratSemiBold15Blue600,
-                                          overflow: TextOverflow.ellipsis,),
+                                            overflow: TextOverflow.ellipsis,),
                                         ),
                                       ),
                                     ],

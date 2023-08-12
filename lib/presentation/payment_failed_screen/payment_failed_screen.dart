@@ -50,7 +50,7 @@ class PaymentFailedScreen extends StatelessWidget {
                               style:
                                   AppStyle.txtMontserratMedium15Bluegray800)),
                       CustomButton(
-                        onTap: (){Navigator.pushNamed(context, AppRoutes.paymentDefoultScreen);},
+                        onTap: (){Navigator.pop(context);},
                           text: "Повторить попытку",
                           margin: getMargin(top: 44),
                           variant: ButtonVariant.OutlineIndigo20049_1,

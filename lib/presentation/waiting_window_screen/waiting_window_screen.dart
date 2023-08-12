@@ -272,11 +272,17 @@ class _WaitingWindowScreenState extends State<WaitingWindowScreen> {
                               change_widget();
                             });
                           },
-                          child: CustomImageView(
-                            width: 78,
-                            height: 78,
-                            svgPath: bottomImagePath,
+                          child: Column(
+                            children: [
+                              CustomImageView(
+                                width: 78,
+                                height: 78,
+                                svgPath: bottomImagePath,
+                              ),
+                              Text(bottomImagePath == ImageConstant.videoSmallButton ?  "Видео" : "SOS", style: AppStyle.txtUbuntuMedium12,),
+                            ],
                           ),),
+
                       Column(
                         children: [
                           Padding(

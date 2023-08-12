@@ -1,4 +1,3 @@
-import 'package:careme24/core/utils/version_constant.dart';
 import 'package:careme24/custom_widget_my/doctor_card.dart';
 import 'package:careme24/theme/app_decoration.dart';
 import 'package:careme24/theme/app_style.dart';
@@ -9,6 +8,7 @@ import 'package:careme24/widgets/custom_button.dart';
 import 'package:careme24/widgets/custom_drop_down.dart';
 import 'package:careme24/widgets/custom_image_view.dart';
 import 'package:flutter/material.dart';
+import 'core/constants/constants.dart';
 import 'core/utils/color_constant.dart';
 import 'core/utils/image_constant.dart';
 import 'core/utils/size_utils.dart';

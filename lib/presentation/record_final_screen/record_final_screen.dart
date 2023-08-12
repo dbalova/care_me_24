@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/constants/constants.dart';
 import '../../core/utils/color_constant.dart';
 import '../../core/utils/image_constant.dart';
 import '../../core/utils/size_utils.dart';
@@ -12,6 +13,8 @@ import '../../widgets/custom_image_view.dart';
 import '../../widgets/med_screens/chat_page.dart';
 
 class RecordFinalScreen extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -49,10 +52,10 @@ class RecordFinalScreen extends StatelessWidget {
                               style: AppStyle.txtMontserratMedium15Blue600)),
                       Padding(
                           padding: getPadding(top: 8),
-                          child: Text("Предите в чат с врачем",
-                              overflow: TextOverflow.ellipsis,
-                              textAlign: TextAlign.left,
-                              style: AppStyle.txtMontserratBold18)),
+                          child: Text(TipyHelp.helpName,
+                              overflow: TextOverflow.clip,
+                              textAlign: TextAlign.center,
+                              style: AppStyle.txtMontserratBold18Blue)),
                     GestureDetector(
 
                         onTap:
