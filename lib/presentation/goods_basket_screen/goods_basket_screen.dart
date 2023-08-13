@@ -9,8 +9,14 @@ import 'package:flutter/material.dart';
 import '../goods_favorites_screen/goods_favorites_screen.dart';
 import '../goods_orders_expected_screen/goods_orders_expected_screen.dart';
 
-class GoodsBasketScreen extends StatelessWidget {
+class GoodsBasketScreen extends StatefulWidget {
+  @override
+  State<GoodsBasketScreen> createState() => _GoodsBasketScreenState();
+}
+
+class _GoodsBasketScreenState extends State<GoodsBasketScreen> {
   String radioGroup = "";
+  bool _isSelectAll = false;
 
   @override
   Widget build(BuildContext context) {
@@ -112,20 +118,77 @@ class GoodsBasketScreen extends StatelessWidget {
                                                             FontWeight.w500))
                                               ]),
                                               textAlign: TextAlign.left),
-                                          Padding(
-                                              padding: getPadding(top: 1),
-                                              child: CustomRadioButton(
-                                                  text: "Выбрать все",
-                                                  iconSize:
-                                                      getHorizontalSize(18),
-                                                  value: "Выбрать все",
-                                                  groupValue: radioGroup,
-                                                  margin: getMargin(top: 1),
-                                                  fontStyle: RadioFontStyle
-                                                      .MontserratSemiBold12,
-                                                  onChange: (value) {
-                                                    radioGroup = value;
-                                                  }))
+                                          Row(
+                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                            children: [
+                                              Padding(
+                                                  padding: getPadding(top: 1),
+                                                  child:
+                                                  GestureDetector(
+                                                      onTap: (){_isSelectAll=!_isSelectAll;
+                                                      setState(() {
+
+
+                                                      });
+                                                      },
+                                                      child:Container(
+                                                        margin: getMargin(
+
+                                                          right: 1,
+                                                          bottom: 4,
+                                                        ),
+                                                        padding: getPadding(
+                                                          all: 4,
+                                                        ),
+                                                        decoration: AppDecoration.outlineBlue6001.copyWith(
+                                                          borderRadius: BorderRadiusStyle.roundedBorder10,
+                                                        ),
+                                                        child: Column(
+                                                          mainAxisSize: MainAxisSize.min,
+                                                          mainAxisAlignment: MainAxisAlignment.start,
+                                                          children: [
+                                                            Container(
+                                                              height: getSize(
+                                                                7,
+                                                              ),
+                                                              width: getSize(
+                                                                7,
+                                                              ),
+                                                              decoration: BoxDecoration(
+                                                                color: _isSelectAll? ColorConstant.blue600: Colors.white,
+                                                                borderRadius: BorderRadius.circular(
+                                                                  getHorizontalSize(
+                                                                    100,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      )),
+                                                /*CustomRadioButton(
+                                                      text: "Выбрать все",
+                                                      iconSize:
+                                                          getHorizontalSize(18),
+                                                      value: "Выбрать все",
+                                                      groupValue: radioGroup,
+                                                      margin: getMargin(top: 1),
+                                                      fontStyle: RadioFontStyle
+                                                          .MontserratSemiBold12,
+                                                      onChange: (value) {
+                                                        radioGroup = value;
+                                                      })*/),
+                                              Text('Выбрать всё', style: TextStyle(
+                                                color: ColorConstant.blue600,
+                                                fontSize: getFontSize(
+                                                  12,
+                                                ),
+                                                fontFamily: 'Montserrat',
+                                                fontWeight: FontWeight.w600,
+                                              ),)
+
+                                            ],
+                                          )
                                         ])),
                                 Spacer(),
                                 Padding(

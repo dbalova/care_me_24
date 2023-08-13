@@ -33,13 +33,8 @@ class ConfirmationOrderFinishScreen extends StatelessWidget {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      CustomIconButton(
-                          height: 39,
-                          width: 39,
-
-
-                          child: CustomImageView(
-                              svgPath: ImageConstant.imgCheckmarkWhiteA700)),
+                      CustomImageView(
+                          svgPath: ImageConstant.imgCheckmarkWhiteA700),
                       Padding(
                           padding: getPadding(top: 21),
                           child: Text("Заказ подтвержден",
@@ -84,7 +79,7 @@ class ConfirmationOrderFinishScreen extends StatelessWidget {
                               child: CustomButton(
                                   height: getVerticalSize(56),
                                   text: "Вернуться в магазин",
-                                  margin: getMargin(top: 5, bottom: 5),
+                                  //margin: getMargin(top: 5, bottom: 5),
                                   variant: ButtonVariant.Outline_1)))
                     ]))));
   }

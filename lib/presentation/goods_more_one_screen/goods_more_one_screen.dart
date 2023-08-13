@@ -694,33 +694,32 @@ class _GoodsMoreOneScreenState extends State<GoodsMoreOneScreen> {
                                                       child: Row(children: [
                                                         Container(
                                                             width: getSize(99),
-                                                            margin: getMargin(
-                                                                top: 8,
-                                                                bottom: 7),
+                                                            height:getSize(99) ,
+
                                                             padding: getPadding(
-                                                                left: 18,
-                                                                top: 21,
-                                                                right: 18,
-                                                                bottom: 21),
+                                                                left: 16,
+                                                                top: 16,
+                                                                right: 16,
+                                                                bottom: 16),
                                                             decoration: AppDecoration
                                                                 .txtOutlineGray3003
                                                                 .copyWith(
                                                                     borderRadius:
                                                                         BorderRadiusStyle
                                                                             .txtRoundedBorder49),
-                                                            child: Text("4,7",
+                                                            child: Center(child: Text("4,7",
 
                                                                 textAlign:
                                                                     TextAlign
-                                                                        .left,
+                                                                        .center,
                                                                 style:TextStyle(
                                                                   color: ColorConstant.blueGray800,
                                                                   fontSize: getFontSize(
-                                                                    38,
+                                                                    36,
                                                                   ),
                                                                   fontFamily: 'Montserrat',
                                                                   fontWeight: FontWeight.w600,
-                                                                ))),
+                                                                )))),
                                                         Padding(
                                                             padding: getPadding(
                                                                 left: 4),
@@ -925,8 +924,8 @@ class _GoodsMoreOneScreenState extends State<GoodsMoreOneScreen> {
                                                 style: AppStyle
                                                     .txtMontserratMedium12Blue600))),
                                     Container(
-                                        height: getVerticalSize(454),
-                                        width: getHorizontalSize(372),
+                                       // height: MediaQuery.of(context).size.height/10,
+                                        width: MediaQuery.of(context).size.width,
                                         margin: getMargin(left: 3, top: 26),
                                         child: Stack(
                                             alignment: Alignment.bottomCenter,
@@ -966,8 +965,7 @@ class _GoodsMoreOneScreenState extends State<GoodsMoreOneScreen> {
                                                                         shrinkWrap:
                                                                             true,
                                                                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                                                                            mainAxisExtent: getVerticalSize(
-                                                                                204),
+                                                                            mainAxisExtent: MediaQuery.of(context).size.height/3.5,
                                                                             crossAxisCount:
                                                                                 2,
                                                                             mainAxisSpacing: getHorizontalSize(

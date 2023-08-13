@@ -51,11 +51,12 @@ class _WhomPageState extends State<WhomPage> {
           title: AppbarTitle(text: "Кому"),
           styleType: Style.bgFillBlue60001),
       body: Container(
+
         padding: getPadding(top: 14),
-        width: MediaQuery.of(context).size.width - 40,
-        height: MediaQuery.of(context).size.height - 180,
+        width: MediaQuery.of(context).size.width ,
+        height: MediaQuery.of(context).size.height -50,
         child: Padding(
-          padding: getPadding(left: 20),
+          padding: getPadding(left: 20, right: 20),
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

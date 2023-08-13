@@ -42,8 +42,8 @@ class _ShopScreenState extends State<ShopScreen> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
-                          height: getVerticalSize(44),
-                          width: getHorizontalSize(332),
+                          height: getVerticalSize(50),
+                          width: MediaQuery.of(context).size.width-45,
                           margin: getMargin(top: 21),
                           child:
                               Stack(alignment: Alignment.topRight, children: [
@@ -101,7 +101,7 @@ class _ShopScreenState extends State<ShopScreen> {
                                               },
                                               child: Column(
                                                   mainAxisAlignment:
-                                                      MainAxisAlignment.start,
+                                                      MainAxisAlignment.spaceBetween,
                                                   children: [
                                                     CustomImageView(
                                                         svgPath: ImageConstant
@@ -126,7 +126,7 @@ class _ShopScreenState extends State<ShopScreen> {
                                               },
                                               child: Column(
                                                   mainAxisAlignment:
-                                                      MainAxisAlignment.start,
+                                                  MainAxisAlignment.spaceBetween,
                                                   children: [
                                                     Icon(Icons.shopping_cart, color: Colors.grey,size: 25,),
                                                     Padding(
@@ -147,7 +147,7 @@ class _ShopScreenState extends State<ShopScreen> {
                                               },
                                               child: Column(
                                                   mainAxisAlignment:
-                                                      MainAxisAlignment.start,
+                                                  MainAxisAlignment.spaceBetween,
                                                   children: [
                                                     CustomImageView(
                                                         svgPath: ImageConstant
@@ -651,7 +651,7 @@ class _ShopScreenState extends State<ShopScreen> {
                                   shrinkWrap: true,
                                   gridDelegate:
                                       SliverGridDelegateWithFixedCrossAxisCount(
-                                          mainAxisExtent: MediaQuery.of(context).size.height/4+10,
+                                          mainAxisExtent: MediaQuery.of(context).size.height/3.5,
                                           crossAxisCount: 2,
                                           mainAxisSpacing:
                                               getHorizontalSize(11),
