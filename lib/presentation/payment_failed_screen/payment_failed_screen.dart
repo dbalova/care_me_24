@@ -19,12 +19,14 @@ class PaymentFailedScreen extends StatelessWidget {
                     height: getVerticalSize(16),
                     width: getHorizontalSize(11),
                     svgPath: ImageConstant.imgArrowleft,
-                    margin: getMargin(left: 32, top: 12, bottom: 20),
+
+                    margin: getMargin(left: 15, right: 15,top: 15, bottom: 15),
                     onTap: () {
-                      onTapArrowleft51(context);
+                      Navigator.pop(context);
                     }),
                 centerTitle: true,
-                title: AppbarTitle(text: "Оплата "),
+                title: AppbarTitle(text: 'Оплата'),
+
                 styleType: Style.bgFillBlue60001),
             body: Container(
                 width: double.maxFinite,

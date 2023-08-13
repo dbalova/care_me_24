@@ -255,7 +255,8 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                     height: getVerticalSize(16),
                     width: getHorizontalSize(11),
                     svgPath: ImageConstant.imgArrowleft,
-                    margin: getMargin(left: 32, top: 12, bottom: 20),
+
+                    margin: getMargin(left: 15, right: 15,top: 15, bottom: 15),
                     onTap: () {
                       onTapArrowleft24(context);
                     }),
@@ -328,18 +329,37 @@ class _CallDoctorScreenState extends State<CallDoctorScreen> {
                                           ),
                                         ])
                                   ])),
-                          CustomDropDown(
-                            width: MediaQuery.of(context).size.width-40,
-                              focusNode: FocusNode(),
-                              icon: Container(
-                                  margin: getMargin(left: 30, right: 20),
-                                  child: CustomImageView(
-                                      svgPath: ImageConstant
-                                          .imgArrowdownLightBlue900)),
-                              hintText: "Проблема",
-                              margin: getMargin(top: 16, right: 6),
-                              items: dropdownItemList,
-                              onChanged: (value) {}),
+                          Padding(
+                            padding: getPadding(top: 14),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Color.fromRGBO(178, 218, 255, 100),
+                              ),
+                              width: MediaQuery.of(context).size.width - 40,
+                              height: 80,
+                              child: Padding(
+                                padding: getPadding(left: 20, right: 20),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      width: MediaQuery.of(context).size.width/2,
+                                      child: Text(
+                                          'Проблема',
+                                          style: AppStyle.txtMontserratSemiBold19,
+                                          overflow: TextOverflow.ellipsis
+                                      ),
+                                    ),
+                                    CustomImageView(
+                                      svgPath:
+                                      ImageConstant.imgArrowdownLightBlue900,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
                           Padding(
                             padding: getPadding(top: 18),
                             child: Row(

@@ -37,7 +37,7 @@ class _SelfHelpScreenState extends State<SelfHelpScreen> {
                     height: getVerticalSize(16),
                     width: getHorizontalSize(11),
                     svgPath: ImageConstant.imgArrowleft,
-                    margin: getMargin(left: 32, top: 12, bottom: 20),
+                    margin: getMargin(left: 15,right: 15, top: 15, bottom: 15),
                     onTap: () {
                       onTapArrowleft45(context);
                     }),
@@ -98,17 +98,37 @@ class _SelfHelpScreenState extends State<SelfHelpScreen> {
                         onTap: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context) => ListSymptomsScreen()));
                         },
-                        child: CustomDropDown(
-
-                            icon: Container(
-                                margin: getMargin(left: 30, right: 20),
-                                child: CustomImageView(
-                                    svgPath:
-                                        ImageConstant.imgArrowdownLightBlue900)),
-                            hintText: "Боль в ухе",
-                            margin: getMargin(top: 16),
-
+                        child:  Padding(
+                          padding: getPadding(top: 14),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Color.fromRGBO(178, 218, 255, 100),
                             ),
+                            width: MediaQuery.of(context).size.width - 40,
+                            height: 80,
+                            child: Padding(
+                              padding: getPadding(left: 20, right: 20),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    width: MediaQuery.of(context).size.width/2,
+                                    child: Text(
+                                        'Боль в ухе',
+                                        style: AppStyle.txtMontserratSemiBold19,
+                                        overflow: TextOverflow.ellipsis
+                                    ),
+                                  ),
+                                  CustomImageView(
+                                    svgPath:
+                                    ImageConstant.imgArrowdownLightBlue900,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                       Expanded(
                           child: Padding(

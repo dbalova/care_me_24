@@ -34,7 +34,7 @@ class _PreviewScreenState extends State<PreviewScreen> {
                   height: getVerticalSize(16),
                   width: getHorizontalSize(11),
                   svgPath: ImageConstant.imgArrowleft,
-                  margin: getMargin(left: 32, top: 12, bottom: 20),
+                  margin: getMargin(left: 15,right: 15, top: 15, bottom: 15),
                   onTap: () { Navigator.pop(context);
                   }),
               centerTitle: true,
