@@ -9,7 +9,6 @@ class VersionConstant {
   }
 }
 
-
 class TipyHelp {
   static var helpName = "С вами свяжутся по телефону или напишут в сообщениях";
   static printString() {
@@ -31,7 +30,6 @@ class WhoCall {
     printString();
   }
 }
-
 
 class AfterPay {
   static var whereCall = "Смайлик";

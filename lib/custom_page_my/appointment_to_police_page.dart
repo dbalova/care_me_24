@@ -33,7 +33,6 @@ class _AppointmentToPoliceScreenState extends State<AppointmentToPoliceScreen> {
 
   @override
   Widget build(BuildContext context) {
-    TipyHelp.changeHelp("Передите в чат с юристом");
     return SafeArea(
         child: Scaffold(
       backgroundColor: ColorConstant.gray100,

@@ -58,7 +58,6 @@ class _CallPoliceScreenState extends State<CallPoliceScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     return SafeArea(
         child: Scaffold(
             key: _scaffoldKey,

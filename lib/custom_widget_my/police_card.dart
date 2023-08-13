@@ -42,9 +42,12 @@ class PoliceCard extends StatelessWidget {
       AfterPay.changeAfterMinute();
       bottomInfo = true;
     } else if (where_call == "Заявление") {
+      TipyHelp.changeHelp("С вами свяжутся по телефону или напишут в сообщениях");
+      AfterPay.changeAfterSmile();
       bottomInfo = true;
       ququalificationvisible = true;
     } else if (where_call == "Юрист онлайн") {
+      TipyHelp.changeHelp("Передите в чат с юристом");
       AfterPay.changeAfterSmile();
       leftColumnEstimation = true;
       freeDates = true;
@@ -59,8 +62,8 @@ class PoliceCard extends StatelessWidget {
       onTap:(){
         if (where_call == "Юрист онлайн") {
           Navigator.push(context, MaterialPageRoute(builder: (context) => AppointmentToPoliceScreen()));
-        } else  if (where_call == "Сообщить") {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => ReportMesTextareaScreen()));
+        } else  if (where_call == "Сообщить" || where_call == "Заявление") {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => ReportMesTextareaScreen(where_call)));
         } else {
 
         }

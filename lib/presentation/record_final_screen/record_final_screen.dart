@@ -57,7 +57,6 @@ class RecordFinalScreen extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: AppStyle.txtMontserratBold18Blue)),
                     GestureDetector(
-
                         onTap:
                         (){ Navigator.push(
                             context,
