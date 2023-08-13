@@ -92,7 +92,7 @@ class _ChatPageState extends State<ChatPage> {
       builder: (context) {
         return Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height/1.5,
+          //  height: MediaQuery.of(context).size.height,
             child:Column(
           children: [
             Container(height: 50,
@@ -159,8 +159,8 @@ class _ChatPageState extends State<ChatPage> {
 
 
             ],),),
-            Container(
-                height: MediaQuery.of(context).size.height/2,
+            Expanded(child:Container(
+               // height: MediaQuery.of(context).size.height/2,
                 child:MediaPicker(
 
               mediaList: mediaList,
@@ -219,7 +219,7 @@ class _ChatPageState extends State<ChatPage> {
                   );
                 },
               ),
-            )),
+            ))),
           ],
         ));
       },
@@ -234,19 +234,21 @@ class _ChatPageState extends State<ChatPage> {
               height: getVerticalSize(69),
               leadingWidth: 39,
               leading: AppbarImage(
-                  height: getVerticalSize(18),
+                  height: getVerticalSize(16),
                   width: getHorizontalSize(11),
                   svgPath: ImageConstant.imgArrowleft,
-                  margin: getMargin(left: 28, top: 23, bottom: 27),
+
+                  margin: getMargin(left: 15, right: 15,top: 15, bottom: 15),
                   onTap: () {
                     Navigator.pop(context);
                   }),
               title: Padding(
-                  padding: getPadding(left: 27),
+                  padding: getPadding(left: 8),
                   child: Row(children: [
                     Container(
-                      height:55,
-                      width: 55,
+                      padding: getPadding(bottom: 8),
+                      height:50,
+                      width: 50,
                       decoration: BoxDecoration(
 
                           borderRadius: BorderRadius.circular(100)
@@ -262,7 +264,7 @@ class _ChatPageState extends State<ChatPage> {
                     ),
 
                     Padding(
-                        padding: getPadding(left: 10, top: 3, bottom: 1),
+                        padding: getPadding(left: 10,  bottom: 1),
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -785,8 +787,18 @@ class _ChatPageState extends State<ChatPage> {
                          width: MediaQuery.of(context).size.width-70,
                          child: TextField(
                            // controller: _controllertimestart,
+                           style:TextStyle(
+                             color: ColorConstant.gray50001,
+                             fontSize: getFontSize(
+                               13,
+                             ),
+                             fontFamily: 'Montserrat',
+                             fontWeight: FontWeight.w400,
+                           ) ,
 
                            decoration: InputDecoration(
+                               isDense: true,
+                               //contentPadding: EdgeInsets.zero,
                                suffixIcon: GestureDetector(
                                    onTap: (){_isSelectMedia=true;
                                    _isFilePicker = false;

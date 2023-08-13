@@ -31,19 +31,21 @@ class _PaymentDefoultScreenState extends State<PaymentDefoultScreen> {
         child: Scaffold(
             backgroundColor: ColorConstant.whiteA700,
             resizeToAvoidBottomInset: false,
-            appBar: CustomAppBar(
+            appBar:CustomAppBar(
                 height: getVerticalSize(48),
                 leadingWidth: 43,
                 leading: AppbarImage(
                     height: getVerticalSize(16),
                     width: getHorizontalSize(11),
                     svgPath: ImageConstant.imgArrowleft,
-                    margin: getMargin(left: 32, top: 12, bottom: 20),
+
+                    margin: getMargin(left: 15, right: 15,top: 15, bottom: 15),
                     onTap: () {
-                      onTapArrowleft48(context);
+                      Navigator.pop(context);
                     }),
                 centerTitle: true,
-                title: AppbarTitle(text: "Оплата "),
+                title: AppbarTitle(text: 'Оплата'),
+
                 styleType: Style.bgFillBlue60001),
             body: Container(
                 width: double.maxFinite,

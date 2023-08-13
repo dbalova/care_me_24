@@ -48,14 +48,16 @@ class _AppointmentToDoctorScreenState extends State<AppointmentToDoctorScreen> {
               height: getVerticalSize(16),
               width: getHorizontalSize(11),
               svgPath: ImageConstant.imgArrowleft,
-              margin: getMargin(left: 32, top: 12, bottom: 20),
+
+              margin: getMargin(left: 15, right: 15,top: 15, bottom: 15),
               onTap: () {
                 Navigator.pop(context);
               }),
           centerTitle: true,
-          title: AppbarTitle(text: "Запись к врачу"),
+          title: AppbarTitle(text: 'Запись к врачу'),
+
           styleType: Style.bgFillBlue60001),
-      body: Column(
+      body:SingleChildScrollView(child:  Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -102,10 +104,11 @@ class _AppointmentToDoctorScreenState extends State<AppointmentToDoctorScreen> {
                                       style: AppStyle
                                           .txtMontserratMedium12Gray50001,
                                       overflow: TextOverflow.ellipsis,
+                                      maxLines: 2,
                                     )),
                               ),
                               Padding(
-                                padding: getPadding(top: 32),
+                                padding: getPadding(top: 22,bottom: 8),
                                 child: Row(
                                   children: [
                                     Text(
@@ -244,13 +247,15 @@ class _AppointmentToDoctorScreenState extends State<AppointmentToDoctorScreen> {
                                 fontStyle: ButtonFontStyle
                                     .MontserratRomanSemiBold15Blue,
                                 alignment: Alignment.center)))),
-                SizedBox(
-                  height: 12,
-                ),
+
               ],
             ),
           ),
-          Center(
+
+        ],
+      )),
+          bottomNavigationBar:  Container(
+            height: 72,
             child: GestureDetector(
               onTap: () {
                 if (isRecordSelected()) {
@@ -261,48 +266,46 @@ class _AppointmentToDoctorScreenState extends State<AppointmentToDoctorScreen> {
                 }
               },
               child: Container(
-                margin: getMargin(top: 28),
+                margin: getMargin(top: 8, left: 20, right: 20,bottom: 8),
                 padding: getPadding(left: 50, right: 50),
                 width: MediaQuery.of(context).size.width - 40,
                 height: 56,
                 decoration: BoxDecoration(
                     gradient: isRecordSelected()
                         ? LinearGradient(
-                            colors: [
-                              ColorConstant.indigoA400,
-                              ColorConstant.bluegradient,
-                            ],
-                            begin: Alignment.bottomLeft,
-                            end: Alignment.topRight,
-                          )
+                      colors: [
+                        ColorConstant.indigoA400,
+                        ColorConstant.bluegradient,
+                      ],
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
+                    )
                         : LinearGradient(
-                            colors: [
-                              ColorConstant.gray50001,
-                              ColorConstant.gray50001,
-                            ],
-                            begin: Alignment.bottomLeft,
-                            end: Alignment.topRight,
-                          ),
+                      colors: [
+                        ColorConstant.gray50001,
+                        ColorConstant.gray50001,
+                      ],
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
+                    ),
                     borderRadius: BorderRadius.circular(10)),
                 child: Center(
                     child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "1450₽",
-                      style: AppStyle.txtMontserratSemiBold18WhiteA700,
-                    ),
-                    Text(
-                      "Записаться",
-                      style: AppStyle.txtMontserratSemiBold18WhiteA700,
-                    ),
-                  ],
-                )),
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "1450₽",
+                          style: AppStyle.txtMontserratSemiBold18WhiteA700,
+                        ),
+                        Text(
+                          "Записаться",
+                          style: AppStyle.txtMontserratSemiBold18WhiteA700,
+                        ),
+                      ],
+                    )),
               ),
             ),
-          )
-        ],
-      ),
+          ),
     ));
   }
 }

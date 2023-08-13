@@ -51,19 +51,16 @@ class ListSymptomsScreen extends StatelessWidget {
                     height: getVerticalSize(13),
                     width: getHorizontalSize(7),
                     svgPath: ImageConstant.imgArrowleft,
-                    margin: getMargin(left: 33, top: 13, bottom: 21),
+                    margin: getMargin(left: 15,right: 15, top: 15, bottom: 15),
                     onTap: () {
                       onTapArrowleft46(context);
                     }),
                 centerTitle: true,
                 title: AppbarTitle(text: "Самопомощь"),
                 actions: [
-                  AppbarImage(
-                      height: getSize(28),
-                      width: getSize(28),
-                      svgPath: ImageConstant.imgSettings,
-                      margin:
-                          getMargin(left: 23, top: 6, right: 23, bottom: 14))
+                  Padding(
+                      padding:getPadding(right: 15),
+                      child:Icon(Icons.settings))
                 ],
                 styleType: Style.bgFillBlue60001),
             body: Container(

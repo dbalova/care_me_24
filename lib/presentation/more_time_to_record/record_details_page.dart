@@ -48,12 +48,14 @@ class _RecordDetailsOneScreenState extends State<RecordDetailsOneScreen> {
                     height: getVerticalSize(16),
                     width: getHorizontalSize(11),
                     svgPath: ImageConstant.imgArrowleft,
-                    margin: getMargin(left: 32, top: 12, bottom: 20),
+
+                    margin: getMargin(left: 15, right: 15,top: 15, bottom: 15),
                     onTap: () {
-                      onTapArrowleft26(context);
+                      Navigator.pop(context);
                     }),
                 centerTitle: true,
-                title: AppbarTitle(text: "Запись к врачу"),
+                title: AppbarTitle(text: 'Запись к врачу'),
+
                 styleType: Style.bgFillBlue60001),
             body: SizedBox(
                 width: size.width,

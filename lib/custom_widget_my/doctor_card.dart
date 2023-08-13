@@ -61,8 +61,10 @@ class DoctorCard extends StatelessWidget {
         }
       },
       child: Card(
+      shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10),),
         margin: getMargin(bottom: 12),
-        elevation: 8,
+        elevation: 4,
         clipBehavior: Clip.hardEdge,
         child: Container(
           width: MediaQuery.of(context).size.width-40,
@@ -72,10 +74,10 @@ class DoctorCard extends StatelessWidget {
                 children: [
                   CustomImageView(
                       imagePath: doctor_image,
-                      height: getVerticalSize(109),
+                      //height: getVerticalSize(109),
                       width: getHorizontalSize(77)),
                   Padding(
-                    padding: getPadding(top: 8, left: 8),
+                    padding: getPadding(top: 8, left: 8,bottom: 8,right: 8),
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

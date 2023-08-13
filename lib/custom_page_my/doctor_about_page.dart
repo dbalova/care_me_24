@@ -55,19 +55,21 @@ class _DoctorAboutScreenState extends State<DoctorAboutScreen> {
     return SafeArea(
         child: Scaffold(
             backgroundColor: ColorConstant.whiteA700,
-            appBar: CustomAppBar(
+            appBar:CustomAppBar(
                 height: getVerticalSize(48),
                 leadingWidth: 43,
                 leading: AppbarImage(
                     height: getVerticalSize(16),
                     width: getHorizontalSize(11),
                     svgPath: ImageConstant.imgArrowleft,
-                    margin: getMargin(left: 32, top: 12, bottom: 20),
+
+                    margin: getMargin(left: 15, right: 15,top: 15, bottom: 15),
                     onTap: () {
-                      onTapArrowleft53(context);
+                      Navigator.pop(context);
                     }),
                 centerTitle: true,
-                title: AppbarTitle(text: "Подробнее о враче"),
+                title: AppbarTitle(text: 'Подробнее о враче'),
+
                 styleType: Style.bgFillBlue60001),
             body: SizedBox(
                 width: size.width,
@@ -202,229 +204,224 @@ class _DoctorAboutScreenState extends State<DoctorAboutScreen> {
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
                                         Expanded(
-                                            child: Container(
-                                                padding: getPadding(
-                                                    left: 10,
-                                                    top: 8,
-                                                    right: 10,
-                                                    bottom: 8),
-                                                decoration: AppDecoration
-                                                    .outlineBlack90054
-                                                    .copyWith(
-                                                    borderRadius: BorderRadiusStyle
-                                                        .roundedBorder10),
-                                                child: Column(
-                                                    mainAxisSize: MainAxisSize.min,
-                                                    crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                    mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                    children: [
-                                                      Padding(
-                                                          padding: getPadding(
-                                                              left: 2,
-                                                              top: 2,
-                                                              right: 4),
-                                                          child: Row(children: [
-                                                            CustomImageView(
-                                                                imagePath: ImageConstant
-                                                                    .imgEllipse152,
-                                                                height: getSize(37),
-                                                                width: getSize(37),
-                                                                radius: BorderRadius
-                                                                    .circular(
-                                                                    getHorizontalSize(
-                                                                        18))),
-                                                            Expanded(
-                                                                child: Padding(
-                                                                    padding: getPadding(
-                                                                        left: 13,
-                                                                        top: 2),
-                                                                    child: Column(
-                                                                        crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                        mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .start,
-                                                                        children: [
-                                                                          Row(
-                                                                              children: [
-                                                                                Text(
-                                                                                    "Яна Романова",
-                                                                                    overflow:
-                                                                                    TextOverflow.ellipsis,
-                                                                                    textAlign: TextAlign.left,
-                                                                                    style: AppStyle.txtMontserratMedium14),
-                                                                                Padding(
-                                                                                    padding:
-                                                                                    getPadding(left: 124),
-                                                                                    child: Text("5", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtMontserratRegular15)),
-                                                                                CustomImageView(
-                                                                                    svgPath: ImageConstant
-                                                                                        .imgStarGold,
-                                                                                    height: getSize(
-                                                                                        11),
-                                                                                    width: getSize(
-                                                                                        11),
-                                                                                    margin: getMargin(
-                                                                                        left: 1,
-                                                                                        top: 4,
-                                                                                        bottom: 3))
-                                                                              ]),
-                                                                          Text("Москва",
-                                                                              overflow:
-                                                                              TextOverflow
-                                                                                  .ellipsis,
-                                                                              textAlign:
-                                                                              TextAlign
-                                                                                  .left,
-                                                                              style: AppStyle
-                                                                                  .txtMontserratMedium12Gray50001)
-                                                                        ])))
-                                                          ])),
-                                                      Container(
-                                                          width: getHorizontalSize(289),
-                                                          margin: getMargin(
-                                                              top: 14, right: 17),
-                                                          child: Text(
-                                                              "Я благодарна Иванову Алексею Петровичу, за чуткость \nи профессионализм, благодаря ему я избежала больницы и успешно вылечилиась дома! Он отличный врач и приятный человек!",
-                                                              maxLines: null,
-                                                              textAlign: TextAlign.left,
-                                                              style: AppStyle
-                                                                  .txtMontserratMedium10)),
-                                                      Align(
-                                                          alignment:
-                                                          Alignment.centerRight,
-                                                          child: Padding(
-                                                              padding: getPadding(
-                                                                  top: 10, right: 4),
-                                                              child: Text("22.04.2022",
-                                                                  overflow: TextOverflow
-                                                                      .ellipsis,
-                                                                  textAlign:
-                                                                  TextAlign.left,
-                                                                  style: AppStyle
-                                                                      .txtMontserratMedium10)))
-                                                    ]))),
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(right: 5.0,left: 5),
+                                              child: Container(
+                                                  padding: getPadding(
+                                                      left: 10,
+                                                      top: 8,
+                                                      right: 10,
+                                                      bottom: 8),
+                                                  decoration: AppDecoration
+                                                      .outlineBlack90054
+                                                      .copyWith(
+                                                      borderRadius: BorderRadiusStyle
+                                                          .roundedBorder10),
+                                                  child: Column(
+                                                      mainAxisSize: MainAxisSize.min,
+                                                      crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                      mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                      children: [
+                                                        Padding(
+                                                            padding: getPadding(
+                                                                left: 2,
+                                                                top: 2,
+                                                                right: 4),
+                                                            child: Row(children: [
+                                                              CustomImageView(
+                                                                  imagePath: ImageConstant
+                                                                      .imgEllipse152,
+                                                                  height: getSize(37),
+                                                                  width: getSize(37),
+                                                                  radius: BorderRadius
+                                                                      .circular(
+                                                                      getHorizontalSize(
+                                                                          18))),
+                                                              Expanded(
+                                                                  child: Padding(
+                                                                      padding: getPadding(
+                                                                          left: 13,
+                                                                          top: 2),
+                                                                      child: Column(
+                                                                          crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .start,
+                                                                          mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .start,
+                                                                          children: [
+                                                                            Row(
+                                                                                children: [
+                                                                                  Text(
+                                                                                      "Яна Романова",
+                                                                                      overflow:
+                                                                                      TextOverflow.ellipsis,
+                                                                                      textAlign: TextAlign.left,
+                                                                                      style: AppStyle.txtMontserratMedium14),
+                                                                                  Padding(
+                                                                                      padding:
+                                                                                      getPadding(left: 124),
+                                                                                      child: Text("5", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtMontserratRegular15)),
+                                                                                  CustomImageView(
+                                                                                      svgPath: ImageConstant
+                                                                                          .imgStarGold,
+                                                                                      height: getSize(
+                                                                                          11),
+                                                                                      width: getSize(
+                                                                                          11),
+                                                                                      margin: getMargin(
+                                                                                          left: 1,
+                                                                                          top: 4,
+                                                                                          bottom: 3))
+                                                                                ]),
+                                                                            Text("Москва",
+                                                                                overflow:
+                                                                                TextOverflow
+                                                                                    .ellipsis,
+                                                                                textAlign:
+                                                                                TextAlign
+                                                                                    .left,
+                                                                                style: AppStyle
+                                                                                    .txtMontserratMedium12Gray50001)
+                                                                          ])))
+                                                            ])),
+                                                        Container(
+                                                            width: getHorizontalSize(289),
+                                                            margin: getMargin(
+                                                                top: 14, right: 17),
+                                                            child: Text(
+                                                                "Я благодарна Иванову Алексею Петровичу, за чуткость \nи профессионализм, благодаря ему я избежала больницы и успешно вылечилиась дома! Он отличный врач и приятный человек!",
+                                                                maxLines: null,
+                                                                textAlign: TextAlign.left,
+                                                                style: AppStyle
+                                                                    .txtMontserratMedium10)),
+                                                        Align(
+                                                            alignment:
+                                                            Alignment.centerRight,
+                                                            child: Padding(
+                                                                padding: getPadding(
+                                                                    top: 10, right: 4),
+                                                                child: Text("22.04.2022",
+                                                                    overflow: TextOverflow
+                                                                        .ellipsis,
+                                                                    textAlign:
+                                                                    TextAlign.left,
+                                                                    style: AppStyle
+                                                                        .txtMontserratMedium10)))
+                                                      ])),
+                                            )),
                                         Expanded(
-                                            child: Container(
-                                                margin: getMargin(left: 9),
-                                                padding: getPadding(
-                                                    left: 10,
-                                                    top: 9,
-                                                    right: 10,
-                                                    bottom: 9),
-                                                decoration: AppDecoration
-                                                    .outlineBlack90054
-                                                    .copyWith(
-                                                    borderRadius: BorderRadiusStyle
-                                                        .roundedBorder10),
-                                                child: Column(
-                                                    mainAxisSize: MainAxisSize.min,
-                                                    crossAxisAlignment:
-                                                    CrossAxisAlignment.end,
-                                                    mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                    children: [
-                                                      Padding(
-                                                          padding: getPadding(
-                                                              top: 1, right: 4),
-                                                          child: Row(
-                                                              mainAxisAlignment:
-                                                              MainAxisAlignment.end,
-                                                              children: [
-                                                                CustomImageView(
-                                                                    imagePath:
-                                                                    ImageConstant
-                                                                        .imgEllipse152,
-                                                                    height: getSize(37),
-                                                                    width: getSize(37),
-                                                                    radius: BorderRadius
-                                                                        .circular(
-                                                                        getHorizontalSize(
-                                                                            18))),
-                                                                Padding(
-                                                                    padding: getPadding(
-                                                                        left: 13,
-                                                                        top: 3,
-                                                                        bottom: 3),
-                                                                    child: Column(
-                                                                        crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                        mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .start,
-                                                                        children: [
-                                                                          Text(
-                                                                              "Яна Романова",
-                                                                              overflow:
-                                                                              TextOverflow
-                                                                                  .ellipsis,
-                                                                              textAlign:
-                                                                              TextAlign
-                                                                                  .left,
-                                                                              style: AppStyle
-                                                                                  .txtMontserratMedium15Black900),
-                                                                          Padding(
-                                                                              padding: getPadding(
-                                                                                  top:
-                                                                                  1),
-                                                                              child: Text(
-                                                                                  "Москва",
-                                                                                  overflow: TextOverflow
-                                                                                      .ellipsis,
-                                                                                  textAlign: TextAlign
-                                                                                      .left,
-                                                                                  style:
-                                                                                  AppStyle.txtMontserratMedium10Gray300))
-                                                                        ])),
-                                                                Padding(
-                                                                    padding: getPadding(
-                                                                        left: 101,
-                                                                        top: 10,
-                                                                        bottom: 5),
-                                                                    child: Text("4.7",
-                                                                        overflow:
-                                                                        TextOverflow
-                                                                            .ellipsis,
-                                                                        textAlign:
-                                                                        TextAlign
-                                                                            .left,
-                                                                        style: AppStyle
-                                                                            .txtMontserratRegular15)),
-                                                                CustomImageView(
-                                                                    svgPath:
-                                                                    ImageConstant
-                                                                        .imgStarGold,
-                                                                    height: getSize(11),
-                                                                    width: getSize(11),
-                                                                    margin: getMargin(
-                                                                        left: 1,
-                                                                        top: 15,
-                                                                        bottom: 11))
-                                                              ])),
-                                                      Container(
-                                                          width: getHorizontalSize(298),
-                                                          margin: getMargin(
-                                                              top: 14, right: 9),
-                                                          child: Text(
-                                                              "Я благодарна Иванову Алексею Петровичу, за чуткость \nи профессионализм, благодаря ему я избежала больницы и успешно вылечилиась дома! Он отличный врач и приятный человек!",
-                                                              maxLines: null,
-                                                              textAlign: TextAlign.left,
-                                                              style: AppStyle
-                                                                  .txtMontserratMedium10)),
-                                                      Padding(
-                                                          padding: getPadding(
-                                                              top: 10, right: 4),
-                                                          child: Text("22.04.2022",
-                                                              overflow:
-                                                              TextOverflow.ellipsis,
-                                                              textAlign: TextAlign.left,
-                                                              style: AppStyle
-                                                                  .txtMontserratMedium10))
-                                                    ])))
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(right: 5.0,left: 5),
+                                              child: Container(
+                                                  padding: getPadding(
+                                                      left: 10,
+                                                      top: 8,
+                                                      right: 10,
+                                                      bottom: 8),
+                                                  decoration: AppDecoration
+                                                      .outlineBlack90054
+                                                      .copyWith(
+                                                      borderRadius: BorderRadiusStyle
+                                                          .roundedBorder10),
+                                                  child: Column(
+                                                      mainAxisSize: MainAxisSize.min,
+                                                      crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                      mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                      children: [
+                                                        Padding(
+                                                            padding: getPadding(
+                                                                left: 2,
+                                                                top: 2,
+                                                                right: 4),
+                                                            child: Row(children: [
+                                                              CustomImageView(
+                                                                  imagePath: ImageConstant
+                                                                      .imgEllipse152,
+                                                                  height: getSize(37),
+                                                                  width: getSize(37),
+                                                                  radius: BorderRadius
+                                                                      .circular(
+                                                                      getHorizontalSize(
+                                                                          18))),
+                                                              Expanded(
+                                                                  child: Padding(
+                                                                      padding: getPadding(
+                                                                          left: 13,
+                                                                          top: 2),
+                                                                      child: Column(
+                                                                          crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .start,
+                                                                          mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .start,
+                                                                          children: [
+                                                                            Row(
+                                                                                children: [
+                                                                                  Text(
+                                                                                      "Яна Романова",
+                                                                                      overflow:
+                                                                                      TextOverflow.ellipsis,
+                                                                                      textAlign: TextAlign.left,
+                                                                                      style: AppStyle.txtMontserratMedium14),
+                                                                                  Padding(
+                                                                                      padding:
+                                                                                      getPadding(left: 124),
+                                                                                      child: Text("5", overflow: TextOverflow.ellipsis, textAlign: TextAlign.left, style: AppStyle.txtMontserratRegular15)),
+                                                                                  CustomImageView(
+                                                                                      svgPath: ImageConstant
+                                                                                          .imgStarGold,
+                                                                                      height: getSize(
+                                                                                          11),
+                                                                                      width: getSize(
+                                                                                          11),
+                                                                                      margin: getMargin(
+                                                                                          left: 1,
+                                                                                          top: 4,
+                                                                                          bottom: 3))
+                                                                                ]),
+                                                                            Text("Москва",
+                                                                                overflow:
+                                                                                TextOverflow
+                                                                                    .ellipsis,
+                                                                                textAlign:
+                                                                                TextAlign
+                                                                                    .left,
+                                                                                style: AppStyle
+                                                                                    .txtMontserratMedium12Gray50001)
+                                                                          ])))
+                                                            ])),
+                                                        Container(
+                                                            width: getHorizontalSize(289),
+                                                            margin: getMargin(
+                                                                top: 14, right: 17),
+                                                            child: Text(
+                                                                "Я благодарна Иванову Алексею Петровичу, за чуткость \nи профессионализм, благодаря ему я избежала больницы и успешно вылечилиась дома! Он отличный врач и приятный человек!",
+                                                                maxLines: null,
+                                                                textAlign: TextAlign.left,
+                                                                style: AppStyle
+                                                                    .txtMontserratMedium10)),
+                                                        Align(
+                                                            alignment:
+                                                            Alignment.centerRight,
+                                                            child: Padding(
+                                                                padding: getPadding(
+                                                                    top: 10, right: 4),
+                                                                child: Text("22.04.2022",
+                                                                    overflow: TextOverflow
+                                                                        .ellipsis,
+                                                                    textAlign:
+                                                                    TextAlign.left,
+                                                                    style: AppStyle
+                                                                        .txtMontserratMedium10)))
+                                                      ])),
+                                            )),
+
                                       ]))),
                           Visibility(
                             visible: map_visible,
