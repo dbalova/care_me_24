@@ -36,85 +36,87 @@ class PoliceMainPage extends StatelessWidget {
                 centerTitle: true,
                 title: AppbarTitle(text: "Полиция"),
                 styleType: Style.bgFillBlue60001),
-            body: Container(
-                width: double.maxFinite,
-                padding: getPadding(left: 20, top: 21, right: 20, bottom: 21),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                          padding: getPadding(left: 2, right: 3),
-                          child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                ForWhom(name: 'Мне',),
-                                Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Text("Платная услуга",
-                                          overflow: TextOverflow.ellipsis,
-                                          textAlign: TextAlign.left,
-                                          style:
-                                          AppStyle.txtMontserratSemiBold12),
-                                      Container(
-                                        margin: getMargin(top: 4),
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                          BorderRadius.circular(10),
-                                          border: Border.all(
-                                            color: ColorConstant.gray50001,
-                                            width: 1,
+            body: SingleChildScrollView(
+              child: Container(
+                  width: double.maxFinite,
+                  padding: getPadding(left: 20, top: 21, right: 20, bottom: 21),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                            padding: getPadding(left: 2, right: 3),
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  ForWhom(name: 'Мне',),
+                                  Column(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        Text("Платная услуга",
+                                            overflow: TextOverflow.ellipsis,
+                                            textAlign: TextAlign.left,
+                                            style:
+                                            AppStyle.txtMontserratSemiBold12),
+                                        Container(
+                                          margin: getMargin(top: 4),
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                            BorderRadius.circular(10),
+                                            border: Border.all(
+                                              color: ColorConstant.gray50001,
+                                              width: 1,
+                                            ),
+                                          ),
+                                          child: AdvancedSwitch(
+                                            controller: _controller,
+                                            activeColor:
+                                            ColorConstant.greenA70002,
+                                            inactiveColor: ColorConstant.gray100,
+                                            borderRadius: BorderRadius.all(
+                                                const Radius.circular(8)),
+                                            width: 80.0,
+                                            height: 36.0,
+                                            enabled: true,
+                                            disabledOpacity: 0.5,
                                           ),
                                         ),
-                                        child: AdvancedSwitch(
-                                          controller: _controller,
-                                          activeColor:
-                                          ColorConstant.greenA70002,
-                                          inactiveColor: ColorConstant.gray100,
-                                          borderRadius: BorderRadius.all(
-                                              const Radius.circular(8)),
-                                          width: 80.0,
-                                          height: 36.0,
-                                          enabled: true,
-                                          disabledOpacity: 0.5,
-                                        ),
-                                      ),
-                                    ])
-                              ])),
-                      CustomDropDown(
-                          focusNode: FocusNode(),
-                          icon: Container(
-                              margin: getMargin(left: 30, right: 20),
-                              child: CustomImageView(
-                                  svgPath:
-                                  ImageConstant.imgArrowdownLightBlue900)),
-                          hintText: "Проблема",
-                          margin: getMargin(top: 16, right: 6),),
-                      Padding(
-                          padding:
-                          getPadding(left: 3, top: 30, right: 3, bottom: 5),
-                          child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                WhatDoPoliceCard(
-                                  color_icon: ColorConstant.redA200,
-                                  icon_path: ImageConstant.policeIcon,
-                                  action_text: "Сообщить",
-                                ),WhatDoPoliceCard(
-                                  color_icon: ColorConstant.blueA200,
-                                  icon_path: ImageConstant.hammerIcon,
-                                  action_text: "Юрист онлайн",
-                                ),WhatDoPoliceCard(
-                                  color_icon: ColorConstant.pinkA200,
-                                  icon_path: ImageConstant.noteIcon,
-                                  action_text: "Заявление",
-                                ), WhatDoPoliceCard(
-                                  color_icon: ColorConstant.greenA70002,
-                                  icon_path: ImageConstant.starNotificationIcon,
-                                  action_text: "Рекомендации",
-                                ),
-                              ]))
-                    ]))));
+                                      ])
+                                ])),
+                        CustomDropDown(
+                            focusNode: FocusNode(),
+                            icon: Container(
+                                margin: getMargin(left: 30, right: 20),
+                                child: CustomImageView(
+                                    svgPath:
+                                    ImageConstant.imgArrowdownLightBlue900)),
+                            hintText: "Проблема",
+                            margin: getMargin(top: 16, right: 6),),
+                        Padding(
+                            padding:
+                            getPadding(left: 3, top: 30, right: 3, bottom: 5),
+                            child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  WhatDoPoliceCard(
+                                    color_icon: ColorConstant.redA200,
+                                    icon_path: ImageConstant.policeIcon,
+                                    action_text: "Сообщить",
+                                  ),WhatDoPoliceCard(
+                                    color_icon: ColorConstant.blueA200,
+                                    icon_path: ImageConstant.hammerIcon,
+                                    action_text: "Юрист онлайн",
+                                  ),WhatDoPoliceCard(
+                                    color_icon: ColorConstant.pinkA200,
+                                    icon_path: ImageConstant.noteIcon,
+                                    action_text: "Заявление",
+                                  ), WhatDoPoliceCard(
+                                    color_icon: ColorConstant.greenA70002,
+                                    icon_path: ImageConstant.starNotificationIcon,
+                                    action_text: "Рекомендации",
+                                  ),
+                                ]))
+                      ])),
+            )));
   }
 }
 

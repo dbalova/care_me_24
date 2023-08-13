@@ -1,5 +1,3 @@
-import 'package:careme24/core/utils/version_constant.dart';
-import 'package:careme24/custom_widget_my/doctor_card.dart';
 import 'package:careme24/theme/app_decoration.dart';
 import 'package:careme24/theme/app_style.dart';
 import 'package:careme24/widgets/app_bar/appbar_image.dart';
@@ -8,11 +6,12 @@ import 'package:careme24/widgets/app_bar/custom_app_bar.dart';
 import 'package:careme24/widgets/custom_drop_down.dart';
 import 'package:careme24/widgets/custom_image_view.dart';
 import 'package:flutter/material.dart';
-
+import '../core/constants/constants.dart';
 import '../core/utils/color_constant.dart';
 import '../core/utils/image_constant.dart';
 import '../core/utils/size_utils.dart';
 import '../custom_widget_my/for_whom.dart';
+import '../custom_widget_my/police_card.dart';
 
 
 class CallPoliceScreen extends StatefulWidget {
@@ -56,10 +55,10 @@ class _CallPoliceScreenState extends State<CallPoliceScreen> {
   bool _finish = false;
   bool _undo = false;
   final _controller = ValueNotifier<bool>(false);
-  List<String> dropdownItemList = ["Item One", "Item Two", "Item Three"];
 
   @override
   Widget build(BuildContext context) {
+
     return SafeArea(
         child: Scaffold(
             key: _scaffoldKey,
@@ -281,7 +280,7 @@ class _CallPoliceScreenState extends State<CallPoliceScreen> {
                 child: SingleChildScrollView(
                     padding: getPadding(top: 20),
                     child: Padding(
-                        padding: getPadding(left: 21, right: 22),
+                        padding: getPadding(left: 20, right: 20),
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
@@ -340,8 +339,7 @@ class _CallPoliceScreenState extends State<CallPoliceScreen> {
                                               .imgArrowdownLightBlue900)),
                                   hintText: "Проблема",
                                   margin: getMargin(top: 16, right: 6),
-                                  items: dropdownItemList,
-                                  onChanged: (value) {}),
+                                  ),
                               Padding(
                                 padding: getPadding(top: 18),
                                 child: Row(
@@ -497,10 +495,10 @@ class _CallPoliceScreenState extends State<CallPoliceScreen> {
                                       mainAxisAlignment:
                                       MainAxisAlignment.start,
                                       children: [
-                                        DoctorCard(
+                                        PoliceCard(
                                           doctor_image:
                                           ImageConstant.doctorImage,
-                                          doctor_name: "Иванов Аексей",
+                                          doctor_name: "Отдел полиции № 1",
                                           doctor_qualification:
                                           "Участковый врач",
                                           cost: "1500 ₽",
@@ -509,10 +507,10 @@ class _CallPoliceScreenState extends State<CallPoliceScreen> {
                                           estimation: "4.8",
                                           where_call: widget.appbartitle,
                                         ),
-                                        DoctorCard(
+                                        PoliceCard(
                                           doctor_image:
                                           ImageConstant.doctorImage,
-                                          doctor_name: "Иванов Аексей",
+                                          doctor_name: "Отдел полиции № 1",
                                           doctor_qualification:
                                           "Участковый врач",
                                           cost: "1500 ₽",
@@ -521,10 +519,10 @@ class _CallPoliceScreenState extends State<CallPoliceScreen> {
                                           estimation: "4.8",
                                           where_call: widget.appbartitle,
                                         ),
-                                        DoctorCard(
+                                        PoliceCard(
                                           doctor_image:
                                           ImageConstant.doctorImage,
-                                          doctor_name: "Иванов Аексей",
+                                          doctor_name: "Отдел полиции № 1",
                                           doctor_qualification:
                                           "Участковый врач",
                                           cost: "1500 ₽",
@@ -533,12 +531,12 @@ class _CallPoliceScreenState extends State<CallPoliceScreen> {
                                           estimation: "4.8",
                                           where_call: widget.appbartitle,
                                         ),
-                                        DoctorCard(
+                                        PoliceCard(
                                           doctor_image:
                                           ImageConstant.doctorImage,
-                                          doctor_name: "Иванов Аексей",
+                                          doctor_name: "Отдел полиции № 1",
                                           doctor_qualification:
-                                          "Участковый врач",
+                                          "Отдел полиции № 1",
                                           cost: "1500 ₽",
                                           meters: "1200 м",
                                           minute: "9 мин",

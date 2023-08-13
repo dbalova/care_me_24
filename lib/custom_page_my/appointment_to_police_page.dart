@@ -3,24 +3,20 @@ import 'package:careme24/presentation/appointment_to_doctor_screen/widgets/date_
 import 'package:careme24/presentation/appointment_to_doctor_screen/widgets/time_container.dart';
 import 'package:flutter/material.dart';
 import 'package:outline_gradient_button/outline_gradient_button.dart';
-import '../../core/utils/color_constant.dart';
-import '../../core/utils/image_constant.dart';
-import '../../core/utils/size_utils.dart';
 import '../../widgets/app_bar/appbar_image.dart';
 import '../../widgets/app_bar/appbar_title.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 import '../../widgets/custom_button.dart';
-import '../../widgets/custom_image_view.dart';
-import '../more_time_to_record/record_details_page.dart';
-import '../payment_defoult_screen/payment_defoult_screen.dart';
+import '../presentation/more_time_to_record/record_details_page.dart';
+import '../presentation/payment_defoult_screen/payment_defoult_screen.dart';
 
-class AppointmentToDoctorScreen extends StatefulWidget {
+class AppointmentToPoliceScreen extends StatefulWidget {
   @override
-  State<AppointmentToDoctorScreen> createState() =>
-      _AppointmentToDoctorScreenState();
+  State<AppointmentToPoliceScreen> createState() =>
+      _AppointmentToPoliceScreenState();
 }
 
-class _AppointmentToDoctorScreenState extends State<AppointmentToDoctorScreen> {
+class _AppointmentToPoliceScreenState extends State<AppointmentToPoliceScreen> {
   int isSelectedIndex = -1;
   bool isSelectedTime = false;
 
@@ -37,6 +33,7 @@ class _AppointmentToDoctorScreenState extends State<AppointmentToDoctorScreen> {
 
   @override
   Widget build(BuildContext context) {
+    TipyHelp.changeHelp("Предите в чат с юристом");
     return SafeArea(
         child: Scaffold(
       backgroundColor: ColorConstant.gray100,
@@ -53,7 +50,7 @@ class _AppointmentToDoctorScreenState extends State<AppointmentToDoctorScreen> {
                 Navigator.pop(context);
               }),
           centerTitle: true,
-          title: AppbarTitle(text: "Запись к врачу"),
+          title: AppbarTitle(text: "Юрист онлайн"),
           styleType: Style.bgFillBlue60001),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -72,72 +69,76 @@ class _AppointmentToDoctorScreenState extends State<AppointmentToDoctorScreen> {
                   height: 173,
                   child: Row(
                     children: [
-                      CustomImageView(
-                        imagePath: ImageConstant.imgDoctor173137,
-                      ),
+                      Container(
+                          width: 100,
+                          height: 173,
+                          decoration: BoxDecoration(
+                            color: ColorConstant.indigoA100,
+                            borderRadius: BorderRadius.only(
+                                bottomRight: Radius.circular(30)),
+                          ),
+                          child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                CustomImageView(
+                                  svgPath: ImageConstant.policehat,
+                                ),
+                              ])),
                       Padding(
-                        padding: getPadding(top: 20, left: 18),
+                        padding: getPadding(left: 18),
                         child: Container(
                           width: MediaQuery.of(context).size.width - 140,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                "Иванов Алексей",
-                                style: AppStyle.txtMontserratSemiBold18,
-                                overflow: TextOverflow.ellipsis,
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Шипупла Валерия",
+                                    style: AppStyle.txtMontserratSemiBold18,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  Text(
+                                    "Юристы, Составление документов",
+                                    style:
+                                        AppStyle.txtMontserratMedium15Blue600,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ],
                               ),
-                              Text(
-                                "Участковый врач",
-                                style: AppStyle.txtMontserratMedium15Blue600,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              Padding(
-                                padding: getPadding(top: 12),
-                                child: Container(
-                                    width: 160,
+                              Row(
+                                children: [
+                                  Text(
+                                    "Оценка",
+                                    style:
+                                        AppStyle.txtMontserratRegular12Black900,
+                                  ),
+                                  Padding(
+                                    padding: getPadding(left: 18),
                                     child: Text(
-                                      "Городская больница № 6 им.Семашко",
+                                      "4.8",
                                       style: AppStyle
-                                          .txtMontserratMedium12Gray50001,
-                                      overflow: TextOverflow.ellipsis,
-                                    )),
-                              ),
-                              Padding(
-                                padding: getPadding(top: 32),
-                                child: Row(
-                                  children: [
-                                    Text(
-                                      "Оценка",
-                                      style: AppStyle
-                                          .txtMontserratRegular12Black900,
+                                          .txtMontserratMedium15Black900,
                                     ),
-                                    Padding(
-                                      padding: getPadding(left: 18),
-                                      child: Text(
-                                        "4.8",
-                                        style: AppStyle
-                                            .txtMontserratMedium15Black900,
-                                      ),
-                                    ),
-                                    CustomImageView(
-                                        svgPath: ImageConstant.imgStarGold,
+                                  ),
+                                  CustomImageView(
+                                      svgPath: ImageConstant.imgStarGold,
+                                      height: getSize(12),
+                                      width: getSize(12),
+                                      margin: getMargin(
+                                          left: 3, top: 3, bottom: 3)),
+                                  Padding(
+                                    padding: getPadding(left: 100),
+                                    child: CustomImageView(
+                                        svgPath: ImageConstant.imgArrowright,
                                         height: getSize(12),
                                         width: getSize(12),
                                         margin: getMargin(
                                             left: 3, top: 3, bottom: 3)),
-                                    Padding(
-                                      padding: getPadding(left: 100),
-                                      child: CustomImageView(
-                                          svgPath: ImageConstant.imgArrowright,
-                                          height: getSize(12),
-                                          width: getSize(12),
-                                          margin: getMargin(
-                                              left: 3, top: 3, bottom: 3)),
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               )
                             ],
                           ),

@@ -20,22 +20,22 @@ MapController controller = MapController(
   initPosition: GeoPoint(latitude: 59.939099, longitude: 30.315877),
 );
 
-class DoctorAboutScreen extends StatefulWidget {
+class PoliceAboutScreen extends StatefulWidget {
   late String whereCall;
 
-  DoctorAboutScreen({
+  PoliceAboutScreen({
     required this.whereCall,
   });
 
   @override
-  State<DoctorAboutScreen> createState() => _DoctorAboutScreenState();
+  State<PoliceAboutScreen> createState() => _PoliceAboutScreenState();
 }
 
-class _DoctorAboutScreenState extends State<DoctorAboutScreen> {
+class _PoliceAboutScreenState extends State<PoliceAboutScreen> {
   bool map_visible = true;
 
   void mapEdit() {
-    if (widget.whereCall == "Помощь онлайн") {
+    if (widget.whereCall == "Заявление") {
       map_visible = false;
     }
   }

@@ -1,15 +1,12 @@
-import 'package:careme24/routes/app_routes.dart';
-import 'package:careme24/theme/app_decoration.dart';
 import 'package:careme24/theme/app_style.dart';
 import 'package:careme24/widgets/app_bar/appbar_image.dart';
 import 'package:careme24/widgets/app_bar/appbar_title.dart';
 import 'package:careme24/widgets/app_bar/custom_app_bar.dart';
-import 'package:careme24/widgets/custom_button.dart';
 import 'package:careme24/widgets/custom_drop_down.dart';
 import 'package:careme24/widgets/custom_image_view.dart';
-import 'package:careme24/widgets/med_screens/chat_page.dart';
 import 'package:flutter/material.dart';
 
+import 'core/constants/constants.dart';
 import 'core/utils/color_constant.dart';
 import 'core/utils/image_constant.dart';
 import 'core/utils/size_utils.dart';
@@ -21,10 +18,10 @@ final _controller = ValueNotifier<bool>(false);
 class HoneyMainPage extends StatelessWidget {
   bool isSelectedSwitch = false;
 
-  List<String> dropdownItemList = ["Item One", "Item Two", "Item Three"];
 
   @override
   Widget build(BuildContext context) {
+    TipyHelp.changeHelp("Предите в чат с врачем");
     return SafeArea(
         child: Scaffold(
             backgroundColor: ColorConstant.whiteA700,
@@ -98,8 +95,7 @@ class HoneyMainPage extends StatelessWidget {
                                         ImageConstant.imgArrowdownLightBlue900)),
                             hintText: "Проблема",
                             margin: getMargin(top: 16, right: 6),
-                            items: dropdownItemList,
-                            onChanged: (value) {}),
+                            ),
                         Padding(
                             padding:
                                 getPadding(left: 3, top: 30, right: 3, bottom: 5),
