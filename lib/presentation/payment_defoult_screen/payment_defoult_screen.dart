@@ -7,6 +7,7 @@ import 'package:careme24/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 
+import '../call_waiting_window_screen/call_waiting_window_screen.dart';
 import '../record_final_screen/record_final_screen.dart';
 
 class PaymentDefoultScreen extends StatefulWidget {
@@ -284,16 +285,7 @@ class _PaymentDefoultScreenState extends State<PaymentDefoultScreen> {
                                         width:
                                             MediaQuery.of(context).size.width -
                                                 50,
-                                        child:
-
-                                            /* Text(
-                                            "Сохранить данные карты для следующих плтежей. Это безопасно",
-                                            maxLines: null,
-                                            textAlign: TextAlign.left,
-                                            style: AppStyle
-                                                .txtMontserratMedium12)*/
-
-                                            RichText(
+                                        child: RichText(
                                           text: TextSpan(
                                             style:
                                                 AppStyle.txtMontserratMedium12,
@@ -310,16 +302,7 @@ class _PaymentDefoultScreenState extends State<PaymentDefoultScreen> {
                                                       Icons.info,
                                                       color: Colors.grey,
                                                       size: 14,
-                                                    )
-
-                                                    /* CustomImageView(
-                                                      svgPath: ImageConstant.imgWarning,
-                                                      height: getSize(13),
-                                                      width: getSize(13),
-
-                                                      margin: getMargin(
-                                                          right: 86, bottom: 1)),*/
-                                                    ),
+                                                    )),
                                               ),
                                             ],
                                           ),
@@ -327,25 +310,23 @@ class _PaymentDefoultScreenState extends State<PaymentDefoultScreen> {
                               ])),
                       CustomButton(
                           onTap: () {
-                            print(cardnumbervalueController.toString().length);
-                            print(dateValueController.toString().length);
-                            print(cvcValueController.toString().length);
-                            print(cardnumbervalueController.text);
-                            print(dateValueController.text);
-                            print(cvcValueController.text);
-                            print(cardnumbervalueController.text.length);
-                            print(dateValueController.text.length);
-                            print(cvcValueController.text.length);
-
                             if ((cardnumbervalueController.text ==
                                     "1111 1111 1111 1111") &
                                 (dateValueController.text == "11/11") &
                                 (cvcValueController.text == "111")) {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          RecordFinalScreen()));
+                              if (AfterPay.whereCall == "Смайлик") {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            RecordFinalScreen()));
+                              } else if (AfterPay.whereCall == "Минуты") {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            CallWaitingWindowScreen()));
+                              }
                             } else if ((cardnumbervalueController.text.length ==
                                     19) &
                                 (dateValueController.text.length == 5) &

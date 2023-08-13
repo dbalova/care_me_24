@@ -1,5 +1,6 @@
 import 'package:careme24/custom_page_my/doctor_about_page.dart';
 import 'package:flutter/material.dart';
+import '../core/constants/constants.dart';
 import '../core/utils/color_constant.dart';
 import '../core/utils/image_constant.dart';
 import '../core/utils/size_utils.dart';
@@ -38,11 +39,13 @@ class PoliceCard extends StatelessWidget {
 
   void form_card() {
     if (where_call == "Сообщить") {
+      AfterPay.changeAfterMinute();
       bottomInfo = true;
     } else if (where_call == "Заявление") {
       bottomInfo = true;
       ququalificationvisible = true;
     } else if (where_call == "Юрист онлайн") {
+      AfterPay.changeAfterSmile();
       leftColumnEstimation = true;
       freeDates = true;
       ququalificationvisible = true;

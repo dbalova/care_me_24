@@ -5,8 +5,7 @@ import '../core/constants/constants.dart';
 import '../core/utils/color_constant.dart';
 import '../core/utils/image_constant.dart';
 import '../core/utils/size_utils.dart';
-
-import '../presentation/call_doctor_waiting_window_screen/call_doctor_waiting_window_screen.dart';
+import '../presentation/call_waiting_window_screen/call_waiting_window_screen.dart';
 import '../routes/app_routes.dart';
 import '../theme/app_decoration.dart';
 import '../theme/app_style.dart';
@@ -679,7 +678,7 @@ class _DoctorAboutScreenState extends State<DoctorAboutScreen> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      CallDoctorWaitingWindowScreen()));
+                                                      CallWaitingWindowScreen()));
                                         },
                                         child: Container(
                                           width: MediaQuery.of(context).size.width -
@@ -718,7 +717,7 @@ class _DoctorAboutScreenState extends State<DoctorAboutScreen> {
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                              CallDoctorWaitingWindowScreen()));
+                              CallWaitingWindowScreen()));
                 },
                 child: Container(
                   width: 1,
