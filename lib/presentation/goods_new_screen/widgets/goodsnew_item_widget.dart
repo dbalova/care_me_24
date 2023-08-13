@@ -78,7 +78,7 @@ class _GoodsnewItemWidgetState extends State<GoodsnewItemWidget> {
                           ),
                         ),
                         CustomImageView(
-                          imagePath: ImageConstant.imgVector12x12,
+                          svgPath: ImageConstant.imgStarGold,
                           height: getSize(
                             12,
                           ),

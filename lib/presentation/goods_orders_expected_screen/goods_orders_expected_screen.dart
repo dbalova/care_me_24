@@ -94,7 +94,7 @@ class _GoodsOrdersExpectedScreenState extends State<GoodsOrdersExpectedScreen> {
                                         width: 1),),),
                                 child: Text("Ожидается",
                                     overflow: TextOverflow.ellipsis,
-                                    textAlign: TextAlign.left,
+                                    textAlign: TextAlign.center,
                                     style: _wait? AppStyle.txtMontserratSemiBold15 : TextStyle(
                                       color: ColorConstant.gray50001,
                                       fontSize: getFontSize(
@@ -127,7 +127,7 @@ class _GoodsOrdersExpectedScreenState extends State<GoodsOrdersExpectedScreen> {
                                         width: 1),),),
                                 child: Text("Завершено",
                                     overflow: TextOverflow.ellipsis,
-                                    textAlign: TextAlign.left,
+                                    textAlign: TextAlign.center,
                                     style: _finish? AppStyle.txtMontserratSemiBold15 : TextStyle(
                                       color: ColorConstant.gray50001,
                                       fontSize: getFontSize(

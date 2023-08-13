@@ -516,8 +516,7 @@ class AboutOrderScreen extends StatelessWidget {
                                       shrinkWrap: true,
                                       gridDelegate:
                                           SliverGridDelegateWithFixedCrossAxisCount(
-                                              mainAxisExtent:
-                                                  getVerticalSize(204),
+                                              mainAxisExtent: MediaQuery.of(context).size.height/3.5,
                                               crossAxisCount: 2,
                                               mainAxisSpacing:
                                                   getHorizontalSize(11),

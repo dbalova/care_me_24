@@ -35,7 +35,7 @@ class _PreviewScreenState extends State<PreviewScreen> {
                   width: getHorizontalSize(11),
                   svgPath: ImageConstant.imgArrowleft,
                   margin: getMargin(left: 32, top: 12, bottom: 20),
-                  onTap: () {
+                  onTap: () { Navigator.pop(context);
                   }),
               centerTitle: true,
               title: AppbarTitle(text: "Видео"),
@@ -61,7 +61,6 @@ class _PreviewScreenState extends State<PreviewScreen> {
               ),
               GestureDetector(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => WhatToDoReadScreen()));
                 },
                 child: Container(
                   margin: getMargin(top: 24),

@@ -139,32 +139,38 @@ class _HospitalsScreenState extends State<HospitalsScreen> {
                                           ),
                                         ]))
                               ])),
-                      Container(
-                          width: double.maxFinite,
-                          child: Container(
-                              margin: getMargin(left: 1, top: 16, right: 1),
-                              padding: getPadding(
-                                  left: 20, top: 13, right: 20, bottom: 13),
-                              decoration: AppDecoration.fillBlue100.copyWith(
-                                  borderRadius:
-                                      BorderRadiusStyle.roundedBorder10),
-                              child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    CustomDropDown(
-                                        focusNode: FocusNode(),
-                                        icon: Container(
-                                            margin: getMargin(left: 30),
-                                            child: CustomImageView(
-                                                svgPath: ImageConstant
-                                                    .imgArrowdownLightBlue900)),
-                                        hintText:
-                                            "M1.BA41 Сильная боль \nв груди...",
-                                        margin: getMargin(top: 2),
-                                        variant: DropDownVariant.None,
-                                        onChanged: (value) {})
-                                  ]))),
+                      Padding(
+                        padding: getPadding(top: 14),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Color.fromRGBO(178, 218, 255, 100),
+                          ),
+                          width: MediaQuery.of(context).size.width - 40,
+                          height: 80,
+                          child: Padding(
+                            padding: getPadding(left: 20, right: 20),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  width: 240,
+                                  child: Text(
+                                    'Причина вызова ',
+                                    // widget.reasonForTheCall,
+                                      style: AppStyle.txtMontserratSemiBold19,
+                                      overflow: TextOverflow.ellipsis
+                                  ),
+                                ),
+                                CustomImageView(
+                                  svgPath:
+                                  ImageConstant.imgArrowdownLightBlue900,
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
                       Padding(
                         padding: getPadding(top: 20),
                         child:

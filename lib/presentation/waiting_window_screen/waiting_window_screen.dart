@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 
 import '../../custom_camera_screen.dart';
 import '../alert_screen/alert_screen.dart';
+import '../what_to_do_read_screen/what_to_do_read_screen.dart';
 
 class WaitingWindowScreen extends StatefulWidget {
   late String whereCall;
@@ -134,6 +135,7 @@ class _WaitingWindowScreenState extends State<WaitingWindowScreen> {
                       height: 54,
                       width: MediaQuery.of(context).size.width - 40,
                       child: Row(
+                       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Padding(
                             padding: getPadding(left: 16),
@@ -150,13 +152,17 @@ class _WaitingWindowScreenState extends State<WaitingWindowScreen> {
                               "Родственники оповещены",
                               style: AppStyle.txtMontserratMedium15Black900,
                             ),
-                          ),
-                          Container(
-                              width: 24,
-                              height: 24,
-                              child: CustomImageView(
-                                svgPath: ImageConstant.imgCloseGray50001,
-                              ))
+                          ),Spacer(),
+                          Padding(
+                            padding: getPadding(right: 15),
+                            child: Container(
+
+                                width: 24,
+                                height: 24,
+                                child: CustomImageView(
+                                  svgPath: ImageConstant.imgCloseGray50001,
+                                )),
+                          )
                         ],
                       ),
                     ),
@@ -179,9 +185,10 @@ class _WaitingWindowScreenState extends State<WaitingWindowScreen> {
                       child: Align(
                         alignment: Alignment.center,
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Padding(
-                              padding: getPadding(top: 24, bottom: 24),
+                              padding: getPadding(top: 18, bottom: 18),
                               child: Text(
                                 widget.whereCall + " ВЫЗВАНА",
                                 style: AppStyle.txtMontserratSemiBold20,
@@ -193,7 +200,7 @@ class _WaitingWindowScreenState extends State<WaitingWindowScreen> {
                               thickness: 2,
                             ),
                             Padding(
-                              padding: getPadding(top: 24, bottom: 12),
+                              padding: getPadding(top: 18, bottom: 12),
                               child: Text(
                                 "Время ожидания 10 мин",
                                 style: AppStyle.txtMontserratMedium17,
@@ -207,13 +214,14 @@ class _WaitingWindowScreenState extends State<WaitingWindowScreen> {
                                 }
                               },
                               child: CustomImageView(
-                                width: 106,
-                                height: 106,
+                               height: MediaQuery.of(context).size.height/7,
+                                width: MediaQuery.of(context).size.height/7,
+
                                 svgPath: imagePath,
                               ),
                             ),
                             Padding(
-                              padding: getPadding(top: 12, bottom: 32),
+                              padding: getPadding(top: 12, bottom: 18),
                               child: Text(
                                 centerText,
                                 style: AppStyle.txtMontserratSemiBold15redtext,
@@ -226,7 +234,7 @@ class _WaitingWindowScreenState extends State<WaitingWindowScreen> {
                               thickness: 2,
                             ),
                             Padding(
-                              padding: getPadding(top: 18),
+                              padding: getPadding(top: 12, bottom: 18),
                               child: Text(
                                 "Отмена вызова",
                                 style: AppStyle.txtMontserratSemiBold15Gray50001,
@@ -317,8 +325,9 @@ class _WaitingWindowScreenState extends State<WaitingWindowScreen> {
                 padding: getPadding(top: 16),
                 child: CustomButton(
                     onTap: () {
-                      Navigator.pushNamed(
-                          context, AppRoutes.communicationTeamScreen);
+                    /*  Navigator.pushNamed(
+                          context, AppRoutes.communicationTeamScreen);*/
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => WhatToDoReadScreen()));
                     },
                     text: "Что делать",
                     margin: getMargin(left: 23, right: 23),

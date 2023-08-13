@@ -179,6 +179,8 @@ class InfoMainIcon extends StatelessWidget {
               margin: getMargin(top: 5, left: 10, right: 10)),
           CustomImageView(
             svgPath: pictureOnIcon,
+            height: getSize(60),
+            width: getSize(60),
           ),
         ]),
         //Image.asset("assets/images/harmfully.png"),

@@ -57,7 +57,7 @@ class PoliceMESInfoCard extends StatelessWidget {
             color: Color.fromRGBO(253, 253, 253, 100),
           ),
           width: MediaQuery.of(context).size.width - 46,
-          height: 156,
+          height: MediaQuery.of(context).size.height/4.5,
           child: Column(
             children: [
               Row(

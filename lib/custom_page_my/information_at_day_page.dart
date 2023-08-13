@@ -490,8 +490,13 @@ class _InfoAtDayPageState extends State<InfoAtDayPage> {
               ]),
             ),
             bottomNavigationBar: Padding(
-                padding: getPadding(left: 22, right: 22, bottom: 32),
+                padding: getPadding(left: 22, right: 22, bottom: 22),
                 child: OutlineGradientButton(
+                    padding: EdgeInsets.only(
+                        left: getHorizontalSize(1),
+                        top: getVerticalSize(1),
+                        right: getHorizontalSize(1),
+                        bottom: getVerticalSize(1)),
                     strokeWidth: getHorizontalSize(1),
                     gradient: LinearGradient(
                         begin: Alignment(1.05, 0.11),
@@ -506,16 +511,17 @@ class _InfoAtDayPageState extends State<InfoAtDayPage> {
                         bottomLeft: Radius.circular(10),
                         bottomRight: Radius.circular(10)),
                     child: CustomButton(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    PrehistoricPhenomenonHeatScreen()));
-                      },
-                      height: 56,
-                      text: "Рекомендации",
-                    )))));
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      PrehistoricPhenomenonHeatScreen()));
+                        },
+                        height: getVerticalSize(56),
+                        text: "Рекомендации",
+                        //margin: getMargin(top: 5, bottom: 5),
+                        variant: ButtonVariant.Outline_1)))));
   }
 
   Widget _dirty(double _value, String _elementName, String _elementValue) {
@@ -526,7 +532,7 @@ class _InfoAtDayPageState extends State<InfoAtDayPage> {
         Padding(
           padding: getPadding(left: 7, top: 5, bottom: 8),
           child: Container(
-              height: getVerticalSize(30),
+             // height: getVerticalSize(40),
               width: MediaQuery.of(context).size.width / 1.5,
               child: Column(
                 children: [
