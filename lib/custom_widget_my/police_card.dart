@@ -4,6 +4,7 @@ import '../core/utils/color_constant.dart';
 import '../core/utils/image_constant.dart';
 import '../core/utils/size_utils.dart';
 import '../custom_page_my/appointment_to_police_page.dart';
+import '../custom_page_my/report-polic-textarea.dart';
 import '../theme/app_decoration.dart';
 import '../theme/app_style.dart';
 import '../widgets/custom_image_view.dart';
@@ -55,8 +56,10 @@ class PoliceCard extends StatelessWidget {
       onTap:(){
         if (where_call == "Юрист онлайн") {
           Navigator.push(context, MaterialPageRoute(builder: (context) => AppointmentToPoliceScreen()));
+        } else  if (where_call == "Сообщить") {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => ReportMesTextareaScreen()));
         } else {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => DoctorAboutScreen(whereCall: where_call,)));
+
         }
       },
       child: Card(
@@ -64,6 +67,7 @@ class PoliceCard extends StatelessWidget {
         elevation: 8,
         clipBehavior: Clip.hardEdge,
         child: Container(
+            width: MediaQuery.of(context).size.width-40,
             decoration: BoxDecoration(borderRadius: BorderRadiusStyle.roundedBorder10),
             child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,

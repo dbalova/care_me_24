@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:outline_gradient_button/outline_gradient_button.dart';
-
 import '../core/utils/color_constant.dart';
 import '../core/utils/image_constant.dart';
 import '../core/utils/size_utils.dart';
-import '../routes/app_routes.dart';
 import '../theme/app_style.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_image_view.dart';
@@ -66,7 +64,7 @@ class ReportMesTextareaScreen extends StatelessWidget {
                                             style: AppStyle.txtH1)),
                                     Container(
                                         height: getVerticalSize(168),
-                                        width: getHorizontalSize(329),
+                                        width: MediaQuery.of(context).size.width-40,
                                         margin: getMargin(top: 12),
                                         decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(
@@ -75,7 +73,7 @@ class ReportMesTextareaScreen extends StatelessWidget {
                                                 color: ColorConstant.gray500,
                                                 width: getHorizontalSize(1)))),
                                     Padding(
-                                        padding: getPadding(left: 1, top: 18),
+                                        padding: getPadding(top: 18),
                                         child: Row(children: [
                                           OutlineGradientButton(
                                               padding: EdgeInsets.only(
@@ -109,9 +107,9 @@ class ReportMesTextareaScreen extends StatelessWidget {
                                                   })),
                                           CustomButton(
                                               height: getVerticalSize(56),
-                                              width: getHorizontalSize(156),
+                                              width: getHorizontalSize(155),
                                               text: "Сообщить",
-                                              margin: getMargin(left: 16),
+                                              margin: getMargin(left: 13),
                                               variant:
                                               ButtonVariant.FillGray50001,
                                               fontStyle: ButtonFontStyle

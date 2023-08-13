@@ -65,6 +65,7 @@ class DoctorCard extends StatelessWidget {
         elevation: 8,
         clipBehavior: Clip.hardEdge,
         child: Container(
+          width: MediaQuery.of(context).size.width-40,
             decoration: BoxDecoration(borderRadius: BorderRadiusStyle.roundedBorder10),
             child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
