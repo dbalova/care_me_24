@@ -21,7 +21,9 @@ class HoneyMainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TipyHelp.changeHelp("Предите в чат с врачем");
+    TipyHelp.changeHelp("Передите в чат с врачем");
+    WhoCall.changeWho("ВРАЧ ВЫЗВАН");
+    AfterPay.changeAfterSmile();
     return SafeArea(
         child: Scaffold(
             backgroundColor: ColorConstant.whiteA700,
@@ -44,11 +46,7 @@ class HoneyMainPage extends StatelessWidget {
                             child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-
                                   ForWhom(name: 'Мне',),
-
-
-
                                   Column(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [

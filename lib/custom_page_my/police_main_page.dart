@@ -1,3 +1,4 @@
+import 'package:careme24/core/app_export.dart';
 import 'package:careme24/theme/app_style.dart';
 import 'package:careme24/widgets/app_bar/appbar_image.dart';
 import 'package:careme24/widgets/app_bar/appbar_title.dart';
@@ -22,6 +23,7 @@ class PoliceMainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WhoCall.changeWho("ПОЛИЦИЯ ВЫЗВАНА");
     return SafeArea(
         child: Scaffold(
             backgroundColor: ColorConstant.whiteA700,

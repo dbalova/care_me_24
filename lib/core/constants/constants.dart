@@ -12,11 +12,38 @@ class VersionConstant {
 
 class TipyHelp {
   static var helpName = "С вами свяжутся по телефону или напишут в сообщениях";
-  static printBool() {
+  static printString() {
     print(helpName);
   }
   static changeHelp(String tipyHelp) {
     helpName = tipyHelp;
-    printBool();
+    printString();
+  }
+}
+
+class WhoCall {
+  static var callName = "ВРАЧ ВЫЗВАН";
+  static printString() {
+    print(callName);
+  }
+  static changeWho(String tipyHelp) {
+    callName = tipyHelp;
+    printString();
+  }
+}
+
+
+class AfterPay {
+  static var whereCall = "Смайлик";
+  static printString() {
+    print(whereCall);
+  }
+  static changeAfterMinute() {
+    whereCall = "Минуты";
+    printString();
+  }
+  static changeAfterSmile() {
+    whereCall = "Смайлик";
+    printString();
   }
 }

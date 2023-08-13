@@ -1,3 +1,4 @@
+import 'package:careme24/core/app_export.dart';
 import 'package:flutter/material.dart';
 import '../../core/utils/color_constant.dart';
 import '../../core/utils/image_constant.dart';
@@ -8,7 +9,7 @@ import '../../widgets/custom_button.dart';
 import '../../widgets/custom_image_view.dart';
 import '../../widgets/med_screens/chat_page.dart';
 
-class CallDoctorWaitingWindowScreen extends StatelessWidget {
+class CallWaitingWindowScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -27,7 +28,7 @@ class CallDoctorWaitingWindowScreen extends StatelessWidget {
                         Align(
                           alignment: Alignment.centerLeft,
                           child: CustomImageView(
-                              margin: getMargin(left: 16),
+                              margin: getMargin(left: 16, right: 15),
                               svgPath: ImageConstant.imgArrowleft,
                               onTap: () {
                                 Navigator.pop(context);
@@ -51,7 +52,7 @@ class CallDoctorWaitingWindowScreen extends StatelessWidget {
                       children: [
                         Container(
                             height: getVerticalSize(294),
-                            width: getHorizontalSize(252),
+                            width: MediaQuery.of(context).size.width-40,
                             decoration: AppDecoration.outlineBlack9003f2.copyWith(
                                 borderRadius: BorderRadiusStyle.roundedBorder10),
                             child: Column(
@@ -60,7 +61,7 @@ class CallDoctorWaitingWindowScreen extends StatelessWidget {
                                 Padding(
                                   padding: getPadding(top: 24),
                                   child: Text(
-                                    "ВРАЧ ВЫЗВАН",
+                                    WhoCall.callName,
                                     style: AppStyle.txtMontserratSemiBold25Blue,
                                   ),
                                 ),
