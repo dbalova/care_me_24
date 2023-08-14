@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../core/utils/color_constant.dart';
 import '../core/utils/image_constant.dart';
+import '../custom_page_my/about_police_page.dart';
+import '../mes/about_mes.dart';
 import '../presentation/mes_info_screen/mes_info_screen.dart';
 import '../presentation/plots_police_screen/plots_police_screen.dart';
 import '../theme/app_style.dart';
@@ -37,12 +39,15 @@ class PoliceMESInfoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
+        print(whereCall);
         if (whereCall == "police") {
           Navigator.push(context, MaterialPageRoute(builder: (context) => PlotsPoliceScreen(reasonText)));
         } else if(whereCall == "MES") {
           Navigator.push(context, MaterialPageRoute(builder: (context) => MESInfiScreen(reasonText)));
-        } else {
-
+        } else if(whereCall == "MES_about") {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => AboutMES()));
+        } else if(whereCall == "Police_about") {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => AboutPolice()));
         }
 
       },

@@ -37,7 +37,9 @@ class ImageConstant {
 
   static String imgImage18 = 'assets/images/img_image18.png';
   static String imageTheft = 'assets/images/image_theft.png';
+  static String fireImage = 'assets/images/fire_image.png';
   static String imgImage17 = 'assets/images/img_image17.png';
+  static String copyIcon = 'assets/images/copy_icon.svg';
 
   static String img_black_ice = 'assets/images/img_black_ice.svg';
   static String img_hail = 'assets/images/img_hail.svg';
@@ -183,6 +185,10 @@ class ImageConstant {
   static String policeIcon = 'assets/images/police_icon.svg';
 
   static String noteIcon = 'assets/images/note_icon.svg';
+
+  static String fireFitherIcon = 'assets/images/firefither_icon.svg';
+
+  static String screenIcon = 'assets/images/screen_icon.svg';
 
   static String hammerIcon = 'assets/images/hammer_icon.svg';
 

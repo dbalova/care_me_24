@@ -1,30 +1,22 @@
+import 'package:careme24/core/app_export.dart';
+import 'package:careme24/mes/what_to_do_mes_card.dart';
 import 'package:careme24/theme/app_style.dart';
-import 'package:careme24/widgets/app_bar/appbar_image.dart';
 import 'package:careme24/widgets/app_bar/appbar_title.dart';
 import 'package:careme24/widgets/app_bar/custom_app_bar.dart';
-import 'package:careme24/widgets/custom_drop_down.dart';
 import 'package:careme24/widgets/custom_image_view.dart';
 import 'package:flutter/material.dart';
+import '../core/utils/color_constant.dart';
+import '../core/utils/size_utils.dart';
+import '../custom_widget_my/for_whom.dart';
+import '../custom_widget_my/paid_service_swither.dart';
 
-import 'core/constants/constants.dart';
-import 'core/utils/color_constant.dart';
-import 'core/utils/image_constant.dart';
-import 'core/utils/size_utils.dart';
-import 'custom_widget_my/for_whom.dart';
-import 'custom_widget_my/paid_service_swither.dart';
-import 'custom_widget_my/what_do_med_card.dart';
+final _controller = ValueNotifier<bool>(VersionConstant.isPaidSubscription);
 
-final _controller = ValueNotifier<bool>(false);
-
-class HoneyMainPage extends StatelessWidget {
-  bool isSelectedSwitch = false;
-
+class MESMainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TipyHelp.changeHelp("Передите в чат с врачем");
-    WhoCall.changeWho("ВРАЧ ВЫЗВАН");
-    AfterPay.changeAfterSmile();
+    WhoCall.changeWho("МЧС ВЫЗВАН");
     return SafeArea(
         child: Scaffold(
             backgroundColor: ColorConstant.whiteA700,
@@ -33,7 +25,7 @@ class HoneyMainPage extends StatelessWidget {
                 leadingWidth: 49,
                 leading: Icon(Icons.menu),
                 centerTitle: true,
-                title: AppbarTitle(text: "Медицинская помощь"),
+                title: AppbarTitle(text: "МЧС"),
                 styleType: Style.bgFillBlue60001),
             body: SingleChildScrollView(
               child: Container(
@@ -83,26 +75,26 @@ class HoneyMainPage extends StatelessWidget {
                         ),
                         Padding(
                             padding:
-                                getPadding(left: 3, top: 30, right: 3, bottom: 5),
+                            getPadding(left: 3, top: 30, right: 3, bottom: 5),
                             child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  WhatDoMedCard(
-                                    color_icon: ColorConstant.blueicon,
-                                    icon_path: ImageConstant.doctorIcon,
-                                    action_text: "Вызов врача",
-                                  ),WhatDoMedCard(
-                                    color_icon: ColorConstant.violet,
-                                    icon_path: ImageConstant.notePenIcon,
-                                    action_text: "Запись к врачу",
-                                  ),WhatDoMedCard(
-                                    color_icon: ColorConstant.yellow700,
-                                    icon_path: ImageConstant.medPhoneIcon,
+                                  WhatDoMESCard(
+                                    color_icon: ColorConstant.pinkIcon,
+                                    icon_path: ImageConstant.fireFitherIcon,
+                                    action_text: "Сообщить",
+                                  ),WhatDoMESCard(
+                                    color_icon: ColorConstant.violIcon,
+                                    icon_path: ImageConstant.screenIcon,
                                     action_text: "Помощь онлайн",
-                                  ), WhatDoMedCard(
-                                    color_icon: ColorConstant.green400,
-                                    icon_path: ImageConstant.twoArmPlusIcon,
-                                    action_text: "Самопомощь",
+                                  ),WhatDoMESCard(
+                                    color_icon: ColorConstant.pinkA200,
+                                    icon_path: ImageConstant.noteIcon,
+                                    action_text: "Заявление",
+                                  ), WhatDoMESCard(
+                                    color_icon: ColorConstant.greenA70002,
+                                    icon_path: ImageConstant.starNotificationIcon,
+                                    action_text: "Рекомендации",
                                   ),
                                 ]))
                       ])),

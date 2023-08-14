@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import '../../custom_page_my/main_page.dart';
 import '../../custom_page_my/police_main_page.dart';
 import '../../med_home_page.dart';
+import '../../mes/mes_main_page.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -41,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
       type: BottomBarEnum.tf,
     )
   ];
-  final tabs = [MainPage(), HoneyMainPage(), PoliceMainPage(), Center(child: Text("МЧС",),)];
+  final tabs = [MainPage(), HoneyMainPage(), PoliceMainPage(), MESMainPage(),];
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 
   @override

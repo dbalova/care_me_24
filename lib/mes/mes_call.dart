@@ -6,25 +6,24 @@ import 'package:careme24/widgets/app_bar/custom_app_bar.dart';
 import 'package:careme24/widgets/custom_drop_down.dart';
 import 'package:careme24/widgets/custom_image_view.dart';
 import 'package:flutter/material.dart';
-import '../core/constants/constants.dart';
 import '../core/utils/color_constant.dart';
 import '../core/utils/image_constant.dart';
 import '../core/utils/size_utils.dart';
 import '../custom_widget_my/for_whom.dart';
 import '../custom_widget_my/paid_service_swither.dart';
-import '../custom_widget_my/police_card.dart';
+import 'mes_card.dart';
 
 
-class CallPoliceScreen extends StatefulWidget {
+class CallMESScreen extends StatefulWidget {
   late String appbartitle;
 
-  CallPoliceScreen(this.appbartitle);
+  CallMESScreen(this.appbartitle);
 
   @override
-  State<CallPoliceScreen> createState() => new _CallPoliceScreenState();
+  State<CallMESScreen> createState() => new _CallMESScreenState();
 }
 
-class _CallPoliceScreenState extends State<CallPoliceScreen> {
+class _CallMESScreenState extends State<CallMESScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   TextEditingController _controllertimestart = TextEditingController();
   TextEditingController _controllertimeend = TextEditingController();
@@ -294,15 +293,15 @@ class _CallPoliceScreenState extends State<CallPoliceScreen> {
                                         PaySwitcher(),
                                       ])),
                               CustomDropDown(
-                                  focusNode: FocusNode(),
-                                  icon: Container(
-                                      margin: getMargin(left: 30, right: 20),
-                                      child: CustomImageView(
-                                          svgPath: ImageConstant
-                                              .imgArrowdownLightBlue900)),
-                                  hintText: "Проблема",
-                                  margin: getMargin(top: 16, right: 6),
-                                  ),
+                                focusNode: FocusNode(),
+                                icon: Container(
+                                    margin: getMargin(left: 30, right: 20),
+                                    child: CustomImageView(
+                                        svgPath: ImageConstant
+                                            .imgArrowdownLightBlue900)),
+                                hintText: "Проблема",
+                                margin: getMargin(top: 16, right: 6),
+                              ),
                               Padding(
                                 padding: getPadding(top: 18),
                                 child: Row(
@@ -458,11 +457,11 @@ class _CallPoliceScreenState extends State<CallPoliceScreen> {
                                       mainAxisAlignment:
                                       MainAxisAlignment.start,
                                       children: [
-                                        PoliceCard(
-                                          doctor_image:
+                                        MESCard(
+                                          mes_image:
                                           ImageConstant.doctorImage,
-                                          doctor_name: "Отдел полиции № 1",
-                                          doctor_qualification:
+                                          mes_name: "Пожарная Часть N 1 Гпс МЧС",
+                                          mes_qualification:
                                           "Участковый врач",
                                           cost: "1500 ₽",
                                           meters: "1200 м",
@@ -470,11 +469,11 @@ class _CallPoliceScreenState extends State<CallPoliceScreen> {
                                           estimation: "4.8",
                                           where_call: widget.appbartitle,
                                         ),
-                                        PoliceCard(
-                                          doctor_image:
+                                        MESCard(
+                                          mes_image:
                                           ImageConstant.doctorImage,
-                                          doctor_name: "Отдел полиции № 1",
-                                          doctor_qualification:
+                                          mes_name: "Пожарная Часть N 1 Гпс МЧС",
+                                          mes_qualification:
                                           "Участковый врач",
                                           cost: "1500 ₽",
                                           meters: "1200 м",
@@ -482,11 +481,11 @@ class _CallPoliceScreenState extends State<CallPoliceScreen> {
                                           estimation: "4.8",
                                           where_call: widget.appbartitle,
                                         ),
-                                        PoliceCard(
-                                          doctor_image:
+                                        MESCard(
+                                          mes_image:
                                           ImageConstant.doctorImage,
-                                          doctor_name: "Отдел полиции № 1",
-                                          doctor_qualification:
+                                          mes_name: "Пожарная Часть N 1 Гпс МЧС",
+                                          mes_qualification:
                                           "Участковый врач",
                                           cost: "1500 ₽",
                                           meters: "1200 м",
@@ -494,11 +493,11 @@ class _CallPoliceScreenState extends State<CallPoliceScreen> {
                                           estimation: "4.8",
                                           where_call: widget.appbartitle,
                                         ),
-                                        PoliceCard(
-                                          doctor_image:
+                                        MESCard(
+                                          mes_image:
                                           ImageConstant.doctorImage,
-                                          doctor_name: "Отдел полиции № 1",
-                                          doctor_qualification:
+                                          mes_name: "Пожарная Часть N 1 Гпс МЧС",
+                                          mes_qualification:
                                           "Отдел полиции № 1",
                                           cost: "1500 ₽",
                                           meters: "1200 м",

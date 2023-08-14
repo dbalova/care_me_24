@@ -15,12 +15,12 @@ import '../../widgets/custom_drop_down.dart';
 import '../../widgets/custom_image_view.dart';
 import '../custom_widget_my/paid_service_swither.dart';
 
-class PoliceRecomendation extends StatefulWidget {
+class MESRecomendation extends StatefulWidget {
   @override
-  State<PoliceRecomendation> createState() => _PoliceRecomendationState();
+  State<MESRecomendation> createState() => _MESRecomendationState();
 }
 
-class _PoliceRecomendationState extends State<PoliceRecomendation> {
+class _MESRecomendationState extends State<MESRecomendation> {
   bool isSelectedSwitch = false;
   final _controller = ValueNotifier<bool>(false);
 
@@ -41,7 +41,7 @@ class _PoliceRecomendationState extends State<PoliceRecomendation> {
                       onTapArrowleft45(context);
                     }),
                 centerTitle: true,
-                title: AppbarTitle(text: "Рекомендации"),
+                title: AppbarTitle(text: "Рекомендации МЧС"),
                 styleType: Style.bgFillBlue60001),
             body: Container(
                 width: double.maxFinite,
@@ -68,7 +68,7 @@ class _PoliceRecomendationState extends State<PoliceRecomendation> {
                               child: CustomImageView(
                                   svgPath:
                                   ImageConstant.imgArrowdownLightBlue900)),
-                          hintText: "12.01. Ограбление",
+                          hintText: "12.01. Пожар в лесу",
                           margin: getMargin(top: 16),
 
                         ),
@@ -85,7 +85,7 @@ class _PoliceRecomendationState extends State<PoliceRecomendation> {
                                   },
                                   itemCount: 4,
                                   itemBuilder: (context, index) {
-                                    return SelfhelpItemWidget(imagepath: ImageConstant.imageTheft, textproblem: 'Правила поведения при нападении', wherecall: 'Полиция',);
+                                    return SelfhelpItemWidget(imagepath: ImageConstant.fireImage, textproblem: 'Пожарная безопасность в лесу', wherecall: 'МЧС',);
                                   })))
                     ]))));
   }

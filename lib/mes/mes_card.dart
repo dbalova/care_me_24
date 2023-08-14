@@ -1,4 +1,3 @@
-import 'package:careme24/custom_page_my/doctor_about_page.dart';
 import 'package:flutter/material.dart';
 import '../core/constants/constants.dart';
 import '../core/utils/color_constant.dart';
@@ -6,14 +5,16 @@ import '../core/utils/image_constant.dart';
 import '../core/utils/size_utils.dart';
 import '../custom_page_my/appointment_to_police_page.dart';
 import '../custom_page_my/report_polic_textarea.dart';
+import '../presentation/payment_defoult_screen/payment_defoult_screen.dart';
+import '../presentation/record_final_screen/record_final_screen.dart';
 import '../theme/app_decoration.dart';
 import '../theme/app_style.dart';
 import '../widgets/custom_image_view.dart';
 
-class PoliceCard extends StatelessWidget {
-  late String doctor_image;
-  late String doctor_name;
-  late String doctor_qualification;
+class MESCard extends StatelessWidget {
+  late String mes_image;
+  late String mes_name;
+  late String mes_qualification;
   late String cost;
   late String meters;
   late String minute;
@@ -24,12 +25,12 @@ class PoliceCard extends StatelessWidget {
   bool leftColumnMeters = false;
   bool leftColumnEstimation = false;
   bool freeDates = false;
-  bool ququalificationvisible = false;
+  bool qualificationvisible = false;
 
-  PoliceCard({
-    required this.doctor_image,
-    required this.doctor_name,
-    required this.doctor_qualification,
+  MESCard({
+    required this.mes_image,
+    required this.mes_name,
+    required this.mes_qualification,
     required this.cost,
     required this.meters,
     required this.minute,
@@ -42,16 +43,13 @@ class PoliceCard extends StatelessWidget {
       AfterPay.changeAfterMinute();
       bottomInfo = true;
     } else if (where_call == "Заявление") {
-      TipyHelp.changeHelp("С вами свяжутся по телефону или напишут в сообщениях");
+      TipyHelp.changeHelp("В течение дня с вами свяжутся по телефону или напишут в сообщениях");
       AfterPay.changeAfterSmile();
       bottomInfo = true;
-      ququalificationvisible = true;
-    } else if (where_call == "Юрист онлайн") {
-      TipyHelp.changeHelp("Передите в чат с юристом");
+    } else if (where_call == "Помощь онлайн") {
+      TipyHelp.changeHelp("Предите в чат, что бы получить помощь");
       AfterPay.changeAfterSmile();
-      leftColumnEstimation = true;
-      freeDates = true;
-      ququalificationvisible = true;
+      bottomInfo = true;
     }
   }
 
@@ -60,10 +58,23 @@ class PoliceCard extends StatelessWidget {
     form_card();
     return GestureDetector(
       onTap:(){
-        if (where_call == "Юрист онлайн") {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => AppointmentToPoliceScreen()));
+        if (where_call == "Помощь онлайн") {
+          if(VersionConstant
+              .isPaidSubscription){
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        PaymentDefoultScreen()));
+          } else {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        RecordFinalScreen()));
+          }
         } else  if (where_call == "Сообщить" || where_call == "Заявление") {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => ReportPoliceTextareaScreen(where_call, "Полиция")));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => ReportPoliceTextareaScreen(where_call, "МЧС")));
         } else {
 
         }
@@ -78,21 +89,21 @@ class PoliceCard extends StatelessWidget {
             child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                Container(
-                width: 71,
-                height: 109,
-                decoration: BoxDecoration(
-                  color: ColorConstant.indigoA100,
-                  borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(30)),
-                ),
-                child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      CustomImageView(
-                        svgPath: ImageConstant.policehat,
+                  Container(
+                      width: 71,
+                      height: 109,
+                      decoration: BoxDecoration(
+                        color: ColorConstant.yellow700,
+                        borderRadius: BorderRadius.only(
+                            bottomRight: Radius.circular(30)),
                       ),
-                    ])),
+                      child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            CustomImageView(
+                              svgPath: ImageConstant.fireSmallIcon,
+                            ),
+                          ])),
                   Padding(
                     padding: getPadding(top: 8, left: 8),
                     child: Column(
@@ -109,16 +120,20 @@ class PoliceCard extends StatelessWidget {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        Text(doctor_name,
-                                            overflow: TextOverflow.ellipsis,
-                                            textAlign: TextAlign.left,
-                                            style: AppStyle
-                                                .txtMontserratSemiBold15Blue600),
+                                        Container(
+                                          width: MediaQuery.of(context).size.width/2.5,
+                                          child: Text(mes_name,
+                                              maxLines: 2,
+                                              overflow: TextOverflow.ellipsis,
+                                              textAlign: TextAlign.left,
+                                              style: AppStyle
+                                                  .txtMontserratSemiBold15Blue600),
+                                        ),
                                         Visibility(
-                                          visible: ququalificationvisible,
+                                          visible: qualificationvisible,
                                           child: Padding(
                                               padding: getPadding(top: 4),
-                                              child: Text(doctor_qualification,
+                                              child: Text(mes_qualification,
                                                   overflow: TextOverflow.ellipsis,
                                                   textAlign: TextAlign.left,
                                                   style:

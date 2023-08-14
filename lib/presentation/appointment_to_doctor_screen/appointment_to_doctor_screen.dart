@@ -48,16 +48,15 @@ class _AppointmentToDoctorScreenState extends State<AppointmentToDoctorScreen> {
               height: getVerticalSize(16),
               width: getHorizontalSize(11),
               svgPath: ImageConstant.imgArrowleft,
-
-              margin: getMargin(left: 15, right: 15,top: 15, bottom: 15),
+              margin: getMargin(left: 15, right: 15, top: 15, bottom: 15),
               onTap: () {
                 Navigator.pop(context);
               }),
           centerTitle: true,
           title: AppbarTitle(text: 'Запись к врачу'),
-
           styleType: Style.bgFillBlue60001),
-      body:SingleChildScrollView(child:  Column(
+      body: SingleChildScrollView(
+          child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -108,7 +107,7 @@ class _AppointmentToDoctorScreenState extends State<AppointmentToDoctorScreen> {
                                     )),
                               ),
                               Padding(
-                                padding: getPadding(top: 22,bottom: 8),
+                                padding: getPadding(top: 22, bottom: 8),
                                 child: Row(
                                   children: [
                                     Text(
@@ -247,65 +246,62 @@ class _AppointmentToDoctorScreenState extends State<AppointmentToDoctorScreen> {
                                 fontStyle: ButtonFontStyle
                                     .MontserratRomanSemiBold15Blue,
                                 alignment: Alignment.center)))),
-
               ],
             ),
           ),
-
         ],
       )),
-          bottomNavigationBar:  Container(
-            height: 72,
-            child: GestureDetector(
-              onTap: () {
-                if (isRecordSelected()) {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => PaymentDefoultScreen()));
-                }
-              },
-              child: Container(
-                margin: getMargin(top: 8, left: 20, right: 20,bottom: 8),
-                padding: getPadding(left: 50, right: 50),
-                width: MediaQuery.of(context).size.width - 40,
-                height: 56,
-                decoration: BoxDecoration(
-                    gradient: isRecordSelected()
-                        ? LinearGradient(
-                      colors: [
-                        ColorConstant.indigoA400,
-                        ColorConstant.bluegradient,
-                      ],
-                      begin: Alignment.bottomLeft,
-                      end: Alignment.topRight,
-                    )
-                        : LinearGradient(
-                      colors: [
-                        ColorConstant.gray50001,
-                        ColorConstant.gray50001,
-                      ],
-                      begin: Alignment.bottomLeft,
-                      end: Alignment.topRight,
-                    ),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "1450₽",
-                          style: AppStyle.txtMontserratSemiBold18WhiteA700,
-                        ),
-                        Text(
-                          "Записаться",
-                          style: AppStyle.txtMontserratSemiBold18WhiteA700,
-                        ),
-                      ],
-                    )),
-              ),
+      bottomNavigationBar: Container(
+        height: 72,
+        child: GestureDetector(
+          onTap: () {
+            if (isRecordSelected()) {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => PaymentDefoultScreen()));
+            }
+          },
+          child: Container(
+            margin: getMargin(top: 8, left: 20, right: 20, bottom: 8),
+            padding: getPadding(left: 50, right: 50),
+            width: MediaQuery.of(context).size.width - 40,
+            height: 56,
+            decoration: BoxDecoration(
+                gradient: isRecordSelected()
+                    ? LinearGradient(
+                        colors: [
+                          ColorConstant.indigoA400,
+                          ColorConstant.bluegradient,
+                        ],
+                        begin: Alignment.bottomLeft,
+                        end: Alignment.topRight,
+                      )
+                    : LinearGradient(
+                        colors: [
+                          ColorConstant.gray50001,
+                          ColorConstant.gray50001,
+                        ],
+                        begin: Alignment.bottomLeft,
+                        end: Alignment.topRight,
+                      ),
+                borderRadius: BorderRadius.circular(10)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "1450₽",
+                  style: AppStyle.txtMontserratSemiBold18WhiteA700,
+                ),
+                Text(
+                  "Записаться",
+                  style: AppStyle.txtMontserratSemiBold18WhiteA700,
+                ),
+              ],
             ),
           ),
+        ),
+      ),
     ));
   }
 }

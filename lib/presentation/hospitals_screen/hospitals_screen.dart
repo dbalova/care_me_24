@@ -1,6 +1,7 @@
 import 'package:careme24/custom_widget_my/hospital_info_card.dart';
 
 import '../../custom_widget_my/for_whom.dart';
+import '../../custom_widget_my/paid_service_swither.dart';
 import '../hospitals_screen/widgets/hospitals_item_widget.dart';
 import 'package:careme24/core/app_export.dart';
 import 'package:careme24/widgets/app_bar/appbar_image.dart';
@@ -103,41 +104,7 @@ class _HospitalsScreenState extends State<HospitalsScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 ForWhom(name: 'Степанов Илья',),
-                                Padding(
-                                    padding: getPadding(bottom: 1),
-                                    child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Text("Платная услуга",
-                                              overflow: TextOverflow.ellipsis,
-                                              textAlign: TextAlign.left,
-                                              style: AppStyle
-                                                  .txtMontserratSemiBold12Gray50001),
-                                          Container(
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              border: Border.all(
-                                                color: ColorConstant.gray50001,
-                                                width: 1,
-                                              ),
-                                            ),
-                                            child: AdvancedSwitch(
-                                              controller: _controller,
-                                              activeColor:
-                                                  ColorConstant.greenA70002,
-                                              inactiveColor:
-                                                  ColorConstant.gray100,
-                                              borderRadius: BorderRadius.all(
-                                                  const Radius.circular(8)),
-                                              width: 80.0,
-                                              height: 36.0,
-                                              enabled: true,
-                                              disabledOpacity: 0.5,
-                                            ),
-                                          ),
-                                        ]))
+                                PaySwitcher(),
                               ])),
                       Padding(
                         padding: getPadding(top: 14),

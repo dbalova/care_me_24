@@ -155,6 +155,15 @@ class AppStyle {
     fontWeight: FontWeight.w700,
   );
 
+  static TextStyle txtMontserratBold26Black = TextStyle(
+    color: ColorConstant.black900,
+    fontSize: getFontSize(
+      26,
+    ),
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w700,
+  );
+
   static TextStyle txtMontserratBold20 = TextStyle(
     color: ColorConstant.whiteA700,
     fontSize: getFontSize(

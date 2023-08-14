@@ -11,6 +11,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 import '../../custom_widget_my/for_whom.dart';
+import '../../custom_widget_my/paid_service_swither.dart';
 import '../../custom_widget_my/reason_ambulance.dart';
 import '../list_reason_setting/list_reason_setting.dart';
 
@@ -106,44 +107,7 @@ class _ButtonHoneyCallOneScreenState extends State<ButtonHoneyCallOneScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 ForWhom(name: 'Мне',),
-                                Padding(
-                                    padding: getPadding(bottom: 1),
-                                    child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding: getPadding(bottom: 9),
-                                            child: Text("Платная услуга",
-                                                overflow: TextOverflow.ellipsis,
-                                                textAlign: TextAlign.left,
-                                                style: AppStyle
-                                                    .txtMontserratSemiBold12Gray50001),
-                                          ),
-                                          Container(
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              border: Border.all(
-                                                color: ColorConstant.gray50001,
-                                                width: 1,
-                                              ),
-                                            ),
-                                            child: AdvancedSwitch(
-                                              controller: _controller,
-                                              activeColor:
-                                                  ColorConstant.greenA70002,
-                                              inactiveColor:
-                                                  ColorConstant.gray100,
-                                              borderRadius: BorderRadius.all(
-                                                  const Radius.circular(8)),
-                                              width: 80.0,
-                                              height: 36.0,
-                                              enabled: true,
-                                              disabledOpacity: 0.5,
-                                            ),
-                                          ),
-                                        ]))
+                                PaySwitcher(),
                               ])),
                       Container(
                         padding: getPadding(top: 14),

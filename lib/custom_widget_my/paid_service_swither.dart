@@ -1,24 +1,88 @@
 import 'package:flutter/material.dart';
 import '../core/constants/constants.dart';
 import '../core/utils/color_constant.dart';
+import '../core/utils/size_utils.dart';
+import '../theme/app_style.dart';
+
+
+
+class PaySwitcher extends StatefulWidget {
+  @override
+  State<PaySwitcher> createState() => _PaySwitcherState();
+}
+
+class _PaySwitcherState extends State<PaySwitcher> {
+  final _controller = ValueNotifier<bool>(VersionConstant.isPaidSubscription);
+  TextStyle textStyle = VersionConstant.isPaidSubscription == true ? AppStyle.txtMontserratSemiBold12GreenA700 : AppStyle.txtMontserratSemiBold12Gray50001;
+  Color borderColor = VersionConstant.isPaidSubscription == true ? ColorConstant.greenA70002 : ColorConstant.gray50001;
+  double borderWidth = 1.5;
+  callBackChangeColor() {
+    setState(() {
+      if (VersionConstant.isPaidSubscription) {
+        textStyle = AppStyle.txtMontserratSemiBold12GreenA700;
+        borderColor = ColorConstant.greenA70002;
+        borderWidth = 2;
+      } else {
+        textStyle = AppStyle.txtMontserratSemiBold12Gray50001;
+        borderColor = ColorConstant.gray50001;
+        borderWidth = 1.5;
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+      Text("Платная услуга",
+          overflow: TextOverflow.ellipsis,
+          textAlign: TextAlign.left,
+          style: textStyle),
+      Container(
+        margin: getMargin(top: 4),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(
+            color: borderColor,
+            width: borderWidth,
+          ),
+        ),
+        child: AdvancedSwitch(
+          controller: _controller,
+          activeColor: ColorConstant.gray100,
+          inactiveColor: ColorConstant.gray100,
+          borderRadius: BorderRadius.all(const Radius.circular(8)),
+          width: 80.0,
+          height: 36.0,
+          enabled: true,
+          disabledOpacity: 0.5,
+          callbackF: callBackChangeColor,
+        ),
+      ),
+    ]);
+  }
+}
 
 class AdvancedSwitch extends StatefulWidget {
-  const AdvancedSwitch({
-    Key? key,
-    this.controller,
-    this.activeColor = const Color(0xFF4CAF50),
-    this.inactiveColor = const Color(0xFF9E9E9E),
-    this.activeChild,
-    this.inactiveChild,
-    this.activeImage,
-    this.inactiveImage,
-    this.borderRadius = const BorderRadius.all(const Radius.circular(15)),
-    this.width = 50.0,
-    this.height = 30.0,
-    this.enabled = true,
-    this.disabledOpacity = 0.5,
-    this.thumb,
-  }) : super(key: key);
+  late Function callbackF;
+
+  AdvancedSwitch(
+      {Key? key,
+      this.controller,
+      this.activeColor = const Color(0xFF9E9E9E),
+      this.inactiveColor = const Color(0xFF9E9E9E),
+      this.activeChild,
+      this.inactiveChild,
+      this.activeImage,
+      this.inactiveImage,
+      this.borderRadius = const BorderRadius.all(const Radius.circular(15)),
+      this.width = 50.0,
+      this.height = 30.0,
+      this.enabled = true,
+      this.disabledOpacity = 0.5,
+      this.thumb,
+        /// вот вроже бы переменная типа функции которую свитч принимает
+      required this.callbackF})
+      : super(key: key);
 
   /// Determines if widget is enabled
   final bool enabled;
@@ -182,13 +246,12 @@ class _AdvancedSwitchState extends State<AdvancedSwitch>
                           ),
                         ),
                         Container(
-                          margin: const EdgeInsets.all(2),
-                          width: _thumbSize - 4,
-                          height: _thumbSize - 4,
+                          width: _thumbSize,
+                          height: _thumbSize,
                           child: widget.thumb ??
                               Container(
                                 decoration: BoxDecoration(
-                                  color: ColorConstant.gray50001,
+                                  color: VersionConstant.isPaidSubscription == true ? ColorConstant.greenA70002 : ColorConstant.gray500,
                                   borderRadius: widget.borderRadius
                                       .subtract(BorderRadius.circular(1)),
                                 ),
@@ -257,10 +320,10 @@ class _AdvancedSwitchState extends State<AdvancedSwitch>
     if (widget.controller != null && widget.enabled) {
       setState(() {
         VersionConstant.changeBool();
+        widget.callbackF();
         _controller.value = VersionConstant.isPaidSubscription;
       });
     }
-
   }
 
   @override

@@ -5,6 +5,7 @@ import '../core/constants/constants.dart';
 import '../core/utils/color_constant.dart';
 import '../core/utils/image_constant.dart';
 import '../core/utils/size_utils.dart';
+import '../presentation/call_waiting_window_screen/call_waiting_window_screen.dart';
 import '../presentation/payment_defoult_screen/payment_defoult_screen.dart';
 import '../presentation/record_final_screen/record_final_screen.dart';
 import '../theme/app_style.dart';
@@ -14,16 +15,18 @@ import '../widgets/app_bar/custom_app_bar.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_image_view.dart';
 
-class ReportMesTextareaScreen extends StatefulWidget {
+class ReportPoliceTextareaScreen extends StatefulWidget {
   @override
-  State<ReportMesTextareaScreen> createState() =>
-      _ReportMesTextareaScreenState();
+  State<ReportPoliceTextareaScreen> createState() =>
+      _ReportPoliceTextareaScreenState();
   late String appBarTitle;
+  late String whereCall;
 
-  ReportMesTextareaScreen(this.appBarTitle);
+  ReportPoliceTextareaScreen(this.appBarTitle, this.whereCall);
 }
 
-class _ReportMesTextareaScreenState extends State<ReportMesTextareaScreen> {
+class _ReportPoliceTextareaScreenState
+    extends State<ReportPoliceTextareaScreen> {
   double heightTextField = 162;
   String textButton = "Читать дальше";
   int maxTextLine = 9;
@@ -56,18 +59,28 @@ class _ReportMesTextareaScreenState extends State<ReportMesTextareaScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Padding(
-                            padding: getPadding(left: 23, top: 21),
-                            child: Text("Сумма к оплате",
-                                overflow: TextOverflow.ellipsis,
-                                textAlign: TextAlign.left,
-                                style: AppStyle.txtMontserratRomanSemiBold15)),
-                        Padding(
-                            padding: getPadding(left: 23, top: 5),
-                            child: Text("1500 ₽",
-                                overflow: TextOverflow.ellipsis,
-                                textAlign: TextAlign.left,
-                                style: AppStyle.txtMontserratBold18)),
+                        Visibility(
+                          visible: VersionConstant.isPaidSubscription,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                  padding: getPadding(left: 23, top: 21),
+                                  child: Text("Сумма к оплате",
+                                      overflow: TextOverflow.ellipsis,
+                                      textAlign: TextAlign.left,
+                                      style: AppStyle
+                                          .txtMontserratRomanSemiBold15)),
+                              Padding(
+                                  padding: getPadding(left: 23, top: 5),
+                                  child: Text("1500 ₽",
+                                      overflow: TextOverflow.ellipsis,
+                                      textAlign: TextAlign.left,
+                                      style:
+                                          AppStyle.txtMontserratBold26Black)),
+                            ],
+                          ),
+                        ),
                         Align(
                             alignment: Alignment.center,
                             child: Padding(
@@ -172,22 +185,33 @@ class _ReportMesTextareaScreenState extends State<ReportMesTextareaScreen> {
                                                   onTap: () {
                                                     if (_commentController
                                                         .text.isNotEmpty) {
-                                                      if(VersionConstant
-                                                          .isPaidSubscription){
+                                                      if (VersionConstant
+                                                          .isPaidSubscription) {
                                                         Navigator.push(
                                                             context,
                                                             MaterialPageRoute(
-                                                                builder: (context) =>
-                                                                    PaymentDefoultScreen()));
+                                                                builder:
+                                                                    (context) =>
+                                                                        PaymentDefoultScreen()));
                                                       } else {
-                                                        Navigator.push(
-                                                            context,
-                                                            MaterialPageRoute(
-                                                                builder: (context) =>
-                                                                    RecordFinalScreen()));
+                                                        if (AfterPay
+                                                                .whereCall ==
+                                                            "Минуты") {
+                                                          Navigator.push(
+                                                              context,
+                                                              MaterialPageRoute(
+                                                                  builder:
+                                                                      (context) =>
+                                                                          CallWaitingWindowScreen()));
+                                                        } else {
+                                                          Navigator.push(
+                                                              context,
+                                                              MaterialPageRoute(
+                                                                  builder:
+                                                                      (context) =>
+                                                                          RecordFinalScreen()));
+                                                        }
                                                       }
-                                                    } else {
-
                                                     }
                                                   },
                                                   child: Container(
@@ -240,10 +264,11 @@ class _ReportMesTextareaScreenState extends State<ReportMesTextareaScreen> {
                                                 ),
                                               ])),
                                       Visibility(
-                                        visible:
-                                            widget.appBarTitle == "Заявление"
-                                                ? true
-                                                : false,
+                                        visible: widget.appBarTitle ==
+                                                    "Заявление" &&
+                                                widget.whereCall == "Полиция"
+                                            ? true
+                                            : false,
                                         child: Column(
                                           children: [
                                             Padding(
@@ -361,19 +386,33 @@ class _ReportMesTextareaScreenState extends State<ReportMesTextareaScreen> {
                                             ),
                                             GestureDetector(
                                                 onTap: () {
-                                                  if (VersionConstant
-                                                      .isPaidSubscription) {
-                                                    Navigator.push(
-                                                        context,
-                                                        MaterialPageRoute(
-                                                            builder: (context) =>
-                                                                PaymentDefoultScreen()));
-                                                  } else {
-                                                    Navigator.push(
-                                                        context,
-                                                        MaterialPageRoute(
-                                                            builder: (context) =>
-                                                                RecordFinalScreen()));
+                                                  if (_commentController
+                                                      .text.isNotEmpty) {
+                                                    if (VersionConstant
+                                                        .isPaidSubscription) {
+                                                      Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder: (context) =>
+                                                                  PaymentDefoultScreen()));
+                                                    } else {
+                                                      if (AfterPay.whereCall ==
+                                                          "Минуты") {
+                                                        Navigator.push(
+                                                            context,
+                                                            MaterialPageRoute(
+                                                                builder:
+                                                                    (context) =>
+                                                                        CallWaitingWindowScreen()));
+                                                      } else {
+                                                        Navigator.push(
+                                                            context,
+                                                            MaterialPageRoute(
+                                                                builder:
+                                                                    (context) =>
+                                                                        RecordFinalScreen()));
+                                                      }
+                                                    }
                                                   }
                                                 },
                                                 child: Container(

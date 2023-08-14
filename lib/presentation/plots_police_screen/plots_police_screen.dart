@@ -9,6 +9,7 @@ import 'package:careme24/widgets/custom_drop_down.dart';
 import 'package:flutter/material.dart';
 
 import '../../custom_widget_my/for_whom.dart';
+import '../../custom_widget_my/paid_service_swither.dart';
 
 class PlotsPoliceScreen extends StatefulWidget {
   late String reasonForTheCall;
@@ -104,41 +105,7 @@ bool _price  = false;
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 ForWhom(name: 'Степанов Илья',),
-                                Padding(
-                                    padding: getPadding(bottom: 1),
-                                    child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Text("Платная услуга",
-                                              overflow: TextOverflow.ellipsis,
-                                              textAlign: TextAlign.left,
-                                              style: AppStyle
-                                                  .txtMontserratSemiBold12Gray50001),
-                                          Container(
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              border: Border.all(
-                                                color: ColorConstant.gray50001,
-                                                width: 1,
-                                              ),
-                                            ),
-                                            child: AdvancedSwitch(
-                                              controller: _controller,
-                                              activeColor:
-                                                  ColorConstant.greenA70002,
-                                              inactiveColor:
-                                                  ColorConstant.gray100,
-                                              borderRadius: BorderRadius.all(
-                                                  const Radius.circular(8)),
-                                              width: 80.0,
-                                              height: 36.0,
-                                              enabled: true,
-                                              disabledOpacity: 0.5,
-                                            ),
-                                          ),
-                                        ]))
+                                PaySwitcher(),
                               ])),
                       Container(
                         margin: getMargin(top: 32),
@@ -293,10 +260,7 @@ bool _price  = false;
                                     estimation: estimationHospital,
                                     imagePath: ImageConstant.policehat,
                                     cardColor: ColorConstant.indigoA100,
-                                    whereCall: ModalRoute.of(context)!
-                                        .settings
-                                        .name
-                                        .toString(), reasonText: "",
+                                    whereCall: "Police_about", reasonText: "",
                                   );
                                 },
                                 separatorBuilder: (BuildContext context,

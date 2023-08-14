@@ -24,8 +24,8 @@ class SelfhelpItemWidget extends StatelessWidget {
           Navigator.push(context, MaterialPageRoute(builder: (context) => SelfHelpReadScreen()));
         } else if (wherecall == "Полиция"){
           Navigator.push(context, MaterialPageRoute(builder: (context) => PoliceRecomendationReadPage()));
-        } else {
-          print("что то не так написал в переходе на read страницу");
+        } else if (wherecall == "МЧС"){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => PoliceRecomendationReadPage()));
         }
       },
       child: Card(
