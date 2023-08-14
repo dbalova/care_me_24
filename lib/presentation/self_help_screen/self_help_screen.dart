@@ -22,8 +22,12 @@ class SelfHelpScreen extends StatefulWidget {
 class _SelfHelpScreenState extends State<SelfHelpScreen> {
   bool isSelectedSwitch = false;
   final _controller = ValueNotifier<bool>(false);
-
-  List<String> dropdownItemList = ["Item One", "Item Two", "Item Three"];
+  String reasonName = 'Боль в ухе';
+  callback (String nameofreason){
+    setState(() {
+      reasonName = nameofreason;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +100,7 @@ class _SelfHelpScreenState extends State<SelfHelpScreen> {
                               ])),
                       GestureDetector(
                         onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => ListSymptomsScreen()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => ListSymptomsScreen(callback: callback,)));
                         },
                         child:  Padding(
                           padding: getPadding(top: 14),
@@ -115,7 +119,7 @@ class _SelfHelpScreenState extends State<SelfHelpScreen> {
                                   Container(
                                     width: MediaQuery.of(context).size.width/2,
                                     child: Text(
-                                        'Боль в ухе',
+                                        reasonName,
                                         style: AppStyle.txtMontserratSemiBold19,
                                         overflow: TextOverflow.ellipsis
                                     ),

@@ -9,6 +9,10 @@ import '../../widgets/app_bar/appbar_title.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
 
 class ListSymptomsScreen extends StatelessWidget {
+  late Function callback;
+  ListSymptomsScreen({
+   required this.callback
+});
   TextEditingController frame7299Controller = TextEditingController();
   final List<String> reasonText = <String>[
     '3.12. Гипертонический криз',
@@ -89,10 +93,16 @@ class ListSymptomsScreen extends StatelessWidget {
                           child: ListView.separated(
                             itemCount: reasonText.length,
                             itemBuilder: (BuildContext context, int index) {
-                              return ReasonSelfHelp(
-                                text: reasonText[index],
-                                disable: reasonDisable[index],
-                                backgroundColor: Colors.white,
+                              return GestureDetector(
+                                onTap: (){
+                                  callback(reasonText[index]);
+                                  Navigator.pop(context);
+                                },
+                                child: ReasonSelfHelp(
+                                  text: reasonText[index],
+                                  disable: reasonDisable[index],
+                                  backgroundColor: Colors.white,
+                                ),
                               );
                             },
                             separatorBuilder:
