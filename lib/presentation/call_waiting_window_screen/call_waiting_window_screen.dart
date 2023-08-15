@@ -92,7 +92,7 @@ class CallWaitingWindowScreen extends StatelessWidget {
                        GestureDetector(
                            onTap: (){
                              print( WhoCall.callName.toString());
-                             if( WhoCall.callName.toString().contains('МЧС ВЫЗВАН'))
+                             if(( WhoCall.callName.toString().contains('МЧС ВЫЗВАН'))|| ( WhoCall.callName.toString().contains('ПОЛИЦИЯ ВЫЗВАНА')))
                              {
                                Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
 
@@ -120,7 +120,7 @@ class CallWaitingWindowScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(10)),
                           child: Center(
                               child: Text(
-                              WhoCall.callName.toString().contains('МЧС ВЫЗВАН')?'На главную':
+                             ( WhoCall.callName.toString().contains('МЧС ВЫЗВАН')|| ( WhoCall.callName.toString().contains('ПОЛИЦИЯ ВЫЗВАНА')))?'На главную':
 
                             "Написать врачу",
                             style: AppStyle.txtMontserratSemiBold18WhiteA700,

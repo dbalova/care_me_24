@@ -143,7 +143,13 @@ class _ReportPoliceTextareaScreenState
                                               )),
                                         ),
                                       ),
-                                      Padding(
+                                     Visibility(
+                                         visible: widget.appBarTitle ==
+                                             "Заявление" &&
+                                             widget.whereCall == "Полиция"
+                                             ? false
+                                             : true,
+                                         child: Padding(
                                           padding: getPadding(top: 18),
                                           child: Row(
                                               mainAxisAlignment:
@@ -262,7 +268,7 @@ class _ReportPoliceTextareaScreenState
                                                     )),
                                                   ),
                                                 ),
-                                              ])),
+                                              ]))),
                                       Visibility(
                                         visible: widget.appBarTitle ==
                                                     "Заявление" &&
