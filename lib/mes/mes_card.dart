@@ -83,6 +83,8 @@ class MESCard extends StatelessWidget {
         margin: getMargin(bottom: 12),
         elevation: 8,
         clipBehavior: Clip.hardEdge,
+    shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(10),),
         child: Container(
             width: MediaQuery.of(context).size.width-40,
             decoration: BoxDecoration(borderRadius: BorderRadiusStyle.roundedBorder10),

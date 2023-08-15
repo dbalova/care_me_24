@@ -33,7 +33,7 @@ class RecordFinalScreen extends StatelessWidget {
                       Navigator.pop(context);
                     }),
                 centerTitle: true,
-                title: AppbarTitle(text: 'Завершение записи'),
+                title: AppbarTitle(text: 'Завершение'),
 
                 styleType: Style.bgFillBlue60001),
             body: Container(

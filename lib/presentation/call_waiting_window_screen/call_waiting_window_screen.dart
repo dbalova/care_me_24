@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import '../../core/utils/color_constant.dart';
 import '../../core/utils/image_constant.dart';
 import '../../core/utils/size_utils.dart';
+import '../../custom_page_my/main_page.dart';
 import '../../theme/app_decoration.dart';
 import '../../theme/app_style.dart';
 import '../../widgets/custom_image_view.dart';
 import '../../widgets/med_screens/chat_page.dart';
+import '../home_screen/home_screen.dart';
 
 class CallWaitingWindowScreen extends StatelessWidget {
   @override
@@ -22,7 +24,7 @@ class CallWaitingWindowScreen extends StatelessWidget {
                     height: 48,
                     color: ColorConstant.blue60001,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      //mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Align(
                           alignment: Alignment.centerLeft,
@@ -33,14 +35,11 @@ class CallWaitingWindowScreen extends StatelessWidget {
                                 Navigator.pop(context);
                               }),
                         ),
-                        Expanded(
-                          child: Center(
-                            child: Text("Ожидайте",
-                                style: AppStyle.txtMontserratBold20.copyWith(
-                                  color: ColorConstant.whiteA700,
-                                )),
-                          ),
-                        )
+                      Expanded( child: Text("Ожидайте",
+                            textAlign: TextAlign.center,
+                            style: AppStyle.txtMontserratBold20.copyWith(
+                              color: ColorConstant.whiteA700,
+                            )))
                       ],
                     ),
                   ),
@@ -91,10 +90,20 @@ class CallWaitingWindowScreen extends StatelessWidget {
                               ],
                             )),
                        GestureDetector(
-                           onTap: (){ Navigator.push(
+                           onTap: (){
+                             print( WhoCall.callName.toString());
+                             if( WhoCall.callName.toString().contains('МЧС ВЫЗВАН'))
+                             {
+                               Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+
+                             }
+                          /*   Navigator.push(
                                context,
                                MaterialPageRoute(
-                                   builder: (context) => ChatScreen()));},
+                                   builder: (context) => ChatScreen()));*/
+
+
+                             },
                            child: Container(
                           margin: getMargin(top: 56),
                           width: MediaQuery.of(context).size.width - 40,
@@ -111,6 +120,8 @@ class CallWaitingWindowScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(10)),
                           child: Center(
                               child: Text(
+                              WhoCall.callName.toString().contains('МЧС ВЫЗВАН')?'На главную':
+
                             "Написать врачу",
                             style: AppStyle.txtMontserratSemiBold18WhiteA700,
                           )),

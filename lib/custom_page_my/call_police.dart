@@ -293,16 +293,37 @@ class _CallPoliceScreenState extends State<CallPoliceScreen> {
                                         ForWhom(name: 'Степанов Илья',),
                                         PaySwitcher(),
                                       ])),
-                              CustomDropDown(
-                                  focusNode: FocusNode(),
-                                  icon: Container(
-                                      margin: getMargin(left: 30, right: 20),
-                                      child: CustomImageView(
-                                          svgPath: ImageConstant
-                                              .imgArrowdownLightBlue900)),
-                                  hintText: "Проблема",
-                                  margin: getMargin(top: 16, right: 6),
+                              Padding(
+                                padding: getPadding(top: 14),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Color.fromRGBO(178, 218, 255, 100),
                                   ),
+                                  width: MediaQuery.of(context).size.width - 40,
+                                  height: 80,
+                                  child: Padding(
+                                    padding: getPadding(left: 20, right: 20),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Container(
+                                          width: MediaQuery.of(context).size.width/2,
+                                          child: Text(
+                                              'Проблема',
+                                              style: AppStyle.txtMontserratSemiBold19,
+                                              overflow: TextOverflow.ellipsis
+                                          ),
+                                        ),
+                                        CustomImageView(
+                                          svgPath:
+                                          ImageConstant.imgArrowdownLightBlue900,
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
                               Padding(
                                 padding: getPadding(top: 18),
                                 child: Row(
