@@ -44,23 +44,23 @@ class _AppointmentToPoliceScreenState extends State<AppointmentToPoliceScreen> {
               height: getVerticalSize(16),
               width: getHorizontalSize(11),
               svgPath: ImageConstant.imgArrowleft,
-              margin: getMargin(left: 32, top: 12, bottom: 20),
+              margin: getMargin(left: 15, right: 15, top: 15, bottom: 15),
               onTap: () {
                 Navigator.pop(context);
               }),
           centerTitle: true,
           title: AppbarTitle(text: "Юрист онлайн"),
           styleType: Style.bgFillBlue60001),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: Stack(
+
         children: [
           Container(
+            height: MediaQuery.of(context).size.height-160,
             decoration: AppDecoration.outlineBlack9003f2.copyWith(
               color: Colors.white,
             ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
@@ -146,111 +146,116 @@ class _AppointmentToPoliceScreenState extends State<AppointmentToPoliceScreen> {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: getPadding(top: 28, left: 24, bottom: 12),
-                  child: Text(
-                    "Дата записи",
-                    style: AppStyle.txtMontserratSemiBold18Black900,
-                  ),
-                ),
-                Row(
+                Expanded(child:SingleChildScrollView(child:Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Expanded(
-                      child: SizedBox(
-                        height: 86,
-                        child: ListView.separated(
-                          scrollDirection: Axis.horizontal,
-                          padding: const EdgeInsets.all(8),
-                          itemCount: 10,
-                          itemBuilder: (BuildContext context, int index) {
-                            return GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    if (isSelectedIndex == index) {
-                                      isSelectedIndex = -1;
-                                    } else {
-                                      isSelectedIndex = index;
-                                    }
-                                  });
-                                },
-                                child: DateContainer(
-                                  background: isSelectedIndex == index
-                                      ? ColorConstant.bluebg
-                                      : Colors.white,
-                                  dayColor: isSelectedIndex == index
-                                      ? AppStyle
-                                          .txtMontserratSemiBold18WhiteA700
-                                      : AppStyle
-                                          .txtMontserratSemiBold18Black900,
-                                  weekDayColor: isSelectedIndex == index
-                                      ? AppStyle.txtMontserratMedium15WhiteA700
-                                      : AppStyle.txtMontserratMedium15Blue600,
-                                ));
-                          },
-                          separatorBuilder: (BuildContext context, int index) =>
-                              Padding(padding: getPadding(left: 8, right: 8)),
-                        ),
+                    Padding(
+                      padding: getPadding(top: 28, left: 24, bottom: 12),
+                      child: Text(
+                        "Дата записи",
+                        style: AppStyle.txtMontserratSemiBold18Black900,
                       ),
                     ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: SizedBox(
+                            height: 86,
+                            child: ListView.separated(
+                              scrollDirection: Axis.horizontal,
+                              padding: const EdgeInsets.all(8),
+                              itemCount: 10,
+                              itemBuilder: (BuildContext context, int index) {
+                                return GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        if (isSelectedIndex == index) {
+                                          isSelectedIndex = -1;
+                                        } else {
+                                          isSelectedIndex = index;
+                                        }
+                                      });
+                                    },
+                                    child: DateContainer(
+                                      background: isSelectedIndex == index
+                                          ? ColorConstant.bluebg
+                                          : Colors.white,
+                                      dayColor: isSelectedIndex == index
+                                          ? AppStyle
+                                              .txtMontserratSemiBold18WhiteA700
+                                          : AppStyle
+                                              .txtMontserratSemiBold18Black900,
+                                      weekDayColor: isSelectedIndex == index
+                                          ? AppStyle.txtMontserratMedium15WhiteA700
+                                          : AppStyle.txtMontserratMedium15Blue600,
+                                    ));
+                              },
+                              separatorBuilder: (BuildContext context, int index) =>
+                                  Padding(padding: getPadding(left: 8, right: 8)),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: getPadding(top: 28, left: 24, bottom: 12),
+                      child: Text(
+                        "Время записи",
+                        style: AppStyle.txtMontserratSemiBold18Black900,
+                      ),
+                    ),
+                    Center(
+                        child: TimeContainer(
+                      timeCount: 20,
+                      callback: callBackTime,
+                    )),
+                    Align(
+                        alignment: Alignment.center,
+                        child: Padding(
+                            padding: getPadding(left: 20, top: 14, right: 20),
+                            child: OutlineGradientButton(
+                                padding: EdgeInsets.only(
+                                    left: getHorizontalSize(1),
+                                    top: getVerticalSize(1),
+                                    right: getHorizontalSize(1),
+                                    bottom: getVerticalSize(1)),
+                                strokeWidth: getHorizontalSize(1),
+                                gradient: LinearGradient(
+                                    begin: Alignment(1.05, 0.11),
+                                    end: Alignment(-0.02, 0.83),
+                                    colors: [
+                                      ColorConstant.blue600,
+                                      ColorConstant.indigoA400
+                                    ]),
+                                corners: Corners(
+                                    topLeft: Radius.circular(7),
+                                    topRight: Radius.circular(7),
+                                    bottomLeft: Radius.circular(7),
+                                    bottomRight: Radius.circular(7)),
+                                child: CustomButton(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  RecordDetailsOneScreen()));
+                                    },
+                                    height: getVerticalSize(47),
+                                    text: "Больше",
+                                    variant: ButtonVariant.Outline,
+                                    padding: ButtonPadding.PaddingAll12,
+                                    fontStyle: ButtonFontStyle
+                                        .MontserratRomanSemiBold15Blue,
+                                    alignment: Alignment.center)))),
                   ],
-                ),
-                Padding(
-                  padding: getPadding(top: 28, left: 24, bottom: 12),
-                  child: Text(
-                    "Время записи",
-                    style: AppStyle.txtMontserratSemiBold18Black900,
-                  ),
-                ),
-                Center(
-                    child: TimeContainer(
-                  timeCount: 8,
-                  callback: callBackTime,
-                )),
-                Align(
-                    alignment: Alignment.center,
-                    child: Padding(
-                        padding: getPadding(left: 20, top: 14, right: 20),
-                        child: OutlineGradientButton(
-                            padding: EdgeInsets.only(
-                                left: getHorizontalSize(1),
-                                top: getVerticalSize(1),
-                                right: getHorizontalSize(1),
-                                bottom: getVerticalSize(1)),
-                            strokeWidth: getHorizontalSize(1),
-                            gradient: LinearGradient(
-                                begin: Alignment(1.05, 0.11),
-                                end: Alignment(-0.02, 0.83),
-                                colors: [
-                                  ColorConstant.blue600,
-                                  ColorConstant.indigoA400
-                                ]),
-                            corners: Corners(
-                                topLeft: Radius.circular(7),
-                                topRight: Radius.circular(7),
-                                bottomLeft: Radius.circular(7),
-                                bottomRight: Radius.circular(7)),
-                            child: CustomButton(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              RecordDetailsOneScreen()));
-                                },
-                                height: getVerticalSize(47),
-                                text: "Больше",
-                                variant: ButtonVariant.Outline,
-                                padding: ButtonPadding.PaddingAll12,
-                                fontStyle: ButtonFontStyle
-                                    .MontserratRomanSemiBold15Blue,
-                                alignment: Alignment.center)))),
-                SizedBox(
-                  height: 12,
-                ),
+                ))),
+
               ],
             ),
           ),
-          Center(
+          Align(
+            alignment: Alignment.bottomCenter,
             child: GestureDetector(
               onTap: () {
                 if (isRecordSelected()) {
@@ -261,43 +266,43 @@ class _AppointmentToPoliceScreenState extends State<AppointmentToPoliceScreen> {
                 }
               },
               child: Container(
-                margin: getMargin(top: 28),
-                padding: getPadding(left: 50, right: 50),
+                margin: getMargin(bottom: 10),
+                padding: getPadding(left: 50, right: 50,),
                 width: MediaQuery.of(context).size.width - 40,
                 height: 56,
                 decoration: BoxDecoration(
                     gradient: isRecordSelected()
                         ? LinearGradient(
-                            colors: [
-                              ColorConstant.indigoA400,
-                              ColorConstant.bluegradient,
-                            ],
-                            begin: Alignment.bottomLeft,
-                            end: Alignment.topRight,
-                          )
+                      colors: [
+                        ColorConstant.indigoA400,
+                        ColorConstant.bluegradient,
+                      ],
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
+                    )
                         : LinearGradient(
-                            colors: [
-                              ColorConstant.gray50001,
-                              ColorConstant.gray50001,
-                            ],
-                            begin: Alignment.bottomLeft,
-                            end: Alignment.topRight,
-                          ),
+                      colors: [
+                        ColorConstant.gray50001,
+                        ColorConstant.gray50001,
+                      ],
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
+                    ),
                     borderRadius: BorderRadius.circular(10)),
                 child: Center(
                     child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "1450₽",
-                      style: AppStyle.txtMontserratSemiBold18WhiteA700,
-                    ),
-                    Text(
-                      "Записаться",
-                      style: AppStyle.txtMontserratSemiBold18WhiteA700,
-                    ),
-                  ],
-                )),
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "1450₽",
+                          style: AppStyle.txtMontserratSemiBold18WhiteA700,
+                        ),
+                        Text(
+                          "Записаться",
+                          style: AppStyle.txtMontserratSemiBold18WhiteA700,
+                        ),
+                      ],
+                    )),
               ),
             ),
           )

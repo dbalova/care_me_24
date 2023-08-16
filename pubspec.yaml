@@ -21,6 +21,7 @@ dependencies:
   flutter_masked_text2:
   card_swiper:
   flutter_slidable:
+  dotted_border:
 
 
   video_player: ^2.4.10
