@@ -77,7 +77,18 @@ class _ButtonHoneyCallOneScreenState extends State<ButtonHoneyCallOneScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return WillPopScope(  onWillPop: ()async{
+
+
+      if (true) {
+        Navigator.of(context)
+            .pushNamedAndRemoveUntil(AppRoutes.homeScreen, (Route<dynamic> route) => false);
+        return false;
+      } else {
+        return true;
+      }
+    },
+        child:SafeArea(
         child: Scaffold(
             backgroundColor: ColorConstant.gray100,
             resizeToAvoidBottomInset: false,
@@ -163,7 +174,7 @@ class _ButtonHoneyCallOneScreenState extends State<ButtonHoneyCallOneScreen> {
                               ))
                             ]),
                       )
-                    ]))));
+                    ])))));
   }
 
   onTapArrowleft19(BuildContext context) {

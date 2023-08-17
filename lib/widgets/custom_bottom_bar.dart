@@ -1,7 +1,10 @@
 import 'package:careme24/core/app_export.dart';
+import 'package:careme24/presentation/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../custom_page_my/police_main_page.dart';
 import '../med_home_page.dart';
+import '../mes/mes_main_page.dart';
 
 class CustomBottomBar extends StatefulWidget {
   CustomBottomBar({this.onChanged});
@@ -151,11 +154,29 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
 
           }
 
+          if (bottomMenuList[index].type ==BottomBarEnum.tf){
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => HomeScreen(0)));
+          }
+          if (bottomMenuList[index].type ==BottomBarEnum.med){
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>  HomeScreen(1)));
+          }
           if (bottomMenuList[index].type ==BottomBarEnum.police){
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => HoneyMainPage()));
+                    builder: (context) =>  HomeScreen(2)));
+          }
+          if (bottomMenuList[index].type ==BottomBarEnum.mchs){
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>  HomeScreen(3)));
           }
           setState(() {});
         },

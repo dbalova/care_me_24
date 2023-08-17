@@ -421,7 +421,7 @@ class AppRoutes {
   static const String appNavigationScreen = '/app_navigation_screen';
 
   static Map<String, WidgetBuilder> routes = {
-    homeScreen: (context) => HomeScreen(),
+    homeScreen: (context) => HomeScreen(0),
     homeFourScreen: (context) => HomeFourScreen(),
     homeTwoScreen: (context) => HomeTwoScreen(),
     homeOneScreen: (context) => HomeOneScreen(),

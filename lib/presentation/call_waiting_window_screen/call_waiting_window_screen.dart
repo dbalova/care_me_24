@@ -98,7 +98,7 @@ class CallWaitingWindowScreen extends StatelessWidget {
                              print( WhoCall.callName.toString());
                              if(( WhoCall.callName.toString().contains('МЧС ВЫЗВАН'))|| ( WhoCall.callName.toString().contains('ПОЛИЦИЯ ВЫЗВАНА')))
                              {
-                               Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                               Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(0)));
 
                              }
                              else Navigator.push(

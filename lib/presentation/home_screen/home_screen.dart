@@ -11,12 +11,15 @@ import '../../med_home_page.dart';
 import '../../mes/mes_main_page.dart';
 
 class HomeScreen extends StatefulWidget {
+  final int text;
+   HomeScreen(this.text) ;
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _bottomBarIndex = 0;
+   int _bottomBarIndex=0 ;
+
   List<String> appBarTitle = [
     "Новости", "Медицинская помощь", "Полиция", "МЧС",
   ];
@@ -44,6 +47,12 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
   final tabs = [MainPage(), HoneyMainPage(), PoliceMainPage(), MESMainPage(),];
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
+
+  @override
+  void initState() {
+    _bottomBarIndex=widget.text;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
