@@ -6,6 +6,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:media_picker_widget/media_picker_widget.dart';
 import 'package:outline_gradient_button/outline_gradient_button.dart';
+import 'package:permission_handler/permission_handler.dart';
 import '../core/constants/constants.dart';
 import '../core/utils/color_constant.dart';
 import '../core/utils/image_constant.dart';
@@ -22,6 +23,8 @@ import '../widgets/custom_button.dart';
 
 
 class ReportPoliceTextareaScreen extends StatefulWidget {
+
+
   @override
   State<ReportPoliceTextareaScreen> createState() =>
       _ReportPoliceTextareaScreenState();
@@ -36,6 +39,9 @@ class _ReportPoliceTextareaScreenState
   double heightTextField = 162;
   String textButton = "Читать дальше";
   int maxTextLine = 9;
+  List<Media> mediaList = [];
+  int _indexSelect = -1;
+  List<String> _isFileSelect =[];
 
   TextEditingController _commentController = TextEditingController();
 
@@ -399,7 +405,11 @@ class _ReportPoliceTextareaScreenState
                                                     ),
                                                   ),
                                                 ),
-                                                Row(
+                                              SingleChildScrollView(
+                                                  scrollDirection: Axis.horizontal,
+                                                  child:Container(
+                                                      //width: MediaQuery.of(context).size.width-40,
+                                                      child:  Row(
                                                 children: [DottedBorder(
                                                   borderType: BorderType.RRect,
                                                   radius: Radius.circular(10),
@@ -408,17 +418,229 @@ class _ReportPoliceTextareaScreenState
                                                   strokeWidth: 1,
 
                                                   child:GestureDetector(
-                                                    onTap: (){
-                                                      Navigator.push(
+                                                    onTap: (){ getPermissionStatus();
+                                                      /*Navigator.push(
                                                           context,
                                                           MaterialPageRoute(
                                                               builder:
                                                                   (context) =>
-                                                                  FileCatalogPage()));
+                                                                  FileCatalogPage()));*/
+                                                      showModalBottomSheet(context: context,
+                                                          builder: (context)
+                                                          {
 
+                                                          return StatefulBuilder(builder: (BuildContext context, void Function(void Function()) setState)
+                                                          {   return Container(
+                                                            padding: const EdgeInsets.only(top: 18),
+                                                            decoration: BoxDecoration(
+                                                              color: ColorConstant.whiteA70000,
+                                                            ),
+                                                            child: Column(
+                                                              children: [
+                                                                Container(height: 50,
+                                                                  width: MediaQuery.of(context).size.width,
+                                                                  child: Row(
+                                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                                    children: [
+                                                                      GestureDetector(
+                                                                          onTap: (){
+                                                                            //_isVisibleFilePicker= false;
+                                                                            setState(() {
+
+                                                                            });
+                                                                            Navigator.push(
+                                                                                context,
+                                                                                MaterialPageRoute(
+                                                                                    builder: (context) => CustomCameraScreen()));},
+                                                                          child: Container(
+                                                                            decoration: BoxDecoration(
+                                                                              color: Colors.blue,
+                                                                              borderRadius: BorderRadius.circular(10),
+                                                                            ),
+                                                                            padding: getPadding(left: 10,right:10 ),
+
+                                                                            height: 40,
+                                                                            width: MediaQuery.of(context).size.width/2 - 20,
+                                                                            child: Row(
+                                                                              mainAxisAlignment: MainAxisAlignment.center,
+                                                                              children: [
+                                                                                Icon(Icons.camera_alt, color: Colors.white,),
+                                                                                Text('Камера',
+                                                                                  style :TextStyle(
+                                                                                    fontSize: 14,
+                                                                                    color: Colors.white,
+                                                                                    fontFamily: 'Montserrat',
+                                                                                    fontWeight: FontWeight.w200,
+                                                                                  ),),],),)),
+                                                                      SizedBox(width: 10,),
+                                                                      GestureDetector(
+                                                                          onTap: (){
+                                                                            Navigator.pop(context);
+                                                                            openImagePicker(context);
+
+                                                                            //_isVisibleFilePicker=false;
+                                                                            setState(() {
+
+                                                                            });},
+                                                                          child:Container(
+                                                                            decoration: BoxDecoration(
+                                                                              color: Colors.blue,
+                                                                              borderRadius: BorderRadius.circular(10),
+                                                                            ),
+                                                                            padding: getPadding(left: 10,right:10 ),
+
+                                                                            height: 40,
+                                                                            width: MediaQuery.of(context).size.width/2 - 20,
+                                                                            child: Row(
+                                                                              mainAxisAlignment: MainAxisAlignment.center,
+                                                                              children: [
+                                                                                Icon(Icons.image, color: Colors.white,),
+                                                                                Text('Галерея',
+                                                                                  style :TextStyle(
+                                                                                    fontSize: 14,
+                                                                                    color: Colors.white,
+                                                                                    fontFamily: 'Montserrat',
+                                                                                    fontWeight: FontWeight.w200,
+                                                                                  ),),],),)),
+
+
+                                                                    ],),),
+                                                                Divider(thickness: 2,),
+                                                                Container(height: 20,
+                                                                  child: Row(
+                                                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                                    children: [GestureDetector(
+                                                                        onTap:(){
+                                                                          _indexSelect = 1;
+                                                                          setState(() {
+
+                                                                          });
+                                                                        },
+                                                                        child: Text('Все',  style :TextStyle(
+                                                                          fontSize: 14,
+                                                                          color:   _indexSelect == 1?Colors.blue:Colors.black,
+                                                                          fontFamily: 'Montserrat',
+                                                                          fontWeight: FontWeight.w200,
+                                                                        ))),
+                                                                      GestureDetector(
+                                                                          onTap:(){
+                                                                            _indexSelect = 2;
+                                                                            setState(() {
+
+                                                                            });
+                                                                          },
+                                                                          child: Text('Фото',  style :TextStyle(
+                                                                            fontSize: 14,
+                                                                            color:   _indexSelect == 2?Colors.blue:Colors.black,
+                                                                            fontFamily: 'Montserrat',
+                                                                            fontWeight: FontWeight.w200,
+                                                                          ))),
+                                                                      GestureDetector(
+                                                                          onTap:(){
+                                                                            _indexSelect =3;
+                                                                            setState(() {
+
+                                                                            });
+                                                                          },
+                                                                          child: Text('Видео',  style :TextStyle(
+                                                                            fontSize: 14,
+                                                                            color:   _indexSelect == 3?Colors.blue:Colors.black,
+                                                                            fontFamily: 'Montserrat',
+                                                                            fontWeight: FontWeight.w200,
+                                                                          ))),
+                                                                      GestureDetector(
+                                                                          onTap:(){
+                                                                            _indexSelect = 4;
+                                                                            setState(() {
+
+                                                                            });
+                                                                          },
+                                                                          child: Text('Текстовые',  style :TextStyle(
+                                                                            fontSize: 14,
+                                                                            color:   _indexSelect == 4?Colors.blue:Colors.black,
+                                                                            fontFamily: 'Montserrat',
+                                                                            fontWeight: FontWeight.w200,
+                                                                          ))),],),
+                                                                ),
+                                                                Divider(thickness: 2,),
+                                                                Expanded( child: Container(
+                                                                  //height: MediaQuery.of(context).size.height/4,
+                                                                    child: filesss(context))),
+                                                               Padding(
+                                                                   padding: getPadding(right: 4),
+                                                                   child:GestureDetector(
+                                                                   onTap: (){
+Navigator.pop(context);
+
+                                                                   },
+                                                                   child:Container(
+                                                                  margin: getMargin(top: 18,bottom: 8),
+                                                                  width: MediaQuery.of(context)
+                                                                      .size
+                                                                      .width -
+                                                                      40,
+                                                                  height: 56,
+                                                                  decoration: BoxDecoration(
+                                                                      gradient:
+                                                                      LinearGradient(
+                                                                        colors: [
+                                                                          ColorConstant
+                                                                              .indigoA400,
+                                                                          ColorConstant
+                                                                              .bluegradient,
+                                                                        ],
+                                                                        begin: Alignment
+                                                                            .bottomLeft,
+                                                                        end: Alignment
+                                                                            .topRight,
+                                                                      ),
+                                                                 /*     _isFileSelect
+                                                                          .isNotEmpty
+                                                                          ? LinearGradient(
+                                                                        colors: [
+                                                                          ColorConstant
+                                                                              .indigoA400,
+                                                                          ColorConstant
+                                                                              .bluegradient,
+                                                                        ],
+                                                                        begin: Alignment
+                                                                            .bottomLeft,
+                                                                        end: Alignment
+                                                                            .topRight,
+                                                                      )
+                                                                          : LinearGradient(
+                                                                        colors: [
+                                                                          ColorConstant
+                                                                              .gray50001,
+                                                                          ColorConstant
+                                                                              .gray50001,
+                                                                        ],
+                                                                        begin: Alignment
+                                                                            .bottomLeft,
+                                                                        end: Alignment
+                                                                            .topRight,
+                                                                      ),*/
+                                                                      borderRadius:
+                                                                      BorderRadius.circular(
+                                                                          10)),
+                                                                  child: Center(
+                                                                      child: Text(
+                                                                       /* _isFileSelect
+                                                                            .isNotEmpty? "Добавить" :'Отменить',*/
+                                                                        "Добавить",
+                                                                        style: AppStyle
+                                                                            .txtMontserratSemiBold18WhiteA700,
+                                                                      )),
+                                                                )))
+                                                              ],
+                                                            ),
+                                                          ); },);
+
+                                                          });
 
                                                     },
                                                     child: Container(
+
                                                       height: 90,
                                                       width: 90,
                                                       child: Icon(Icons.description,color: Colors.grey.shade300, size: 40,),
@@ -427,9 +649,11 @@ class _ReportPoliceTextareaScreenState
 
 
                                                   ),
-                                                )],
-
                                                 ),
+                                                  previewList(), _isFileSelect.isEmpty ? SizedBox():previewListFiles()
+                                                ],
+
+                                                ))),
 
 
                                                 GestureDetector(
@@ -518,6 +742,324 @@ class _ReportPoliceTextareaScreenState
 
               ],
             )));
+  }
+  Widget filesss(BuildContext context) {
+    late var refreshGridView;
+    final Directory directory = new Directory(
+        '/storage/emulated/0/Download');
+
+    var imageList = directory
+        .listSync()
+        .map((item) => item.path)
+
+        .toList(growable: false);
+    return StatefulBuilder(builder: (BuildContext context, void Function(void Function()) setState)
+    {
+      return ListView.separated(
+          shrinkWrap: true,
+          itemCount: imageList.length,
+
+          itemBuilder: (context, index) {
+            File file = new File(imageList[index]);
+            String name = file.path.split('/').last;
+            return GestureDetector(
+                onTap: (){
+                  if (_isFileSelect.toString().contains(name))
+                  {_isFileSelect.remove(name);}
+                  else {
+                    _isFileSelect.add(name);
+                  }
+                  setState(() {
+
+                  });},
+                child:Padding(
+                  padding: new EdgeInsets.all(8.0),
+                  child:Row(
+
+
+                    children: [
+                      Icon(Icons.file_present, color: Colors.grey.shade400,
+                        size: 30 ,),
+                      SizedBox(width: 10,),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                              width: MediaQuery.of(context).size.width/1.5,
+                              child: Text(name,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color:  Colors.black,
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w400,
+                                ),)),
+                          Text('30 Mb', style: TextStyle(
+                            fontSize: 12,
+                            color:  Colors.grey.shade400,
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.w400,
+                          ))
+                        ],
+                      ),
+                      Spacer(),
+                      Container(
+
+                        height: 15, width: 15,
+                        decoration: BoxDecoration(
+                            borderRadius:
+                            BorderRadius.circular(
+                                100),
+                            color: _isFileSelect.toString().contains(name)  ?Colors.blue: ColorConstant.whiteA700
+                        ),), SizedBox(width: 15,)
+                    ],
+                  ),
+                ));
+          },
+          separatorBuilder:
+              (BuildContext context, int index) =>
+          const Divider(indent: 0, height: 1)
+      );
+
+    },);
+  }
+  void openImagePicker(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Container(
+            width: MediaQuery.of(context).size.width,
+            //  height: MediaQuery.of(context).size.height,
+            child:Column(
+              children: [
+                Container(height: 50,
+                  width: MediaQuery.of(context).size.width,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                          onTap: (){
+                            Navigator.pop(context);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => CustomCameraScreen()));
+                          },
+                          child:Container(
+                            decoration: BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            padding: getPadding(left: 10,right:10 ),
+
+                            height: 40,
+                            width: MediaQuery.of(context).size.width/2 - 20,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(Icons.camera_alt, color: Colors.white,),
+                                Text('Камера',
+                                  style :TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.white,
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w200,
+                                  ),),],),)),
+                      SizedBox(width: 10,),
+                      GestureDetector(
+
+                          onTap: (){//_isVisibleFilePicker=true;
+                          Navigator.pop(context);
+
+                          setState(() {
+
+                          });},
+                          child:Container(
+                            decoration: BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            padding: getPadding(left: 10,right:10 ),
+
+                            height: 40,
+                            width: MediaQuery.of(context).size.width/2 - 20,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(Icons.description, color: Colors.white,),
+                                Text('Документы',
+                                  style :TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.white,
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w200,
+                                  ),),],),)),
+
+
+                    ],),),
+                Expanded(child:Container(
+                  // height: MediaQuery.of(context).size.height/2,
+                    child:MediaPicker(
+
+                      mediaList: mediaList,
+                      onPicked: (selectedList) {
+
+
+                        setState(() => mediaList = selectedList);
+                        Navigator.pop(context);
+                      },
+                      onCancel: () {
+
+                        Navigator.pop(context);
+                      },
+                      mediaCount: MediaCount.multiple,
+                      mediaType: MediaType.all,
+                      decoration: PickerDecoration(
+                        albumCountTextStyle: TextStyle(
+                          fontSize: 14,
+                          color: Colors.black,
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.w200,
+                        ),
+                        albumTextStyle: TextStyle(
+                          fontSize: 14,
+                          color:  Colors.black,
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.w200,
+                        ),
+                        completeTextStyle: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white,
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.w200,
+                        ),
+                        completeText: 'Продолжить',
+                        blurStrength: 0,
+                        scaleAmount: 1,
+                        counterBuilder: (context, index){
+                          if(index==null) return const SizedBox();
+                          return Align(
+                            alignment: Alignment.topRight,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.blue,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              padding: const EdgeInsets.all(4),
+                              child: Text(
+                                '$index',
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ))),
+              ],
+            ));
+      },
+    );
+  }
+  Widget previewList() {
+    return SizedBox(
+      height: 96,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        shrinkWrap: true,
+        children: List.generate(
+            mediaList.length,
+                (index) => Padding(
+              padding: const EdgeInsets.only(left: 4,right: 4),
+              child: GestureDetector(
+                  onTap: (){mediaList.remove(mediaList[index]);
+                  setState(() {
+
+                  });},
+                  child:Card(
+                      shape: RoundedRectangleBorder(
+                        //side:  BorderSide(color: Colors.green,width: 3),
+                          borderRadius: BorderRadius.all(Radius.circular(10))
+                      ),
+                      clipBehavior: Clip.antiAlias,
+                      child: Container( height: 90,
+                        width: 90,
+                        child: mediaList[index].thumbnail==null ? const SizedBox() : Image.memory(
+                          mediaList[index].thumbnail!,
+                          fit: BoxFit.cover,
+                        ),)
+                  )),
+            )),
+      ),
+    );
+  }
+
+
+  Widget previewListFiles() {
+    return SizedBox(
+      height: 96,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        shrinkWrap: true,
+        children: List.generate(
+            _isFileSelect.length,
+                (index) => Padding(
+              padding: const EdgeInsets.only(left: 4,right: 4),
+              child: GestureDetector(
+                  onTap: (){_isFileSelect.remove(_isFileSelect[index]);
+                  setState(() {
+
+                  });},
+                  child:Card(
+                      shape: RoundedRectangleBorder(
+                        //side:  BorderSide(color: Colors.green,width: 3),
+                          borderRadius: BorderRadius.all(Radius.circular(10))
+                      ),
+                      clipBehavior: Clip.antiAlias,
+                      child: Container( height: 90,
+                        width: 90,
+                        decoration: BoxDecoration(color: Colors.blue),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.description, color: Colors.white,),
+                              Text(_isFileSelect[index], style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.white,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w200,
+                              ),
+                              overflow: TextOverflow.ellipsis,),
+
+
+                            ],
+
+                          ),
+                        ))
+                  )),
+            )),
+      ),
+    );
+  }
+
+  getPermissionStatus() async {
+    await Permission.storage.request();
+    var status = await Permission.storage.status;
+
+    if (status.isGranted) {
+      print('Camera Permission: GRANTED');
+      setState(() {
+       // _isCameraPermissionGranted = true;
+      });
+      // Set and initialize the new camera
+
+    } else {
+      print('Camera Permission: DENIED');
+    }
   }
 
 }

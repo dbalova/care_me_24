@@ -88,7 +88,7 @@ class _ButtonCallPoliceThreeScreenState
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
-                                    width: 240,
+                                    width: MediaQuery.of(context).size.width/1.5,
                                     child: Text(
                                       widget.reasonForTheCall,
                                       style: AppStyle.txtMontserratSemiBold19,

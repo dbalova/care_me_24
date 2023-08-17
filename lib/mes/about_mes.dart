@@ -275,7 +275,7 @@ class _AboutMESState extends State<AboutMES> {
                                                                 top: 1, right: 4),
                                                             child: Row(
                                                                 mainAxisAlignment:
-                                                                MainAxisAlignment.end,
+                                                                MainAxisAlignment.spaceBetween,
                                                                 children: [
                                                                   CustomImageView(
                                                                       imagePath:

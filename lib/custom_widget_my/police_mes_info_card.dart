@@ -69,7 +69,7 @@ class PoliceMESInfoCard extends StatelessWidget {
                 children: [
                   Container(
                       width: 67,
-                      height: 81,
+                      height: 78,
                       decoration: BoxDecoration(
                         color: cardColor,
                         borderRadius: BorderRadius.only(
@@ -92,7 +92,7 @@ class PoliceMESInfoCard extends StatelessWidget {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 230,
+                          width:  MediaQuery.of(context).size.width/2,
                           child: Text(
                               policeMESName,
                               textAlign: TextAlign.left,
@@ -103,7 +103,7 @@ class PoliceMESInfoCard extends StatelessWidget {
                         Padding(
                           padding: getPadding(top: 3),
                           child: Container(
-                            width: 220,
+                            width:  MediaQuery.of(context).size.width/2,
                             child: Text(
                                 addres,
                                 textAlign: TextAlign.left,

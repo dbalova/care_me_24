@@ -715,7 +715,7 @@ class _GoodsMoreOneScreenState extends State<GoodsMoreOneScreen> {
                                                                 style:TextStyle(
                                                                   color: ColorConstant.blueGray800,
                                                                   fontSize: getFontSize(
-                                                                    36,
+                                                                    32,
                                                                   ),
                                                                   fontFamily: 'Montserrat',
                                                                   fontWeight: FontWeight.w600,

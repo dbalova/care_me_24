@@ -55,6 +55,7 @@ class CallWaitingWindowScreen extends StatelessWidget {
                                 borderRadius: BorderRadiusStyle.roundedBorder10),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
                                   padding: getPadding(top: 24),
@@ -65,7 +66,7 @@ class CallWaitingWindowScreen extends StatelessWidget {
                                 ),
                                 Divider(
                                   thickness: 2,
-                                  height: 48,
+
                                 ),
                                 Text(
                                   "Время ожидания",
@@ -81,11 +82,14 @@ class CallWaitingWindowScreen extends StatelessWidget {
                                 ),
                                 Divider(
                                   thickness: 2,
-                                  height: 56,
+
                                 ),
-                                Text(
-                                  "Отследить на карте",
-                                  style: AppStyle.txtMontserratSemiBold18,
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    "Отследить на карте",
+                                    style: AppStyle.txtMontserratSemiBold18,
+                                  ),
                                 ),
                               ],
                             )),
@@ -97,10 +101,10 @@ class CallWaitingWindowScreen extends StatelessWidget {
                                Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
 
                              }
-                          /*   Navigator.push(
-                               context,
-                               MaterialPageRoute(
-                                   builder: (context) => ChatScreen()));*/
+                             else Navigator.push(
+                                 context,
+                                 MaterialPageRoute(
+                                     builder: (context) => ChatScreen()));
 
 
                              },

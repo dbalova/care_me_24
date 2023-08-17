@@ -350,7 +350,7 @@ class _CustomCameraScreenState extends State<CustomCameraScreen>
         backgroundColor: Colors.black,
         body: _isCameraPermissionGranted
             ? _isCameraInitialized
-                ? Column(
+                ?SingleChildScrollView( child:Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Container(
@@ -390,8 +390,8 @@ class _CustomCameraScreenState extends State<CustomCameraScreen>
                                     }
                                   : null,
                               child: Container(
-                                width: 60,
-                                height: 60,
+                                width: 50,
+                                height: 50,
                                 decoration: BoxDecoration(
                                   color: Colors.black,
                                   borderRadius:
@@ -436,8 +436,8 @@ class _CustomCameraScreenState extends State<CustomCameraScreen>
                                       borderRadius: BorderRadiusStyle
                                           .roundedBorder39),
                                   child: Container(
-                                      height: 48,
-                                      width: 48,
+                                      height: 44,
+                                      width: 44,
                                       decoration: AppDecoration
                                           .outlineRed90066
                                           .copyWith(
@@ -521,14 +521,14 @@ class _CustomCameraScreenState extends State<CustomCameraScreen>
                                     color: _isVideoCameraSelected
                                         ? Colors.white
                                         : Colors.white38,
-                                    size: 80,
+                                    size: 70,
                                   ),
                                   Icon(
                                     Icons.circle,
                                     color: _isVideoCameraSelected
                                         ? Colors.red
                                         : Colors.white,
-                                    size: 65,
+                                    size: 60,
                                   ),
                                   _isVideoCameraSelected &&
                                           _isRecordingInProgress
@@ -600,14 +600,14 @@ class _CustomCameraScreenState extends State<CustomCameraScreen>
                           ],
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 8.0),
+                          padding: const EdgeInsets.only(top: 0.0),
                           child: Row(
                             children: [
                               Expanded(
                                 child: Padding(
                                   padding: const EdgeInsets.only(
-                                    left: 8.0,
-                                    right: 4.0,
+                                    left: 4.0,
+                                    right: 2.0,
                                   ),
                                   child: TextButton(
                                     onPressed: _isRecordingInProgress
@@ -636,7 +636,7 @@ class _CustomCameraScreenState extends State<CustomCameraScreen>
                               Expanded(
                                 child: Padding(
                                   padding: const EdgeInsets.only(
-                                      left: 4.0, right: 8.0),
+                                      left: 2.0, right: 4.0),
                                   child: TextButton(
                                     onPressed: () {
                                       if (!_isVideoCameraSelected) {
@@ -664,7 +664,7 @@ class _CustomCameraScreenState extends State<CustomCameraScreen>
                       ],
                     ),
                   ],
-                )
+                ))
                 : Center(
                     child: Text(
                       'LOADING',

@@ -72,7 +72,7 @@ class _NewsButtonPageWithoutBottomBarState
                   padding: getPadding(top: 12, bottom: 12),
                   decoration: AppDecoration.fillWhiteA700,
                   child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
+                     // crossAxisAlignment: CrossAxisAlignment.end,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         SingleChildScrollView(

@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:careme24/custom_page_my/report_polic_textarea.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:media_picker_widget/media_picker_widget.dart';
@@ -21,7 +22,7 @@ class FileCatalogPage extends StatefulWidget {
 
 class _FileCatalogPageState extends State<FileCatalogPage> {
   bool _isVisibleFilePicker=false;
-  List<Media> mediaList = [];
+   List<Media> mediaList = [];
   int _indexSelect = -1;
   bool _isFileSelect = false;
   @override
@@ -336,7 +337,7 @@ class _FileCatalogPageState extends State<FileCatalogPage> {
 
 
                         setState(() => mediaList = selectedList);
-                        Navigator.pop(context);
+                      Navigator.pop(context);
                       },
                       onCancel: () {
 

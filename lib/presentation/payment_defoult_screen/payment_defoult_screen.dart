@@ -280,7 +280,7 @@ class _PaymentDefoultScreenState extends State<PaymentDefoultScreen> {
                                       ),
                                     )),
                                 Container(
-                                    height: getVerticalSize(30),
+                                    height: getVerticalSize(35),
                                     width: getHorizontalSize(248),
                                     margin: getMargin(left: 7),
                                     child: Container(

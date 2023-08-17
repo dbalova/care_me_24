@@ -396,7 +396,7 @@ class _AboutHospitalState extends State<AboutHospital> {
                                                                   top: 1, right: 4),
                                                               child: Row(
                                                                   mainAxisAlignment:
-                                                                  MainAxisAlignment.end,
+                                                                  MainAxisAlignment.spaceBetween,
                                                                   children: [
                                                                     CustomImageView(
                                                                         imagePath:
@@ -530,7 +530,7 @@ class _AboutHospitalState extends State<AboutHospital> {
                                                             padding: getPadding(
                                                                 left: 2,
                                                                 top: 10,
-                                                                right: 52),
+                                                                right: 20),
                                                             child: Row(
                                                                 crossAxisAlignment:
                                                                 CrossAxisAlignment

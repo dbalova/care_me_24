@@ -121,7 +121,7 @@ class _HospitalsScreenState extends State<HospitalsScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Container(
-                                  width: 240,
+                                  width:  MediaQuery.of(context).size.width/1.5,
                                   child: Text(
                                     'Причина вызова ',
                                     // widget.reasonForTheCall,

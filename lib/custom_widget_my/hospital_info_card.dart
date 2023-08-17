@@ -57,7 +57,7 @@ class HospitalInfoCard extends StatelessWidget {
                 children: [
                   Container(
                       width: 67,
-                      height: 81,
+                      height: 78,
                       decoration: BoxDecoration(
                         border: Border(
                             bottom: BorderSide(
@@ -86,7 +86,7 @@ class HospitalInfoCard extends StatelessWidget {
                               svgPath: imagePath,
                             ),
                           ])),
-                  Padding(
+                  Expanded(child:Padding(
                     padding: getPadding(left: 12),
                     child: Column(
                       crossAxisAlignment:
@@ -96,7 +96,7 @@ class HospitalInfoCard extends StatelessWidget {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 220,
+                          width: MediaQuery.of(context).size.width/2,
                           child: Text(
                               hospitalName,
                               textAlign: TextAlign.left,
@@ -119,7 +119,7 @@ class HospitalInfoCard extends StatelessWidget {
                         )
                       ],
                     ),
-                  )
+                  ))
                 ],
               ),
               Divider(
