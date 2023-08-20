@@ -1,3 +1,4 @@
+import 'package:careme24/registration/title_reg_page.dart';
 import 'package:flutter/material.dart';
 import 'package:careme24/presentation/home_screen/home_screen.dart';
 
@@ -170,7 +171,7 @@ class AppRoutes {
 
   static const String goodsPromotionScreen = '/goods_promotion_screen';
 
-  static const String k37Screen = '/k37_screen';
+  static const String k37Screen = '/title_reg_page';
 
   static const String oneScreen = '/one_screen';
 
@@ -494,7 +495,8 @@ class AppRoutes {
         PrehistoricPhenomenonFireScreen(),
     prehistoricPhenomenonFireTwoScreen: (context) =>
         PrehistoricPhenomenonFireTwoScreen(),
-
+k37Screen:(context) =>
+    TitleRegPage(),
     appNavigationScreen: (context) => AppNavigationScreen(),
     medHomePage:  (context) => HoneyMainPage(),
     aboutHospital: (context) => AboutHospital(),

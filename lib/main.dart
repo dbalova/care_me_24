@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       ),
       title: 'careme24',
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.homeScreen,
+      initialRoute: AppRoutes.k37Screen,
       routes: AppRoutes.routes,
     );
   }

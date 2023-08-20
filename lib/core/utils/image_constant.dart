@@ -1,13 +1,13 @@
 class ImageConstant {
   static String imgVectorBlue3002x5 =
       'assets/images/img_vector_blue_300_2x5.svg';
-
+  static String imgRuss = 'assets/images/russ.svg';
   static String imgRectangle2626 = 'assets/images/img_rectangle2626_3.png';
   static String img7972 = 'assets/images/7972.svg';
   static String imgFrameBlue60001 = 'assets/images/img_frame_blue_600_01.svg';
   static String imgEllipse136 = 'assets/images/img_ellipse136.png';
   static String imgHospital = 'assets/images/image_hospital.png';
-
+  static String titleHeart = 'assets/images/titleHeart.svg';
   static String imgCheckMark = 'assets/images/check_mark.svg';
 
   static String imgGroup7371 = 'assets/images/img_group7371.svg';
@@ -40,6 +40,7 @@ class ImageConstant {
   static String fireImage = 'assets/images/fire_image.png';
   static String imgImage17 = 'assets/images/img_image17.png';
   static String copyIcon = 'assets/images/copy_icon.svg';
+  static String imgwhite = 'assets/images/white.jpg';
 
   static String img_black_ice = 'assets/images/img_black_ice.svg';
   static String img_hail = 'assets/images/img_hail.svg';

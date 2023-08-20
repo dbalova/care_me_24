@@ -1,6 +1,7 @@
 import 'package:careme24/core/app_export.dart';
 import 'package:careme24/custom_widget_my/information_main_icon.dart';
 import 'package:careme24/presentation/news_button_page/news_button_page.dart';
+import 'package:careme24/registration/title_reg_page.dart';
 import 'package:careme24/widgets/custom_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -495,12 +496,17 @@ class _HomeScreenState extends State<MainPage> {
                           ])),
                   GestureDetector(
                       onTap: () {
-                        Navigator.push(
+                       Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => NewsButtonPage(
                                       bottomBarIndex: 0,
                                     )));
+
+
+
+
+
                       },
                       child: Container(
                           clipBehavior: Clip.antiAlias,
